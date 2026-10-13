@@ -1,0 +1,1030 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AI 演讲内容",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "title",
+    "subtitle",
+    "language",
+    "audience",
+    "durationMinutes",
+    "status",
+    "slides"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40
+    },
+    "subtitle": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 72
+    },
+    "language": {
+      "const": "zh-CN"
+    },
+    "audience": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60
+    },
+    "durationMinutes": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "ready"
+      ]
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 40,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "section",
+              "layout",
+              "title",
+              "notes",
+              "sourceIds",
+              "timingSeconds"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*$"
+              },
+              "section": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 30
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 25
+              },
+              "subtitle": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 72
+              },
+              "notes": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 30,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000
+                }
+              },
+              "sourceIds": {
+                "type": "array",
+                "minItems": 0,
+                "maxItems": 20,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "uniqueItems": true
+              },
+              "layout": {
+                "const": "cover"
+              },
+              "timingSeconds": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 600
+              },
+              "takeaway": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 60
+              },
+              "footnote": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "imagePath": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500,
+                "pattern": "^assets/"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "section",
+              "layout",
+              "title",
+              "notes",
+              "sourceIds",
+              "bullets",
+              "timingSeconds"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*$"
+              },
+              "section": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 30
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 25
+              },
+              "subtitle": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 72
+              },
+              "notes": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 30,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000
+                }
+              },
+              "sourceIds": {
+                "type": "array",
+                "minItems": 0,
+                "maxItems": 20,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "uniqueItems": true
+              },
+              "layout": {
+                "const": "bullets"
+              },
+              "bullets": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 4,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40
+                }
+              },
+              "timingSeconds": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 600
+              },
+              "takeaway": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 60
+              },
+              "footnote": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "imagePath": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500,
+                "pattern": "^assets/"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "section",
+              "layout",
+              "title",
+              "notes",
+              "sourceIds",
+              "bullets",
+              "timingSeconds"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*$"
+              },
+              "section": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 30
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 25
+              },
+              "subtitle": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 72
+              },
+              "notes": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 30,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000
+                }
+              },
+              "sourceIds": {
+                "type": "array",
+                "minItems": 0,
+                "maxItems": 20,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "uniqueItems": true
+              },
+              "layout": {
+                "const": "closing"
+              },
+              "bullets": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 4,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40
+                }
+              },
+              "timingSeconds": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 600
+              },
+              "takeaway": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 60
+              },
+              "footnote": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "imagePath": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500,
+                "pattern": "^assets/"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "section",
+              "layout",
+              "title",
+              "notes",
+              "sourceIds",
+              "items",
+              "timingSeconds"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*$"
+              },
+              "section": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 30
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 25
+              },
+              "subtitle": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 72
+              },
+              "notes": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 30,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000
+                }
+              },
+              "sourceIds": {
+                "type": "array",
+                "minItems": 0,
+                "maxItems": 20,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "uniqueItems": true
+              },
+              "layout": {
+                "const": "timeline"
+              },
+              "items": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "label",
+                    "description"
+                  ],
+                  "properties": {
+                    "label": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 14
+                    },
+                    "description": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 40
+                    }
+                  }
+                }
+              },
+              "timingSeconds": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 600
+              },
+              "takeaway": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 60
+              },
+              "footnote": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "imagePath": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500,
+                "pattern": "^assets/"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "section",
+              "layout",
+              "title",
+              "notes",
+              "sourceIds",
+              "items",
+              "timingSeconds"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*$"
+              },
+              "section": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 30
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 25
+              },
+              "subtitle": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 72
+              },
+              "notes": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 30,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000
+                }
+              },
+              "sourceIds": {
+                "type": "array",
+                "minItems": 0,
+                "maxItems": 20,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "uniqueItems": true
+              },
+              "layout": {
+                "const": "process"
+              },
+              "items": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "label",
+                    "description"
+                  ],
+                  "properties": {
+                    "label": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 14
+                    },
+                    "description": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 40
+                    }
+                  }
+                }
+              },
+              "timingSeconds": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 600
+              },
+              "takeaway": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 60
+              },
+              "footnote": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "imagePath": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500,
+                "pattern": "^assets/"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "section",
+              "layout",
+              "title",
+              "notes",
+              "sourceIds",
+              "columns",
+              "timingSeconds"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*$"
+              },
+              "section": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 30
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 25
+              },
+              "subtitle": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 72
+              },
+              "notes": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 30,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000
+                }
+              },
+              "sourceIds": {
+                "type": "array",
+                "minItems": 0,
+                "maxItems": 20,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "uniqueItems": true
+              },
+              "layout": {
+                "const": "comparison"
+              },
+              "columns": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "title",
+                    "bullets"
+                  ],
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 18
+                    },
+                    "bullets": {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 3,
+                      "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 28
+                      }
+                    }
+                  }
+                }
+              },
+              "timingSeconds": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 600
+              },
+              "takeaway": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 60
+              },
+              "footnote": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "imagePath": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500,
+                "pattern": "^assets/"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "section",
+              "layout",
+              "title",
+              "notes",
+              "sourceIds",
+              "timingSeconds",
+              "lead"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*$"
+              },
+              "section": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 30
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 25
+              },
+              "subtitle": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 72
+              },
+              "notes": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 30,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000
+                }
+              },
+              "sourceIds": {
+                "type": "array",
+                "minItems": 0,
+                "maxItems": 20,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "uniqueItems": true
+              },
+              "layout": {
+                "const": "spotlight"
+              },
+              "timingSeconds": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 600
+              },
+              "takeaway": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 60
+              },
+              "footnote": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "imagePath": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500,
+                "pattern": "^assets/"
+              },
+              "lead": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "bullets": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 4,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "section",
+              "layout",
+              "title",
+              "notes",
+              "sourceIds",
+              "timingSeconds",
+              "prompt",
+              "response"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*$"
+              },
+              "section": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 30
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 25
+              },
+              "subtitle": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 72
+              },
+              "notes": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 30,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000
+                }
+              },
+              "sourceIds": {
+                "type": "array",
+                "minItems": 0,
+                "maxItems": 20,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "uniqueItems": true
+              },
+              "layout": {
+                "const": "example"
+              },
+              "timingSeconds": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 600
+              },
+              "takeaway": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 60
+              },
+              "footnote": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "imagePath": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500,
+                "pattern": "^assets/"
+              },
+              "prompt": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              },
+              "response": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "caption": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 50
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "section",
+              "layout",
+              "title",
+              "notes",
+              "sourceIds",
+              "timingSeconds",
+              "imagePath",
+              "caption"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*$"
+              },
+              "section": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 30
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 25
+              },
+              "subtitle": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 72
+              },
+              "notes": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 30,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000
+                }
+              },
+              "sourceIds": {
+                "type": "array",
+                "minItems": 0,
+                "maxItems": 20,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "uniqueItems": true
+              },
+              "layout": {
+                "const": "image"
+              },
+              "timingSeconds": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 600
+              },
+              "takeaway": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 60
+              },
+              "footnote": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "imagePath": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500,
+                "pattern": "^assets/"
+              },
+              "caption": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 80
+              },
+              "bullets": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 4,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "section",
+              "layout",
+              "title",
+              "notes",
+              "sourceIds",
+              "timingSeconds",
+              "headers",
+              "rows"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*$"
+              },
+              "section": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 30
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 25
+              },
+              "subtitle": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 72
+              },
+              "notes": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 30,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000
+                }
+              },
+              "sourceIds": {
+                "type": "array",
+                "minItems": 0,
+                "maxItems": 20,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "uniqueItems": true
+              },
+              "layout": {
+                "const": "table"
+              },
+              "timingSeconds": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 600
+              },
+              "takeaway": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 60
+              },
+              "footnote": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "imagePath": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500,
+                "pattern": "^assets/"
+              },
+              "headers": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 5,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 20
+                }
+              },
+              "rows": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 6,
+                "items": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 5,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 60
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

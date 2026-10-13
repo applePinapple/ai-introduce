@@ -1,0 +1,15 @@
+node_modules/
+.cache/
+output/
+*.log
+Thumbs.db
+.DS_Store
+
+# 下载视频和临时分片保留在本地，清单与来源说明纳入版本管理。
+assets/videos/**/*.mp4
+assets/videos/**/*.flv
+assets/videos/**/*.mkv
+assets/videos/**/*.m4a
+assets/videos/**/*.webm
+assets/videos/**/*.download
+assets/videos/**/*.ts

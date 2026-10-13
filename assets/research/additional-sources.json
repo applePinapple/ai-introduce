@@ -1,0 +1,52 @@
+{
+  "sources": [
+    {
+      "id": "hf-decoding-temperature",
+      "title": "How to generate text: using different decoding methods for language generation with Transformers",
+      "url": "https://huggingface.co/blog/how-to-generate",
+      "publisher": "Hugging Face 官方技术文章 / Patrick von Platen",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "采样依据下一token的条件概率分布选取候选",
+        "降低温度使候选概率分布更尖锐，提高高概率候选相对权重",
+        "温度趋近零时温度采样趋近贪心解码，但解码策略本身不构成事实正确性的保证"
+      ]
+    },
+    {
+      "id": "hf-generation-config",
+      "title": "Generation — Transformers documentation",
+      "url": "https://huggingface.co/docs/transformers/main/en/main_classes/text_generation",
+      "publisher": "Hugging Face 官方文档",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "temperature用于调节下一token的概率；do_sample控制是否采样",
+        "贪心解码与采样不同；并非所有解码模式都会让温度参数影响最终选择",
+        "具体生成行为还受top_k、top_p、长度与停止参数等配置影响"
+      ]
+    },
+    {
+      "id": "anthropic-prompt-injection",
+      "title": "Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks",
+      "publisher": "Anthropic 官方文档",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "间接提示注入可能存在于第三方网页、邮件、文档和工具结果中",
+        "应用应区分不可信内容与操作指令，限制数据与工具权限",
+        "注入对抗需要测试与持续观察，不应把提示词隔离等同于绝对安全保证"
+      ]
+    },
+    {
+      "id": "aws-idempotent-retries",
+      "title": "Making retries safe with idempotent APIs",
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "publisher": "Amazon Builders’ Library / Malcolm Featonby",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "请求超时并不证明服务端操作未完成，盲目重试可能导致重复副作用",
+        "幂等接口和调用方请求标识可让重复请求不额外创建资源或执行动作",
+        "状态核对、请求身份和服务端语义是安全重试的重要部分"
+      ]
+    }
+  ]
+}

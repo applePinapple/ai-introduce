@@ -1,0 +1,128 @@
+{
+  "createdAtUtc": "2026-10-13T08:42:21.281286+00:00",
+  "license": "SIL Open Font License 1.1; individual license files included",
+  "sourceRepository": "https://github.com/google/fonts",
+  "assets": [
+    {
+      "family": "Space Grotesk",
+      "kind": "font",
+      "file": "SpaceGrotesk.ttf",
+      "bytes": 136676,
+      "sha256": "acad6de1fc93436f5c0f1f4137751ef04f1aea3063e7036535970ffcfbd79f72",
+      "sourceUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/spacegrotesk/SpaceGrotesk%5Bwght%5D.ttf",
+      "sourceRepositoryPath": "ofl/spacegrotesk/SpaceGrotesk[wght].ttf",
+      "downloadedOn": "2026-10-13",
+      "etag": "\"a6978d39a78f47b79f70d8f03c7bdb48cc6de630e4d70a3961ab7873d5751432\"",
+      "sfntVerified": true,
+      "fontNames": {
+        "1": "Space Grotesk Light",
+        "2": "Regular",
+        "4": "Space Grotesk Light",
+        "6": "SpaceGrotesk-Light",
+        "16": "Space Grotesk",
+        "17": "Light"
+      },
+      "variableAxes": [
+        {
+          "tag": "wght",
+          "min": 300.0,
+          "default": 300.0,
+          "max": 700.0
+        }
+      ]
+    },
+    {
+      "family": "Space Grotesk",
+      "kind": "license",
+      "file": "spacegrotesk-OFL.txt",
+      "bytes": 4495,
+      "sha256": "564ce565c371c5e5bbf286006565a7c9aa55a9f56e7ca58d56e05d649dd61a72",
+      "sourceUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/spacegrotesk/OFL.txt",
+      "sourceRepositoryPath": "ofl/spacegrotesk/OFL.txt",
+      "downloadedOn": "2026-10-13",
+      "etag": "\"88b5ac499db233493dd731f4c41e6c30378131bd85d8cf5f2323632cda7bb3ab\""
+    },
+    {
+      "family": "Inter",
+      "kind": "font",
+      "file": "Inter.ttf",
+      "bytes": 876576,
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+      "sourceUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf",
+      "sourceRepositoryPath": "ofl/inter/Inter[opsz,wght].ttf",
+      "downloadedOn": "2026-10-13",
+      "etag": "\"72d0d20b9eb499a14d79638763294f1092f30672fb31825eab200e395b7c14d0\"",
+      "sfntVerified": true,
+      "fontNames": {
+        "1": "Inter",
+        "2": "Regular",
+        "4": "Inter Regular",
+        "6": "Inter-Regular"
+      },
+      "variableAxes": [
+        {
+          "tag": "opsz",
+          "min": 14.0,
+          "default": 14.0,
+          "max": 32.0
+        },
+        {
+          "tag": "wght",
+          "min": 100.0,
+          "default": 400.0,
+          "max": 900.0
+        }
+      ]
+    },
+    {
+      "family": "Inter",
+      "kind": "license",
+      "file": "inter-OFL.txt",
+      "bytes": 4377,
+      "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57",
+      "sourceUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/OFL.txt",
+      "sourceRepositoryPath": "ofl/inter/OFL.txt",
+      "downloadedOn": "2026-10-13",
+      "etag": "\"e026d390617f3a91997f6b02440d5a5345a75c8e144aeaeb5c2cb7a135df2d96\""
+    },
+    {
+      "family": "Noto Sans SC",
+      "kind": "font",
+      "file": "NotoSansSC.ttf",
+      "bytes": 17772300,
+      "sha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+      "sourceUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosanssc/NotoSansSC%5Bwght%5D.ttf",
+      "sourceRepositoryPath": "ofl/notosanssc/NotoSansSC[wght].ttf",
+      "downloadedOn": "2026-10-13",
+      "etag": "\"3a4ef56b16cdb1eaf026c3049e35367f4a3eb3152ab5f3ad50bb8b0e21d2956f\"",
+      "sfntVerified": true,
+      "fontNames": {
+        "1": "Noto Sans SC Thin",
+        "2": "Regular",
+        "4": "Noto Sans SC Thin",
+        "6": "NotoSansSC-Thin",
+        "16": "Noto Sans SC",
+        "17": "Thin"
+      },
+      "variableAxes": [
+        {
+          "tag": "wght",
+          "min": 100.0,
+          "default": 100.0,
+          "max": 900.0
+        }
+      ]
+    },
+    {
+      "family": "Noto Sans SC",
+      "kind": "license",
+      "file": "notosanssc-OFL.txt",
+      "bytes": 4388,
+      "sha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9",
+      "sourceUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosanssc/OFL.txt",
+      "sourceRepositoryPath": "ofl/notosanssc/OFL.txt",
+      "downloadedOn": "2026-10-13",
+      "etag": "\"b7137eeea8cf569766b4475eb8f6b47f83709af2c2c4289c080466b51f3f60a5\""
+    }
+  ]
+}

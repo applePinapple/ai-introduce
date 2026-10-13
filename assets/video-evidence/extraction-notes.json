@@ -1,0 +1,126 @@
+{
+  "verifiedOn": "2026-10-13",
+  "bvid": "BV178w1z7EHQ",
+  "uploader": "黑马程序员",
+  "method": {
+    "description": "使用本地 ffprobe 核对时长、轨道；ffmpeg 每 30 秒抽取一帧，实际阅读全部 115 张课程幻灯片/画面及可见硬字幕，并补充检查 002 段的 6 张关键帧。",
+    "reviewedFrameCount": 121,
+    "audioTranscribed": false,
+    "subtitleStreamPresent": false,
+    "limitations": "这是课程画面与可见字幕的视觉提炼，不是逐字音频转写。下列区间是已观察画面覆盖的时间范围，不能当作精确章节起止点。未将未出现于抽帧画面的口述内容当作已核验事实。",
+    "script": "scripts/extract-video-evidence.py",
+    "frameManifest": "assets/video-evidence/frame-manifest.json"
+  },
+  "totalDurationSeconds": 3385.823,
+  "editorialDirection": {
+    "centralThread": "从人工编写规则，到用数据学习，再到用语言交互，最后由软件把模型能力接入实际业务动作。",
+    "suggested50MinuteAllocation": {"openingAndHistoryMinutes": 6, "neuralNetworkBridgeMinutes": 4, "llmMinutes": 17, "agentApplicationsMinutes": 18, "adoptionAndDiscussionMinutes": 5},
+    "scopeBoundary": "用户指定的四段视频覆盖 AI 通识、神经网络、语言模型和基础大模型应用，没有完整的 Agent 规划—工具—观察闭环教学。Agent 内容须明确作为在课程基础上的扩展，并引用已核验的一手技术资料。",
+    "audienceAdaptation": "老板重点看适用任务、业务价值、验收与责任；技术同事重点看上下文、工具接口、数据来源、状态与异常处理。",
+    "doNotReuseAsFacts": ["课程对 GPT-4/GPT-5 的参数与训练硬件估计图", "把 128K 当作所有模型的上下文窗口", "把 12288 当作所有模型的向量维度", "已跨入 AGI 门槛的判断", "模型规模跨临界点就必然突然拥有智能的断言"]
+  },
+  "videos": [
+    {
+      "page": 2,
+      "title": "01-AI通识与基础-认识人工智能",
+      "path": "assets/videos/bilibili/BV178w1z7EHQ/media/002_01-AI通识与基础-认识人工智能.mp4",
+      "url": "https://www.bilibili.com/video/BV178w1z7EHQ/?p=2",
+      "durationSeconds": 296.728,
+      "durationDisplay": "04:56.728",
+      "summary": "以规则与符号 AI、机器学习、深度学习、大语言模型四类范式串起发展脉络，并用算法、数据、算力三要素解释大模型能力的形成。",
+      "segments": [
+        {"observedAt": ["01:30", "04:40"], "topic": "AI 发展的四次浪潮", "onScreen": "规则和符号 AI → 机器学习 → 深度学习 → 大语言模型；配以医学诊断、垃圾邮件识别、图像识别、自然语言处理等应用。", "evidence": ["002/frame-004.jpg", "002/detail-280.jpg"], "deckUse": "用 1 页历史路线图解释解决问题的方法如何改变，历史里程碑另引原始文献。"},
+        {"observedAt": ["02:30", "03:00"], "topic": "模型算法", "onScreen": "Transformer 及神经网络的视觉比喻。", "evidence": ["002/frame-006.jpg", "002/frame-007.jpg"], "deckUse": "保留算法要素，避免把 Transformer 描述成所有 AI 的共同核心。"},
+        {"observedAt": ["03:15", "03:30"], "topic": "训练数据", "onScreen": "互联网文本、新闻与知识材料；字幕提到上世纪网络不发达、信息获取受限。", "evidence": ["002/detail-195.jpg", "002/frame-008.jpg"], "deckUse": "用学习资料类比训练数据，同时补充数据质量比单纯堆数量更重要。"},
+        {"observedAt": ["03:45", "04:00", "04:15"], "topic": "算力与三要素归纳", "onScreen": "复杂网络与算力设施；04:15 的字幕明确列出模型算法、数据、算力三点。", "evidence": ["002/detail-225.jpg", "002/frame-009.jpg", "002/detail-255.jpg"], "deckUse": "可作历史部分的收束：算法、数据与算力共同促成能力进步。"}
+      ],
+      "correctionCandidates": [
+        {"observedAt": "01:30", "original": "用四个互不重叠年代区间排列 AI 范式。", "recommendedTreatment": "标为课程的教学分期，实际历史有交叠；正式历史页用可核验里程碑，不宣称后一范式消灭前一范式。"},
+        {"observedAt": "04:30", "original": "可见字幕称 AI 跨入了通用人工智能的门槛。", "recommendedTreatment": "不沿用 AGI 已实现或跨门槛判断，改为多任务能力与自然语言交互能力增强。"}
+      ]
+    },
+    {
+      "page": 3,
+      "title": "02-AI通识与基础-神经网络原理",
+      "path": "assets/videos/bilibili/BV178w1z7EHQ/media/003_02-AI通识与基础-神经网络原理.mp4",
+      "url": "https://www.bilibili.com/video/BV178w1z7EHQ/?p=3",
+      "durationSeconds": 974.311,
+      "durationDisplay": "16:14.311",
+      "summary": "讲解输入层、隐藏层、输出层与权重/偏置/激活，以 28×28 手写数字识别说明从像素到特征再到分类，并用误差反向传播解释训练。",
+      "segments": [
+        {"observedAt": ["00:30", "01:00", "01:30"], "topic": "神经元与网络直觉", "onScreen": "生物神经元图和人工加权求和/激活节点对照，再连成多层网络。", "evidence": ["003/frame-002.jpg", "003/frame-003.jpg", "003/frame-004.jpg"], "deckUse": "仅保留为启发式类比，强调是可训练的数学函数。"},
+        {"observedAt": ["02:00", "05:00", "06:00"], "topic": "层、参数与计算", "onScreen": "输入层接收数据、隐藏层处理、输出层产出结果；节点执行加权求和、偏置与激活函数。", "evidence": ["003/frame-005.jpg", "003/frame-011.jpg", "003/frame-013.jpg"], "deckUse": "用小型网络配一个参数旋钮讲清训练改变参数，推理使用参数。"},
+        {"observedAt": ["06:30", "07:00", "07:30"], "topic": "手写数字识别案例", "onScreen": "28×28=784 像素输入；输出为 0–9 类别；展示数字 7、9。", "evidence": ["003/frame-014.jpg", "003/frame-015.jpg", "003/frame-016.jpg"], "deckUse": "把视频 16 分钟内容压缩为一个 2–3 分钟例子：见过很多写法后，网络如何识别新的 9。"},
+        {"observedAt": ["08:00", "08:30", "09:30", "10:00", "11:00"], "topic": "从笔画到数字", "onScreen": "9/8/4 拆为圈与线段；演示局部横线检测、连接权重、Sigmoid 激活。", "evidence": ["003/frame-017.jpg", "003/frame-018.jpg", "003/frame-020.jpg", "003/frame-021.jpg", "003/frame-023.jpg"], "deckUse": "保留像素→局部模式→整体判断的直觉；不把示意性的笔画分解说成每个真实网络的确定内部机制。"},
+        {"observedAt": ["12:30", "13:00", "13:30", "14:00", "15:30", "16:00"], "topic": "训练循环", "onScreen": "前向传播 → 计算误差（Loss）→ 反向追责/传播 → 调整权重；结尾标注损失函数和梯度下降。", "evidence": ["003/frame-026.jpg", "003/frame-027.jpg", "003/frame-028.jpg", "003/frame-029.jpg", "003/frame-032.jpg", "003/frame-033.jpg"], "deckUse": "改写为尝试→对答案→算调整方向→更新参数，不让听众陷入数学推导。"}
+      ],
+      "examples": [{"name": "手写数字 9", "nature": "课程教学示例", "observedAt": "07:30–10:00", "adaptation": "同样是 9，有人写得瘦、有人写得歪；人工规则难穷尽所有写法，模型从样本中学可迁移模式。"}],
+      "correctionCandidates": [
+        {"observedAt": "00:30", "original": "AI 的核心是 Transformer，本质是在模拟人类大脑神经元。", "recommendedTreatment": "改为 Transformer 是主流大语言模型常用的一类神经网络架构；神经网络受生物概念启发，但并非人脑的精确复制。"},
+        {"observedAt": "12:30", "original": "将反向传播的发现归于 1986 年 David Rumelhart 一人。", "recommendedTreatment": "若保留 1986 里程碑，核验 Rumelhart、Hinton、Williams 原论文；用推动普及/代表性论文，避免单人首次发明结论。"},
+        {"observedAt": "13:30", "original": "以反向追责解释梯度。", "recommendedTreatment": "可保留为比喻，技术备注说明是链式法则计算损失对参数的导数，不是人为给节点分责任。"}
+      ]
+    },
+    {
+      "page": 4,
+      "title": "03.AI通识与基础-大语言模型",
+      "path": "assets/videos/bilibili/BV178w1z7EHQ/media/004_03.AI通识与基础-大语言模型.mp4",
+      "url": "https://www.bilibili.com/video/BV178w1z7EHQ/?p=4",
+      "durationSeconds": 1362.317,
+      "durationDisplay": "22:42.317",
+      "summary": "以 Token 与词向量说明文字如何数值化，以语义向量关系和上下文注意力说明信息如何结合，再用北京早餐建议展示下一个 Token 生成、概率分布、温度参数与上下文窗口。",
+      "segments": [
+        {"observedAt": ["01:00", "01:30", "03:30", "05:00"], "topic": "Token 与向量", "onScreen": "自然语言被拆成 Token，映射为浮点数向量；以英文句子、二维/三维坐标和 12288 维示意。", "evidence": ["004/frame-003.jpg", "004/frame-004.jpg", "004/frame-008.jpg", "004/frame-011.jpg"], "deckUse": "用文字→片段→数字表示三步；说明 Token 可为词、子词、标点等，维数是模型设计决定的。"},
+        {"observedAt": ["06:30", "07:00", "08:00"], "topic": "语义空间", "onScreen": "男人、女人、国王、王后、爸爸、妈妈等词的向量关系，展示近似差向量类比。", "evidence": ["004/frame-014.jpg", "004/frame-015.jpg", "004/frame-017.jpg"], "deckUse": "可改为公司常见词：退款/退货、客户/用户在语义上相近；向量关系仅作示意，不声称词义能由固定公式精确计算。"},
+        {"observedAt": ["08:30", "09:00", "09:30", "10:30"], "topic": "上下文与注意力", "onScreen": "一位男艺人的文本描述逐步增加唱歌、跳舞、篮球、背带裤等线索；2017 年 Attention Is All You Need 及自注意力机制。", "evidence": ["004/frame-018.jpg", "004/frame-019.jpg", "004/frame-020.jpg", "004/frame-022.jpg"], "deckUse": "将娱乐人物猜测换成业务歧义例子：银行账户/河岸、苹果公司/水果；强调同一词的解释依赖上下文。"},
+        {"observedAt": ["11:00", "11:30", "12:00", "12:30"], "topic": "Transformer 处理链", "onScreen": "Word Embedding → Attention → MLP → Attention → MLP → … → Softmax。", "evidence": ["004/frame-023.jpg", "004/frame-024.jpg", "004/frame-025.jpg", "004/frame-026.jpg"], "deckUse": "正文只呈现编码文字→结合上下文→预测下一片段，详细模块放讲者备注。"},
+        {"observedAt": ["13:30", "15:00", "17:00", "17:30"], "topic": "逐 Token 生成与温度", "onScreen": "问题为北京早餐有什么推荐的；先预测推，已生成内容进入后续上下文，再出现推荐炒及肝/米/面等候选。课程表格用示意概率讲抽样。文字说明 Temperature 越大分布越平、随机性越强。", "evidence": ["004/frame-028.jpg", "004/frame-031.jpg", "004/frame-035.jpg", "004/frame-036.jpg"], "deckUse": "强烈建议保留早餐逐步生成例子。任何概率数字明确写示意、非模型实测；低温度不等于事实正确。"},
+        {"observedAt": ["18:30", "19:30", "20:00"], "topic": "模型规模与能力", "onScreen": "模型规模、训练数据和算力表；用涌现解释任务能力变化。", "evidence": ["004/frame-038.jpg", "004/frame-040.jpg", "004/frame-041.jpg"], "deckUse": "保留能力来自大规模训练的方向性理解，删除未经一手确认的 GPT 参数、硬件与时间数字。"},
+        {"observedAt": ["21:00", "21:30", "22:00", "22:30"], "topic": "上下文窗口", "onScreen": "长文本与词向量；长文框标注上下文 Context 128K。", "evidence": ["004/frame-043.jpg", "004/frame-044.jpg", "004/frame-045.jpg", "004/frame-046.jpg"], "deckUse": "用工作台可容纳的信息类比窗口；说明聊天记录、文档、工具结果会占用上下文，实际限制依模型而异。"}
+      ],
+      "examples": [
+        {"name": "北京早餐逐步生成", "nature": "课程教学示例", "observedAt": "13:30–17:30", "adaptation": "输入北京早餐有什么推荐的→生成推→生成推荐→生成推荐炒肝；让听众看到语言生成是反复预测，不能把流畅当成核验。"},
+        {"name": "男艺人描述逐渐补全", "nature": "课程教学示例", "observedAt": "08:30–10:30", "adaptation": "换成业务文本：客户说苹果售后，在提到 MacBook 后确定为品牌语境，以避免娱乐梗占用演讲时间。"},
+        {"name": "语义向量关系", "nature": "课程示意图", "observedAt": "06:30–08:00", "adaptation": "用退款与退货在语义空间接近解释企业知识检索，不把近似关系当成严格代数规则。"}
+      ],
+      "correctionCandidates": [
+        {"observedAt": "01:00", "original": "Token（词）。", "recommendedTreatment": "Token 应称文本片段或词元，不与汉字或完整词一一对应。"},
+        {"observedAt": "05:00", "original": "12288 维的展示。", "recommendedTreatment": "属于特定模型/示意，不能作为所有词向量统一维度。"},
+        {"observedAt": "13:30", "original": "将候选项列出百分比并随机采样。", "recommendedTreatment": "百分比标注教学示意；不同解码方式可选择最高概率或采样。输出可能错误，温度只是采样因素。"},
+        {"observedAt": "18:30–20:00", "original": "图中包含 GPT-4、GPT-5 参数与训练硬件等数据。", "recommendedTreatment": "未经厂商一手资料确认，不作为事实采纳。"},
+        {"observedAt": "19:30–20:00", "original": "规模与训练数据突破临界点，模型像是突然拥有智能。", "recommendedTreatment": "改为随规模、训练与后训练改进，模型在更多任务上的能力提升；不把单一阈值或智能突变当定论。"},
+        {"observedAt": "22:00", "original": "上下文 128K。", "recommendedTreatment": "仅作为某种配置的示意，避免宣称通用上限；实际值须按选用模型重新核验。"}
+      ]
+    },
+    {
+      "page": 5,
+      "title": "04-AI通识-大模型应用",
+      "path": "assets/videos/bilibili/BV178w1z7EHQ/media/005_04-AI通识-大模型应用.mp4",
+      "url": "https://www.bilibili.com/video/BV178w1z7EHQ/?p=5",
+      "durationSeconds": 752.467,
+      "durationDisplay": "12:32.467",
+      "summary": "区分 GPT 模型和 ChatGPT 应用；说明对话上下文以及模型与传统程序的互补，再给出传统应用通过 HTTP API 调用模型的基本结构。",
+      "segments": [
+        {"observedAt": ["00:30", "01:00", "01:30", "02:00"], "topic": "GPT、模型与产品", "onScreen": "从 GPT 和 ChatGPT 的关系起问；解释 Generative、Pre-trained、Transformer 三个词。", "evidence": ["005/frame-002.jpg", "005/frame-003.jpg", "005/frame-004.jpg", "005/frame-005.jpg"], "deckUse": "一张模型/产品/系统层级图：能力引擎、聊天产品、接入业务的软件系统。"},
+        {"observedAt": ["03:00", "04:00", "05:00", "05:30", "06:30"], "topic": "聊天应用和上下文", "onScreen": "聊天机器人举 ChatGPT、通义千问；系统角色描述、用户旅行问题与助手回答被连为上下文；传统程序承担登录/存储。", "evidence": ["005/frame-007.jpg", "005/frame-009.jpg", "005/frame-011.jpg", "005/frame-012.jpg", "005/frame-014.jpg"], "deckUse": "解释多轮聊天通常靠应用管理消息历史；不是模型权重每聊一次就自动更新。"},
+        {"observedAt": ["07:00", "07:30", "08:00", "08:30", "09:00"], "topic": "模型与确定性程序互补", "onScreen": "模型用于模糊问题、复杂模式识别；程序用于确定性逻辑、精确控制与高可靠性。案例包括写秋天的诗、猫狗识别、数学计算、订单支付。最终称为 Hybrid AI。", "evidence": ["005/frame-015.jpg", "005/frame-016.jpg", "005/frame-017.jpg", "005/frame-018.jpg", "005/frame-019.jpg"], "deckUse": "这是引入 Agent 最自然的桥梁：模型理解需求并选择动作，工具执行精确计算/查询/事务。正确实现仍需校验和权限控制。"},
+        {"observedAt": ["09:30", "10:00", "10:30", "11:00"], "topic": "应用调用模型的基本结构", "onScreen": "用户→传统应用处理请求与合规检查→HTTP API 调模型→模型生成→应用检查→返回。", "evidence": ["005/frame-020.jpg", "005/frame-021.jpg", "005/frame-022.jpg", "005/frame-023.jpg"], "deckUse": "重画为可编辑的用户/应用/模型泳道图，并在 Agent 扩展页增加工具、状态与反馈闭环。"},
+        {"observedAt": ["11:30", "12:00", "12:30"], "topic": "章节归纳", "onScreen": "GPT 是大语言模型；ChatGPT 是基于模型的对话产品；大模型应用结合模型推理/分析/生成与传统程序的计算/控制能力。", "evidence": ["005/frame-024.jpg", "005/frame-025.jpg", "005/frame-026.jpg"], "deckUse": "保留模型能力只是应用一部分的结论，后续展开为企业 Agent 系统工程。"}
+      ],
+      "examples": [
+        {"name": "诗歌、识图、计算、支付", "nature": "课程教学分类示例", "observedAt": "07:30–09:00", "adaptation": "用客服退款贯穿：模型理解客户诉求和写解释；系统查订单、算可退款额；退款动作按权限与审批执行。"},
+        {"name": "旅行建议对话", "nature": "课程演示", "observedAt": "04:00–05:30", "adaptation": "从问去哪玩扩展为查实时票价、比较行程、生成待确认草案；只有接入工具后才具备动作能力。"}
+      ],
+      "correctionCandidates": [
+        {"observedAt": "03:00", "original": "ChatBot 被定义为具有记忆的大模型应用。", "recommendedTreatment": "把记忆说成产品可提供的功能，而非所有聊天机器人的必要定义；区分当前消息历史、外部持久记忆和训练参数。"},
+        {"observedAt": "08:00–09:00", "original": "程序与模型能力用绝对对错勾叉分类，组合后四项全打勾。", "recommendedTreatment": "改为相对擅长与负责的分工；混合系统不会自动获得可靠性，仍需测试、校验、观察与人工处理例外。"},
+        {"observedAt": "09:30", "original": "大模型应用通常以 web 应用与 HTTP API 组成。", "recommendedTreatment": "作为常见架构示例，非唯一架构；本地模型、桌面应用和批处理同样可能。"}
+      ]
+    }
+  ],
+  "recommendedTeachingExtensions": [
+    {"name": "同一退款任务的三个层次", "nature": "基于课程的新增教学示例，非真实客户业绩", "steps": ["聊天助手：解释退款政策", "RAG：检索公司政策后附来源解释", "Agent：查询订单与物流、计算候选金额、提出动作，并在授权边界内执行"], "connectsTo": "005 07:00–11:00"},
+    {"name": "采购比价 Agent", "nature": "新增业务教学示例，非已实现系统或效果数据", "steps": ["理解需求与预算", "调用获授权的供应商/库存接口", "按价格、交期和约束比较", "生成采购建议草案", "确认后才提交订单"], "connectsTo": "005 模型与程序互补"},
+    {"name": "代码修复 Agent", "nature": "新增技术教学示例，非特定产品能力承诺", "steps": ["读取失败信息", "定位相关代码", "修改隔离分支", "运行测试", "根据结果迭代并提交可评审变更"], "connectsTo": "005 模型与程序互补"}
+  ]
+}

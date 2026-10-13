@@ -1,0 +1,589 @@
+﻿{
+    "code":  0,
+    "message":  "OK",
+    "ttl":  1,
+    "data":  {
+                 "bvid":  "BV178w1z7EHQ",
+                 "aid":  116255252089867,
+                 "videos":  28,
+                 "tid":  231,
+                 "tid_v2":  2096,
+                 "tname":  "",
+                 "tname_v2":  "",
+                 "copyright":  1,
+                 "pic":  "http://i1.hdslb.com/bfs/archive/742a110f99a09aa6caff58cfc7d5d00081c4e200.jpg",
+                 "title":  "黑马程序员2026最新版LangChain+LangGraph开发实战全套视频课程，从Agent开发，到LangSmith的监控、调试、评估一套搞定",
+                 "pubdate":  1773968400,
+                 "ctime":  1773914709,
+                 "desc":  "本套视频教程所有配套资料领取方式如下：\n关注黑马程序员公 粽 号，回复关键词：260320\n2026黑马程序员AI智能应用开发学习路线图\nhttps://www.bilibili.com/opus/1156896913511940102\n如何下载资料\nhttps://www.bilibili.com/read/cv7881295/\n学习+球球群625260577，告别孤单，共同进步！\n\n【AI智能应用开发学习路线图】（依次向下顺序学习即可）\nJava+AI：BV1TJxCzSEEZ\nPython+AI：BV1sHU9BmEne\nJavaweb+AI：BV1yGydYEE3H\n苍穹外卖：BV1TP411v7v6\nAI天机学堂：BV1MFokBkEzC\nAI+若依框架：BV1pf421B71v\n微服务全套：BV1S142197x7\n学成在线项目：BV1j8411N7Bm\n黑马头条项目：BV1Qs4y1v7x4\n23年Java大厂面试：BV1yT411H7YK\n\n学完以上技术，足以支撑找一份好的java开发工作。\n\n如想工作后再提升，还可以点击下面的技术点项目详细学习：\nMySQL：BV1Kr4y1i7ru\nJVM：BV1r94y1b7eS\n数据结构与算法上部：BV1Lv4y1e7HL\n数据结构与算法下部：BV1rv4y1H7o6\nSSM：BV1Fi4y1S7ix\nspringboot：BV14z4y1N7pg\nSpring高级：BV1P44y1N7QG\nspringcloud：BV1kH4y1S7wz\nDocker：BV1HP4118797\nGit：BV1MU4y1Y7h5\nMaven：BV1Ah411S7ZE\nDubbo：BV1VE411q7dX\nZookeeper：BV1M741137qY\nRedis：BV1cr4y1671t\nMongoDB：BV1bJ411x7mq\nRabbitMQ：BV1mN4y1Z7t9\nRocketMQ：BV1L4411y7mn\n========================================================================\n本课程基于Python语言讲解LangChain全家桶技术，包括LangChain、LangGraph、LangSmith等，基于LangChain技术栈实现RAG、Agent开发。以解决实际需求为导向，案例极其丰富，并兼具有趣性和实战，注重学生的实战能力培养。讲解方式深入浅出，幽默风趣，既能做到清晰易懂，又能做到讲解深度的兼顾。\n========================================================================",
+                 "desc_v2":  [
+                                 {
+                                     "raw_text":  "本套视频教程所有配套资料领取方式如下：\n关注黑马程序员公 粽 号，回复关键词：260320\n2026黑马程序员AI智能应用开发学习路线图\nhttps://www.bilibili.com/opus/1156896913511940102\n如何下载资料\nhttps://www.bilibili.com/read/cv7881295/\n学习+球球群625260577，告别孤单，共同进步！\n\n【AI智能应用开发学习路线图】（依次向下顺序学习即可）\nJava+AI：BV1TJxCzSEEZ\nPython+AI：BV1sHU9BmEne\nJavaweb+AI：BV1yGydYEE3H\n苍穹外卖：BV1TP411v7v6\nAI天机学堂：BV1MFokBkEzC\nAI+若依框架：BV1pf421B71v\n微服务全套：BV1S142197x7\n学成在线项目：BV1j8411N7Bm\n黑马头条项目：BV1Qs4y1v7x4\n23年Java大厂面试：BV1yT411H7YK\n\n学完以上技术，足以支撑找一份好的java开发工作。\n\n如想工作后再提升，还可以点击下面的技术点项目详细学习：\nMySQL：BV1Kr4y1i7ru\nJVM：BV1r94y1b7eS\n数据结构与算法上部：BV1Lv4y1e7HL\n数据结构与算法下部：BV1rv4y1H7o6\nSSM：BV1Fi4y1S7ix\nspringboot：BV14z4y1N7pg\nSpring高级：BV1P44y1N7QG\nspringcloud：BV1kH4y1S7wz\nDocker：BV1HP4118797\nGit：BV1MU4y1Y7h5\nMaven：BV1Ah411S7ZE\nDubbo：BV1VE411q7dX\nZookeeper：BV1M741137qY\nRedis：BV1cr4y1671t\nMongoDB：BV1bJ411x7mq\nRabbitMQ：BV1mN4y1Z7t9\nRocketMQ：BV1L4411y7mn\n========================================================================\n本课程基于Python语言讲解LangChain全家桶技术，包括LangChain、LangGraph、LangSmith等，基于LangChain技术栈实现RAG、Agent开发。以解决实际需求为导向，案例极其丰富，并兼具有趣性和实战，注重学生的实战能力培养。讲解方式深入浅出，幽默风趣，既能做到清晰易懂，又能做到讲解深度的兼顾。\n========================================================================",
+                                     "type":  1,
+                                     "biz_id":  0
+                                 }
+                             ],
+                 "state":  0,
+                 "duration":  26303,
+                 "rights":  {
+                                "bp":  0,
+                                "elec":  0,
+                                "download":  1,
+                                "movie":  0,
+                                "pay":  0,
+                                "hd5":  0,
+                                "no_reprint":  1,
+                                "autoplay":  1,
+                                "ugc_pay":  0,
+                                "is_cooperation":  0,
+                                "ugc_pay_preview":  0,
+                                "no_background":  0,
+                                "clean_mode":  0,
+                                "is_stein_gate":  0,
+                                "is_360":  0,
+                                "no_share":  0,
+                                "arc_pay":  0,
+                                "free_watch":  0
+                            },
+                 "owner":  {
+                               "mid":  37974444,
+                               "name":  "黑马程序员",
+                               "face":  "https://i0.hdslb.com/bfs/face/a71b4dd6647ddf0c813bcf74e062edab9224cb0e.jpg"
+                           },
+                 "stat":  {
+                              "aid":  116255252089867,
+                              "view":  1838556,
+                              "danmaku":  5550,
+                              "reply":  2797,
+                              "favorite":  47543,
+                              "coin":  10484,
+                              "share":  4162,
+                              "now_rank":  0,
+                              "his_rank":  0,
+                              "like":  13998,
+                              "dislike":  0,
+                              "evaluation":  "",
+                              "vt":  0
+                          },
+                 "argue_info":  {
+                                    "argue_msg":  "",
+                                    "argue_type":  0,
+                                    "argue_link":  ""
+                                },
+                 "dynamic":  "全网最硬核LangChain+LangGraph开发指南重磅上线！\n从AI基础到LangChain、LangGraph，再到RAG和Agent开发，\n包含多个实战项目、代码案例、全程源码讲解，\n想系统学习Agent和RAG的小伙伴，这套课就够了！",
+                 "cid":  36813736788,
+                 "dimension":  {
+                                   "width":  2560,
+                                   "height":  1440,
+                                   "rotate":  0
+                               },
+                 "premiere":  null,
+                 "teenage_mode":  1,
+                 "is_chargeable_season":  false,
+                 "is_story":  false,
+                 "is_upower_exclusive":  false,
+                 "is_upower_play":  false,
+                 "is_upower_preview":  false,
+                 "enable_vt":  0,
+                 "vt_display":  "",
+                 "is_upower_exclusive_with_qa":  false,
+                 "is_hua_sheng":  false,
+                 "no_cache":  false,
+                 "pages":  [
+                               {
+                                   "cid":  36813736788,
+                                   "page":  1,
+                                   "from":  "vupload",
+                                   "part":  "00-课程介绍",
+                                   "duration":  426,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i2.hdslb.com/bfs/storyff/_00001zqt8pqvtaas22ihteetv4xsq6b_firsti.jpg",
+                                   "ctime":  1773914709,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  36832871684,
+                                   "page":  2,
+                                   "from":  "vupload",
+                                   "part":  "01-AI通识与基础-认识人工智能",
+                                   "duration":  297,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  1920,
+                                                     "height":  1080,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i0.hdslb.com/bfs/storyff/_00003o1w7y58yckuk25t5ekfg0uzw9b_firsti.jpg",
+                                   "ctime":  1773986983,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  36813930523,
+                                   "page":  3,
+                                   "from":  "vupload",
+                                   "part":  "02-AI通识与基础-神经网络原理",
+                                   "duration":  975,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i0.hdslb.com/bfs/storyff/_00000pja86a9rvfv12hf0lzdhly7akb_firsti.jpg",
+                                   "ctime":  1773914709,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  36813996371,
+                                   "page":  4,
+                                   "from":  "vupload",
+                                   "part":  "03.AI通识与基础-大语言模型",
+                                   "duration":  1363,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i0.hdslb.com/bfs/storyff/_00002p6ghir67i18w256pk27ipeqhwb_firsti.jpg",
+                                   "ctime":  1773914709,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  36814062882,
+                                   "page":  5,
+                                   "from":  "vupload",
+                                   "part":  "04-AI通识-大模型应用",
+                                   "duration":  753,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i0.hdslb.com/bfs/storyff/_00003bvoexmkj8a2i23c8twlh2c1bub_firsti.jpg",
+                                   "ctime":  1773914709,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  36814064887,
+                                   "page":  6,
+                                   "from":  "vupload",
+                                   "part":  "05-AI通识-大模型服务",
+                                   "duration":  353,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i1.hdslb.com/bfs/storyff/_00002wyrwq94hz1zw2rramdw3nxigeb_firsti.jpg",
+                                   "ctime":  1773914709,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  36814065525,
+                                   "page":  7,
+                                   "from":  "vupload",
+                                   "part":  "06-AI通识-大模型服务-注册DeepSeek",
+                                   "duration":  447,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i1.hdslb.com/bfs/storyff/_00002x4esdjp0uoi228ti3n6y1uaxhb_firsti.jpg",
+                                   "ctime":  1773914709,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  36814127888,
+                                   "page":  8,
+                                   "from":  "vupload",
+                                   "part":  "07-AI通识-大模型服务-注册阿里云百炼",
+                                   "duration":  430,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i1.hdslb.com/bfs/storyff/_000023xdo6zh6mcl61ym54x7shj2mxb_firsti.jpg",
+                                   "ctime":  1773914709,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  36814129975,
+                                   "page":  9,
+                                   "from":  "vupload",
+                                   "part":  "08-AI通识-大模型服务-Ollama",
+                                   "duration":  954,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i1.hdslb.com/bfs/storyff/_000015eg330pt384q2pyuix1515ssrb_firsti.jpg",
+                                   "ctime":  1773914709,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  36814194319,
+                                   "page":  10,
+                                   "from":  "vupload",
+                                   "part":  "09-AI通识-大模型API-接口规范",
+                                   "duration":  1103,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i1.hdslb.com/bfs/storyff/_00001d1pyog3tqunm2amfwzvs8r4tfb_firsti.jpg",
+                                   "ctime":  1773914709,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  36814259806,
+                                   "page":  11,
+                                   "from":  "vupload",
+                                   "part":  "10-AI通识-大模型API-会话记忆",
+                                   "duration":  513,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i2.hdslb.com/bfs/storyff/_00003rvw0vi9y0eid2ihed9zgpfjvbb_firsti.jpg",
+                                   "ctime":  1773914709,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  36832871935,
+                                   "page":  12,
+                                   "from":  "vupload",
+                                   "part":  "11-AI通识-大模型API-开发环境",
+                                   "duration":  773,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  1920,
+                                                     "height":  1080,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i2.hdslb.com/bfs/storyff/_00000fdu2801rorj22r3jsc9m4emrjb_firsti.jpg",
+                                   "ctime":  1773986983,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  36957455025,
+                                   "page":  13,
+                                   "from":  "vupload",
+                                   "part":  "12-AI通识-大模型API-编程调用大模型",
+                                   "duration":  1079,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i0.hdslb.com/bfs/storyff/_00000gky886zx9f032s5milo67xv7ub_firsti.jpg",
+                                   "ctime":  1774402622,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  36957520056,
+                                   "page":  14,
+                                   "from":  "vupload",
+                                   "part":  "13-LangChain入门-认识LangChain",
+                                   "duration":  772,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i2.hdslb.com/bfs/storyff/_00003cnmbu0pz11b02smbkban1h8bob_firsti.jpg",
+                                   "ctime":  1774402622,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  36957522086,
+                                   "page":  15,
+                                   "from":  "vupload",
+                                   "part":  "14-LangChain入门-快速入门和Agent原理",
+                                   "duration":  1366,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i1.hdslb.com/bfs/storyff/_000031vdw9syec6d624p2o2pp2ap77b_firsti.jpg",
+                                   "ctime":  1774402622,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  36957586659,
+                                   "page":  16,
+                                   "from":  "vupload",
+                                   "part":  "15-LangChain入门-初始化模型",
+                                   "duration":  1138,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i0.hdslb.com/bfs/storyff/_0000097uh0fezy6wb28lmwbin8gh2tb_firsti.jpg",
+                                   "ctime":  1774402622,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  36957651771,
+                                   "page":  17,
+                                   "from":  "vupload",
+                                   "part":  "16-LangChain入门-模型-调用模型",
+                                   "duration":  1043,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i0.hdslb.com/bfs/storyff/_00000gebgauagkb632jgqp4rx7z71yb_firsti.jpg",
+                                   "ctime":  1774402622,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  36957716732,
+                                   "page":  18,
+                                   "from":  "vupload",
+                                   "part":  "17-LangChain入门-消息（Message）",
+                                   "duration":  1488,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i1.hdslb.com/bfs/storyff/_000027qa0si27bv6x2ssxl2ev9nbgwb_firsti.jpg",
+                                   "ctime":  1774402622,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  37541580641,
+                                   "page":  19,
+                                   "from":  "vupload",
+                                   "part":  "18-LangChain入门-提示词工程",
+                                   "duration":  1217,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i1.hdslb.com/bfs/storyff/_00000adv5v4dfx2rs23vftvigbiiq1b_firsti.jpg",
+                                   "ctime":  1776306238,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  37541646206,
+                                   "page":  20,
+                                   "from":  "vupload",
+                                   "part":  "19-LangChain入门-工具（Tools）",
+                                   "duration":  1414,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i0.hdslb.com/bfs/storyff/_00003mrpl6bdtrg522lccvru7javf1b_firsti.jpg",
+                                   "ctime":  1776306238,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  37541710967,
+                                   "page":  21,
+                                   "from":  "vupload",
+                                   "part":  "20-LangChain入门-预定义工具Tavily",
+                                   "duration":  991,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i0.hdslb.com/bfs/storyff/_000031h9vjy5qi0ey26tbstlho562jb_firsti.jpg",
+                                   "ctime":  1776306238,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  37541775444,
+                                   "page":  22,
+                                   "from":  "vupload",
+                                   "part":  "21-LangChain入门-短期记忆",
+                                   "duration":  967,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i1.hdslb.com/bfs/storyff/_0000166ps8t7fhmos29tbfhzc8575lb_firsti.jpg",
+                                   "ctime":  1776306238,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  37541839551,
+                                   "page":  23,
+                                   "from":  "vupload",
+                                   "part":  "22-LangChain入门-短期记忆-持久存储",
+                                   "duration":  703,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i0.hdslb.com/bfs/storyff/_00003nxzvloiflwoh2jep1bhujh9l9b_firsti.jpg",
+                                   "ctime":  1776306238,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  37541841426,
+                                   "page":  24,
+                                   "from":  "vupload",
+                                   "part":  "23-LangChain入门-记忆管理策略",
+                                   "duration":  1069,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i1.hdslb.com/bfs/storyff/_00000qadgpcn9citm2lam4er53m33gb_firsti.jpg",
+                                   "ctime":  1776306238,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  37541906399,
+                                   "page":  25,
+                                   "from":  "vupload",
+                                   "part":  "24-LangChain入门-实战-需求分析与功能验证",
+                                   "duration":  879,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i1.hdslb.com/bfs/storyff/_0000222we38h453dv2qc43ru5qb0cgb_firsti.jpg",
+                                   "ctime":  1776306238,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  37541970992,
+                                   "page":  26,
+                                   "from":  "vupload",
+                                   "part":  "25-LangChain入门-实战-对接LangSmith",
+                                   "duration":  1209,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i2.hdslb.com/bfs/storyff/_00000yos076i2zo8c2h2cjniy37qdnb_firsti.jpg",
+                                   "ctime":  1776306238,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  37542036047,
+                                   "page":  27,
+                                   "from":  "vupload",
+                                   "part":  "26-LangChain入门-实战-搭建服务端并对接OSS",
+                                   "duration":  1210,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i2.hdslb.com/bfs/storyff/_00002h7kb3x61xpfs2hq7s4gs594peb_firsti.jpg",
+                                   "ctime":  1776306238,
+                                   "asr_language":  "cmn"
+                               },
+                               {
+                                   "cid":  37542101139,
+                                   "page":  28,
+                                   "from":  "vupload",
+                                   "part":  "27-LangChain入门-AI私厨-完成Agent开发",
+                                   "duration":  1371,
+                                   "vid":  "",
+                                   "weblink":  "",
+                                   "dimension":  {
+                                                     "width":  2560,
+                                                     "height":  1440,
+                                                     "rotate":  0
+                                                 },
+                                   "first_frame":  "http://i2.hdslb.com/bfs/storyff/_00003pfqc5aca68nb2cg73o6xfixzhb_firsti.jpg",
+                                   "ctime":  1776306238,
+                                   "asr_language":  "cmn"
+                               }
+                           ],
+                 "subtitle":  {
+                                  "allow_submit":  false,
+                                  "list":  [
+
+                                           ]
+                              },
+                 "is_season_display":  false,
+                 "user_garb":  {
+                                   "url_image_ani_cut":  ""
+                               },
+                 "honor_reply":  {
+
+                                 },
+                 "like_icon":  "",
+                 "need_jump_bv":  false,
+                 "disable_show_up_info":  false,
+                 "is_story_play":  0,
+                 "is_view_self":  false
+             }
+}

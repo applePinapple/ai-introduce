@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/zarazhangrui/frontend-slides/main/SKILL.md",
+    "localPath": ".cache\\frontend-slides-reference\\SKILL.md",
+    "sha256": "832994fe1dfcce2aa7ceca9a1b7b708eca94becef242713999855f4e946cf4d5",
+    "bytes": 28187
+  },
+  {
+    "url": "https://raw.githubusercontent.com/zarazhangrui/frontend-slides/main/README.md",
+    "localPath": ".cache\\frontend-slides-reference\\README.md",
+    "sha256": "e358f7aab79a0193b5494c4423ad0e47f13624ee5153095e283e4ae9d1982dac",
+    "bytes": 35554
+  },
+  {
+    "url": "https://raw.githubusercontent.com/zarazhangrui/frontend-slides/main/viewport-base.css",
+    "localPath": ".cache\\frontend-slides-reference\\viewport-base.css",
+    "sha256": "7424eb3fca809d85eedb3019a7b5bff571dc553c7b73b02120d068e12b2a6a03",
+    "bytes": 2742
+  },
+  {
+    "url": "https://raw.githubusercontent.com/zarazhangrui/frontend-slides/main/html-template.md",
+    "localPath": ".cache\\frontend-slides-reference\\html-template.md",
+    "sha256": "893ab49200ed5c3186d3b031333f5b61916b179dad2dafd5572ff8f66cd0b91a",
+    "bytes": 11460
+  },
+  {
+    "url": "https://raw.githubusercontent.com/zarazhangrui/frontend-slides/main/animation-patterns.md",
+    "localPath": ".cache\\frontend-slides-reference\\animation-patterns.md",
+    "sha256": "1b7b7409893b68c09effb04f20a4603a5168e4956d76c3999c2ba8f86c4bbc8f",
+    "bytes": 4030
+  },
+  {
+    "url": "https://raw.githubusercontent.com/zarazhangrui/frontend-slides/main/bold-template-pack/templates/blue-professional/design.md",
+    "localPath": ".cache\\frontend-slides-reference\\bold-template-pack\\templates\\blue-professional\\design.md",
+    "sha256": "595166d0c7c3356fff2e4ff997252fa5dc582c33ed8c7e7ad0d41b2a8043562f",
+    "bytes": 51608
+  },
+  {
+    "url": "https://raw.githubusercontent.com/zarazhangrui/frontend-slides/main/bold-template-pack/templates/blue-professional/preview.md",
+    "localPath": ".cache\\frontend-slides-reference\\bold-template-pack\\templates\\blue-professional\\preview.md",
+    "sha256": "36383d4516ef253bf952e2ebe984c83ea1bc51536bb1417a0285dec7a3e3ad9a",
+    "bytes": 4724
+  },
+  {
+    "url": "https://raw.githubusercontent.com/zarazhangrui/frontend-slides/main/scripts/extract-pptx.py",
+    "localPath": ".cache\\frontend-slides-reference\\scripts\\extract-pptx.py",
+    "sha256": "4f5e7603c99b8b53e20c5b2a65abdf5edf9422b4c490dca9f2b872a752c17d2a",
+    "bytes": 2917
+  },
+  {
+    "url": "https://raw.githubusercontent.com/zarazhangrui/frontend-slides/main/scripts/export-pdf.sh",
+    "localPath": ".cache\\frontend-slides-reference\\scripts\\export-pdf.sh",
+    "sha256": "16336202904f677bb988e784a3e1d5098ff09381733b63047c3a688d6a1989b4",
+    "bytes": 13615
+  },
+  {
+    "url": "https://raw.githubusercontent.com/zarazhangrui/beautiful-html-templates/main/README.md",
+    "localPath": ".cache\\beautiful-html-templates-reference\\README.md",
+    "sha256": "690fa91941ae3edcd164037b3bbc73b908c93d5992027a680aefd76137398d55",
+    "bytes": 15613
+  },
+  {
+    "url": "https://raw.githubusercontent.com/zarazhangrui/beautiful-html-templates/main/AGENTS.md",
+    "localPath": ".cache\\beautiful-html-templates-reference\\AGENTS.md",
+    "sha256": "ed619bb7d956303024872f170b96e5270672a03cf40bdf7ce0abc3d8018c9d77",
+    "bytes": 13182
+  },
+  {
+    "url": "https://raw.githubusercontent.com/zarazhangrui/beautiful-html-templates/main/index.json",
+    "localPath": ".cache\\beautiful-html-templates-reference\\index.json",
+    "sha256": "f486e26849fa76230b5c2000da2a5de1b9be7239e8fbd089d263225a187a9541",
+    "bytes": 41334
+  },
+  {
+    "url": "https://raw.githubusercontent.com/zarazhangrui/beautiful-html-templates/main/templates/blue-professional/template.html",
+    "localPath": ".cache\\beautiful-html-templates-reference\\templates\\blue-professional\\template.html",
+    "sha256": "5376e910203970ac69bc954e35a39626070b3fc48051ce1408aae7619e4caefa",
+    "bytes": 43370
+  },
+  {
+    "url": "https://raw.githubusercontent.com/zarazhangrui/beautiful-html-templates/main/LICENSE",
+    "localPath": ".cache\\beautiful-html-templates-reference\\LICENSE",
+    "sha256": "6d3011c008b1b4290f4f5713d86550bcc4b57ab477d9ed5eb893c6a7042add57",
+    "bytes": 1067
+  },
+  {
+    "url": "https://raw.githubusercontent.com/zarazhangrui/frontend-slides/main/LICENSE",
+    "localPath": ".cache\\frontend-slides-reference\\LICENSE",
+    "sha256": "62928eb197fe4662d1efc3af0735b3ba5df3c0308badd9a2baf2b619009f5366",
+    "bytes": 1067
+  }
+]

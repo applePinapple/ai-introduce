@@ -1,0 +1,15 @@
+{
+  "name": "深海与纸白",
+  "fontFace": "Microsoft YaHei",
+  "slideSize": "LAYOUT_WIDE",
+  "titleFontSize": 34,
+  "bodyFontSize": 22,
+  "colors": {
+    "background": "F7F5EF",
+    "text": "152C40",
+    "muted": "617477",
+    "accent": "007F79",
+    "coverBackground": "092331",
+    "coverText": "F7F5EF"
+  }
+}

@@ -1,0 +1,305 @@
+{
+  "sources": [
+    {
+      "id": "video-ai",
+      "title": "01-AI通识与基础-认识人工智能",
+      "url": "https://www.bilibili.com/video/BV178w1z7EHQ/?p=2",
+      "publisher": "黑马程序员 / 用户提供的本地视频",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "以规则与符号 AI、机器学习、深度学习、大语言模型四类范式串起发展脉络，并用算法、数据、算力三要素解释大模型能力的形成。"
+      ],
+      "localPath": "assets/videos/bilibili/BV178w1z7EHQ/media/002_01-AI通识与基础-认识人工智能.mp4",
+      "evidence": "本地ffprobe核对时长，ffmpeg每30秒抽帧，实际阅读课件与可见硬字幕。不是逐字音频转写。时间段为已观察画面范围。",
+      "timeRanges": [
+        "01:30、04:40 AI 发展的四次浪潮",
+        "02:30、03:00 模型算法",
+        "03:15、03:30 训练数据",
+        "03:45、04:00、04:15 算力与三要素归纳"
+      ]
+    },
+    {
+      "id": "video-neural",
+      "title": "02-AI通识与基础-神经网络原理",
+      "url": "https://www.bilibili.com/video/BV178w1z7EHQ/?p=3",
+      "publisher": "黑马程序员 / 用户提供的本地视频",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "讲解输入层、隐藏层、输出层与权重/偏置/激活，以 28×28 手写数字识别说明从像素到特征再到分类，并用误差反向传播解释训练。"
+      ],
+      "localPath": "assets/videos/bilibili/BV178w1z7EHQ/media/003_02-AI通识与基础-神经网络原理.mp4",
+      "evidence": "本地ffprobe核对时长，ffmpeg每30秒抽帧，实际阅读课件与可见硬字幕。不是逐字音频转写。时间段为已观察画面范围。",
+      "timeRanges": [
+        "00:30、01:00、01:30 神经元与网络直觉",
+        "02:00、05:00、06:00 层、参数与计算",
+        "06:30、07:00、07:30 手写数字识别案例",
+        "08:00、08:30、09:30、10:00、11:00 从笔画到数字",
+        "12:30、13:00、13:30、14:00、15:30、16:00 训练循环"
+      ]
+    },
+    {
+      "id": "video-llm",
+      "title": "03.AI通识与基础-大语言模型",
+      "url": "https://www.bilibili.com/video/BV178w1z7EHQ/?p=4",
+      "publisher": "黑马程序员 / 用户提供的本地视频",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "以 Token 与词向量说明文字如何数值化，以语义向量关系和上下文注意力说明信息如何结合，再用北京早餐建议展示下一个 Token 生成、概率分布、温度参数与上下文窗口。"
+      ],
+      "localPath": "assets/videos/bilibili/BV178w1z7EHQ/media/004_03.AI通识与基础-大语言模型.mp4",
+      "evidence": "本地ffprobe核对时长，ffmpeg每30秒抽帧，实际阅读课件与可见硬字幕。不是逐字音频转写。时间段为已观察画面范围。",
+      "timeRanges": [
+        "01:00、01:30、03:30、05:00 Token 与向量",
+        "06:30、07:00、08:00 语义空间",
+        "08:30、09:00、09:30、10:30 上下文与注意力",
+        "11:00、11:30、12:00、12:30 Transformer 处理链",
+        "13:30、15:00、17:00、17:30 逐 Token 生成与温度",
+        "18:30、19:30、20:00 模型规模与能力",
+        "21:00、21:30、22:00、22:30 上下文窗口"
+      ]
+    },
+    {
+      "id": "video-apps",
+      "title": "04-AI通识-大模型应用",
+      "url": "https://www.bilibili.com/video/BV178w1z7EHQ/?p=5",
+      "publisher": "黑马程序员 / 用户提供的本地视频",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "区分 GPT 模型和 ChatGPT 应用；说明对话上下文以及模型与传统程序的互补，再给出传统应用通过 HTTP API 调用模型的基本结构。"
+      ],
+      "localPath": "assets/videos/bilibili/BV178w1z7EHQ/media/005_04-AI通识-大模型应用.mp4",
+      "evidence": "本地ffprobe核对时长，ffmpeg每30秒抽帧，实际阅读课件与可见硬字幕。不是逐字音频转写。时间段为已观察画面范围。",
+      "timeRanges": [
+        "00:30、01:00、01:30、02:00 GPT、模型与产品",
+        "03:00、04:00、05:00、05:30、06:30 聊天应用和上下文",
+        "07:00、07:30、08:00、08:30、09:00 模型与确定性程序互补",
+        "09:30、10:00、10:30、11:00 应用调用模型的基本结构",
+        "11:30、12:00、12:30 章节归纳"
+      ]
+    },
+    {
+      "id": "dartmouth-proposal",
+      "title": "A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence (1955)",
+      "url": "https://www-formal.stanford.edu/jmc/history/dartmouth/dartmouth.html",
+      "publisher": "John McCarthy 作者档案 / Stanford University",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "提案日期1955年8月31日；计划1956年夏开展研究",
+        "人工智能研究议程的早期原始材料"
+      ]
+    },
+    {
+      "id": "alexnet-2012",
+      "title": "ImageNet Classification with Deep Convolutional Neural Networks (2012)",
+      "url": "https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html",
+      "publisher": "Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton / NIPS 2012",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "2012年深层卷积网络图像分类成果",
+        "GPU实现支持大规模训练；这是特定图像基准结果"
+      ]
+    },
+    {
+      "id": "transformer-2017",
+      "title": "Attention Is All You Need (2017)",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "Ashish Vaswani 等 / NeurIPS 2017, arXiv",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "2017年提出Transformer架构",
+        "通过注意力处理序列关联；原论文验证任务为机器翻译",
+        "训练并行性改善不等于自回归生成可以一次完成"
+      ]
+    },
+    {
+      "id": "few-shot-lm",
+      "title": "Language Models are Few-Shot Learners (2020)",
+      "url": "https://arxiv.org/abs/2005.14165",
+      "publisher": "Tom B. Brown 等 / NeurIPS 2020, arXiv",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "GPT-3为1750亿参数自回归语言模型",
+        "少样本提示在推理时通过文本示例指定任务，无梯度更新",
+        "模型仍有任务局限；不能把少样本提示当成重新训练"
+      ]
+    },
+    {
+      "id": "instructgpt-2022",
+      "title": "Training language models to follow instructions with human feedback (2022)",
+      "url": "https://arxiv.org/abs/2203.02155",
+      "publisher": "Long Ouyang 等 / NeurIPS 2022, arXiv",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "示范数据监督微调，再使用偏好排序与RLHF",
+        "后训练可以改善指令遵循；参数更多不自动等于更符合用户意图",
+        "原论文明确模型仍会犯简单错误"
+      ]
+    },
+    {
+      "id": "foundation-models",
+      "title": "On the Opportunities and Risks of Foundation Models (2021)",
+      "url": "https://arxiv.org/abs/2108.07258",
+      "publisher": "Stanford CRFM / arXiv",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "广泛数据、大规模预训练与多种下游任务适配",
+        "基础模型的能力与风险会传递到下游应用"
+      ]
+    },
+    {
+      "id": "backprop-google",
+      "title": "Neural Networks: Training using backpropagation",
+      "url": "https://developers.google.com/machine-learning/crash-course/neural-networks/backpropagation",
+      "publisher": "Google for Developers",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "反向传播计算梯度，支持多层网络的梯度下降训练",
+        "训练是根据误差调整参数；推理使用已学参数产生输出"
+      ]
+    },
+    {
+      "id": "llm-mechanics-hf",
+      "title": "How Transformers solve tasks — LLM Course",
+      "url": "https://huggingface.co/learn/llm-course/en/chapter1/5",
+      "publisher": "Hugging Face 官方课程",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "GPT类因果语言模型根据前文预测后续token",
+        "tokenization、embedding、masked self-attention与生成流程",
+        "Transformer并非只有一种架构；本报告重点为生成型LLM"
+      ]
+    },
+    {
+      "id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (2020)",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "publisher": "Patrick Lewis 等 / NeurIPS 2020, arXiv",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "结合参数化语言模型与可检索的外部知识",
+        "原论文使用维基百科索引验证知识密集任务",
+        "企业知识库例子属于对原理的教学应用，不是原论文客户案例"
+      ]
+    },
+    {
+      "id": "react",
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models (2022 / ICLR 2023)",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "publisher": "Shunyu Yao 等 / ICLR 2023, arXiv",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "交替生成推理与行动并获取外部环境反馈",
+        "2022年首发，2023年ICLR发表",
+        "论文基准实验不能直接换算企业生产率"
+      ]
+    },
+    {
+      "id": "effective-agents",
+      "title": "Building effective agents (2024)",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "publisher": "Anthropic 官方工程文章",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "工作流按预定义路径编排；Agent动态决定过程与工具",
+        "工具结果形成反馈；可配置人工检查点及停止条件",
+        "优先简单方案，复杂度通常增加延迟与成本；应用建议须结合自己的评测"
+      ]
+    },
+    {
+      "id": "genai-work-qje",
+      "title": "Generative AI at Work (QJE 2025)",
+      "url": "https://academic.oup.com/qje/article/140/2/889/7990658",
+      "publisher": "Erik Brynjolfsson, Danielle Li, Lindsey Raymond / The Quarterly Journal of Economics 140(2), 889–942",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "正式刊发版：客服人员使用AI建议后，每小时解决问题数平均提高15%",
+        "这是单一企业辅助人工客服场景，不能解读为自主Agent或普遍投资回报",
+        "正式刊发版与早期NBER稿数字不同；不要混用14%和15%"
+      ]
+    },
+    {
+      "id": "genai-work-paper",
+      "title": "Generative AI at Work (author manuscript, revised November 2024)",
+      "url": "https://arxiv.org/abs/2304.11771v2",
+      "publisher": "Erik Brynjolfsson, Danielle Li, Lindsey Raymond / arXiv",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "5,172名客服人员；每小时解决问题数平均提高15%",
+        "新手和低技能人员获益更明显，经验丰富人员效果不同",
+        "用于交叉核验2025正式刊发版指标；区别于NBER 2023稿5,179人与14%"
+      ]
+    },
+    {
+      "id": "swe-agent-2024",
+      "title": "SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering (2024)",
+      "url": "https://arxiv.org/abs/2405.15793",
+      "publisher": "John Yang 等 / NeurIPS 2024, arXiv",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "Agent可导航仓库、修改文件、运行测试并使用反馈",
+        "原论文SWE-bench pass@1为12.5%，是2024年特定配置研究结果",
+        "接口设计影响效果；不是当前排行榜或企业工程师替代率"
+      ]
+    },
+    {
+      "id": "swe-bench",
+      "title": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues? (2023 / ICLR 2024)",
+      "url": "https://arxiv.org/abs/2310.06770",
+      "publisher": "Carlos E. Jimenez 等 / ICLR 2024, arXiv",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "原始基准2,294个问题，来自12个Python仓库的真实GitHub issue与PR",
+        "输入代码仓库和问题描述，输出修复；通过测试评估",
+        "基准成功率不等于完整软件交付质量"
+      ]
+    },
+    {
+      "id": "hf-decoding-temperature",
+      "title": "How to generate text: using different decoding methods for language generation with Transformers",
+      "url": "https://huggingface.co/blog/how-to-generate",
+      "publisher": "Hugging Face 官方技术文章 / Patrick von Platen",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "采样依据下一token的条件概率分布选取候选",
+        "降低温度使候选概率分布更尖锐，提高高概率候选相对权重",
+        "温度趋近零时温度采样趋近贪心解码，但解码策略本身不构成事实正确性的保证"
+      ]
+    },
+    {
+      "id": "hf-generation-config",
+      "title": "Generation — Transformers documentation",
+      "url": "https://huggingface.co/docs/transformers/main/en/main_classes/text_generation",
+      "publisher": "Hugging Face 官方文档",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "temperature用于调节下一token的概率；do_sample控制是否采样",
+        "贪心解码与采样不同；并非所有解码模式都会让温度参数影响最终选择",
+        "具体生成行为还受top_k、top_p、长度与停止参数等配置影响"
+      ]
+    },
+    {
+      "id": "anthropic-prompt-injection",
+      "title": "Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks",
+      "publisher": "Anthropic 官方文档",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "间接提示注入可能存在于第三方网页、邮件、文档和工具结果中",
+        "应用应区分不可信内容与操作指令，限制数据与工具权限",
+        "注入对抗需要测试与持续观察，不应把提示词隔离等同于绝对安全保证"
+      ]
+    },
+    {
+      "id": "aws-idempotent-retries",
+      "title": "Making retries safe with idempotent APIs",
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "publisher": "Amazon Builders’ Library / Malcolm Featonby",
+      "verifiedOn": "2026-10-13",
+      "supports": [
+        "请求超时并不证明服务端操作未完成，盲目重试可能导致重复副作用",
+        "幂等接口和调用方请求标识可让重复请求不额外创建资源或执行动作",
+        "状态核对、请求身份和服务端语义是安全重试的重要部分"
+      ]
+    }
+  ]
+}

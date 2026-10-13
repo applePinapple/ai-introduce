@@ -1,0 +1,61 @@
+[
+  {
+    "page": 2,
+    "source": "assets/videos/bilibili/BV178w1z7EHQ/media/002_01-AI通识与基础-认识人工智能.mp4",
+    "durationSeconds": 296.727574,
+    "width": 852,
+    "height": 480,
+    "hasSubtitleStream": false,
+    "frameIntervalSeconds": 30,
+    "frameCount": 10,
+    "supplementalFrameTimesSeconds": [
+      135,
+      195,
+      225,
+      255,
+      280,
+      290
+    ],
+    "frameIndexRule": "frame-001.jpg = 00:00; frame-NNN.jpg = (NNN-1)*30 seconds",
+    "method": "Local ffmpeg frames; visual review of course slides, not an audio transcript."
+  },
+  {
+    "page": 3,
+    "source": "assets/videos/bilibili/BV178w1z7EHQ/media/003_02-AI通识与基础-神经网络原理.mp4",
+    "durationSeconds": 974.310952,
+    "width": 852,
+    "height": 480,
+    "hasSubtitleStream": false,
+    "frameIntervalSeconds": 30,
+    "frameCount": 33,
+    "supplementalFrameTimesSeconds": [],
+    "frameIndexRule": "frame-001.jpg = 00:00; frame-NNN.jpg = (NNN-1)*30 seconds",
+    "method": "Local ffmpeg frames; visual review of course slides, not an audio transcript."
+  },
+  {
+    "page": 4,
+    "source": "assets/videos/bilibili/BV178w1z7EHQ/media/004_03.AI通识与基础-大语言模型.mp4",
+    "durationSeconds": 1362.317143,
+    "width": 852,
+    "height": 480,
+    "hasSubtitleStream": false,
+    "frameIntervalSeconds": 30,
+    "frameCount": 46,
+    "supplementalFrameTimesSeconds": [],
+    "frameIndexRule": "frame-001.jpg = 00:00; frame-NNN.jpg = (NNN-1)*30 seconds",
+    "method": "Local ffmpeg frames; visual review of course slides, not an audio transcript."
+  },
+  {
+    "page": 5,
+    "source": "assets/videos/bilibili/BV178w1z7EHQ/media/005_04-AI通识-大模型应用.mp4",
+    "durationSeconds": 752.467075,
+    "width": 852,
+    "height": 480,
+    "hasSubtitleStream": false,
+    "frameIntervalSeconds": 30,
+    "frameCount": 26,
+    "supplementalFrameTimesSeconds": [],
+    "frameIndexRule": "frame-001.jpg = 00:00; frame-NNN.jpg = (NNN-1)*30 seconds",
+    "method": "Local ffmpeg frames; visual review of course slides, not an audio transcript."
+  }
+]

@@ -25,7 +25,7 @@
 需要 Python，以及在 `PATH` 中可用的 `you-get`、`ffmpeg` 和 `ffprobe`。在项目根目录运行：
 
 ```powershell
-python scripts/download-bilibili.py
+python scripts/media/download-bilibili.py
 ```
 
 脚本按保存的元数据下载全部分 P。重新运行时先核验已有文件，通过的文件直接保留；you-get 保留的下载分片可用于续传。每个文件都会检查音视频轨道、H.264 编码，以及实际时长与来源时长是否相符。
@@ -33,7 +33,7 @@ python scripts/download-bilibili.py
 只核验本地文件并更新清单：
 
 ```powershell
-python scripts/download-bilibili.py --verify-only
+python scripts/media/download-bilibili.py --verify-only
 ```
 
 媒体、下载分片和日志不提交到 Git。后续提取截图或片段时记录原分 P 与时间点；需要在 PPT 中引用技术结论时，按项目约定核验原始或官方资料，并登记到 `content/sources.json`。

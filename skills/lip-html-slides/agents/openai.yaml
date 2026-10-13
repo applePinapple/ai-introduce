@@ -1,0 +1,6 @@
+interface:
+  display_name: "已确认的 HTML 幻灯片风格"
+  short_description: "优先采用已确认的浅灰网格与蓝橙绿技术演讲风格，制作可离线播放的幻灯片"
+  default_prompt: "使用 $lip-html-slides，按已确认的风格制作这次演讲的幻灯片。"
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,11 @@
+{
+  "approvedOn": "2026-10-13",
+  "approval": "用户明确认可三页样例，并要求固化为以后优先使用的规则或skill。",
+  "originalRepository": "https://github.com/skJack/-lip-",
+  "originalCommit": "fc02c1e70c15f677fc752373363eedda43d247dd",
+  "originalPath": "01-第21期-VLA入门(一)-RT-2-OpenVLA-π0/slides/deck.html",
+  "approvedProject": "ai-describe",
+  "approvedSource": "src/slides/ + content/decks/sample.json",
+  "adaptations": ["离线字体与Windows回退", "SVG渐变唯一ID", "不透明描边渐变保证PDF一致", "导航按钮可访问性", "URL hash变化处理", "讲稿与完整引用", "分页打印"],
+  "exampleContent": "AI、LLM与Agent；订单场景为教学示例。图片为原项目AI概念插画。"
+}

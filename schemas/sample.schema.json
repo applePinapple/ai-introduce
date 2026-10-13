@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "lip HTML slide sample",
+  "type": "object",
+  "required": ["title", "slides"],
+  "properties": {
+    "title": { "$ref": "#/$defs/text" },
+    "styleReference": { "type": "object" },
+    "slides": {
+      "type": "array", "minItems": 3, "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["id", "layout", "title", "section", "notes", "sourceIds"],
+        "properties": {
+          "id": { "$ref": "#/$defs/text" },
+          "layout": { "enum": ["cover", "loop", "comparison"] },
+          "title": { "$ref": "#/$defs/text" },
+          "section": { "$ref": "#/$defs/text" },
+          "chapter": { "$ref": "#/$defs/text" },
+          "sectionLabel": { "$ref": "#/$defs/text" },
+          "eyebrow": { "$ref": "#/$defs/text" },
+          "subtitle": { "$ref": "#/$defs/text" },
+          "sourceLabel": { "$ref": "#/$defs/text" },
+          "notes": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/text" } },
+          "sourceIds": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/text" } },
+          "brand": { "$ref": "#/$defs/text" },
+          "imagePath": { "type": "string", "pattern": "^assets/(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\:]+$" },
+          "imageAlt": { "$ref": "#/$defs/text" },
+          "imageCredit": { "$ref": "#/$defs/text" },
+          "inputs": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "$ref": "#/$defs/step" } },
+          "outputs": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "$ref": "#/$defs/step" } },
+          "model": { "$ref": "#/$defs/text" },
+          "modelCaption": { "$ref": "#/$defs/text" },
+          "feedback": { "$ref": "#/$defs/text" },
+          "condition": { "$ref": "#/$defs/text" },
+          "exampleLabel": { "$ref": "#/$defs/text" },
+          "example": { "$ref": "#/$defs/text" },
+          "steps": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "object", "required": ["label", "text"], "properties": { "label": { "$ref": "#/$defs/text" }, "text": { "$ref": "#/$defs/text" } } } },
+          "headers": { "$ref": "#/$defs/threeCells" },
+          "rows": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/threeCells" } },
+          "takeaways": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "object", "required": ["title", "text", "tone"], "properties": { "title": { "$ref": "#/$defs/text" }, "text": { "$ref": "#/$defs/text" }, "tone": { "$ref": "#/$defs/tone" } } } }
+        },
+        "allOf": [
+          { "if": { "properties": { "layout": { "const": "cover" } } }, "then": { "required": ["eyebrow", "subtitle", "brand", "imagePath", "imageAlt", "imageCredit"] } },
+          { "if": { "properties": { "layout": { "enum": ["loop", "comparison"] } } }, "then": { "required": ["chapter", "sectionLabel", "eyebrow", "subtitle", "sourceLabel"] } },
+          { "if": { "properties": { "layout": { "const": "loop" } } }, "then": { "required": ["inputs", "outputs", "model", "modelCaption", "feedback", "condition"] } },
+          { "if": { "properties": { "layout": { "const": "comparison" } } }, "then": { "required": ["exampleLabel", "example", "steps", "headers", "rows", "takeaways"] } }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "text": { "type": "string", "pattern": "\\S" },
+    "tone": { "enum": ["blue", "orange", "green"] },
+    "step": { "type": "object", "required": ["label", "text", "tone"], "properties": { "label": { "$ref": "#/$defs/text" }, "text": { "$ref": "#/$defs/text" }, "tone": { "$ref": "#/$defs/tone" } } },
+    "threeCells": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "$ref": "#/$defs/text" } }
+  }
+}

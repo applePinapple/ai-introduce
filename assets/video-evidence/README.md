@@ -21,7 +21,7 @@
 - `contact-*.jpg` 是按时间顺序排列的 2×4 联系表，每帧左上角印有时间戳。
 - `002/detail-255.jpg` 等补充帧以文件名标示秒数，255 即 04:15。
 
-提取脚本：`python scripts/extract-video-evidence.py`。脚本仅需 Python 标准库与本地 ffmpeg/ffprobe。
+提取脚本：`python scripts/media/extract-video-evidence.py`。脚本仅需 Python 标准库与本地 ffmpeg/ffprobe。
 
 ## 演讲重构建议
 
@@ -31,4 +31,4 @@
 
 课程中的一些断言或数据不宜直接照搬：`Token=词`、统一的 `12288` 维和 `128K` 上下文、未公开确认的 GPT-4/GPT-5 参数/训练硬件、达到规模临界点便突然拥有智能、已跨入 AGI 门槛。正式幻灯片应采用准确限定，或删去未证实数字。
 
-此目录是制作证据；最终幻灯片内容仍统一维护在 `content/deck.json`，来源登记在 `content/sources.json`。
+此目录是制作证据；原演讲正文保留在 `content/decks/ai-history.json`，当前样例正文维护在 `content/decks/sample.json`，来源统一登记在 `content/sources.json`。

@@ -1,6 +1,7 @@
 node_modules/
 .cache/
 output/
+downloads/
 *.log
 Thumbs.db
 .DS_Store
@@ -13,3 +14,6 @@ assets/videos/**/*.m4a
 assets/videos/**/*.webm
 assets/videos/**/*.download
 assets/videos/**/*.ts
+
+# Downloaded upstream repository stays local; source/version manifests are tracked.
+assets/references/skJack-lip/

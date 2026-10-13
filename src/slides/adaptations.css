@@ -1,0 +1,46 @@
+/* Local portability and output support; visual tokens remain in reference.css. */
+@font-face{font-family:"Noto Sans SC";src:url("media/NotoSansSC.ttf") format("truetype");font-weight:100 900;font-display:block}
+@font-face{font-family:"JetBrains Mono";src:url("media/JetBrainsMono.ttf") format("truetype");font-weight:100 800;font-display:block}
+:root{--font:"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Noto Sans SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;--mono:"SF Mono","Menlo","JetBrains Mono",Consolas,"Noto Sans SC","Microsoft YaHei",monospace}
+button{font:inherit;color:inherit;border:0}
+button:focus-visible,a:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+#nav-panel .it{width:100%;text-align:left;background:transparent}
+#nav-panel .it:hover{background:var(--bg)}
+#nav-panel .it.cur{background:var(--blue-soft)}
+#nav-panel{max-width:calc(100vw - 28px)}
+.cover .band img{display:block;object-position:50% 60%}
+.cover .band .image-credit{position:absolute;bottom:18px;left:104px;color:#fff;font-size:20px;background:rgba(11,18,32,.7);padding:5px 10px;letter-spacing:.04em}
+.loop-body{flex-direction:column;justify-content:center;gap:30px}
+.loop-row{display:flex;align-items:center;justify-content:center;gap:26px}
+.loop-inputs{width:500px;flex:none}
+.loop-model{width:300px;height:300px;flex:none;border-radius:150px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+.loop-model b{font-size:60px;font-weight:600}
+.loop-model span{font-size:24px;color:var(--muted)}
+.loop-outputs{width:610px;flex:none}
+.loop-feedback{align-self:center;width:1310px;height:112px;flex:none;overflow:visible}
+.loop-condition{text-align:center;font-size:28px;color:var(--muted)}
+.comparison-body{align-items:center;gap:44px}
+.comparison-example{width:540px;flex:none;gap:30px}
+.comparison-example .frame{padding:30px 32px}
+.comparison-example .big{font-size:40px}
+.comparison-example .list{font-size:30px}
+.comparison-example .list .n{font-size:22px}
+.comparison-details{flex:1;gap:32px}
+.comparison-table{table-layout:fixed}
+.comparison-table th:first-child{width:19%}
+.comparison-table th{font-size:23px}
+.comparison-table th:nth-child(2){color:var(--blue)}
+.comparison-table th:nth-child(3){color:var(--orange)}
+.comparison-table td{font-size:30px;padding:24px 18px}
+.comparison-details .stat .v{font-size:36px}
+.comparison-details .stat .k{font-family:var(--font);font-size:24px;letter-spacing:0;line-height:1.5;margin-top:8px}
+.foot .src a{color:inherit;text-decoration:none}
+.exporting #nav-hot,.exporting #nav-btn,.exporting #nav-panel,.exporting #hud{display:none!important}
+@media print{
+  @page{size:1920px 1080px;margin:0}
+  html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #stage{position:static;width:1920px;height:auto;transform:none!important}
+  .slide,.slide.active{display:flex;position:relative;width:1920px;height:1080px;break-after:page;break-inside:avoid}
+  .slide:last-child{break-after:auto}
+  #nav-hot,#nav-btn,#nav-panel,#hud{display:none!important}
+}

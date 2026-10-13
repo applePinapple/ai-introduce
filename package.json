@@ -2,15 +2,18 @@
   "name": "ai-describe",
   "version": "0.1.0",
   "private": true,
-  "description": "AI 发展史到 Agent 应用的中文演讲 PPT 生产项目",
+  "description": "AI 发展史到 Agent 应用的本地 HTML 幻灯片项目",
   "type": "module",
-  "engines": { "node": ">=22" },
-  "scripts": {
-    "check": "node scripts/check.mjs",
-    "build": "node scripts/build.mjs",
-    "verify": "node scripts/verify.mjs",
-    "test": "node --test"
+  "engines": {
+    "node": ">=22"
   },
-  "dependencies": { "pptxgenjs": "4.0.1" },
-  "devDependencies": { "jszip": "3.10.1" }
+  "scripts": {
+    "check": "node scripts/slides/check.mjs",
+    "build": "node scripts/slides/build.mjs",
+    "verify": "node scripts/slides/verify.mjs",
+    "test": "node --test --test-isolation=none tests/lip-slides.test.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "1.64.0"
+  }
 }

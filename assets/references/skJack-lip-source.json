@@ -1,0 +1,19 @@
+{
+  "repository": "https://github.com/skJack/-lip-",
+  "requestedUrl": "https://github.com/skJack/-lip-/tree/main",
+  "branch": "main",
+  "commit": "fc02c1e70c15f677fc752373363eedda43d247dd",
+  "verifiedOn": "2026-10-13",
+  "downloadUrl": "https://codeload.github.com/skJack/-lip-/zip/fc02c1e70c15f677fc752373363eedda43d247dd",
+  "localDirectory": "assets/references/skJack-lip",
+  "fileInventory": "assets/references/skJack-lip-tree.json",
+  "purpose": "用户指定的 PPT 候选参考资料；只保存原始仓库文件，暂不纳入幻灯片或正式引用。",
+  "scope": "指定提交的完整工作目录快照，不含 Git 历史及外部链接目标。",
+  "expectedFiles": 720,
+  "expectedBytes": 507318986,
+  "verification": {
+    "status": "passed",
+    "files": 720,
+    "method": "Every extracted file matches the GitHub tree blob SHA-1 and byte size."
+  }
+}

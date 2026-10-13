@@ -1,0 +1,62 @@
+﻿{
+    "retainedOn":  "2026-10-13",
+    "license":  "SIL Open Font License 1.1",
+    "purpose":  "Approved lip HTML slide fonts",
+    "assets":  [
+                   {
+                       "family":  "Noto Sans SC",
+                       "kind":  "font",
+                       "file":  "NotoSansSC.ttf",
+                       "bytes":  17772300,
+                       "sha256":  "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+                       "sourceUrl":  "https://raw.githubusercontent.com/google/fonts/main/ofl/notosanssc/NotoSansSC%5Bwght%5D.ttf",
+                       "sourceRepositoryPath":  "ofl/notosanssc/NotoSansSC[wght].ttf",
+                       "downloadedOn":  "2026-10-13",
+                       "etag":  "\"3a4ef56b16cdb1eaf026c3049e35367f4a3eb3152ab5f3ad50bb8b0e21d2956f\"",
+                       "sfntVerified":  true,
+                       "fontNames":  {
+                                         "1":  "Noto Sans SC Thin",
+                                         "2":  "Regular",
+                                         "4":  "Noto Sans SC Thin",
+                                         "6":  "NotoSansSC-Thin",
+                                         "16":  "Noto Sans SC",
+                                         "17":  "Thin"
+                                     },
+                       "variableAxes":  [
+                                            {
+                                                "tag":  "wght",
+                                                "min":  100.0,
+                                                "default":  100.0,
+                                                "max":  900.0
+                                            }
+                                        ]
+                   },
+                   {
+                       "family":  "Noto Sans SC",
+                       "kind":  "license",
+                       "file":  "notosanssc-OFL.txt",
+                       "bytes":  4388,
+                       "sha256":  "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9",
+                       "sourceUrl":  "https://raw.githubusercontent.com/google/fonts/main/ofl/notosanssc/OFL.txt",
+                       "sourceRepositoryPath":  "ofl/notosanssc/OFL.txt",
+                       "downloadedOn":  "2026-10-13",
+                       "etag":  "\"b7137eeea8cf569766b4475eb8f6b47f83709af2c2c4289c080466b51f3f60a5\""
+                   },
+                   {
+                       "family":  "JetBrains Mono",
+                       "file":  "JetBrainsMono.ttf",
+                       "sourceUrl":  "https://raw.githubusercontent.com/google/fonts/main/ofl/jetbrainsmono/JetBrainsMono%5Bwght%5D.ttf",
+                       "sha256":  "48715a42ec242c21e9f02692891e147d022299a52e48d5e413e1a942193ffeda",
+                       "bytes":  187208,
+                       "license":  "OFL-1.1"
+                   },
+                   {
+                       "family":  "JetBrains Mono",
+                       "file":  "jetbrainsmono-OFL.txt",
+                       "sourceUrl":  "https://raw.githubusercontent.com/google/fonts/main/ofl/jetbrainsmono/OFL.txt",
+                       "sha256":  "b2fe5e8987594e9ffd1d2ca52a2f5d73eb8335243893c5d6254b5ad69269591d",
+                       "bytes":  4399,
+                       "license":  "OFL-1.1"
+                   }
+               ]
+}

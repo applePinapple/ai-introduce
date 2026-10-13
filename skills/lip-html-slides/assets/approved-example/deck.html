@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI、LLM 与 Agent · 三页样例</title><style>
+:root{
+  --bg:#EEF2F6; --card:#FFFFFF; --ink:#0B1220; --muted:#5B6B7F; --line:#D3DBE5;
+  --blue:#2457F5; --blue-soft:#E3EAFF; --orange:#FF6B1A; --orange-soft:#FFE9DB; --green:#1B9E77; --green-soft:#DDF3EC;
+  --font:"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  --mono:"SF Mono","Menlo","JetBrains Mono",monospace;
+  --serif:"STIX Two Text","Times New Roman","Songti SC",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--ink);font-family:var(--font);overflow:hidden}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform:translate(-50%,-50%) scale(1);transform-origin:center;background:var(--bg)}
+.slide{position:absolute;inset:0;padding:84px 104px 72px;display:none;flex-direction:column}
+.slide.active{display:flex}
+.grid{position:absolute;inset:0;pointer-events:none;opacity:.55}
+.head{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:22px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;position:relative;z-index:1}
+.head .sec{display:flex;gap:18px;align-items:center}
+.head .sec b{color:var(--ink);font-weight:600}
+.head .sec i{width:10px;height:10px;border-radius:50%;background:var(--blue);display:inline-block}
+h1{font-size:60px;font-weight:600;line-height:1.2;margin-top:16px;letter-spacing:.01em;position:relative;z-index:1}
+h1 small{font-size:28px;color:var(--muted);font-weight:400;margin-left:20px}
+.body{flex:1;position:relative;margin-top:26px;display:flex;gap:36px;min-height:0;z-index:1}
+.col{display:flex;flex-direction:column;gap:18px;min-width:0}
+.center{align-items:center;justify-content:center}
+.frame{position:relative;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px;box-shadow:0 8px 30px rgba(11,18,32,.06)}
+.frame img,.frame video{display:block;width:100%;height:100%;object-fit:contain;border-radius:6px;background:#fff}
+.frame.photo img{object-fit:cover}
+.frame.fig{padding:30px 10px 10px}
+.mask th{text-transform:none;white-space:nowrap;font-size:24px}
+.mask th:first-child{text-align:left;width:46%}
+.stat .v{font-size:46px}
+.stat .v small{display:block;margin-left:0;font-size:24px}
+.frame .tag{position:absolute;top:-16px;left:18px;background:var(--ink);color:#fff;font-family:var(--mono);font-size:19px;letter-spacing:.06em;padding:5px 12px;border-radius:6px;white-space:nowrap;z-index:2}
+.frame .tag.blue{background:var(--blue)} .frame .tag.orange{background:var(--orange)} .frame .tag.green{background:var(--green)}
+.cap{font-size:30px;color:var(--muted);line-height:1.45}
+.cap b{color:var(--ink);font-weight:600}
+.big{font-size:42px;line-height:1.45;font-weight:500}
+.blue{color:var(--blue)} .orange{color:var(--orange)} .green{color:var(--green)} .muted{color:var(--muted)}
+.list{list-style:none;font-size:34px;line-height:1.45}
+.list li{display:flex;gap:22px;align-items:flex-start;padding:16px 0;border-top:1px solid var(--line)}
+.list li:last-child{border-bottom:1px solid var(--line)}
+.list .n{font-family:var(--mono);font-size:24px;color:var(--muted);min-width:50px;padding-top:9px}
+.pill{display:inline-block;padding:8px 18px;border-radius:999px;font-size:26px;background:var(--card);border:1px solid var(--line)}
+.arrow{font-size:60px;color:var(--muted);align-self:center;font-weight:300}
+.chain{display:flex;flex-direction:column;gap:14px}
+.chain .step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 24px;font-size:30px;line-height:1.35;position:relative}
+.chain .step.blue{border-left:8px solid var(--blue)} .chain .step.orange{border-left:8px solid var(--orange)} .chain .step.green{border-left:8px solid var(--green)}
+.chain .step.tight{padding:12px 22px;font-size:28px}
+.chain .step .lab{display:block;font-family:var(--mono);font-size:19px;letter-spacing:.1em;color:var(--muted);margin-bottom:4px}
+table{border-collapse:collapse;width:100%;font-size:30px;line-height:1.35}
+th,td{padding:16px 20px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:21px;letter-spacing:.1em;color:var(--muted);font-weight:500;text-transform:uppercase}
+td:first-child{font-weight:600;white-space:nowrap}
+.foot{position:absolute;left:104px;right:104px;bottom:40px;display:flex;justify-content:space-between;align-items:flex-end;gap:40px;font-family:var(--mono);font-size:20px;color:var(--muted);letter-spacing:.08em;z-index:1}
+.foot .src{opacity:.85;white-space:nowrap}
+.foot .cap{display:none} /* 2026-09-08 用户要求去掉页脚小字；要恢复删这一行 */
+.foot .cap{font-family:var(--font);font-size:28px;max-width:1420px;letter-spacing:0}
+/* stats */
+.stats{display:flex;gap:22px}
+.stat{flex:1;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 26px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.stat .v{font-size:50px;font-weight:600;line-height:1.15;letter-spacing:.01em}
+.stat .v small{font-size:28px;color:var(--muted);font-weight:400;margin-left:8px}
+.stat .k{font-family:var(--mono);font-size:20px;letter-spacing:.08em;color:var(--muted)}
+.stat.blue .v{color:var(--blue)} .stat.orange .v{color:var(--orange)}
+/* formulas */
+.formula{font-family:var(--serif);font-size:44px;line-height:1.5;letter-spacing:.01em}
+.formula i{font-style:italic}
+.formula sup,.formula sub{font-size:60%}
+.fbox{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 30px;display:flex;flex-direction:column;gap:8px}
+.fbox .lab{font-family:var(--mono);font-size:20px;letter-spacing:.1em;color:var(--muted)}
+/* vector cells */
+.vec{display:flex;gap:6px;align-items:stretch}
+.vec .c{height:64px;flex:1;border-radius:8px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:20px;color:var(--muted)}
+.vec .c.a{background:var(--green-soft);border-color:var(--green);color:var(--green)}
+.vec .c.b{background:var(--blue-soft);border-color:var(--blue);color:var(--blue)}
+.vec .c.o{background:var(--orange-soft);border-color:var(--orange);color:var(--orange)}
+.vec .c.z{color:#B9C3CF}
+.vlab{display:flex;gap:6px;font-family:var(--mono);font-size:21px;color:var(--muted);letter-spacing:.04em}
+.vlab span{flex:1;text-align:center}
+/* photo pins */
+.pins{position:absolute;inset:0;pointer-events:none}
+.pin{position:absolute;background:var(--ink);color:#fff;padding:8px 16px;border-radius:8px;font-size:26px;line-height:1.2;white-space:nowrap;box-shadow:0 4px 14px rgba(11,18,32,.25)}
+.pin.blue{background:var(--blue)} .pin.orange{background:var(--orange)} .pin.green{background:var(--green)}
+.pin small{display:block;font-family:var(--mono);font-size:17px;opacity:.85;letter-spacing:.06em;margin-top:2px}
+/* token strip */
+.toks{display:flex;gap:10px;align-items:stretch}
+.tk{border-radius:12px;padding:22px 20px;display:block;font-size:28px;line-height:1.3;min-width:0}
+.tk .lab{display:block;font-family:var(--mono);font-size:19px;letter-spacing:.08em;opacity:.8;margin-bottom:8px}
+.tk.vlm{background:var(--blue-soft);border:2px solid var(--blue);color:var(--blue)}
+.tk.q{background:var(--green-soft);border:2px solid var(--green);color:var(--green)}
+.tk.act{background:var(--orange-soft);border:2px solid var(--orange);color:var(--orange)}
+.mask td,.mask th{text-align:center;padding:12px 16px;font-size:34px}
+.mask td:first-child{text-align:left;font-size:28px}
+.mask .y{color:var(--blue);font-family:var(--mono)} .mask .n{color:#B9C3CF;font-family:var(--mono)}
+/* denoise bars */
+.dn{display:flex;flex-direction:column;gap:10px}
+.dn .row{display:flex;align-items:center;gap:16px}
+.dn .t{font-family:var(--mono);font-size:22px;color:var(--muted);width:120px;text-align:right}
+.dn .cells{display:flex;gap:3px;flex:1}
+.dn .cells i{flex:1;height:34px;border-radius:4px;background:var(--orange);display:block}
+/* timeline */
+.tl{display:flex;gap:8px;align-items:flex-end}
+.tl .f{flex:1;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:6px;align-items:center}
+.tl .f img{width:100%;height:78px;object-fit:cover;border-radius:5px}
+.tl .f .n{font-family:var(--mono);font-size:18px;color:var(--muted)}
+.tl .f.hl{border-color:var(--orange);background:var(--orange-soft)}
+pre.tree{font-family:var(--mono);font-size:23px;line-height:1.55;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 28px;color:var(--ink)}
+pre.tree b{color:var(--blue);font-weight:600}
+pre.tree em{color:var(--muted);font-style:normal}
+/* nav (top-left page control) */
+#nav-hot{position:fixed;left:0;top:0;width:220px;height:110px;z-index:20}
+#nav-btn{position:fixed;left:14px;top:14px;height:44px;padding:0 14px 0 10px;border-radius:10px;background:rgba(11,18,32,.82);color:#fff;font-size:18px;font-family:var(--mono);display:flex;align-items:center;gap:10px;cursor:pointer;opacity:.22;transition:opacity .25s;z-index:21;user-select:none}
+#nav-btn span.pg{font-size:18px;letter-spacing:.06em}
+#nav-btn .b{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.14)}
+#nav-btn .b:hover{background:rgba(255,255,255,.3)}
+#nav-hot:hover ~ #nav-btn,#nav-btn:hover,#nav-btn.open{opacity:1}
+#nav-panel{position:fixed;left:14px;top:66px;width:440px;max-height:calc(100vh - 90px);overflow:auto;background:#fff;color:#0B1220;border:1px solid #D3DBE5;border-radius:12px;box-shadow:0 16px 48px rgba(11,18,32,.22);padding:8px;display:none;z-index:22;font-family:var(--font);font-size:14px}
+#nav-panel.open{display:block}
+#nav-panel .sec-title{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:#5B6B7F;padding:10px 10px 4px;text-transform:uppercase}
+#nav-panel .it{display:flex;gap:10px;align-items:baseline;padding:7px 10px;border-radius:8px;cursor:pointer;line-height:1.35}
+#nav-panel .it:hover{background:#EEF2F6}
+#nav-panel .it.cur{background:#E3EAFF;color:#2457F5}
+#nav-panel .it .k{font-family:var(--mono);font-size:12px;color:#5B6B7F;min-width:24px;text-align:right}
+#nav-panel .it.cur .k{color:#2457F5}
+#hud{position:fixed;left:18px;bottom:14px;font-family:var(--mono);font-size:13px;color:#7f8c9c;opacity:0;transition:opacity .6s;pointer-events:none;z-index:9}
+#hud.show{opacity:1}
+/* cover / end */
+.cover{padding:0}
+.cover .band{position:absolute;left:0;right:0;bottom:0;height:300px;background:#000}
+.cover .band img{width:100%;height:100%;object-fit:cover;opacity:.95}
+.cover .txt{position:absolute;left:104px;top:150px}
+.cover .txt .eb{font-family:var(--mono);font-size:24px;letter-spacing:.16em;color:var(--muted);margin-bottom:26px}
+.cover .txt h1{font-size:150px;line-height:1;margin:0 0 26px;letter-spacing:.02em;font-weight:600}
+.cover .txt p{font-size:44px;font-weight:400;color:var(--muted)}
+.cover .txt p b{color:var(--ink);font-weight:600}
+.cover .brand{position:absolute;right:104px;top:170px;font-family:var(--mono);font-size:26px;letter-spacing:.14em;color:var(--muted)}
+.end{align-items:center;justify-content:center;text-align:center}
+
+/* Local portability and output support; visual tokens remain in reference.css. */
+@font-face{font-family:"Noto Sans SC";src:url("media/NotoSansSC.ttf") format("truetype");font-weight:100 900;font-display:block}
+@font-face{font-family:"JetBrains Mono";src:url("media/JetBrainsMono.ttf") format("truetype");font-weight:100 800;font-display:block}
+:root{--font:"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Noto Sans SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;--mono:"SF Mono","Menlo","JetBrains Mono",Consolas,"Noto Sans SC","Microsoft YaHei",monospace}
+button{font:inherit;color:inherit;border:0}
+button:focus-visible,a:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+#nav-panel .it{width:100%;text-align:left;background:transparent}
+#nav-panel .it:hover{background:var(--bg)}
+#nav-panel .it.cur{background:var(--blue-soft)}
+#nav-panel{max-width:calc(100vw - 28px)}
+.cover .band img{display:block;object-position:50% 60%}
+.cover .band .image-credit{position:absolute;bottom:18px;left:104px;color:#fff;font-size:20px;background:rgba(11,18,32,.7);padding:5px 10px;letter-spacing:.04em}
+.loop-body{flex-direction:column;justify-content:center;gap:30px}
+.loop-row{display:flex;align-items:center;justify-content:center;gap:26px}
+.loop-inputs{width:500px;flex:none}
+.loop-model{width:300px;height:300px;flex:none;border-radius:150px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+.loop-model b{font-size:60px;font-weight:600}
+.loop-model span{font-size:24px;color:var(--muted)}
+.loop-outputs{width:610px;flex:none}
+.loop-feedback{align-self:center;width:1310px;height:112px;flex:none;overflow:visible}
+.loop-condition{text-align:center;font-size:28px;color:var(--muted)}
+.comparison-body{align-items:center;gap:44px}
+.comparison-example{width:540px;flex:none;gap:30px}
+.comparison-example .frame{padding:30px 32px}
+.comparison-example .big{font-size:40px}
+.comparison-example .list{font-size:30px}
+.comparison-example .list .n{font-size:22px}
+.comparison-details{flex:1;gap:32px}
+.comparison-table{table-layout:fixed}
+.comparison-table th:first-child{width:19%}
+.comparison-table th{font-size:23px}
+.comparison-table th:nth-child(2){color:var(--blue)}
+.comparison-table th:nth-child(3){color:var(--orange)}
+.comparison-table td{font-size:30px;padding:24px 18px}
+.comparison-details .stat .v{font-size:36px}
+.comparison-details .stat .k{font-family:var(--font);font-size:24px;letter-spacing:0;line-height:1.5;margin-top:8px}
+.foot .src a{color:inherit;text-decoration:none}
+.exporting #nav-hot,.exporting #nav-btn,.exporting #nav-panel,.exporting #hud{display:none!important}
+@media print{
+  @page{size:1920px 1080px;margin:0}
+  html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #stage{position:static;width:1920px;height:auto;transform:none!important}
+  .slide,.slide.active{display:flex;position:relative;width:1920px;height:1080px;break-after:page;break-inside:avoid}
+  .slide:last-child{break-after:auto}
+  #nav-hot,#nav-btn,#nav-panel,#hud{display:none!important}
+}
+</style></head><body><main id="stage"><section class="slide cover active" data-id="opening" data-sec="封面" data-title="AI、LLM 与 Agent" aria-label="1. AI、LLM 与 Agent"><svg class="grid" aria-hidden="true" viewBox="0 0 1920 1080" preserveAspectRatio="none"><defs><linearGradient id="fade-0" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="1080"><stop offset="0" stop-color="#EEF2F6"/><stop offset=".55" stop-color="#EEF2F6"/><stop offset="1" stop-color="#DCE3EB"/></linearGradient></defs><line x1="960" y1="330" x2="-1400" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="-1210" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="-1020" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="-830" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="-640" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="-450" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="-260" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="-70" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="120" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="310" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="500" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="690" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="880" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="1070" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="1260" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="1450" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="1640" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="1830" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="2020" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="2210" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="2400" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="2590" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="2780" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="2970" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="960" y1="330" x2="3160" y2="1080" stroke="url(#fade-0)" stroke-width="1"/><line x1="0" y1="370" x2="1920" y2="370" stroke="url(#fade-0)" stroke-width="1"/><line x1="0" y1="380.56" x2="1920" y2="380.56" stroke="url(#fade-0)" stroke-width="1"/><line x1="0" y1="394.49920000000003" x2="1920" y2="394.49920000000003" stroke="url(#fade-0)" stroke-width="1"/><line x1="0" y1="412.89894400000003" x2="1920" y2="412.89894400000003" stroke="url(#fade-0)" stroke-width="1"/><line x1="0" y1="437.18660608000005" x2="1920" y2="437.18660608000005" stroke="url(#fade-0)" stroke-width="1"/><line x1="0" y1="469.2463200256001" x2="1920" y2="469.2463200256001" stroke="url(#fade-0)" stroke-width="1"/><line x1="0" y1="511.5651424337921" x2="1920" y2="511.5651424337921" stroke="url(#fade-0)" stroke-width="1"/><line x1="0" y1="567.4259880126056" x2="1920" y2="567.4259880126056" stroke="url(#fade-0)" stroke-width="1"/><line x1="0" y1="641.1623041766393" x2="1920" y2="641.1623041766393" stroke="url(#fade-0)" stroke-width="1"/><line x1="0" y1="738.4942415131638" x2="1920" y2="738.4942415131638" stroke="url(#fade-0)" stroke-width="1"/><line x1="0" y1="866.9723987973763" x2="1920" y2="866.9723987973763" stroke="url(#fade-0)" stroke-width="1"/><line x1="0" y1="1036.5635664125366" x2="1920" y2="1036.5635664125366" stroke="url(#fade-0)" stroke-width="1"/></svg><div class="txt"><div class="eb" data-fit>AI 发展与应用 · 从模型到任务</div><h1 data-fit>AI、LLM 与 Agent</h1><p data-fit>理解模型原理，找到业务落点</p></div><div class="brand" data-fit>AI / AGENT</div><div class="band"><img src="media/ai-language-tools-cover.png" alt="语言知识与工具连接的概念插画"><span class="image-credit" data-fit>概念插画 · AI 生成</span></div><template data-speaker-notes><p>开场：今天用50分钟，把AI、大语言模型和Agent连成一条能用来做决策的线。前45分钟讲解，最后5分钟讨论。老板可以重点关注值得投入的任务、验收方式和成本，技术同事可以重点关注上下文、工具以及运行边界。</p><p>这次内容以指定的四段课程视频为起点。AI基础与大语言模型部分保留视频的核心讲解，Agent部分结合ReAct研究和官方工程资料延伸。视频中的手写数字、早餐生成和产品应用例子，会改写成适合现场讲述的版本。</p><p>封面为AI生成的概念插画，表示语言知识与工具的连接，不表示某个真实模型的结构。</p><ul><li>01-AI通识与基础-认识人工智能 · 黑马程序员 / 用户提供的本地视频 · <a href="https://www.bilibili.com/video/BV178w1z7EHQ/?p=2">https://www.bilibili.com/video/BV178w1z7EHQ/?p=2</a> · 核验 2026-10-13</li><li>02-AI通识与基础-神经网络原理 · 黑马程序员 / 用户提供的本地视频 · <a href="https://www.bilibili.com/video/BV178w1z7EHQ/?p=3">https://www.bilibili.com/video/BV178w1z7EHQ/?p=3</a> · 核验 2026-10-13</li><li>03.AI通识与基础-大语言模型 · 黑马程序员 / 用户提供的本地视频 · <a href="https://www.bilibili.com/video/BV178w1z7EHQ/?p=4">https://www.bilibili.com/video/BV178w1z7EHQ/?p=4</a> · 核验 2026-10-13</li><li>04-AI通识-大模型应用 · 黑马程序员 / 用户提供的本地视频 · <a href="https://www.bilibili.com/video/BV178w1z7EHQ/?p=5">https://www.bilibili.com/video/BV178w1z7EHQ/?p=5</a> · 核验 2026-10-13</li><li>Building effective agents (2024) · Anthropic 官方工程文章 · <a href="https://www.anthropic.com/engineering/building-effective-agents">https://www.anthropic.com/engineering/building-effective-agents</a> · 核验 2026-10-13</li></ul></template></section>
+<section class="slide" data-id="agent-loop" data-sec="01 Agent 基础" data-title="Agent 如何推进一个任务" aria-label="2. Agent 如何推进一个任务"><svg class="grid" aria-hidden="true" viewBox="0 0 1920 1080" preserveAspectRatio="none"><defs><linearGradient id="fade-1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="1080"><stop offset="0" stop-color="#EEF2F6"/><stop offset=".55" stop-color="#EEF2F6"/><stop offset="1" stop-color="#DCE3EB"/></linearGradient></defs><line x1="960" y1="330" x2="-1400" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="-1210" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="-1020" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="-830" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="-640" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="-450" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="-260" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="-70" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="120" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="310" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="500" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="690" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="880" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="1070" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="1260" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="1450" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="1640" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="1830" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="2020" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="2210" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="2400" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="2590" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="2780" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="2970" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="960" y1="330" x2="3160" y2="1080" stroke="url(#fade-1)" stroke-width="1"/><line x1="0" y1="370" x2="1920" y2="370" stroke="url(#fade-1)" stroke-width="1"/><line x1="0" y1="380.56" x2="1920" y2="380.56" stroke="url(#fade-1)" stroke-width="1"/><line x1="0" y1="394.49920000000003" x2="1920" y2="394.49920000000003" stroke="url(#fade-1)" stroke-width="1"/><line x1="0" y1="412.89894400000003" x2="1920" y2="412.89894400000003" stroke="url(#fade-1)" stroke-width="1"/><line x1="0" y1="437.18660608000005" x2="1920" y2="437.18660608000005" stroke="url(#fade-1)" stroke-width="1"/><line x1="0" y1="469.2463200256001" x2="1920" y2="469.2463200256001" stroke="url(#fade-1)" stroke-width="1"/><line x1="0" y1="511.5651424337921" x2="1920" y2="511.5651424337921" stroke="url(#fade-1)" stroke-width="1"/><line x1="0" y1="567.4259880126056" x2="1920" y2="567.4259880126056" stroke="url(#fade-1)" stroke-width="1"/><line x1="0" y1="641.1623041766393" x2="1920" y2="641.1623041766393" stroke="url(#fade-1)" stroke-width="1"/><line x1="0" y1="738.4942415131638" x2="1920" y2="738.4942415131638" stroke="url(#fade-1)" stroke-width="1"/><line x1="0" y1="866.9723987973763" x2="1920" y2="866.9723987973763" stroke="url(#fade-1)" stroke-width="1"/><line x1="0" y1="1036.5635664125366" x2="1920" y2="1036.5635664125366" stroke="url(#fade-1)" stroke-width="1"/></svg><div class="head"><div class="sec"><i></i><b data-fit>01</b><span data-fit>Agent 基础</span></div><div data-fit>GOAL · MODEL · ACTION</div></div><h1 data-fit>Agent 如何推进一个任务<small>根据目标与反馈，决定下一步</small></h1><div class="body loop-body"><div class="loop-row"><div class="col loop-inputs"><div class="chain"><div class="step blue"><span class="lab" data-fit>输入 · 任务目标</span><div data-fit>查清订单为什么延迟</div></div><div class="step blue"><span class="lab" data-fit>输入 · 已有信息</span><div data-fit>订单记录、业务规则与可用工具</div></div><div class="step green"><span class="lab" data-fit>反馈 · 环境状态</span><div data-fit>库存、物流与上一步执行结果</div></div></div></div><div class="arrow" aria-hidden="true">→</div><div class="frame loop-model"><b data-fit>LLM</b><span data-fit>选择行动与参数</span></div><div class="arrow" aria-hidden="true">→</div><div class="col loop-outputs"><div class="chain"><div class="step orange"><span class="lab" data-fit>行动 · 工具调用</span><div data-fit>程序校验权限与参数，再执行查询</div></div><div class="step green"><span class="lab" data-fit>观察 · 真实结果</span><div data-fit>读取返回结果，判断完成或继续</div></div></div></div></div><svg class="loop-feedback" viewBox="0 0 1310 112" role="img" aria-label="结果反馈 → 下一轮决策"><defs><marker id="return-1" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1B9E77" stroke-width="1.5"/></marker></defs><path d="M1288 0 V78 H24 V6" stroke="#1B9E77" stroke-width="2.5" fill="none" marker-end="url(#return-1)"/><rect x="428" y="53" width="455" height="49" rx="10" fill="#EEF2F6"/><text data-fit x="655" y="87" text-anchor="middle" font-size="28" fill="#1B9E77">结果反馈 → 下一轮决策</text></svg><div class="loop-condition" data-fit>达到完成标准即结束；超过预算、权限不足或信息缺失时停止或转人工。</div></div><div class="foot"><div class="src" data-fit>ReAct · Building effective agents · 订单为教学示例</div></div><template data-speaker-notes><p>现在把视频005里模型与程序的互补关系进一步展开。本讲采用一个清晰的工程定义：以大语言模型为决策组件，让模型根据目标和当前反馈，动态决定下一步过程与工具使用。它不是一个新的模型大小级别。</p><p>模型可以提出“查询这张订单”，但真正执行查询的是宿主程序。程序检查用户是否有权限、参数是否合法，再调用业务接口，并把结果返回模型。系统重复这个过程，直到达到完成标准，或者需要停止、澄清和转人工。</p><p>Agent概念早于大语言模型。本部分讲的是LLM Agent，使用ReAct与官方工程资料作为延伸。评价它不应只看回答是否像人，而应看交付物或业务状态是否满足可核验的完成标准。只读研究和草稿生成也可以是有用的任务。</p><p>ReAct研究把推理与行动交错组织，行动从环境取得信息，信息又影响后续决策。本页是一种简化循环。它不要求向用户暴露模型内部思维过程，实际记录应重点保留行动理由摘要、输入、工具调用和可验证结果。</p><p>可以用地图导航作类比：先确定目的地，选择路线，观察路况，再决定是否调整。真正让循环有价值的是观察结果。如果模型只是反复自己描述“我已经完成”，却没有外部反馈，系统并没有可靠地确认任务状态。</p><p>停止条件需要由系统实现，例如达到最大步骤、超过预算、连续接口失败、发现权限不足，或重要信息需要人确认。失败不是要求模型无限重试的理由。技术实现中，完成状态最好对应明确的业务检查，例如工单编号、数据库状态或测试结果。</p><p>示意图展示本讲采用的 LLM Agent 工程定义。中央 LLM 是系统的决策组件；工具执行、权限校验与停止机制属于外围程序。订单信息为虚构教学示例。</p><ul><li>ReAct: Synergizing Reasoning and Acting in Language Models (2022 / ICLR 2023) · Shunyu Yao 等 / ICLR 2023, arXiv · <a href="https://arxiv.org/abs/2210.03629">https://arxiv.org/abs/2210.03629</a> · 核验 2026-10-13</li><li>Building effective agents (2024) · Anthropic 官方工程文章 · <a href="https://www.anthropic.com/engineering/building-effective-agents">https://www.anthropic.com/engineering/building-effective-agents</a> · 核验 2026-10-13</li></ul></template></section>
+<section class="slide" data-id="workflow-agent" data-sec="02 应用选择" data-title="工作流与 Agent，区别在哪里" aria-label="3. 工作流与 Agent，区别在哪里"><svg class="grid" aria-hidden="true" viewBox="0 0 1920 1080" preserveAspectRatio="none"><defs><linearGradient id="fade-2" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="1080"><stop offset="0" stop-color="#EEF2F6"/><stop offset=".55" stop-color="#EEF2F6"/><stop offset="1" stop-color="#DCE3EB"/></linearGradient></defs><line x1="960" y1="330" x2="-1400" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="-1210" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="-1020" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="-830" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="-640" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="-450" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="-260" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="-70" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="120" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="310" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="500" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="690" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="880" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="1070" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="1260" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="1450" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="1640" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="1830" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="2020" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="2210" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="2400" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="2590" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="2780" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="2970" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="960" y1="330" x2="3160" y2="1080" stroke="url(#fade-2)" stroke-width="1"/><line x1="0" y1="370" x2="1920" y2="370" stroke="url(#fade-2)" stroke-width="1"/><line x1="0" y1="380.56" x2="1920" y2="380.56" stroke="url(#fade-2)" stroke-width="1"/><line x1="0" y1="394.49920000000003" x2="1920" y2="394.49920000000003" stroke="url(#fade-2)" stroke-width="1"/><line x1="0" y1="412.89894400000003" x2="1920" y2="412.89894400000003" stroke="url(#fade-2)" stroke-width="1"/><line x1="0" y1="437.18660608000005" x2="1920" y2="437.18660608000005" stroke="url(#fade-2)" stroke-width="1"/><line x1="0" y1="469.2463200256001" x2="1920" y2="469.2463200256001" stroke="url(#fade-2)" stroke-width="1"/><line x1="0" y1="511.5651424337921" x2="1920" y2="511.5651424337921" stroke="url(#fade-2)" stroke-width="1"/><line x1="0" y1="567.4259880126056" x2="1920" y2="567.4259880126056" stroke="url(#fade-2)" stroke-width="1"/><line x1="0" y1="641.1623041766393" x2="1920" y2="641.1623041766393" stroke="url(#fade-2)" stroke-width="1"/><line x1="0" y1="738.4942415131638" x2="1920" y2="738.4942415131638" stroke="url(#fade-2)" stroke-width="1"/><line x1="0" y1="866.9723987973763" x2="1920" y2="866.9723987973763" stroke="url(#fade-2)" stroke-width="1"/><line x1="0" y1="1036.5635664125366" x2="1920" y2="1036.5635664125366" stroke="url(#fade-2)" stroke-width="1"/></svg><div class="head"><div class="sec"><i></i><b data-fit>02</b><span data-fit>应用选择</span></div><div data-fit>WORKFLOW · AGENT</div></div><h1 data-fit>工作流与 Agent，区别在哪里<small>看下一步由谁决定</small></h1><div class="body comparison-body"><div class="col comparison-example"><div class="frame"><div class="tag blue" data-fit>教学示例 · 订单延迟</div><div class="big" data-fit>“查清订单延迟的原因，整理一份处理建议。”</div></div><ul class="list"><li><span class="n" data-fit>01</span><div><b data-fit>查询订单</b><div class="cap" data-fit>先拿到当前状态</div></div></li><li><span class="n" data-fit>02</span><div><b data-fit>调查异常</b><div class="cap" data-fit>决定还要补查哪些信息</div></div></li><li><span class="n" data-fit>03</span><div><b data-fit>形成结果</b><div class="cap" data-fit>提供依据与处理建议</div></div></li></ul></div><div class="col comparison-details"><table class="comparison-table"><thead><tr><th data-fit>判断点</th><th data-fit>固定工作流</th><th data-fit>Agent</th></tr></thead><tbody><tr><td data-fit>谁决定下一步</td><td data-fit>程序预先定义路径</td><td data-fit>模型根据反馈选择</td></tr><tr><td data-fit>遇到异常</td><td data-fit>进入预设条件分支</td><td data-fit>决定补查、澄清或转人工</td></tr><tr><td data-fit>工具怎样执行</td><td data-fit>程序校验并调用</td><td data-fit>程序校验并调用</td></tr><tr><td data-fit>怎样结束</td><td data-fit>按预设完成条件</td><td data-fit>结合完成标准与停止机制</td></tr></tbody></table><div class="stats"><div class="stat blue"><div class="v" data-fit>路径清楚 → 工作流</div><div class="k" data-fit>先用简单流程验证任务能否完成</div></div><div class="stat orange"><div class="v" data-fit>需要动态判断 → Agent</div><div class="k" data-fit>评估新增决策带来的收益与成本</div></div></div></div></div><div class="foot"><div class="src" data-fit>Building effective agents · 订单为教学示例</div></div><template data-speaker-notes><p>比如收到一张发票，提取字段、查重、核对金额、归档。多数步骤固定，规则也明确，这类任务用工作流非常自然，流程里同样可以调用大语言模型。接了一次工具，不必急着给系统贴上自主Agent的标签。</p><p>另一个任务是调查一张异常订单。查到未出库，可能需要补查库存；物流中断，可能需要查询承运方。如果这些分支由程序预先规定，仍然是工作流。如果模型根据当前反馈动态选择后续动作，才属于本讲讨论的Agent控制方式。现实里也可以用固定流程包住一小段Agent。</p><p>动态性通常带来更多调用、延迟和失败路径。正确问题是：这些额外决策是否改善完成率，值不值得成本？因此试点需要和简单流程比较，不能用技术复杂程度判断项目成熟度。</p><ul><li>Building effective agents (2024) · Anthropic 官方工程文章 · <a href="https://www.anthropic.com/engineering/building-effective-agents">https://www.anthropic.com/engineering/building-effective-agents</a> · 核验 2026-10-13</li></ul></template></section></main><div id="nav-hot"></div><nav id="nav-btn" aria-label="幻灯片导航"><button type="button" class="b" id="nb-prev" aria-label="上一页">‹</button><span class="pg" id="nb-pg" aria-live="polite">1 / 3</span><button type="button" class="b" id="nb-next" aria-label="下一页">›</button><button type="button" class="b" id="nb-list" aria-label="页面目录" aria-controls="nav-panel" aria-expanded="false">☰</button></nav><div id="nav-panel" aria-label="页面目录"></div><div id="hud"></div><script>/* Native browser playback, adapted from skJack/-lip- fc02c1e, VLA episode 21. */
+(() => {
+  const stage = document.getElementById('stage');
+  const slides = [...document.querySelectorAll('.slide')];
+  const panel = document.getElementById('nav-panel');
+  const nav = document.getElementById('nav-btn');
+  const hud = document.getElementById('hud');
+  let current = -1, counter = false, digits = '', timer;
+  function toggleNav(force = !panel.classList.contains('open')) {
+    panel.classList.toggle('open', force);
+    nav.classList.toggle('open', force);
+    document.getElementById('nb-list').setAttribute('aria-expanded', String(force));
+  }
+  function show(index) {
+    index = Math.max(0, Math.min(slides.length - 1, index));
+    slides.forEach((slide, n) => {
+      const on = n === index;
+      slide.classList.toggle('active', on);
+      slide.querySelectorAll('video').forEach(video => {
+        if (on && index !== current) { video.currentTime = 0; video.play().catch(() => {}); }
+        else if (!on) video.pause();
+      });
+    });
+    current = index;
+    history.replaceState(null, '', `#${index + 1}`);
+    document.getElementById('nb-pg').textContent = `${index + 1} / ${slides.length}`;
+    hud.textContent = counter ? `${index + 1} / ${slides.length}` : '← → 翻页 · F 全屏 · C 页码 · G 目录';
+    panel.querySelectorAll('.it').forEach((item, n) => {
+      item.classList.toggle('cur', n === index);
+      item.setAttribute('aria-current', n === index ? 'page' : 'false');
+    });
+  }
+  let lastSection;
+  slides.forEach((slide, index) => {
+    if (slide.dataset.sec !== lastSection) {
+      const label = document.createElement('div'); label.className = 'sec-title';
+      label.textContent = slide.dataset.sec; panel.append(label); lastSection = slide.dataset.sec;
+    }
+    const item = document.createElement('button'); item.type = 'button'; item.className = 'it'; item.dataset.k = index;
+    const number = document.createElement('span'); number.className = 'k'; number.textContent = index + 1;
+    const title = document.createElement('span'); title.textContent = slide.dataset.title;
+    item.append(number, title); item.addEventListener('click', () => { show(index); toggleNav(false); }); panel.append(item);
+  });
+  document.getElementById('nb-list').addEventListener('click', () => toggleNav());
+  document.getElementById('nb-prev').addEventListener('click', () => show(current - 1));
+  document.getElementById('nb-next').addEventListener('click', () => show(current + 1));
+  function fit() { stage.style.transform = `translate(-50%,-50%) scale(${Math.min(innerWidth / 1920, innerHeight / 1080)})`; }
+  addEventListener('resize', fit);
+  addEventListener('hashchange', () => { const n = Number(location.hash.slice(1)); if (Number.isInteger(n) && n > 0) show(n - 1); });
+  addEventListener('keydown', event => {
+    if (event.ctrlKey || event.metaKey || event.altKey || event.target.closest('input,textarea,[contenteditable]')) return;
+    if (event.target.closest('button,a') && [' ', 'Enter'].includes(event.key)) return;
+    if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(event.key)) { event.preventDefault(); show(current + 1); }
+    else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(event.key)) { event.preventDefault(); show(current - 1); }
+    else if (event.key === 'Home') { event.preventDefault(); show(0); }
+    else if (event.key === 'End') { event.preventDefault(); show(slides.length - 1); }
+    else if (event.key === 'Escape') toggleNav(false);
+    else if (event.key.toLowerCase() === 'g') toggleNav();
+    else if (event.key.toLowerCase() === 'f') {
+      if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+      else document.documentElement.requestFullscreen().catch(() => {});
+    } else if (event.key.toLowerCase() === 'c') { counter = !counter; hud.classList.toggle('show', counter); show(current); }
+    else if (/^[0-9]$/.test(event.key)) {
+      digits = (digits + event.key).slice(-String(slides.length).length); clearTimeout(timer);
+      timer = setTimeout(() => { const n = Number(digits); if (n > 0 && n <= slides.length) show(n - 1); digits = ''; }, 500);
+    }
+  });
+  addEventListener('click', event => {
+    if (event.target.closest('a,button,video,#nav-panel,#nav-btn,#nav-hot')) return;
+    if (panel.classList.contains('open')) { toggleNav(false); return; }
+    show(current + (event.clientX / innerWidth < .2 ? -1 : 1));
+  });
+  fit();
+  const initial = Number(location.hash.slice(1)); show(Number.isInteger(initial) && initial > 0 ? initial - 1 : 0);
+  if (new URLSearchParams(location.search).get('nav') === '1') toggleNav(true);
+  hud.classList.add('show'); setTimeout(() => { if (!counter) hud.classList.remove('show'); }, 4000);
+})();
+</script></body></html>

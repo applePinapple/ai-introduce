@@ -8,7 +8,7 @@
     "audioTranscribed": false,
     "subtitleStreamPresent": false,
     "limitations": "这是课程画面与可见字幕的视觉提炼，不是逐字音频转写。下列区间是已观察画面覆盖的时间范围，不能当作精确章节起止点。未将未出现于抽帧画面的口述内容当作已核验事实。",
-    "script": "scripts/extract-video-evidence.py",
+    "script": "scripts/media/extract-video-evidence.py",
     "frameManifest": "assets/video-evidence/frame-manifest.json"
   },
   "totalDurationSeconds": 3385.823,

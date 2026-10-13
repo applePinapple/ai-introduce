@@ -1,6 +1,6 @@
 {
   "verifiedOn": "2026-10-13",
-  "purpose": "为50分钟、老板与技术同事混合听众报告提供事实边界；幻灯片正文仍须仅由content/deck.json生成。",
+  "purpose": "为50分钟、老板与技术同事混合听众报告提供事实边界；原演讲正文保留在content/decks/ai-history.json，当前样例正文维护在content/decks/sample.json。",
   "history": [
     {"year":"1950","claim":"图灵通过模仿游戏讨论机器智能。","sourceIds":["turing-1950"]},
     {"year":"1956","claim":"达特茅斯夏季研究项目成为AI历史的重要起点。","note":"原始提案写于1955年8月31日，计划研究发生在1956年；不要写成1956年首次提出提案。","sourceIds":["dartmouth-proposal"]},

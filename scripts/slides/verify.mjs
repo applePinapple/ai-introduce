@@ -3,12 +3,14 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { chromium } from 'playwright-core';
 
-const out = path.resolve('output/lip-sample');
+import { outputDir, loadDeck } from './check.mjs';
+const { deck } = await loadDeck();
+const out = path.resolve(outputDir);
 const shots = path.join(out, 'slides');
 const verification = path.join(out, 'verification');
 await fs.mkdir(shots, { recursive: true });
 await fs.mkdir(verification, { recursive: true });
-const expectedCount = 3;
+const expectedCount = deck.slides.length;
 const failures = [], errors = [], externalRequests = [], resourceFailures = [], reports = [];
 const interactions = {};
 const candidates = [
@@ -125,7 +127,7 @@ try {
   await page.keyboard.press('Home'); await assertSlide(1, 'home');
   await page.keyboard.press('ArrowRight'); await assertSlide(2, 'arrowRight');
   await page.keyboard.press('ArrowLeft'); await assertSlide(1, 'arrowLeft');
-  await page.keyboard.press('End'); await assertSlide(3, 'end');
+  await page.keyboard.press('End'); await assertSlide(expectedCount, 'end');
   await page.keyboard.press('1'); await assertSlide(1, 'numberJump');
   await page.keyboard.press('g');
   await page.waitForFunction(() => document.querySelector('#nav-panel').classList.contains('open'));
@@ -162,9 +164,13 @@ try {
   const images = await Promise.all(Array.from({ length: expectedCount }, (_, index) => fs.readFile(path.join(shots, `slide-${String(index + 1).padStart(2, '0')}.png`))));
   const contact = await context.newPage();
   await contact.setViewportSize({ width: 1240, height: 752 });
-  await contact.setContent(`<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>三页样例总览</title><style>*{box-sizing:border-box}body{margin:0;padding:28px;background:#e8edf3;color:#10243d;font-family:Arial,"Microsoft YaHei",sans-serif}h1{margin:0 0 20px;font-size:22px;font-weight:600}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}figure{margin:0}img{display:block;width:100%;aspect-ratio:16/9;background:#fff;box-shadow:0 3px 14px #0b12201b}figcaption{padding:7px 2px;font-size:13px;color:#516077}</style><h1>HTML 幻灯片 · 三页样例</h1><div class="grid">${images.map((data, index) => `<figure><img src="data:image/png;base64,${data.toString('base64')}"><figcaption>${String(index + 1).padStart(2, '0')} / 03</figcaption></figure>`).join('')}</div></html>`);
+  await contact.setContent(`<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>演讲总览</title><style>*{box-sizing:border-box}body{margin:0;padding:28px;background:#e8edf3;color:#10243d;font-family:Arial,"Microsoft YaHei",sans-serif}h1{margin:0 0 20px;font-size:22px;font-weight:600}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}figure{margin:0}img{display:block;width:100%;aspect-ratio:16/9;background:#fff;box-shadow:0 3px 14px #0b12201b}figcaption{padding:7px 2px;font-size:13px;color:#516077}</style><h1>${deck.title} · ${expectedCount} 页</h1><div class="grid">${images.map((data, index) => `<figure><img src="data:image/png;base64,${data.toString('base64')}"><figcaption>${String(index + 1).padStart(2, '0')} / ${expectedCount}</figcaption></figure>`).join('')}</div></html>`);
   await contact.evaluate(async () => { await Promise.all(Array.from(document.images).map(img => img.decode())); await document.fonts.ready; });
   await contact.screenshot({ path: path.join(out, '预览-全部页面.png'), fullPage: true });
+  for (let start=0; start<expectedCount; start+=6) {
+    await contact.evaluate(({start}) => { document.querySelectorAll('figure').forEach((f,i) => f.style.display = i >= start && i < start+6 ? '' : 'none'); window.scrollTo(0,0); }, {start});
+    await contact.screenshot({path:path.join(out, 'overview-'+String(Math.floor(start/6)+1).padStart(2,'0')+'.png'),fullPage:true});
+  }
   await contact.close();
   const report = { checkedAt: new Date().toISOString(), browser: await browser.version(), executablePath, slideCount, viewports: 3, pdfPages, print, interactions, reports, errors, externalRequests, resourceFailures, failures: [...new Set(failures)] };
   await fs.writeFile(path.join(out, 'verification.json'), `${JSON.stringify(report, null, 2)}\n`);

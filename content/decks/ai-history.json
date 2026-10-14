@@ -1,5 +1,5 @@
 {
-  "$schema": "../../schemas/deck.schema.json",
+  "$schema": "../../schemas/full.schema.json",
   "title": "AI、大语言模型与 Agent",
   "subtitle": "理解模型原理，找到业务落点",
   "language": "zh-CN",
@@ -9,16 +9,24 @@
   "slides": [
     {
       "id": "opening",
-      "section": "开场",
       "layout": "cover",
-      "title": "AI、大语言模型\n与 Agent",
-      "timingSeconds": 45,
+      "section": "开场",
+      "title": "AI、LLM\n与 Agent",
+      "eyebrow": "AI 发展与应用 · 从模型到任务",
       "subtitle": "理解模型原理，找到业务落点",
-      "imagePath": "assets/design/ai-language-tools-cover.png",
+      "brand": "Rein Intelligence（智蜂）",
+      "presenter": "刘汉轩",
+      "reportDate": "2026.10",
+      "robotModel": "Z100L",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo，Rein 为蓝色，BEE 为金色",
+      "imagePath": "assets/brand/reinbee-wheeled-dual-arm-robot.png",
+      "imageAlt": "用户提供的 ReinBEE Z100L 轮式双臂机器人，白色机身、双机械臂与轮式底盘",
+      "imageCredit": "ReinBEE · 轮式双臂机器人",
       "notes": [
         "开场：今天用50分钟，把AI、大语言模型和Agent连成一条能用来做决策的线。前45分钟讲解，最后5分钟讨论。老板可以重点关注值得投入的任务、验收方式和成本，技术同事可以重点关注上下文、工具以及运行边界。",
         "这次内容以指定的四段课程视频为起点。AI基础与大语言模型部分保留视频的核心讲解，Agent部分结合ReAct研究和官方工程资料延伸。视频中的手写数字、早餐生成和产品应用例子，会改写成适合现场讲述的版本。",
-        "封面为AI生成的概念插画，表示语言知识与工具的连接，不表示某个真实模型的结构。"
+        "封面机器人图片、型号、汇报人及汇报时间由用户提供；机器人使用原图保留外观和机身品牌标识，未据图片推断技术参数或能力。浅色版Logo依据用户提供的品牌素材制作，Rein调整为蓝色，BEE保留金色。"
       ],
       "sourceIds": [
         "video-ai",
@@ -26,7 +34,10 @@
         "video-llm",
         "video-apps",
         "effective-agents"
-      ]
+      ],
+      "timingSeconds": 45,
+      "chapter": "00",
+      "sectionLabel": "开场"
     },
     {
       "id": "one-business-question",
@@ -48,7 +59,12 @@
       ],
       "sourceIds": [
         "effective-agents"
-      ]
+      ],
+      "chapter": "00",
+      "sectionLabel": "开场",
+      "eyebrow": "ORIENTATION",
+      "subtitle": "",
+      "sourceLabel": "Building effective agents"
     },
     {
       "id": "agenda",
@@ -87,7 +103,13 @@
         "讲解按四段展开。AI历史只保留理解今天技术所需的线索，不做年份背诵。大语言模型和Agent合计37分钟，占45分钟主体讲解的约82%。",
         "大语言模型部分先解释Token、注意力和生成，再落到提示词、知识库和产品。Agent部分把模型接进任务流程，讨论真实研究案例以及可操作的试点方式。听到陌生术语不必记定义，只要把它放回同一个业务问题里。"
       ],
-      "sourceIds": []
+      "sourceIds": [],
+      "chapter": "00",
+      "sectionLabel": "开场",
+      "eyebrow": "ORIENTATION",
+      "subtitle": "",
+      "sourceLabel": "演讲安排 · 50 分钟",
+      "contentKind": "presentation-plan"
     },
     {
       "id": "history",
@@ -127,6 +149,14 @@
         "transformer-2017",
         "few-shot-lm",
         "instructgpt-2022"
+      ],
+      "chapter": "01",
+      "sectionLabel": "AI 基础",
+      "eyebrow": "AI · LEARNING",
+      "sourceLabel": "课程 002 · Dartmouth 1955/1956 · AlexNet 2012",
+      "evidencePaths": [
+        "assets/video-evidence/002/frame-004.jpg",
+        "assets/video-evidence/002/detail-280.jpg"
       ]
     },
     {
@@ -172,12 +202,20 @@
         "video-ai",
         "foundation-models",
         "effective-agents"
+      ],
+      "chapter": "01",
+      "sectionLabel": "AI 基础",
+      "eyebrow": "AI · LEARNING",
+      "subtitle": "",
+      "sourceLabel": "课程 002 · Foundation Models 2021 · Building effective agents",
+      "evidencePaths": [
+        "assets/video-evidence/002/detail-280.jpg"
       ]
     },
     {
       "id": "neural-example",
       "section": "AI 基础",
-      "layout": "image",
+      "layout": "diagram",
       "title": "神经网络怎样学会认数字",
       "timingSeconds": 90,
       "subtitle": "视频中的手写数字识别例子",
@@ -185,25 +223,46 @@
       "notes": [
         "视频003约06:30至12:00使用28乘28像素的手写数字讲网络输入与分类，约12:30至16:00讲预测、损失、反向传播和调权重。我们保留这个直观例子：机器收到的并不是人眼看见的“7”，而是一组像素强度。",
         "可以把每个神经元粗略理解为带权重的评分器。某些输入更重要，乘上更大的权重，再经过非线性变换，多层组合后形成分类依据。将某层直接说成识别笔画、下一层识别数字，只是帮助理解的类比，不保证每个神经元都能被解释成这样的概念。",
-        "如果正确答案是7而模型偏向9，损失函数衡量偏差，反向传播计算参数应该如何调整，优化器执行更新。只在做过的题上答得好还不够，因此要用独立测试数据检验。神经网络受脑科学启发，但这里使用的是数学模型，不应当作人脑工作的完整复制。",
-        "配图为AI生成的教学插画，只表示输入、网络和分类的关系，不对应真实网络结构、训练样本或预测分数。"
+        "如果正确答案是7而模型偏向9，损失函数衡量偏差，反向传播计算参数应该如何调整，优化器执行更新。只在做过的题上答得好还不够，因此要用独立测试数据检验。神经网络受脑科学启发，但这里使用的是数学模型，不应当作人脑工作的完整复制。"
       ],
       "sourceIds": [
         "video-neural",
         "backprop-google"
       ],
-      "imagePath": "assets/design/neural-digits.png",
-      "caption": "数字、网络与分类的概念示意",
-      "bullets": [
-        "像素输入，逐层组合",
-        "对照标签，计算误差",
-        "更新参数，用新样本检验"
+      "chapter": "01",
+      "sectionLabel": "AI 基础",
+      "eyebrow": "AI · LEARNING",
+      "sourceLabel": "课程 003 · Google ML Crash Course",
+      "diagramKind": "network",
+      "nodes": [
+        {
+          "label": "像素输入",
+          "description": "28 × 28 → 784 个数值",
+          "tone": "blue"
+        },
+        {
+          "label": "隐藏层",
+          "description": "加权组合与非线性变换",
+          "tone": "blue"
+        },
+        {
+          "label": "分类输出",
+          "description": "比较 0—9 的类别得分",
+          "tone": "orange"
+        }
+      ],
+      "feedback": "预测 → 对照标签算损失 → 反向传播求梯度 → 优化器更新参数",
+      "footnote": "教学结构示意：节点和连线经过简化，不对应某个实际网络。",
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-014.jpg",
+        "assets/video-evidence/003/frame-015.jpg",
+        "assets/video-evidence/003/frame-028.jpg"
       ]
     },
     {
       "id": "train-infer",
       "section": "AI 基础",
-      "layout": "comparison",
+      "layout": "duo",
       "title": "训练与使用，是两个阶段",
       "timingSeconds": 60,
       "columns": [
@@ -234,20 +293,22 @@
         "video-neural",
         "video-apps",
         "few-shot-lm"
+      ],
+      "chapter": "01",
+      "sectionLabel": "AI 基础",
+      "eyebrow": "AI · LEARNING",
+      "subtitle": "",
+      "sourceLabel": "课程 003 · 课程 005 · GPT-3 2020",
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-028.jpg"
       ]
     },
     {
       "id": "tokens",
       "section": "大语言模型",
-      "layout": "spotlight",
+      "layout": "diagram",
       "title": "语言怎样变成模型的输入",
       "timingSeconds": 75,
-      "lead": "文本先被切分为 Token，\n再转换成模型可计算的数值。",
-      "bullets": [
-        "Token 可能是字、词的一部分或标点",
-        "不同模型可能采用不同切分",
-        "长度与成本通常按 Token 计算"
-      ],
       "footnote": "“Token = 一个词”只是简化说法，不能用于精确计数。",
       "notes": [
         "视频004约01:00至04:00介绍文本如何转换为数字。可以类比快递打包：人看到的是一封完整邮件，模型收到的则是按规则拆分的一串小包裹，每个包裹对应一个编号。这些小包裹就是Token。",
@@ -257,6 +318,38 @@
       "sourceIds": [
         "video-llm",
         "llm-mechanics-hf"
+      ],
+      "chapter": "02",
+      "sectionLabel": "大语言模型",
+      "eyebrow": "LANGUAGE MODELS",
+      "subtitle": "",
+      "sourceLabel": "课程 004 · Hugging Face LLM Course",
+      "diagramKind": "pipeline",
+      "nodes": [
+        {
+          "label": "文本",
+          "description": "货还没到，能查一下吗？",
+          "tone": "blue"
+        },
+        {
+          "label": "Token 序列",
+          "description": "按分词器规则切分与编号",
+          "tone": "blue"
+        },
+        {
+          "label": "向量表示",
+          "description": "将编号映射为数值向量",
+          "tone": "blue"
+        }
+      ],
+      "bullets": [
+        "Token 不一定等于一个词",
+        "切分方式依模型而异",
+        "长度影响上下文占用"
+      ],
+      "takeaway": "模型处理的是数值表示；分词计数应使用对应分词器",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-004.jpg"
       ]
     },
     {
@@ -278,6 +371,16 @@
         "video-llm",
         "llm-mechanics-hf",
         "rag"
+      ],
+      "chapter": "02",
+      "sectionLabel": "大语言模型",
+      "eyebrow": "LANGUAGE MODELS",
+      "subtitle": "",
+      "sourceLabel": "课程 004 · Hugging Face LLM Course · RAG 2020",
+      "promptLabel": "问题 / 输入",
+      "responseLabel": "解释 / 输出",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-014.jpg"
       ]
     },
     {
@@ -298,17 +401,25 @@
       "sourceIds": [
         "video-llm",
         "transformer-2017"
+      ],
+      "chapter": "02",
+      "sectionLabel": "大语言模型",
+      "eyebrow": "LANGUAGE MODELS",
+      "subtitle": "",
+      "sourceLabel": "课程 004 · Transformer 2017",
+      "promptLabel": "问题 / 输入",
+      "responseLabel": "解释 / 输出",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-020.jpg",
+        "assets/video-evidence/004/frame-022.jpg"
       ]
     },
     {
       "id": "next-token",
       "section": "大语言模型",
-      "layout": "example",
+      "layout": "diagram",
       "title": "一句回答，是一步步生成的",
       "timingSeconds": 90,
-      "prompt": "“第一次去北京，早餐可以试试……”",
-      "response": "候选内容可能包括“豆汁”“包子”等。\n选出下一个 Token 后，连同前文再继续生成。",
-      "caption": "沿用视频的北京早餐例子，候选为示意",
       "takeaway": "下一个 Token 预测反复进行，形成摘要、代码或回答",
       "notes": [
         "视频004约13:30至18:00展示早餐建议如何逐步续写，是讲清语言生成最有用的例子。模型每次依据已经看到的上下文，给可能的下一个Token分配概率，再按解码规则选出一个。新Token加到前文中，再运行下一步。",
@@ -319,12 +430,41 @@
         "video-llm",
         "few-shot-lm",
         "llm-mechanics-hf"
+      ],
+      "chapter": "02",
+      "sectionLabel": "大语言模型",
+      "eyebrow": "LANGUAGE MODELS",
+      "subtitle": "",
+      "sourceLabel": "课程 004 · GPT-3 2020 · Hugging Face LLM Course",
+      "diagramKind": "pipeline",
+      "nodes": [
+        {
+          "label": "已有上下文",
+          "description": "第一次去北京，早餐可以试试……",
+          "tone": "blue"
+        },
+        {
+          "label": "模型计算",
+          "description": "给下一个 Token 的候选分配概率",
+          "tone": "blue"
+        },
+        {
+          "label": "选择并追加",
+          "description": "按解码规则选取，再接到前文",
+          "tone": "orange"
+        }
+      ],
+      "feedback": "把新 Token 连同前文送回模型，继续下一步",
+      "footnote": "沿用课程 004 早餐例子；示意候选为“豆汁”“包子”，不代表实测概率或分词结果。",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-028.jpg",
+        "assets/video-evidence/004/frame-035.jpg"
       ]
     },
     {
       "id": "temperature",
       "section": "大语言模型",
-      "layout": "comparison",
+      "layout": "duo",
       "title": "温度影响输出的多样性",
       "timingSeconds": 60,
       "columns": [
@@ -356,6 +496,14 @@
         "llm-mechanics-hf",
         "hf-decoding-temperature",
         "hf-generation-config"
+      ],
+      "chapter": "02",
+      "sectionLabel": "大语言模型",
+      "eyebrow": "LANGUAGE MODELS",
+      "subtitle": "",
+      "sourceLabel": "课程 004 · Hugging Face LLM Course · Hugging Face · Decoding",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-028.jpg"
       ]
     },
     {
@@ -391,20 +539,19 @@
       "sourceIds": [
         "instructgpt-2022",
         "foundation-models"
-      ]
+      ],
+      "chapter": "02",
+      "sectionLabel": "大语言模型",
+      "eyebrow": "LANGUAGE MODELS",
+      "subtitle": "",
+      "sourceLabel": "InstructGPT 2022 · Foundation Models 2021"
     },
     {
       "id": "context-window",
       "section": "大语言模型",
-      "layout": "spotlight",
+      "layout": "diagram",
       "title": "上下文是模型当前的“工作台”",
       "timingSeconds": 75,
-      "lead": "指令、历史消息、资料、工具结果，\n一起进入本次任务的上下文。",
-      "bullets": [
-        "能容纳的长度有上限，具体值依模型而异",
-        "材料越多，不代表越能找到关键证据",
-        "长期记忆由应用保存并按需提供"
-      ],
       "takeaway": "对话历史、持久记忆与模型参数，需要分开理解",
       "notes": [
         "视频004约21:00至22:30讲上下文长度，视频005约04:00至06:30讲会话消息。把上下文想成当前工作台：你给助手放上任务要求、过去的聊天、制度文件、工具返回结果，它利用眼前这些材料继续回答。",
@@ -415,12 +562,45 @@
         "video-llm",
         "video-apps",
         "effective-agents"
+      ],
+      "chapter": "02",
+      "sectionLabel": "大语言模型",
+      "eyebrow": "LANGUAGE MODELS",
+      "subtitle": "",
+      "sourceLabel": "课程 004 · 课程 005 · Building effective agents",
+      "diagramKind": "pipeline",
+      "nodes": [
+        {
+          "label": "任务要求",
+          "description": "目标、输出格式、约束",
+          "tone": "blue"
+        },
+        {
+          "label": "当前材料",
+          "description": "历史消息、检索片段、工具结果",
+          "tone": "blue"
+        },
+        {
+          "label": "本次调用",
+          "description": "在可用上下文内生成输出",
+          "tone": "orange"
+        }
+      ],
+      "bullets": [
+        "上下文长度有上限",
+        "材料更多不等于证据更清晰",
+        "长期记忆由应用保存与提供"
+      ],
+      "footnote": "工作台是教学类比；实际可用上下文与输入输出预算依模型和服务而异。",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-045.jpg",
+        "assets/video-evidence/005/frame-011.jpg"
       ]
     },
     {
       "id": "model-product",
       "section": "大语言模型",
-      "layout": "comparison",
+      "layout": "duo",
       "title": "模型与产品，各自负责什么",
       "timingSeconds": 75,
       "columns": [
@@ -450,6 +630,15 @@
       "sourceIds": [
         "video-apps",
         "effective-agents"
+      ],
+      "chapter": "02",
+      "sectionLabel": "大语言模型",
+      "eyebrow": "LANGUAGE MODELS",
+      "subtitle": "",
+      "sourceLabel": "课程 005 · Building effective agents",
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-013.jpg",
+        "assets/video-evidence/005/frame-019.jpg"
       ]
     },
     {
@@ -470,12 +659,19 @@
       "sourceIds": [
         "few-shot-lm",
         "effective-agents"
-      ]
+      ],
+      "chapter": "02",
+      "sectionLabel": "大语言模型",
+      "eyebrow": "LANGUAGE MODELS",
+      "subtitle": "",
+      "sourceLabel": "GPT-3 2020 · Building effective agents",
+      "promptLabel": "问题 / 输入",
+      "responseLabel": "解释 / 输出"
     },
     {
       "id": "hallucination",
       "section": "大语言模型",
-      "layout": "comparison",
+      "layout": "duo",
       "title": "流畅回答也可能缺少事实依据",
       "timingSeconds": 75,
       "columns": [
@@ -506,7 +702,12 @@
         "instructgpt-2022",
         "rag",
         "effective-agents"
-      ]
+      ],
+      "chapter": "02",
+      "sectionLabel": "大语言模型",
+      "eyebrow": "LANGUAGE MODELS",
+      "subtitle": "",
+      "sourceLabel": "InstructGPT 2022 · RAG 2020 · Building effective agents"
     },
     {
       "id": "rag",
@@ -542,7 +743,11 @@
       "sourceIds": [
         "rag",
         "effective-agents"
-      ]
+      ],
+      "chapter": "02",
+      "sectionLabel": "大语言模型",
+      "eyebrow": "LANGUAGE MODELS",
+      "sourceLabel": "RAG 2020 · Building effective agents"
     },
     {
       "id": "rag-example",
@@ -561,7 +766,14 @@
       ],
       "sourceIds": [
         "rag"
-      ]
+      ],
+      "chapter": "02",
+      "sectionLabel": "大语言模型",
+      "eyebrow": "LANGUAGE MODELS",
+      "subtitle": "",
+      "sourceLabel": "RAG 2020",
+      "promptLabel": "问题 / 输入",
+      "responseLabel": "解释 / 输出"
     },
     {
       "id": "adaptation",
@@ -607,7 +819,12 @@
         "rag",
         "instructgpt-2022",
         "effective-agents"
-      ]
+      ],
+      "chapter": "02",
+      "sectionLabel": "大语言模型",
+      "eyebrow": "LANGUAGE MODELS",
+      "subtitle": "",
+      "sourceLabel": "GPT-3 2020 · RAG 2020 · InstructGPT 2022"
     },
     {
       "id": "customer-service-evidence",
@@ -630,7 +847,12 @@
       "sourceIds": [
         "genai-work-qje",
         "genai-work-paper"
-      ]
+      ],
+      "chapter": "02",
+      "sectionLabel": "大语言模型",
+      "eyebrow": "LANGUAGE MODELS",
+      "subtitle": "",
+      "sourceLabel": "QJE 2025 · Generative AI at Work · v2"
     },
     {
       "id": "agent-definition",
@@ -654,33 +876,81 @@
         "video-apps",
         "react",
         "effective-agents"
+      ],
+      "chapter": "03",
+      "sectionLabel": "Agent 与应用",
+      "eyebrow": "AGENTS · APPLICATIONS",
+      "subtitle": "",
+      "sourceLabel": "课程 005 · ReAct 2022/2023 · Building effective agents",
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-019.jpg"
       ]
     },
     {
       "id": "workflow-agent",
-      "section": "Agent 与应用",
       "layout": "comparison",
-      "title": "固定工作流与 Agent 的区别",
-      "timingSeconds": 75,
-      "columns": [
+      "section": "Agent 与应用",
+      "chapter": "03",
+      "sectionLabel": "Agent 与应用",
+      "eyebrow": "AGENTS · APPLICATIONS",
+      "title": "工作流与 Agent，区别在哪里",
+      "subtitle": "看下一步由谁决定",
+      "exampleLabel": "教学示例 · 订单延迟",
+      "example": "“查清订单延迟的原因，整理一份处理建议。”",
+      "steps": [
         {
-          "title": "工作流：路径事先确定",
-          "bullets": [
-            "按顺序提取、校验、归档",
-            "分支条件由程序明确规定",
-            "便于控制和重复验证"
-          ]
+          "label": "查询订单",
+          "text": "先拿到当前状态"
         },
         {
-          "title": "Agent：下一步依反馈决定",
-          "bullets": [
-            "模型决定还需补查什么",
-            "路径可能随任务和环境变化",
-            "需要更强的评估和停止机制"
-          ]
+          "label": "调查异常",
+          "text": "决定还要补查哪些信息"
+        },
+        {
+          "label": "形成结果",
+          "text": "提供依据与处理建议"
         }
       ],
-      "takeaway": "路径清楚时可先用工作流，动态决策有价值时再引入 Agent",
+      "headers": [
+        "判断点",
+        "固定工作流",
+        "Agent"
+      ],
+      "rows": [
+        [
+          "谁决定下一步",
+          "程序预先定义路径",
+          "模型根据反馈选择"
+        ],
+        [
+          "遇到异常",
+          "进入预设条件分支",
+          "决定补查、澄清或转人工"
+        ],
+        [
+          "工具怎样执行",
+          "程序校验并调用",
+          "程序校验并调用"
+        ],
+        [
+          "怎样结束",
+          "按预设完成条件",
+          "结合完成标准与停止机制"
+        ]
+      ],
+      "takeaways": [
+        {
+          "title": "路径清楚 → 工作流",
+          "text": "先用简单流程验证任务能否完成",
+          "tone": "blue"
+        },
+        {
+          "title": "需要动态判断 → Agent",
+          "text": "评估新增决策带来的收益与成本",
+          "tone": "orange"
+        }
+      ],
+      "sourceLabel": "Building effective agents",
       "notes": [
         "比如收到一张发票，提取字段、查重、核对金额、归档。多数步骤固定，规则也明确，这类任务用工作流非常自然，流程里同样可以调用大语言模型。接了一次工具，不必急着给系统贴上自主Agent的标签。",
         "另一个任务是调查一张异常订单。查到未出库，可能需要补查库存；物流中断，可能需要查询承运方。如果这些分支由程序预先规定，仍然是工作流。如果模型根据当前反馈动态选择后续动作，才属于本讲讨论的Agent控制方式。现实里也可以用固定流程包住一小段Agent。",
@@ -688,42 +958,66 @@
       ],
       "sourceIds": [
         "effective-agents"
-      ]
+      ],
+      "timingSeconds": 75
     },
     {
       "id": "agent-loop",
+      "layout": "loop",
       "section": "Agent 与应用",
-      "layout": "process",
-      "title": "Agent 的一次工作循环",
-      "timingSeconds": 90,
-      "items": [
+      "chapter": "03",
+      "sectionLabel": "Agent 与应用",
+      "eyebrow": "AGENTS · APPLICATIONS",
+      "title": "Agent 如何推进一个任务",
+      "subtitle": "根据目标与反馈，决定下一步",
+      "inputs": [
         {
-          "label": "理解目标",
-          "description": "明确交付结果、约束与已有信息"
+          "label": "输入 · 任务目标",
+          "text": "查清订单为什么延迟",
+          "tone": "blue"
         },
         {
-          "label": "选择行动",
-          "description": "决定工具，生成结构化参数"
+          "label": "输入 · 已有信息",
+          "text": "订单记录、业务规则与可用工具",
+          "tone": "blue"
         },
         {
-          "label": "执行并观察",
-          "description": "程序校验执行，返回真实结果"
-        },
-        {
-          "label": "判断下一步",
-          "description": "继续、澄清、完成，或停止转人工"
+          "label": "反馈 · 环境状态",
+          "text": "库存、物流与上一步执行结果",
+          "tone": "green"
         }
       ],
-      "takeaway": "环境反馈进入下一轮，预算与停止条件始终生效",
+      "model": "LLM",
+      "modelCaption": "选择行动与参数",
+      "outputs": [
+        {
+          "label": "行动 · 工具调用",
+          "text": "程序校验权限与参数，再执行查询",
+          "tone": "orange"
+        },
+        {
+          "label": "观察 · 真实结果",
+          "text": "读取返回结果，判断完成或继续",
+          "tone": "green"
+        }
+      ],
+      "feedback": "结果反馈 → 下一轮决策",
+      "condition": "达到完成标准即结束；超过预算、权限不足或信息缺失时停止或转人工。",
+      "sourceLabel": "ReAct 2022/2023 · Building effective agents",
       "notes": [
         "ReAct研究把推理与行动交错组织，行动从环境取得信息，信息又影响后续决策。本页是一种简化循环。它不要求向用户暴露模型内部思维过程，实际记录应重点保留行动理由摘要、输入、工具调用和可验证结果。",
         "可以用地图导航作类比：先确定目的地，选择路线，观察路况，再决定是否调整。真正让循环有价值的是观察结果。如果模型只是反复自己描述“我已经完成”，却没有外部反馈，系统并没有可靠地确认任务状态。",
-        "停止条件需要由系统实现，例如达到最大步骤、超过预算、连续接口失败、发现权限不足，或重要信息需要人确认。失败不是要求模型无限重试的理由。技术实现中，完成状态最好对应明确的业务检查，例如工单编号、数据库状态或测试结果。"
+        "停止条件需要由系统实现，例如达到最大步骤、超过预算、连续接口失败、发现权限不足，或重要信息需要人确认。失败不是要求模型无限重试的理由。技术实现中，完成状态最好对应明确的业务检查，例如工单编号、数据库状态或测试结果。",
+        "现在把视频005里模型与程序的互补关系进一步展开。本讲采用一个清晰的工程定义：以大语言模型为决策组件，让模型根据目标和当前反馈，动态决定下一步过程与工具使用。它不是一个新的模型大小级别。",
+        "模型可以提出“查询这张订单”，但真正执行查询的是宿主程序。程序检查用户是否有权限、参数是否合法，再调用业务接口，并把结果返回模型。系统重复这个过程，直到达到完成标准，或者需要停止、澄清和转人工。",
+        "Agent概念早于大语言模型。本部分讲的是LLM Agent，使用ReAct与官方工程资料作为延伸。评价它不应只看回答是否像人，而应看交付物或业务状态是否满足可核验的完成标准。只读研究和草稿生成也可以是有用的任务。",
+        "示意图展示本讲采用的 LLM Agent 工程定义。中央 LLM 是系统的决策组件；工具执行、权限校验与停止机制属于外围程序。订单信息为虚构教学示例。"
       ],
       "sourceIds": [
         "react",
         "effective-agents"
-      ]
+      ],
+      "timingSeconds": 90
     },
     {
       "id": "order-trace",
@@ -767,7 +1061,12 @@
       "sourceIds": [
         "react",
         "effective-agents"
-      ]
+      ],
+      "chapter": "03",
+      "sectionLabel": "Agent 与应用",
+      "eyebrow": "AGENTS · APPLICATIONS",
+      "subtitle": "",
+      "sourceLabel": "ReAct 2022/2023 · Building effective agents"
     },
     {
       "id": "order-output",
@@ -787,7 +1086,14 @@
       "sourceIds": [
         "effective-agents",
         "aws-idempotent-retries"
-      ]
+      ],
+      "chapter": "03",
+      "sectionLabel": "Agent 与应用",
+      "eyebrow": "AGENTS · APPLICATIONS",
+      "subtitle": "",
+      "sourceLabel": "Building effective agents · AWS · Idempotent APIs",
+      "promptLabel": "问题 / 输入",
+      "responseLabel": "解释 / 输出"
     },
     {
       "id": "tool-contract",
@@ -806,6 +1112,16 @@
       ],
       "sourceIds": [
         "effective-agents"
+      ],
+      "chapter": "03",
+      "sectionLabel": "Agent 与应用",
+      "eyebrow": "AGENTS · APPLICATIONS",
+      "subtitle": "",
+      "sourceLabel": "Building effective agents",
+      "promptLabel": "问题 / 输入",
+      "responseLabel": "解释 / 输出",
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-020.jpg"
       ]
     },
     {
@@ -849,7 +1165,12 @@
       ],
       "sourceIds": [
         "effective-agents"
-      ]
+      ],
+      "chapter": "03",
+      "sectionLabel": "Agent 与应用",
+      "eyebrow": "AGENTS · APPLICATIONS",
+      "subtitle": "",
+      "sourceLabel": "Building effective agents"
     },
     {
       "id": "minimal-system",
@@ -892,7 +1213,12 @@
       ],
       "sourceIds": [
         "effective-agents"
-      ]
+      ],
+      "chapter": "03",
+      "sectionLabel": "Agent 与应用",
+      "eyebrow": "AGENTS · APPLICATIONS",
+      "subtitle": "",
+      "sourceLabel": "Building effective agents"
     },
     {
       "id": "sales-prep",
@@ -927,7 +1253,11 @@
       ],
       "sourceIds": [
         "effective-agents"
-      ]
+      ],
+      "chapter": "03",
+      "sectionLabel": "Agent 与应用",
+      "eyebrow": "AGENTS · APPLICATIONS",
+      "sourceLabel": "Building effective agents"
     },
     {
       "id": "coding-agent",
@@ -963,7 +1293,11 @@
       "sourceIds": [
         "swe-agent-2024",
         "swe-bench"
-      ]
+      ],
+      "chapter": "03",
+      "sectionLabel": "Agent 与应用",
+      "eyebrow": "AGENTS · APPLICATIONS",
+      "sourceLabel": "SWE-agent 2024 · SWE-bench"
     },
     {
       "id": "business-analysis",
@@ -982,7 +1316,14 @@
       ],
       "sourceIds": [
         "effective-agents"
-      ]
+      ],
+      "chapter": "03",
+      "sectionLabel": "Agent 与应用",
+      "eyebrow": "AGENTS · APPLICATIONS",
+      "subtitle": "",
+      "sourceLabel": "Building effective agents",
+      "promptLabel": "问题 / 输入",
+      "responseLabel": "解释 / 输出"
     },
     {
       "id": "task-selection",
@@ -1025,7 +1366,12 @@
       ],
       "sourceIds": [
         "effective-agents"
-      ]
+      ],
+      "chapter": "03",
+      "sectionLabel": "Agent 与应用",
+      "eyebrow": "AGENTS · APPLICATIONS",
+      "subtitle": "",
+      "sourceLabel": "Building effective agents"
     },
     {
       "id": "evaluation",
@@ -1069,7 +1415,12 @@
       "sourceIds": [
         "effective-agents",
         "genai-work-qje"
-      ]
+      ],
+      "chapter": "03",
+      "sectionLabel": "Agent 与应用",
+      "eyebrow": "AGENTS · APPLICATIONS",
+      "subtitle": "",
+      "sourceLabel": "Building effective agents · QJE 2025"
     },
     {
       "id": "economics",
@@ -1091,12 +1442,17 @@
       ],
       "sourceIds": [
         "effective-agents"
-      ]
+      ],
+      "chapter": "03",
+      "sectionLabel": "Agent 与应用",
+      "eyebrow": "AGENTS · APPLICATIONS",
+      "subtitle": "",
+      "sourceLabel": "Building effective agents"
     },
     {
       "id": "boundaries",
       "section": "Agent 与应用",
-      "layout": "comparison",
+      "layout": "duo",
       "title": "执行边界需要写进系统",
       "timingSeconds": 60,
       "columns": [
@@ -1127,7 +1483,12 @@
         "effective-agents",
         "anthropic-prompt-injection",
         "aws-idempotent-retries"
-      ]
+      ],
+      "chapter": "03",
+      "sectionLabel": "Agent 与应用",
+      "eyebrow": "AGENTS · APPLICATIONS",
+      "subtitle": "",
+      "sourceLabel": "Building effective agents · Anthropic · Prompt injection · AWS · Idempotent APIs"
     },
     {
       "id": "pilot-plan",
@@ -1162,7 +1523,11 @@
       ],
       "sourceIds": [
         "effective-agents"
-      ]
+      ],
+      "chapter": "03",
+      "sectionLabel": "Agent 与应用",
+      "eyebrow": "AGENTS · APPLICATIONS",
+      "sourceLabel": "Building effective agents"
     },
     {
       "id": "closing",
@@ -1184,7 +1549,11 @@
       "sourceIds": [
         "foundation-models",
         "effective-agents"
-      ]
+      ],
+      "chapter": "04",
+      "sectionLabel": "收束",
+      "eyebrow": "TAKEAWAYS",
+      "sourceLabel": "Foundation Models 2021 · Building effective agents"
     },
     {
       "id": "discussion",
@@ -1207,7 +1576,18 @@
       ],
       "sourceIds": [
         "effective-agents"
-      ]
+      ],
+      "chapter": "05",
+      "sectionLabel": "交流",
+      "eyebrow": "DISCUSSION",
+      "subtitle": "",
+      "sourceLabel": "Building effective agents"
     }
-  ]
+  ],
+  "styleReference": {
+    "repository": "https://github.com/skJack/-lip-",
+    "commit": "fc02c1e70c15f677fc752373363eedda43d247dd",
+    "path": "01-第21期-VLA入门(一)-RT-2-OpenVLA-π0/slides/deck.html",
+    "verifiedOn": "2026-10-13"
+  }
 }

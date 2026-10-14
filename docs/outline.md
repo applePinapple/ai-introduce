@@ -1,6 +1,6 @@
 ﻿# 50 分钟演讲结构
 
-面向老板与技术同事，39 页，16:9。完整演讲的正文与讲稿保留在 `content/decks/ai-history.json`，本文用于说明原稿讲解节奏与内容原则。当前默认生成的 3 页 HTML 样例已获用户认可，尚未迁移完整演讲；后续排版与生成优先使用 [lip-html-slides 技能](../skills/lip-html-slides/SKILL.md)。3 页是样例范围，不限制后续演讲页数；用户后续明确提出的新要求优先。
+面向老板与技术同事，39 页，16:9，50 分钟。完整演讲的正文与讲稿维护在 `content/decks/ai-history.json`，现已沿用获认可的三页样例风格迁移到原生 HTML，默认生成 `output/ai-history/deck.html`。本文说明讲解节奏与内容原则；后续排版与生成优先使用 [lip-html-slides 技能](../skills/lip-html-slides/SKILL.md)。三页样例作为独立视觉基准保留；用户后续明确提出的新要求优先。
 
 | 板块 | 页码 | 时间 | 讲解目的 |
 | --- | --- | ---: | --- |

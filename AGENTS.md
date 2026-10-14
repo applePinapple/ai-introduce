@@ -1,6 +1,6 @@
 # 项目约定
 
-本项目制作介绍 AI 发展史与 Agent 应用的中文演讲幻灯片，面向老板与技术同事。原有完整内容为 50 分钟、39 页；当前默认生成的 3 页 HTML 样例已获用户认可，作为后续制作基准，尚未迁移完整演讲。
+本项目制作介绍 AI 发展史与 Agent 应用的中文演讲幻灯片，面向老板与技术同事。完整内容为 50 分钟、39 页，已迁移到原生 HTML 并作为默认构建；已获用户认可的 3 页 HTML 样例继续作为视觉基准。
 
 ## 唯一生成规范
 
@@ -21,7 +21,7 @@
 ## 修改与生成
 
 - `src/slides/` 存放 HTML 排版与播放实现，`scripts/slides/` 存放内容检查、构建与产物验证，`scripts/media/` 存放视频下载及抽帧工具；`schemas/sample.schema.json` 定义当前样例的内容契约。新增组件同时更新内容验证、契约及必要测试。
-- `npm run build` 是 HTML 流程的默认入口，当前生成 `output/lip-sample/deck.html`。3 页是当前已验收样例的范围，不限制后续演讲页数；新增演讲按实际内容确定页数并同步调整内容契约、构建与验证，不把当前样例表述为完整 39 页迁移。
+- `npm run build` 是 HTML 流程的默认入口，生成完整39页的 `output/ai-history/deck.html`；完整内容契约为 `schemas/full.schema.json`。使用 `npm run build -- --sample` 与 `npm run verify -- --sample` 可单独生成、检查 `output/lip-sample/` 的三页视觉基准。未来演讲按实际内容确定页数并同步调整契约、构建与验证。
 - 本地字体与许可维护在 `assets/fonts/`，已采用插画维护在 `assets/design/`，待整理图片放在 `assets/inbox/`，视频及证据保留在各自素材目录。复用现有资源及其来源记录，`content/` 只维护结构化内容与来源。
 - `output/` 是生成目录，不手工修改或提交其中产物。保留源文件、来源记录、配置与锁文件；不改动下载的参考项目来适配自己的演讲。
 - 使用 `npm ci` 安装锁定依赖。交付前运行 `npm run check`、`npm test`、`npm run build` 和 `npm run verify`。

@@ -9,6 +9,9 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--blue);outline-offse
 #nav-panel .it.cur{background:var(--blue-soft)}
 #nav-panel{max-width:calc(100vw - 28px)}
 .cover .band img{display:block;object-position:50% 60%}
+.cover .brand-logo{line-height:0}
+.cover .brand-logo img{display:block;width:400px;height:auto;object-fit:contain}
+.cover .company-name{margin-top:26px;font-size:28px;color:var(--muted)}
 .cover .band .image-credit{position:absolute;bottom:18px;left:104px;color:#fff;font-size:20px;background:rgba(11,18,32,.7);padding:5px 10px;letter-spacing:.04em}
 .loop-body{flex-direction:column;justify-content:center;gap:30px}
 .loop-row{display:flex;align-items:center;justify-content:center;gap:26px}

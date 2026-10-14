@@ -16,7 +16,12 @@
         "02:30、03:00 模型算法",
         "03:15、03:30 训练数据",
         "03:45、04:00、04:15 算力与三要素归纳"
-      ]
+      ],
+      "screenshotReview": {
+        "reviewedOn": "2026-10-13",
+        "directory": "assets/video-evidence/002",
+        "method": "逐张阅读全部 contact 总览图；按正文 evidencePaths 关联关键画面。原生 HTML/SVG 重绘讲解，不将课件整页截图作为正文。"
+      }
     },
     {
       "id": "video-neural",
@@ -35,7 +40,12 @@
         "06:30、07:00、07:30 手写数字识别案例",
         "08:00、08:30、09:30、10:00、11:00 从笔画到数字",
         "12:30、13:00、13:30、14:00、15:30、16:00 训练循环"
-      ]
+      ],
+      "screenshotReview": {
+        "reviewedOn": "2026-10-13",
+        "directory": "assets/video-evidence/003",
+        "method": "逐张阅读全部 contact 总览图；按正文 evidencePaths 关联关键画面。原生 HTML/SVG 重绘讲解，不将课件整页截图作为正文。"
+      }
     },
     {
       "id": "video-llm",
@@ -56,7 +66,12 @@
         "13:30、15:00、17:00、17:30 逐 Token 生成与温度",
         "18:30、19:30、20:00 模型规模与能力",
         "21:00、21:30、22:00、22:30 上下文窗口"
-      ]
+      ],
+      "screenshotReview": {
+        "reviewedOn": "2026-10-13",
+        "directory": "assets/video-evidence/004",
+        "method": "逐张阅读全部 contact 总览图；按正文 evidencePaths 关联关键画面。原生 HTML/SVG 重绘讲解，不将课件整页截图作为正文。"
+      }
     },
     {
       "id": "video-apps",
@@ -75,7 +90,12 @@
         "07:00、07:30、08:00、08:30、09:00 模型与确定性程序互补",
         "09:30、10:00、10:30、11:00 应用调用模型的基本结构",
         "11:30、12:00、12:30 章节归纳"
-      ]
+      ],
+      "screenshotReview": {
+        "reviewedOn": "2026-10-13",
+        "directory": "assets/video-evidence/005",
+        "method": "逐张阅读全部 contact 总览图；按正文 evidencePaths 关联关键画面。原生 HTML/SVG 重绘讲解，不将课件整页截图作为正文。"
+      }
     },
     {
       "id": "dartmouth-proposal",

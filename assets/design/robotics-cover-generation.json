@@ -1,0 +1,21 @@
+{
+  "generatedOn": "2026-10-14",
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "path": "assets/brand/reinbee-logo-light.png",
+      "intent": "edit",
+      "inputs": [
+        "assets/brand/reinbee-logo.png",
+        "assets/brand/cover-layout-reference.png"
+      ],
+      "prompt": "Use case: logo-brand / precise-object-edit.\nAsset type: transparent PNG company logo for a light gray presentation cover.\nInput images: Image 1 is the edit target: the original small ReinBEE logo. Image 2 is a supporting higher-resolution visual reference of the same logo at the upper left; ignore all other content in Image 2.\nPrimary request: produce a clean high-resolution light-background version of the exact existing ReinBEE wordmark. Change only the white letters Rein to strong corporate blue #2457F5, and make the black background genuinely transparent. Preserve the golden orange BEE geometric symbol, its unusual connected angular strokes, original proportions, spacing, letter shapes, and small gold dot above the i. Do not reinterpret the stylized BEE symbol as generic type.\nText verbatim: \"ReinBEE\" with the exact geometric stylization from the supplied references.\nComposition: horizontal wordmark only, tightly framed with a small even transparent safety margin, about 5:1 aspect ratio. Crisp flat uniform color, no shadows, no gradients, no badge, no extra text. Blue Rein and golden BEE must read clearly against #EEF2F6."
+    },
+    {
+      "path": "assets/design/wheeled-dual-arm-robot.png",
+      "intent": "generate",
+      "prompt": "Use case: stylized-concept.\nAsset type: isolated transparent robot illustration for the right/lower area of a 1920x1080 light-gray corporate AI lecture cover.\nPrimary request: one sophisticated wheeled dual-arm robot, explicitly a mobile manipulator with a broad wheeled base, central torso mast, sensor head, and exactly TWO articulated industrial arms ending in parallel two-finger grippers. No legs or humanoid feet. Make the wheels unmistakably visible, with two main dark rubber drive wheels and a small caster, credible mobile robot proportions. This is a concept illustration for a robotics company, not a real branded product.\nStyle: premium, realistic industrial design 3D product rendering, refined engineering details, clean matte ivory and light silver housing, graphite joints, very restrained blue #2457F5 accents.\nComposition: portrait full-body three-quarter view facing slightly toward the left side of the slide. Show both entire arms distinctly, gently bent in a natural ready position, both grippers and entire wheeled base visible. Keep silhouette compact enough for the right 42 percent of a slide. The robot fills the image with small safe margins, transparent background and subtle soft contact shadow only.\nLighting: bright soft studio light, clean readable silhouette on light gray background.\nConstraints: no text, no logo, no watermark, no extra robots, no people, no scenery, no floor plane, no black background, no glowing sci-fi effects, no weapons. Preserve alpha transparency."
+    }
+  ],
+  "note": "Robot is a concept illustration, not a real company product."
+}

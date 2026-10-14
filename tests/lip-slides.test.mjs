@@ -7,6 +7,35 @@ import { validateDeck } from '../src/slides/validate.mjs';
 const deck = JSON.parse(await fs.readFile(new URL('../content/decks/sample.json', import.meta.url), 'utf8'));
 const sources = JSON.parse(await fs.readFile(new URL('../content/sources.json', import.meta.url), 'utf8'));
 const fixture = () => ({ deck: structuredClone(deck), sources: structuredClone(sources) });
+const full = JSON.parse(await fs.readFile(new URL('../content/decks/ai-history.json', import.meta.url), 'utf8'));
+
+test('完整演讲覆盖39页和50分钟，全部新布局可渲染并保留正文', () => {
+  assert.equal(full.slides.length, 39);
+  assert.equal(full.slides.reduce((n,s) => n+s.timingSeconds,0), 3000);
+  assert.deepEqual(validateDeck(full,sources), []);
+  const html=renderDeck(full,sources);
+  assert.equal((html.match(/<section class="slide/g)||[]).length,39);
+  assert.equal((html.match(/data-speaker-notes/g)||[]).length,39);
+  for(const s of full.slides) assert.ok(html.includes(s.id));
+  assert.ok(html.includes('network-figure'));
+  assert.ok(html.includes('diagram-feedback'));
+  assert.ok(!html.includes('undefined'));
+  assert.ok(full.slides.some(s=>s.evidencePaths?.some(p=>p.includes('/002/'))));
+  assert.ok(full.slides.some(s=>s.evidencePaths?.some(p=>p.includes('/003/'))));
+  assert.ok(full.slides.some(s=>s.evidencePaths?.some(p=>p.includes('/004/'))));
+  assert.ok(full.slides.some(s=>s.evidencePaths?.some(p=>p.includes('/005/'))));
+});
+
+test('完整演讲拒绝错列、缺失图解内容、不安全证据路径和不一致时长', () => {
+  const d=structuredClone(full);
+  d.slides.find(s=>s.layout==='table').rows[0].pop();
+  const diagram=d.slides.find(s=>s.layout==='diagram');
+  diagram.nodes[0].description='';diagram.evidencePaths=['assets/../secret.jpg'];
+  d.slides[0].timingSeconds++;
+  const errors=validateDeck(d,sources).join('\n');
+  assert.match(errors,/table column mismatch/);assert.match(errors,/item.description/);
+  assert.match(errors,/must stay inside assets/);assert.match(errors,/durations must equal/);
+});
 
 test('三页样例的布局、引用和讲稿通过内容校验', () => {
   assert.equal(deck.slides.length, 3);
@@ -40,6 +69,30 @@ test('封面媒体路径必须保持在本地 assets 目录中', () => {
     const { deck: invalid, sources: refs } = fixture();
     invalid.slides[0].imagePath = imagePath;
     assert.match(validateDeck(invalid, refs).join('\n'), /imagePath must stay inside assets/, imagePath);
+  }
+});
+
+test('封面汇报信息成对出现且日期有效，型号保持原文并仅用于封面', () => {
+  const { deck: changed, sources: refs } = fixture();
+  Object.assign(changed.slides[0], { presenter: '刘汉轩', reportDate: '2026.10', robotModel: 'Z100l' });
+  assert.deepEqual(validateDeck(changed, refs), []);
+  assert.equal(changed.slides[0].robotModel, 'Z100l');
+  for (const key of ['presenter', 'reportDate']) {
+    const invalid = structuredClone(changed);
+    delete invalid.slides[0][key];
+    assert.match(validateDeck(invalid, refs).join('\n'), /must be supplied together/);
+  }
+  for (const date of ['2026.00', '2026.13', '2026-10']) {
+    const invalid = structuredClone(changed);
+    invalid.slides[0].reportDate = date;
+    assert.match(validateDeck(invalid, refs).join('\n'), /expected YYYY.MM/);
+  }
+  for (const key of ['presenter', 'reportDate', 'robotModel']) {
+    const invalid = structuredClone(changed);
+    invalid.slides[1][key] = changed.slides[0][key];
+    assert.match(validateDeck(invalid, refs).join('\n'), /only supported on cover slides/);
+    invalid.slides[0][key] = '  ';
+    assert.match(validateDeck(invalid, refs).join('\n'), new RegExp(`${key}: nonempty text required`));
   }
 });
 

@@ -15,5 +15,11 @@ assets/videos/**/*.webm
 assets/videos/**/*.download
 assets/videos/**/*.ts
 
+# Wave-product source videos and upstream downloads remain local; stills and provenance are tracked.
+assets/wave-products/*.mp4
+assets/wave-products/*.webm
+assets/wave-products/wave4-3d-hunyuan-input-output.gif
+assets/wave-products/spam-source-spambayes-1.1a6.tar.gz
+
 # Downloaded upstream repository stays local; source/version manifests are tracked.
 assets/references/skJack-lip/

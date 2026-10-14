@@ -1,0 +1,30 @@
+{
+  "verifiedOn": "2026-10-14",
+  "scope": "深度学习第二页的传统机械臂算法对照图",
+  "images": [
+    {
+      "path": "assets/wave-products/dl-arm-moveit-planned-path.png",
+      "sourceId": "moveit-rviz-motion-planning-official",
+      "sourceURL": "https://moveit.github.io/moveit_tutorials/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html",
+      "sourceAssetURL": "https://moveit.github.io/moveit_tutorials/_images/rviz_plugin_planned_path.png",
+      "alt": "MoveIt 官方 RViz 运动规划示例，显示 Panda 机械臂起点、目标与规划轨迹，以及左侧规划参数面板",
+      "treatment": "官方 PNG 原字节保存，保持原比例显示，未重画路径、增加算法标签或改变控制面板。",
+      "notes": "官方教程仿真可视化。绿色为起点，橙色为目标，重叠姿态显示规划路径；左侧为规划时间、速度及加速度等参数。传统规划与逆运动学不天然属于深度学习；图中没有展示训练或神经网络，不推断特定规划器类型。"
+    }
+  ],
+  "sources": [
+    {
+      "id": "moveit-rviz-motion-planning-official",
+      "title": "MoveIt Quickstart in RViz — moveit_tutorials Noetic documentation",
+      "url": "https://moveit.github.io/moveit_tutorials/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html",
+      "publisher": "MoveIt",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "MoveIt 的 RViz 插件可以设置起点与目标、测试运动规划器并显示路径",
+        "绿色与橙色机械臂分别表示规划起点和目标状态",
+        "Show Trail 显示规划路径中的机械臂姿态，教程执行对象为仿真机械臂",
+        "教程包含避免碰撞的逆运动学、关节与笛卡尔运动规划以及速度和加速度设置"
+      ]
+    }
+  ]
+}

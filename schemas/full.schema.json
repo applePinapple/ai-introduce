@@ -43,6 +43,11 @@
               "duo",
               "table",
               "timeline",
+              "definition",
+              "waves",
+              "product",
+              "gallery",
+              "relationship",
               "process",
               "example",
               "image",
@@ -51,6 +56,9 @@
           },
           "title": {
             "$ref": "#/$defs/text"
+          },
+          "theme": {
+            "enum": ["reinbee"]
           },
           "section": {
             "$ref": "#/$defs/text"
@@ -109,6 +117,32 @@
             "pattern": "^assets/(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\:]+$"
           },
           "imageAlt": {
+            "$ref": "#/$defs/text"
+          },
+          "images": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 5,
+            "items": {
+              "type": "object",
+              "required": ["path", "alt"],
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "pattern": "^assets/(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\:]+$"
+                },
+                "alt": { "$ref": "#/$defs/text" },
+                "label": { "$ref": "#/$defs/text" },
+                "fit": { "enum": ["contain", "cover"] },
+                "position": { "$ref": "#/$defs/text" }
+              }
+            }
+          },
+          "detailImagePath": {
+            "type": "string",
+            "pattern": "^assets/(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\:]+$"
+          },
+          "detailImageAlt": {
             "$ref": "#/$defs/text"
           },
           "imageCredit": {
@@ -246,6 +280,25 @@
           "caption": {
             "$ref": "#/$defs/text"
           },
+          "productName": {
+            "$ref": "#/$defs/text"
+          },
+          "productMeta": {
+            "$ref": "#/$defs/text"
+          },
+          "facts": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+              "type": "object",
+              "required": ["label", "text"],
+              "properties": {
+                "label": { "$ref": "#/$defs/text" },
+                "text": { "$ref": "#/$defs/text" }
+              }
+            }
+          },
           "promptLabel": {
             "$ref": "#/$defs/text"
           },
@@ -305,6 +358,56 @@
               }
             }
           },
+          "definition": {
+            "$ref": "#/$defs/text"
+          },
+          "taxonomy": {
+            "type": "object",
+            "required": ["ai", "rules", "learning", "traditional", "deep"],
+            "properties": {
+              "ai": { "$ref": "#/$defs/text" },
+              "rules": { "$ref": "#/$defs/text" },
+              "learning": { "$ref": "#/$defs/text" },
+              "traditional": { "$ref": "#/$defs/text" },
+              "deep": { "$ref": "#/$defs/text" }
+            }
+          },
+          "relations": {
+            "type": "array",
+            "minItems": 7,
+            "maxItems": 7,
+            "items": {
+              "type": "object",
+              "required": ["route", "capability", "scenarios"],
+              "properties": {
+                "route": { "enum": ["rules", "learning", "deep"] },
+                "capability": { "$ref": "#/$defs/text" },
+                "scenarios": { "$ref": "#/$defs/text" }
+              }
+            }
+          },
+          "columnLabels": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": { "$ref": "#/$defs/text" }
+          },
+          "eras": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "required": ["period", "title", "description", "application", "icon"],
+              "properties": {
+                "period": { "$ref": "#/$defs/text" },
+                "title": { "$ref": "#/$defs/text" },
+                "description": { "$ref": "#/$defs/text" },
+                "application": { "$ref": "#/$defs/text" },
+                "icon": { "enum": ["rules", "learning", "network", "language", "deepseek"] }
+              }
+            }
+          },
           "nodes": {
             "type": "array",
             "minItems": 2,
@@ -338,7 +441,9 @@
         },
         "dependentRequired": {
           "presenter": ["reportDate"],
-          "reportDate": ["presenter"]
+          "reportDate": ["presenter"],
+          "detailImagePath": ["detailImageAlt"],
+          "detailImageAlt": ["detailImagePath"]
         },
         "allOf": [
           {
@@ -522,6 +627,110 @@
             "then": {
               "required": [
                 "items"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "layout": {
+                  "const": "definition"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "chapter",
+                "sectionLabel",
+                "eyebrow",
+                "subtitle",
+                "sourceLabel",
+                "definition"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "layout": {
+                  "const": "waves"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "chapter",
+                "sectionLabel",
+                "eyebrow",
+                "subtitle",
+                "sourceLabel",
+                "eras"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "layout": {
+                  "const": "product"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "chapter",
+                "sectionLabel",
+                "eyebrow",
+                "subtitle",
+                "sourceLabel",
+                "productName",
+                "productMeta",
+                "imagePath",
+                "imageAlt",
+                "imageCredit",
+                "caption",
+                "facts",
+                "steps"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "layout": {
+                  "const": "gallery"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "chapter",
+                "sectionLabel",
+                "eyebrow",
+                "subtitle",
+                "sourceLabel",
+                "images"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "layout": {
+                  "const": "relationship"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "chapter",
+                "sectionLabel",
+                "eyebrow",
+                "subtitle",
+                "sourceLabel",
+                "taxonomy",
+                "columnLabels",
+                "relations"
               ]
             }
           },

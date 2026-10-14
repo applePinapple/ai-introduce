@@ -1,0 +1,82 @@
+{
+  "verifiedOn": "2026-10-14",
+  "sources": [
+    {
+      "id": "pi0-official-2024",
+      "title": "π0: Our First Generalist Policy",
+      "url": "https://www.pi.website/blog/pi0",
+      "publisher": "Physical Intelligence",
+      "verifiedOn": "2026-10-14",
+      "supports": ["2024 年 10 月 31 日公布 π0 通用机器人策略", "以视觉语言模型为起点，结合机器人数据和 flow matching 输出连续动作", "官方展示洗衣、叠衣、收桌等研究任务，同时明确该方向仍处于早期阶段", "本页左图是官方演示视频的海报画面，保留原 autonomous, 1x speed 标识"]
+    },
+    {
+      "id": "pi0-paper-2024",
+      "title": "π0: A Vision-Language-Action Flow Model for General Robot Control",
+      "url": "https://www.pi.website/download/pi0.pdf",
+      "publisher": "Physical Intelligence",
+      "verifiedOn": "2026-10-14",
+      "supports": ["在预训练视觉语言模型基础上增加动作专家，利用 flow matching 建模连续动作", "预训练与后训练结合，以机器人交互数据学习多种操作任务", "泛化、数据与稳健性仍是机器人基础模型的重要问题"]
+    },
+    {
+      "id": "openvla-official-2024",
+      "title": "OpenVLA: An Open-Source Vision-Language-Action Model",
+      "url": "https://openvla.github.io/",
+      "publisher": "OpenVLA research team",
+      "verifiedOn": "2026-10-14",
+      "supports": ["OpenVLA 官方架构图展示图像与语言指令输入，以及机器人动作输出", "视觉编码器和语言模型先预测动作 token，再将其解码为机器人可执行的连续动作", "官方项目页同时展示成功和失败的机器人实验，性能依赖具体任务与设置"]
+    }
+  ],
+  "slides": [
+    {
+      "id": "wave-product-embodied",
+      "title": "第四浪潮：具身大模型",
+      "images": [
+        {
+          "path": "assets/wave-products/wave4-embodied-pi0-hero.jpg",
+          "alt": "Physical Intelligence 官方 π0 研究演示画面：从洗衣机内部看机器人双臂取衣，原图保留 autonomous, 1x speed 和 π 标识",
+          "label": "π0",
+          "fit": "contain"
+        },
+        {
+          "path": "assets/wave-products/wave4-embodied-openvla-model.jpg",
+          "alt": "OpenVLA 官方模型架构图：图像与语言指令进入视觉语言模型，预测动作 token 后解码为机械臂运动和夹爪动作",
+          "label": "OpenVLA",
+          "fit": "contain"
+        }
+      ],
+      "sourceIds": ["pi0-official-2024", "pi0-paper-2024", "openvla-official-2024"],
+      "notes": [
+        "这一页把第四波的基础模型能力延伸到物理世界。具身模型需要把看到的画面和人给出的指令，转成机器人可以执行的动作。左图是 Physical Intelligence 的 π0 研究演示，机器人正在处理洗衣任务。",
+        "π0 从预训练视觉语言模型出发，再结合多种机器人的操作数据学习。它用动作专家和 flow matching 生成连续动作，让模型根据视觉与指令控制机械臂。复杂任务仍可能需要针对性的高质量数据和后训练。",
+        "右图是另一项研究 OpenVLA 的官方架构图。它接收图像与指令，先预测动作 token，再解码成机械臂位置、姿态和夹爪动作。这张图用来说明视觉、语言与行动怎样连接，不能把它当作 π0 的具体架构。",
+        "两张都是官方研究资料：左图为演示视频海报，右图为原始架构图。本项目没有改动实验画面。研究演示说明模型在相应设置中能完成部分任务，不代表任何机器人、环境或指令都能成功；稳定性、泛化和安全仍需持续验证。"
+      ],
+      "timingSeconds": 60
+    }
+  ],
+  "images": [
+    {
+      "path": "assets/wave-products/wave4-embodied-pi0-hero.jpg",
+      "sourceId": "pi0-official-2024",
+      "sourceURL": "https://www.pi.website/blog/pi0",
+      "imageURL": "https://www.pi.website/images/p0-hero-video-poster.jpg",
+      "sourcePageSnapshotPath": "assets/wave-products/wave4-pi0-source.html",
+      "dimensions": [1080, 608],
+      "verifiedOn": "2026-10-14",
+      "nature": "Physical Intelligence 官方 π0 研究演示视频的 poster 画面；真实机器人研究演示，不是本项目独立测评。",
+      "treatment": "官方 JPEG 原始字节保存，保留 autonomous, 1x speed 及 π 标识；无裁切、重绘或新增内容。",
+      "rights": "原图归原权利人；保留明确出处，不推断为开放许可。"
+    },
+    {
+      "path": "assets/wave-products/wave4-embodied-openvla-model.jpg",
+      "sourceId": "openvla-official-2024",
+      "sourceURL": "https://openvla.github.io/",
+      "imageURL": "https://openvla.github.io/static/images/openvla_model.jpg",
+      "dimensions": [1250, 463],
+      "verifiedOn": "2026-10-14",
+      "nature": "OpenVLA 官方项目页 The OpenVLA Model 段落的原始模型架构图。",
+      "treatment": "官方 JPEG 原始字节保存；保留所有模型名、组件、箭头和示例图，不重新绘制。",
+      "rights": "原图归原研究团队；保留出处。项目网页模板许可不自动等于所有图像的许可。"
+    }
+  ]
+}

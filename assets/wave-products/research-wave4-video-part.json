@@ -1,0 +1,101 @@
+{
+  "verifiedOn": "2026-10-14",
+  "sources": [
+    {
+      "id": "google-veo3-prompt-guide",
+      "title": "How to create effective prompts with Veo 3",
+      "url": "https://deepmind.google/models/veo/prompt-guide/",
+      "publisher": "Google DeepMind",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "官方页面将老水手和月尘晶体花列为 Veo 3 提示词生成视频示例，并提供对应视频。",
+        "提示词可描述镜头、风格、光照、人物、场景、动作和对白。",
+        "本页两张图均从官方嵌入的 8 秒原始视频第 2 秒抽取，而非重新生成的插图。"
+      ]
+    },
+    {
+      "id": "google-veo-launch-2024",
+      "title": "New generative media models and tools, built with and for creators",
+      "url": "https://blog.google/innovation-and-ai/products/google-generative-ai-veo-imagen-3/",
+      "publisher": "Google",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "Google 于 2024 年 5 月 14 日发布 Veo 视频生成模型。",
+        "Veo 根据自然语言提示词生成不同电影与视觉风格的视频；本页图片采用后续 Veo 3 官方示例，不将其误标为初代 Veo。"
+      ]
+    }
+  ],
+  "slides": [
+    {
+      "id": "wave-product-videogen",
+      "title": "第四浪潮：视频生成",
+      "images": [
+        {
+          "path": "assets/wave-products/wave4-video-veo3-sailor-frame-002.png",
+          "alt": "Veo 3 官方生成视频第 2 秒：戴蓝色针织帽的老水手在海边船上手持烟斗。",
+          "label": "Veo 3：写实水手",
+          "fit": "contain"
+        },
+        {
+          "path": "assets/wave-products/wave4-video-veo3-moon-dust-frame-002.png",
+          "alt": "Veo 3 官方生成视频第 2 秒：披着毛皮斗篷的人走过蓝紫色晶体花与彩虹构成的幻想场景。",
+          "label": "Veo 3：幻想世界",
+          "fit": "contain"
+        }
+      ],
+      "sourceIds": [
+        "google-veo3-prompt-guide",
+        "google-veo-launch-2024"
+      ],
+      "notes": [
+        "第四浪潮也把生成能力扩展到了视频。这里以 Google 的 Veo 为例：我们可以用文字描述人物、地点、动作和镜头，让模型生成一段动态画面。左边偏写实，右边则是现实中不存在的幻想世界。",
+        "两张图都来自 Google DeepMind 的 Veo 3 官方提示词指南。左边的提示描述了老水手、蓝色针织帽、烟斗和海浪；右边描述了月尘平原、巨大的晶体花、彩虹以及穿行其中的人物。",
+        "讲解时可以把重点放在创作方式的变化：先表达想要什么场景，再对生成结果进行挑选和修改。这能帮助人快速探索镜头和视觉方向，但画面是否符合需求，仍需要观看完整视频来判断。",
+        "图源说明：两图分别从官方 8 秒视频的第 2 秒原样抽帧，只解码为 PNG，没有改动场景。它们是官方选取的生成示例，不是真实拍摄，也不是我们的实测；静态截图不能证明连续动作、声音或所有生成结果的质量。"
+      ],
+      "timingSeconds": 60
+    }
+  ],
+  "images": [
+    {
+      "path": "assets/wave-products/wave4-video-veo3-sailor-frame-002.png",
+      "sourceId": "google-veo3-prompt-guide",
+      "sourceURL": "https://deepmind.google/models/veo/prompt-guide/",
+      "sourceVideoURL": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/veo__veo-3__sailor.webm",
+      "sourceVideoPath": "assets/wave-products/wave4-video-veo3-sailor.webm",
+      "sourcePageSnapshotPath": "assets/wave-products/wave4-video-veo-prompt-guide.html",
+      "model": "Veo 3",
+      "timestampSeconds": 2,
+      "videoDurationSeconds": 8,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "processing": "ffmpeg -hide_banner -loglevel error -y -ss 00:00:02.000 -i assets/wave-products/wave4-video-veo3-sailor.webm -frames:v 1 assets/wave-products/wave4-video-veo3-sailor-frame-002.png；无裁切、无缩放、无新增内容。",
+      "nature": "官方发布的 AI 生成视频实际抽帧；不是摄影实录，也不是本项目独立测评。",
+      "rights": "保留 Google DeepMind 官方来源；未声称获得开放许可。",
+      "sha256": "57303654028e26a5734cf49b3397a092283bc25bd71cd90371ece81c6855495d",
+      "sourceVideoSha256": "512d307ba47f8ec05991040263ff8e28ba8ef0df64a298bf7dcb42b5aab13005"
+    },
+    {
+      "path": "assets/wave-products/wave4-video-veo3-moon-dust-frame-002.png",
+      "sourceId": "google-veo3-prompt-guide",
+      "sourceURL": "https://deepmind.google/models/veo/prompt-guide/",
+      "sourceVideoURL": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/veo__veo-3__moon-dust.webm",
+      "sourceVideoPath": "assets/wave-products/wave4-video-veo3-moon-dust.webm",
+      "sourcePageSnapshotPath": "assets/wave-products/wave4-video-veo-prompt-guide.html",
+      "model": "Veo 3",
+      "timestampSeconds": 2,
+      "videoDurationSeconds": 8,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "processing": "ffmpeg -hide_banner -loglevel error -y -ss 00:00:02.000 -i assets/wave-products/wave4-video-veo3-moon-dust.webm -frames:v 1 assets/wave-products/wave4-video-veo3-moon-dust-frame-002.png；无裁切、无缩放、无新增内容。",
+      "nature": "官方发布的 AI 生成视频实际抽帧；幻想场景，不是现实拍摄，也不是本项目独立测评。",
+      "rights": "保留 Google DeepMind 官方来源；未声称获得开放许可。",
+      "sha256": "a3bed57e19d05e34ea46f155a36dbf7b9ec05eb6b40efd72c111284f944629fd",
+      "sourceVideoSha256": "e77cd74a36131d6f39dd8ebf27fcb95504c9d85bcc07e77394c3475878c00d53"
+    }
+  ]
+}

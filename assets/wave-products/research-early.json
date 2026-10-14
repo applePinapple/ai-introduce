@@ -1,0 +1,163 @@
+{
+  "verifiedOn": "2026-10-14",
+  "scope": "规则与符号 AI、机器学习两页真实产品案例；不修改正文与渲染器",
+  "slides": [
+    {
+      "id": "mycin-product",
+      "wave": "规则与符号 AI",
+      "title": "MYCIN：把专家经验写成规则",
+      "product": "MYCIN 专家系统",
+      "eraLabel": "20 世纪 70 年代 · 斯坦福研究系统",
+      "groups": [
+        {"label": "解决什么", "text": "支持医生分析特定感染问题，将专家经验变成可重复调用的咨询程序。"},
+        {"label": "怎样工作", "text": "专家写入“如果…那么…”规则；系统按已知事实逐步推理，并解释依据。"},
+        {"label": "能力边界", "text": "能力取决于知识库覆盖；规则新增、冲突检查与维护仍需要专家和工程师。"}
+      ],
+      "steps": ["专家录入规则", "用户提供事实", "推理并解释"],
+      "notes": "MYCIN 是 20 世纪 70 年代斯坦福开发的专家系统研究项目，研究如何把特定领域的专家经验用于计算机辅助咨询。图来自研究团队 1984 年著作的原始架构图：用户提交案例信息，推理引擎调用知识库，再返回建议和解释。这里的核心是知识与推理过程分开，专家把经验写成规则，系统沿着规则链组织证据。它也用确定性因子处理不完全确定的信息。能力受知识库覆盖和表示方式限制；扩展规则需要专家与知识工程师维护。本页只讲计算机机制，不展示治疗方案或剂量。",
+      "sourceIds": ["mycin-context-1984", "mycin-lessons-1984"],
+      "imagePath": "assets/wave-products/mycin-expert-system-figure1-1.png",
+      "imageAlt": "MYCIN 研究团队原著作中的专家系统架构图：用户、交互界面、推理引擎与知识库之间的信息流",
+      "imageCaption": "原著作架构图 · Buchanan & Shortliffe 编，1984，图 1-1",
+      "imageNature": "原著作中的真实架构图，不是 MYCIN 实际运行界面，也不是重新绘制的教学图",
+      "displaySuggestion": "在主图区按比例 contain 显示；原图包含 Figure 1-1 图号与说明，可在旁边用中文文字解释 Knowledge Base 与 Inference Engine。",
+      "claimBoundaries": [
+        "不添加诊断准确率或超过医生等未限定实验数字。",
+        "不把 MYCIN 研究项目说成已普遍部署的现代临床产品。",
+        "不能把规则系统概括为完全不处理不确定性；MYCIN 使用确定性因子。"
+      ]
+    },
+    {
+      "id": "spambayes-product",
+      "wave": "机器学习",
+      "title": "SpamBayes：从样本学会分邮件",
+      "product": "SpamBayes Outlook 插件",
+      "eraLabel": "2000 年代 · 统计学习走进邮箱",
+      "groups": [
+        {"label": "解决什么", "text": "把收到的邮件分为正常、垃圾或不确定，帮助用户处理收件箱中的杂信。"},
+        {"label": "怎样工作", "text": "用户标注正常和垃圾邮件；系统学习词项统计规律，再判断新邮件属于哪类。"},
+        {"label": "能力边界", "text": "错标、样本过时会影响分类；不确定邮件要复核，纠正后继续训练模型。"}
+      ],
+      "steps": ["标注历史邮件", "学习词项特征", "分类并纠错"],
+      "notes": "SpamBayes 是真实的开源垃圾邮件分类项目，曾以 Outlook 插件和邮件代理等形式使用。图是官方发布包保留的插件界面，窗口标明 2003 年的 0.6 测试版；它不是现在的 Outlook 界面。用户提供正常邮件和垃圾邮件样本，程序把邮件拆成词项，统计两类邮件中的线索，给新邮件分类。输出包含正常、垃圾和不确定三种结果。不确定类别让用户保留复核空间。样本内容会变化，错误标注也会干扰学习，因此需要持续纠正。这里体现了从人工定义规则转向从标注样本学习的思路。",
+      "sourceIds": ["spambayes-faq", "spambayes-background", "spambayes-release-1-1a6"],
+      "imagePath": "assets/wave-products/spam-manager.jpg",
+      "imageAlt": "SpamBayes Outlook 插件官方文档历史截图，包含 Training、Filtering 和 Train Now 等控件，标题注明 0.6 测试版及 2003 年 7 月 29 日",
+      "imageCaption": "官方文档历史截图 · Outlook Addin 0.6（2003）",
+      "imageNature": "官方源码发布包中的真实历史产品截图；未运行旧软件，也未虚构界面",
+      "alternativeImagePath": "assets/wave-products/spam-training.jpg",
+      "alternativeImageCaption": "官方训练窗口截图 · 选择正常邮件与垃圾邮件所在文件夹",
+      "displaySuggestion": "主图推荐 manager.jpg，图内直接解释训练和过滤；训练窗口作为可选细节，不建议强行铺满 960px。两图均保留原像素并按比例显示，不重画英文控件。",
+      "claimBoundaries": [
+        "截图来自 1.1a6 发布包，但截图自身明确标注的是 0.6 beta / July 29, 2003；图注不能把截图标成 1.1a6 界面。",
+        "不声称任何准确率、现行 Outlook 兼容性或当前产品维护状态。",
+        "SpamBayes 采用改进的统计组合方法，不应简化为单个敏感词命中或严格朴素贝叶斯公式。"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "mycin-context-1984",
+      "title": "The Context of the MYCIN Experiments — Rule-Based Expert Systems (1984), Chapter 1",
+      "url": "https://www.shortliffe.net/Buchanan-Shortliffe-1984/Chapter-01.pdf",
+      "publisher": "Bruce G. Buchanan、Edward H. Shortliffe 编 / 作者公开档案",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "MYCIN 是斯坦福 20 世纪 70 年代的专家系统研究项目，用于特定感染领域的计算机辅助咨询。",
+        "原书第 4 页图 1-1 显示用户、界面、推理引擎与知识库之间的信息流。",
+        "知识以规则表示，系统可以链式推理并解释；图为专家系统构成示意，不是运行截图。"
+      ],
+      "localPath": "assets/wave-products/mycin-source-chapter01.pdf",
+      "evidence": "实际打开原书 PDF 并核验相关文字；用 Poppler 渲染第 4 页，再裁出原图与原图注。"
+    },
+    {
+      "id": "mycin-lessons-1984",
+      "title": "Major Lessons from This Work — Rule-Based Expert Systems (1984), Chapter 36",
+      "url": "https://www.shortliffe.net/Buchanan-Shortliffe-1984/Chapter-36.pdf",
+      "publisher": "Bruce G. Buchanan、Edward H. Shortliffe 编 / 作者公开档案",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "规则及反向链推理是 MYCIN 的主要机制，确定性因子用于处理不确定信息。",
+        "知识获取、构建和维护是重要瓶颈；系统的表示方式和知识工程存在限制。",
+        "第 36.2.5 节明确讨论知识库构建、维护与对知识工程师的依赖。"
+      ],
+      "evidence": "实际打开作者公开 PDF，核验原书第 673、686–688 页相关讨论。"
+    },
+    {
+      "id": "spambayes-faq",
+      "title": "SpamBayes FAQ",
+      "url": "https://spambayes.sourceforge.io/faq.html",
+      "publisher": "SpamBayes 项目官方文档",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "SpamBayes 使用代表性的正常邮件与垃圾邮件样本训练，再分类新邮件。",
+        "分类包含 ham、spam 与 unsure；Outlook 插件可以在用户指定的文件夹处理邮件。",
+        "训练应使用近期邮件，错误标注会干扰分类；用户需要纠正错误。"
+      ],
+      "evidence": "实际打开 FAQ，核验 1.1、1.6、3.3、4.5 与 4.16 节。"
+    },
+    {
+      "id": "spambayes-background",
+      "title": "SpamBayes: Background Reading",
+      "url": "https://spambayes.sourceforge.io/background.html",
+      "publisher": "SpamBayes 项目官方文档",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "处理流程包含邮件词项化、统计信息组合与训练。",
+        "系统保留 unsure 类别；训练样本偏差与数据来源差异会影响结果。",
+        "项目历史可追溯到 2002 年的开发讨论。"
+      ],
+      "evidence": "实际打开官方背景页面核验 Tokenizing、Training 与项目历史。"
+    },
+    {
+      "id": "spambayes-release-1-1a6",
+      "title": "SpamBayes 1.1a6 official source release and bundled Outlook documentation",
+      "url": "https://sourceforge.net/projects/spambayes/files/spambayes/1.1a6/spambayes-1.1a6.tar.gz/download",
+      "publisher": "SpamBayes 项目 / SourceForge / Python Software Foundation",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "官方源码包中 Outlook2000/docs/images/manager.jpg 与 training.jpg 为真实历史插件界面截图。",
+        "manager.jpg 可见版本标识 Outlook Addin beta 0.6（July 29, 2003）。",
+        "发布包 LICENSE.txt 为 PSF 许可，覆盖软件及关联文档，原许可随素材保留。"
+      ],
+      "localPath": "assets/wave-products/spam-source-spambayes-1.1a6.tar.gz",
+      "evidence": "从官方下载页跟踪发布包链接；下载后 MD5 d06ed6d097911ddc8db31b4e9663df4b 与官方 https://spambayes.sourceforge.io/download.html 登记值一致。只读取归档成员，未安装或执行软件。"
+    }
+  ],
+  "images": [
+    {
+      "path": "assets/wave-products/mycin-expert-system-figure1-1.png",
+      "sourceId": "mycin-context-1984",
+      "sourceUrl": "https://www.shortliffe.net/Buchanan-Shortliffe-1984/Chapter-01.pdf",
+      "sourceLocation": "PDF 第 4 页；原书第 4 页；Figure 1-1",
+      "dimensions": [815, 430],
+      "treatment": "Poppler 以 160 dpi 渲染第 4 页得到 980×1467 PNG；Pillow 裁剪像素框 [95,120,910,550]。保留原图形、英文标签、图号和图注，无重绘、补字、着色或 AI 生成。",
+      "evidencePath": "assets/wave-products/mycin-page004.png",
+      "rights": "原著作图，版权归原权利人；本项目以署名的历史研究图引用方式展示，未推断为开放许可。",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "path": "assets/wave-products/spam-manager.jpg",
+      "sourceId": "spambayes-release-1-1a6",
+      "sourceUrl": "https://downloads.sourceforge.net/project/spambayes/spambayes/1.1a6/spambayes-1.1a6.tar.gz",
+      "archiveMember": "spambayes-1.1a6/Outlook2000/docs/images/manager.jpg",
+      "dimensions": [369, 352],
+      "treatment": "从官方源码归档定向读取已核验成员字节并原样保存，不改像素、不拉伸、不重画界面。",
+      "licensePath": "assets/wave-products/spam-source-license.txt",
+      "rights": "Copyright (C) 2002-2007 Python Software Foundation; All Rights Reserved. PSF LICENSE AGREEMENT FOR THE SPAMBAYES PROJECT，原许可随素材保留。",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "path": "assets/wave-products/spam-training.jpg",
+      "sourceId": "spambayes-release-1-1a6",
+      "sourceUrl": "https://downloads.sourceforge.net/project/spambayes/spambayes/1.1a6/spambayes-1.1a6.tar.gz",
+      "archiveMember": "spambayes-1.1a6/Outlook2000/docs/images/training.jpg",
+      "dimensions": [368, 253],
+      "treatment": "从官方源码归档定向读取已核验成员字节并原样保存，不改像素、不拉伸、不重画界面。",
+      "licensePath": "assets/wave-products/spam-source-license.txt",
+      "rights": "同一 PSF 许可；训练窗口为官方文档原始截图。",
+      "verifiedOn": "2026-10-14"
+    }
+  ],
+  "safety": "仅下载公开 PDF 与源码归档；PDF 用 Poppler 解析渲染；归档仅以 tarfile.extractfile 读取明确成员，未整包解压、安装或执行。JPEG/PNG 均用 Pillow 校验并实际查看。"
+}

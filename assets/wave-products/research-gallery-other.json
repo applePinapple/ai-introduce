@@ -1,0 +1,21 @@
+{
+  "verifiedOn": "2026-10-14",
+  "images": [
+    {
+      "path": "assets/wave-products/shakey-robot-sri.jpg",
+      "sourceId": "shakey-sri-history",
+      "sourceUrl": "https://www.sri.com/hoi/shakey-the-robot/",
+      "directUrl": "https://www.sri.com/wp-content/uploads/2024/04/Shakey-the-robot.jpg",
+      "processing": "从 SRI 官方历史展页的 img 地址下载原文件，保持原图；仅由 HTML 按比例显示。",
+      "notes": "官方历史展页图片，图内含1960s装饰字样。用于介绍早期规划机器人，不宣称为深度学习产物。"
+    },
+    {
+      "path": "assets/wave-products/deepseek-app-official.webp",
+      "sourceId": "deepseek-official-download-gallery",
+      "sourceUrl": "https://www.deepseek.com/en/download/",
+      "directUrl": "https://www.deepseek.com/images/download/mobile-en-1818.webp",
+      "processing": "从 DeepSeek 官方下载页的 srcSet 下载原始1818像素版本，未裁剪或重绘。",
+      "notes": "核验日官网提供的聊天和历史记录宣传图；并非历史首发界面。图内生成回答不作为讲稿事实来源。"
+    }
+  ]
+}

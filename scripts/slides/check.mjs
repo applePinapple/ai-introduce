@@ -10,7 +10,7 @@ export async function loadDeck(name = selectedDeck) {
   const [deck, sources] = await Promise.all([`content/decks/${name}.json`, 'content/sources.json'].map(async file => JSON.parse(await fs.readFile(path.join(root, file), 'utf8'))));
   const errors = validateDeck(deck, sources);
   if (name === 'sample' && deck.slides?.length !== 3) errors.push('当前样例必须恰好三页。');
-  for (const slide of deck.slides ?? []) for (const file of [slide.imagePath, slide.logoPath, ...(slide.evidencePaths ?? [])].filter(file => typeof file === 'string' && file)) {
+  for (const slide of deck.slides ?? []) for (const file of [slide.imagePath, slide.detailImagePath, slide.logoPath, ...(Array.isArray(slide.images) ? slide.images.map(image => image?.path) : []), ...(slide.evidencePaths ?? [])].filter(file => typeof file === 'string' && file)) {
     const resolved = path.resolve(root, file);
     if (!resolved.startsWith(path.join(root, 'assets') + path.sep)) errors.push('媒体路径超出 assets。');
     else try { await fs.access(resolved); } catch { errors.push(`媒体不存在：${file}`); }

@@ -1,5 +1,7 @@
-const layouts = new Set(['cover', 'loop', 'comparison', 'spotlight', 'closing', 'bullets', 'duo', 'table', 'timeline', 'process', 'example', 'image', 'diagram']);
+const layouts = new Set(['cover', 'loop', 'comparison', 'spotlight', 'closing', 'bullets', 'duo', 'table', 'timeline', 'definition', 'waves', 'product', 'gallery', 'relationship', 'process', 'example', 'image', 'diagram']);
 const tones = new Set(['blue', 'orange', 'green']);
+const waveIcons = new Set(['rules', 'learning', 'network', 'language', 'deepseek']);
+const relationRoutes = new Set(['rules', 'learning', 'deep']);
 const nonempty = value => typeof value === 'string' && value.trim().length > 0;
 
 export function validateDeck(deck, sources) {
@@ -16,6 +18,7 @@ export function validateDeck(deck, sources) {
     if (ids.has(slide.id)) errors.push(`${label}: duplicate id`);
     ids.add(slide.id);
     if (!layouts.has(slide.layout)) errors.push(`${label}: unsupported layout ${slide.layout}`);
+    if (slide.theme !== undefined && slide.theme !== 'reinbee') errors.push(`${label}.theme: unsupported theme`);
     if (!Array.isArray(slide.notes) || !slide.notes.length || slide.notes.some(n => !nonempty(n))) errors.push(`${label}: notes required`);
     if (!Array.isArray(slide.sourceIds) || (!slide.sourceIds.length && slide.contentKind !== 'presentation-plan')) errors.push(`${label}: sourceIds required`);
     else for (const id of slide.sourceIds) {
@@ -43,6 +46,10 @@ export function validateDeck(deck, sources) {
       requireText(slide.logoAlt, `${label}.logoAlt`);
       if (typeof slide.logoPath !== 'string' || !/^assets\/[\w\s\u0080-\uFFFF./-]+$/.test(slide.logoPath) || slide.logoPath.split('/').includes('..')) errors.push(`${label}: logoPath must stay inside assets`);
     }
+    for (const key of ['detailImagePath', 'detailImageAlt']) {
+      if (slide[key] !== undefined) requireText(slide[key], `${label}.${key}`);
+    }
+    if ((slide.detailImagePath !== undefined) !== (slide.detailImageAlt !== undefined)) errors.push(`${label}: detailImagePath and detailImageAlt must be supplied together`);
     if (slide.layout === 'loop') {
       for (const key of ['model', 'modelCaption', 'feedback', 'condition']) requireText(slide[key], `${label}.${key}`);
       for (const [name, count] of [['inputs', 3], ['outputs', 2]]) {
@@ -65,7 +72,7 @@ export function validateDeck(deck, sources) {
     const textArray = (items, name, min = 1, max = 4) => {
       if (!Array.isArray(items) || items.length < min || items.length > max || items.some(x => !nonempty(x))) errors.push(`${label}.${name}: expected ${min}-${max} text items`);
     };
-    for (const file of [slide.imagePath, ...(slide.evidencePaths ?? [])].filter(Boolean)) {
+    for (const file of [slide.imagePath, slide.detailImagePath, ...(slide.evidencePaths ?? [])].filter(Boolean)) {
       if (!/^assets\/[\w\s\u0080-\uFFFF./-]+$/.test(file) || file.split('/').includes('..')) errors.push(`${label}: imagePath must stay inside assets`);
     }
     if (slide.timingSeconds !== undefined && (!Number.isInteger(slide.timingSeconds) || slide.timingSeconds < 1)) errors.push(`${label}: invalid timingSeconds`);
@@ -78,6 +85,46 @@ export function validateDeck(deck, sources) {
     if (slide.layout === 'table') {
       textArray(slide.headers, 'headers', 2, 5);
       if (!Array.isArray(slide.rows) || slide.rows.length < 1 || slide.rows.length > 6 || slide.rows.some(r => !Array.isArray(r) || r.length !== slide.headers?.length || r.some(c => !nonempty(c)))) errors.push(`${label}: table column mismatch or invalid rows`);
+    }
+    if (slide.layout === 'definition') requireText(slide.definition, `${label}.definition`);
+    if (slide.layout === 'relationship') {
+      for (const key of ['ai', 'rules', 'learning', 'traditional', 'deep']) requireText(slide.taxonomy?.[key], `${label}.taxonomy.${key}`);
+      textArray(slide.columnLabels, 'columnLabels', 3, 3);
+      if (!Array.isArray(slide.relations) || slide.relations.length !== 7) errors.push(`${label}.relations: expected 7 items`);
+      else slide.relations.forEach((item, index) => {
+        const relationLabel = `${label}.relations[${index}]`;
+        if (!relationRoutes.has(item?.route)) errors.push(`${relationLabel}.route: unsupported relationship route`);
+        requireText(item?.capability, `${relationLabel}.capability`);
+        requireText(item?.scenarios, `${relationLabel}.scenarios`);
+      });
+    }
+    if (slide.layout === 'gallery') {
+      if (!Array.isArray(slide.images) || slide.images.length < 2 || slide.images.length > 5) errors.push(`${label}.images: expected 2-5 items`);
+      else slide.images.forEach((item, index) => {
+        const imageLabel = `${label}.images[${index}]`;
+        requireText(item?.path, `${imageLabel}.path`);
+        requireText(item?.alt, `${imageLabel}.alt`);
+        if (typeof item?.path !== 'string' || !/^assets\/[\w\s\u0080-\uFFFF./-]+$/.test(item.path) || item.path.split('/').includes('..')) errors.push(`${imageLabel}.path: must stay inside assets`);
+        for (const key of ['label', 'position']) if (item?.[key] !== undefined) requireText(item[key], `${imageLabel}.${key}`);
+        if (item?.fit !== undefined && !['contain', 'cover'].includes(item.fit)) errors.push(`${imageLabel}.fit: expected contain or cover`);
+      });
+    }
+    if (slide.layout === 'product') {
+      for (const key of ['productName', 'productMeta', 'imagePath', 'imageAlt', 'imageCredit', 'caption']) requireText(slide[key], `${label}.${key}`);
+      for (const name of ['facts', 'steps']) {
+        if (!Array.isArray(slide[name]) || slide[name].length !== 3) errors.push(`${label}.${name}: expected 3 items`);
+        else slide[name].forEach((item, index) => {
+          requireText(item?.label, `${label}.${name}[${index}].label`);
+          requireText(item?.text, `${label}.${name}[${index}].text`);
+        });
+      }
+    }
+    if (slide.layout === 'waves') {
+      if (!Array.isArray(slide.eras) || slide.eras.length !== 4) errors.push(`${label}.eras: expected 4 items`);
+      else slide.eras.forEach((era, index) => {
+        for (const key of ['period', 'title', 'description', 'application', 'icon']) requireText(era?.[key], `${label}.eras[${index}].${key}`);
+        if (!waveIcons.has(era?.icon)) errors.push(`${label}.eras[${index}].icon: unsupported wave icon`);
+      });
     }
     if (['timeline', 'process', 'diagram'].includes(slide.layout)) {
       const items = slide.layout === 'diagram' ? slide.nodes : slide.items;

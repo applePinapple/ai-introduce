@@ -6,6 +6,37 @@
   const nav = document.getElementById('nav-btn');
   const hud = document.getElementById('hud');
   let current = -1, counter = false, digits = '', timer;
+  let presenterWindow = null;
+  const presenterChannel = Array.from(crypto.getRandomValues(new Uint32Array(4)), n => n.toString(16)).join('-');
+  function syncPresenter() {
+    if (presenterWindow && !presenterWindow.closed) presenterWindow.postMessage({
+      type: 'lip-presenter-state', channel: presenterChannel, index: current, count: slides.length,
+    }, '*');
+  }
+  function openPresenter() {
+    if (!presenterWindow || presenterWindow.closed) {
+      const url = new URL('presenter.html', location.href);
+      url.hash = presenterChannel;
+      presenterWindow = window.open(url.href, `lip-presenter-${presenterChannel}`, 'popup=yes,width=1120,height=900,resizable=yes,scrollbars=yes');
+    }
+    if (presenterWindow) { presenterWindow.focus(); syncPresenter(); }
+    else {
+      hud.textContent = '讲者窗口未打开，请允许弹出窗口后再按 P。';
+      hud.classList.add('show');
+    }
+  }
+  addEventListener('message', event => {
+    const message = event.data;
+    // file:// uses an opaque origin. Authenticate the explicit window reference
+    // and per-opening channel instead of relying on localStorage or an origin.
+    if (!presenterWindow || event.source !== presenterWindow || !message || message.channel !== presenterChannel) return;
+    if (message.type === 'lip-presenter-ready') syncPresenter();
+    else if (message.type === 'lip-presenter-command') {
+      if (message.action === 'previous') show(current - 1);
+      else if (message.action === 'next') show(current + 1);
+      else if (message.action === 'jump' && Number.isInteger(message.index) && message.index >= 0 && message.index < slides.length) show(message.index);
+    }
+  });
   function toggleNav(force = !panel.classList.contains('open')) {
     panel.classList.toggle('open', force);
     nav.classList.toggle('open', force);
@@ -24,11 +55,12 @@
     current = index;
     history.replaceState(null, '', `#${index + 1}`);
     document.getElementById('nb-pg').textContent = `${index + 1} / ${slides.length}`;
-    hud.textContent = counter ? `${index + 1} / ${slides.length}` : '← → 翻页 · F 全屏 · C 页码 · G 目录';
+    hud.textContent = counter ? `${index + 1} / ${slides.length}` : '← → 翻页 · F 全屏 · C 页码 · G 目录 · P 讲者';
     panel.querySelectorAll('.it').forEach((item, n) => {
       item.classList.toggle('cur', n === index);
       item.setAttribute('aria-current', n === index ? 'page' : 'false');
     });
+    syncPresenter();
   }
   let lastSection;
   slides.forEach((slide, index) => {
@@ -44,6 +76,7 @@
   document.getElementById('nb-list').addEventListener('click', () => toggleNav());
   document.getElementById('nb-prev').addEventListener('click', () => show(current - 1));
   document.getElementById('nb-next').addEventListener('click', () => show(current + 1));
+  document.getElementById('nb-presenter')?.addEventListener('click', openPresenter);
   function fit() { stage.style.transform = `translate(-50%,-50%) scale(${Math.min(innerWidth / 1920, innerHeight / 1080)})`; }
   addEventListener('resize', fit);
   addEventListener('hashchange', () => { const n = Number(location.hash.slice(1)); if (Number.isInteger(n) && n > 0) show(n - 1); });
@@ -56,6 +89,7 @@
     else if (event.key === 'End') { event.preventDefault(); show(slides.length - 1); }
     else if (event.key === 'Escape') toggleNav(false);
     else if (event.key.toLowerCase() === 'g') toggleNav();
+    else if (event.key.toLowerCase() === 'p') { event.preventDefault(); openPresenter(); }
     else if (event.key.toLowerCase() === 'f') {
       if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
       else document.documentElement.requestFullscreen().catch(() => {});

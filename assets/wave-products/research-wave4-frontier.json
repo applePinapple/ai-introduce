@@ -1,0 +1,186 @@
+{
+  "verifiedOn": "2026-10-14",
+  "sources": [
+    {
+      "id": "pi0-official-2024",
+      "title": "π0: Our First Generalist Policy",
+      "url": "https://www.pi.website/blog/pi0",
+      "publisher": "Physical Intelligence",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "2024 年 10 月 31 日公布 π0 通用机器人策略",
+        "以视觉语言模型为起点，结合机器人数据和 flow matching 输出连续动作",
+        "官方展示洗衣、叠衣、收桌等研究任务，同时明确该方向仍处于早期阶段",
+        "本页左图是官方演示视频的海报画面，保留原 autonomous, 1x speed 标识"
+      ]
+    },
+    {
+      "id": "pi0-paper-2024",
+      "title": "π0: A Vision-Language-Action Flow Model for General Robot Control",
+      "url": "https://www.pi.website/download/pi0.pdf",
+      "publisher": "Physical Intelligence",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "在预训练视觉语言模型基础上增加动作专家，利用 flow matching 建模连续动作",
+        "预训练与后训练结合，以机器人交互数据学习多种操作任务",
+        "泛化、数据与稳健性仍是机器人基础模型的重要问题"
+      ]
+    },
+    {
+      "id": "openvla-official-2024",
+      "title": "OpenVLA: An Open-Source Vision-Language-Action Model",
+      "url": "https://openvla.github.io/",
+      "publisher": "OpenVLA research team",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "OpenVLA 官方架构图展示图像与语言指令输入，以及机器人动作输出",
+        "视觉编码器和语言模型先预测动作 token，再将其解码为机器人可执行的连续动作",
+        "官方项目页同时展示成功和失败的机器人实验，性能依赖具体任务与设置"
+      ]
+    },
+    {
+      "id": "google-alphafold3-launch-2024",
+      "title": "AlphaFold 3 predicts the structure and interactions of all of life’s molecules",
+      "url": "https://blog.google/innovation-and-ai/products/google-deepmind-isomorphic-alphafold-3-ai-model/",
+      "publisher": "Google DeepMind AlphaFold team and Isomorphic Labs / Google",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "AlphaFold 3 于 2024 年 5 月 8 日发布，给定一组分子输入，预测它们共同构成的三维结构。",
+        "模型处理蛋白质、DNA、RNA、配体等分子，在处理输入后通过扩散网络逐步形成结构预测。",
+        "官方 7R6R 动画展示蓝色蛋白质、粉色 DNA 的预测结构与灰色实验结构的叠合。",
+        "AlphaFold Server 用来帮助研究者提出需要在实验室测试的新假设；预测结果不等同于实验结论。",
+        "左图为官方文章蛋白结构主视觉，右图来自该文直接嵌入的 7R6R 原始动画。"
+      ]
+    }
+  ],
+  "slides": [
+    {
+      "id": "wave-product-embodied",
+      "title": "第四浪潮：具身大模型",
+      "images": [
+        {
+          "path": "assets/wave-products/wave4-embodied-pi0-hero.jpg",
+          "alt": "Physical Intelligence 官方 π0 研究演示画面：从洗衣机内部看机器人双臂取衣，原图保留 autonomous, 1x speed 和 π 标识",
+          "label": "π0",
+          "fit": "contain"
+        },
+        {
+          "path": "assets/wave-products/wave4-embodied-openvla-model.jpg",
+          "alt": "OpenVLA 官方模型架构图：图像与语言指令进入视觉语言模型，预测动作 token 后解码为机械臂运动和夹爪动作",
+          "label": "OpenVLA",
+          "fit": "contain"
+        }
+      ],
+      "sourceIds": [
+        "pi0-official-2024",
+        "pi0-paper-2024",
+        "openvla-official-2024"
+      ],
+      "notes": [
+        "这一页把第四波的基础模型能力延伸到物理世界。具身模型需要把看到的画面和人给出的指令，转成机器人可以执行的动作。左图是 Physical Intelligence 的 π0 研究演示，机器人正在处理洗衣任务。",
+        "π0 从预训练视觉语言模型出发，再结合多种机器人的操作数据学习。它用动作专家和 flow matching 生成连续动作，让模型根据视觉与指令控制机械臂。复杂任务仍可能需要针对性的高质量数据和后训练。",
+        "右图是另一项研究 OpenVLA 的官方架构图。它接收图像与指令，先预测动作 token，再解码成机械臂位置、姿态和夹爪动作。这张图用来说明视觉、语言与行动怎样连接，不能把它当作 π0 的具体架构。",
+        "两张都是官方研究资料：左图为演示视频海报，右图为原始架构图。本项目没有改动实验画面。研究演示说明模型在相应设置中能完成部分任务，不代表任何机器人、环境或指令都能成功；稳定性、泛化和安全仍需持续验证。"
+      ],
+      "timingSeconds": 60
+    },
+    {
+      "id": "wave-product-science",
+      "title": "第四浪潮：科学 AI",
+      "images": [
+        {
+          "path": "assets/wave-products/wave4-science-alphafold3-protein.webp",
+          "alt": "AlphaFold 3 官方文章主视觉：渐变背景中的绿色蛋白质结构与紫蓝色核酸链示意。",
+          "label": "AlphaFold 3：分子结构",
+          "fit": "contain"
+        },
+        {
+          "path": "assets/wave-products/wave4-science-alphafold3-7r6r-frame-002.png",
+          "alt": "AlphaFold 3 官方 7R6R 动画第 2 秒：蓝色蛋白质与粉色 DNA 预测结构叠合在灰色实验结构上。",
+          "label": "7R6R：DNA 与蛋白质复合物",
+          "fit": "contain"
+        }
+      ],
+      "sourceIds": [
+        "google-alphafold3-launch-2024"
+      ],
+      "notes": [
+        "第四波也扩展到科学研究。Google DeepMind 与 Isomorphic Labs 的 AlphaFold 3 是面向分子结构的科学模型。这里把它放在基础模型与生成式 AI 的扩展中理解，不把所有这类系统都称为大语言模型。",
+        "给定蛋白质、DNA、RNA 或配体等分子信息，AlphaFold 3 预测这些分子共同构成的三维结构。模型通过扩散网络，从带噪声的表示逐步形成结构预测，为研究者分析分子之间怎样结合提供线索。",
+        "左图是官方文章的分子结构主视觉。右图来自 7R6R 复合物动画：蓝色是预测的蛋白质，粉色是预测的 DNA，灰色是实验结构。把预测与实验结果叠在一起，是观察局部吻合与偏差的一种方式。",
+        "图片来自 Google 官方材料，右图是原动画第 2 秒的真实抽帧，没有重新绘制结构。预测结果需要结合实验验证，单张图也不能证明整体准确率；本页不把结构预测等同于已经研发出新药或取得医学效果。"
+      ],
+      "timingSeconds": 60
+    }
+  ],
+  "images": [
+    {
+      "path": "assets/wave-products/wave4-embodied-pi0-hero.jpg",
+      "sourceId": "pi0-official-2024",
+      "sourceURL": "https://www.pi.website/blog/pi0",
+      "imageURL": "https://www.pi.website/images/p0-hero-video-poster.jpg",
+      "sourcePageSnapshotPath": "assets/wave-products/wave4-pi0-source.html",
+      "dimensions": [
+        1080,
+        608
+      ],
+      "verifiedOn": "2026-10-14",
+      "nature": "Physical Intelligence 官方 π0 研究演示视频的 poster 画面；真实机器人研究演示，不是本项目独立测评。",
+      "treatment": "官方 JPEG 原始字节保存，保留 autonomous, 1x speed 及 π 标识；无裁切、重绘或新增内容。",
+      "rights": "原图归原权利人；保留明确出处，不推断为开放许可。"
+    },
+    {
+      "path": "assets/wave-products/wave4-embodied-openvla-model.jpg",
+      "sourceId": "openvla-official-2024",
+      "sourceURL": "https://openvla.github.io/",
+      "imageURL": "https://openvla.github.io/static/images/openvla_model.jpg",
+      "dimensions": [
+        1250,
+        463
+      ],
+      "verifiedOn": "2026-10-14",
+      "nature": "OpenVLA 官方项目页 The OpenVLA Model 段落的原始模型架构图。",
+      "treatment": "官方 JPEG 原始字节保存；保留所有模型名、组件、箭头和示例图，不重新绘制。",
+      "rights": "原图归原研究团队；保留出处。项目网页模板许可不自动等于所有图像的许可。"
+    },
+    {
+      "path": "assets/wave-products/wave4-science-alphafold3-protein.webp",
+      "sourceId": "google-alphafold3-launch-2024",
+      "sourceURL": "https://blog.google/innovation-and-ai/products/google-deepmind-isomorphic-alphafold-3-ai-model/",
+      "sourceImageURL": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AF_hero_2.width-2200.format-webp.webp",
+      "sourcePageSnapshotPath": "assets/wave-products/wave4-alphafold3-source.html",
+      "model": "AlphaFold 3",
+      "dimensions": [
+        2096,
+        1182
+      ],
+      "processing": "从官方 HTML 的 data-srcset 中选取 width-2200 原始资源下载；图像实际为 2096×1182，保留原始 WebP 字节，未裁切、缩放或重绘。",
+      "nature": "Google 官方文章蛋白质与核酸结构主视觉；不是显微摄影，不将其当作具体实验结论或准确率证明。",
+      "rights": "保留 Google 官方来源；未声称获得开放许可。",
+      "sha256": "bf8dd6c404b703793b46b907d652b610906f580fa27bc2e5ab614406b46c22f2",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "path": "assets/wave-products/wave4-science-alphafold3-7r6r-frame-002.png",
+      "sourceId": "google-alphafold3-launch-2024",
+      "sourceURL": "https://blog.google/innovation-and-ai/products/google-deepmind-isomorphic-alphafold-3-ai-model/",
+      "sourceVideoURL": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_videos/AFS-anim-7R6R.mp4",
+      "sourceVideoPath": "assets/wave-products/wave4-science-alphafold3-7r6r.mp4",
+      "sourcePageSnapshotPath": "assets/wave-products/wave4-alphafold3-source.html",
+      "model": "AlphaFold 3",
+      "structureId": "7R6R",
+      "timestampSeconds": 2,
+      "videoDurationSeconds": 14.375,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "processing": "ffmpeg -hide_banner -loglevel error -y -ss 00:00:02.000 -i assets/wave-products/wave4-science-alphafold3-7r6r.mp4 -frames:v 1 assets/wave-products/wave4-science-alphafold3-7r6r-frame-002.png；原画面抽帧，无裁切、缩放、重绘或新增标注。",
+      "nature": "官方结构预测与实验结构对比动画的实际抽帧；原图已有 7R6R 和 Ground truth shown in gray 标注，完整保留。蓝色蛋白质和粉色 DNA 为模型预测，灰色为实验结构。",
+      "rights": "保留 Google 官方来源；未声称获得开放许可。",
+      "sha256": "488d872c8db49579c102d80aefa9e57aa9c7dd60ef22fce6ce5d3b952191a5c7",
+      "sourceVideoSha256": "da397f2c983144f5d001a98c408f6d4893cfbadf34591d45751ba436f0b5c31d",
+      "verifiedOn": "2026-10-14"
+    }
+  ]
+}

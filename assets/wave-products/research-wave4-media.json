@@ -1,0 +1,254 @@
+{
+  "verifiedOn": "2026-10-14",
+  "scope": "第四浪潮新增语音音乐与3D生成两页；推荐素材为官方原图，不额外生成演示效果；正文、图源说明与边界仅进入讲者备注。",
+  "sources": [
+    {
+      "id": "elevenlabs-tts-product-guide",
+      "title": "Text to Speech — ElevenLabs product guide",
+      "url": "https://elevenlabs.io/docs/eleven-creative/playground/text-to-speech",
+      "publisher": "ElevenLabs",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "输入文本、选择声音与设置后生成语音文件",
+        "声音、模型与设置影响输出，重复生成可有差异",
+        "官方指南提供实际TTS界面截图，图中模型为Eleven Multilingual v2"
+      ]
+    },
+    {
+      "id": "suno-simple-mode-guide",
+      "title": "Make a song in Simple Mode",
+      "url": "https://help.suno.com/en/articles/2462273",
+      "publisher": "Suno",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "Simple模式根据文字描述生成歌曲",
+        "描述可涉及音乐风格、乐器与歌曲结构"
+      ]
+    },
+    {
+      "id": "suno-studio-official-launch",
+      "title": "Introducing Suno Studio",
+      "url": "https://suno.com/blog/suno-studio",
+      "publisher": "Suno",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "2025年9月25日发布Studio",
+        "将生成与多音轨时间线编辑结合",
+        "可生成声部变化并继续编辑音频"
+      ]
+    },
+    {
+      "id": "suno-studio-official-release-notes",
+      "title": "Suno Release Notes — Studio 2.0 is here",
+      "url": "https://suno.com/release-notes",
+      "publisher": "Suno",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "2026年8月13日的Studio 2.0发布条目",
+        "官方提供显示多音轨、波形及合成器面板的Studio window截图",
+        "本图是2026年工作台界面，不是早期首发界面"
+      ]
+    },
+    {
+      "id": "hunyuan3d-2-official-repository",
+      "title": "Hunyuan3D 2.0 — Official repository",
+      "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-2",
+      "publisher": "Tencent Hunyuan3D Team",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "输入图像可生成3D网格，随后生成纹理",
+        "Hunyuan3D-DiT与Hunyuan3D-Paint组成两阶段系统",
+        "仓库Generation results下的e2e-1.gif展示生成资产的旋转渲染"
+      ]
+    },
+    {
+      "id": "hunyuan3d-2-original-paper",
+      "title": "Hunyuan3D 2.0: Scaling Diffusion Models for High Resolution Textured 3D Assets Generation",
+      "url": "https://arxiv.org/html/2501.12202v1",
+      "publisher": "Tencent Hunyuan3D Team / arXiv",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "2025年1月21日技术报告",
+        "由输入图像生成几何形状，再合成纹理",
+        "基础输出是静态3D资产，驱动动画另有骨架、蒙皮与动作流程",
+        "图11包含输入图像和多种方法的生成结果，不能全部标为混元输出"
+      ]
+    },
+    {
+      "id": "triposr-original-paper",
+      "title": "TripoSR: Fast 3D Object Reconstruction from a Single Image",
+      "url": "https://arxiv.org/html/2403.02151v1",
+      "publisher": "Tripo AI and Stability AI / arXiv",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "2024年单图3D重建模型",
+        "利用图像编码器与Transformer将单张图像转换为3D表示",
+        "图1是输入图像及TripoSR网格多视角输出的官方示例"
+      ]
+    },
+    {
+      "id": "triposr-official-repository",
+      "title": "TripoSR — Official codebase",
+      "url": "https://github.com/VAST-AI-Research/TripoSR",
+      "publisher": "Tripo AI and Stability AI",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "官方代码库说明单张图像到3D重建的用途",
+        "提供官方输入/输出旋转示例GIF及网格导出用法"
+      ]
+    }
+  ],
+  "slides": [
+    {
+      "id": "wave-product-audiogen",
+      "title": "第四浪潮：语音与音乐",
+      "images": [
+        {
+          "path": "assets/wave-products/wave4-voice-elevenlabs-tts.webp",
+          "alt": "ElevenLabs官方文字转语音界面，左侧为文本，右侧为声音与模型选择及调节项",
+          "label": "ElevenLabs：文字转语音",
+          "fit": "contain"
+        },
+        {
+          "path": "assets/wave-products/wave4-music-suno-studio-window.jpg",
+          "alt": "Suno官方Studio 2.0音乐工作台，多条彩色声部波形及合成器编辑面板",
+          "label": "Suno：生成与编辑音乐",
+          "fit": "contain"
+        }
+      ],
+      "sourceIds": [
+        "elevenlabs-tts-product-guide",
+        "suno-simple-mode-guide",
+        "suno-studio-official-launch",
+        "suno-studio-official-release-notes"
+      ],
+      "notes": [
+        "主讲：第四浪潮也把输出从文字扩展到声音。左边是ElevenLabs，把一段文稿变成语音：选声音、输入文本，再试听和调整，可以用于旁白、有声内容和语音交互。右边是Suno，它能根据音乐描述生成歌曲；工作台里还能把不同声部分开继续编辑。",
+        "机制通俗说明：可以把这两类工具理解为按条件合成声音。语音更关心说什么、由什么声音来表达；音乐更关心风格、乐器和歌曲结构。人把方向描述清楚，模型给出声音候选，再由人试听、挑选和修改。这里不推断两家未公开的具体模型架构。前两段约60秒。",
+        "图源说明：两图均直接下载自官方页面。左图是ElevenLabs产品指南中的界面，显示Multilingual v2；右图来自Suno 2026年8月Studio 2.0发布记录。它们是不同时间的产品界面，不是2022年的首发截图，也不是本项目新生成的音频效果。",
+        "能力边界：图中的波形和控制面板说明创作流程，不能单凭截图判断音质。生成语音仍要核对读音、停顿和语气；音乐仍需要试听整体结构并进行编辑。这些产品扩展了可以生成的内容种类，不意味着每次输出都能直接成为成品。"
+      ],
+      "timingSeconds": 60
+    },
+    {
+      "id": "wave-product-3dgen",
+      "title": "第四浪潮：3D资产生成",
+      "images": [
+        {
+          "path": "assets/wave-products/wave4-3d-hunyuan-results-frame-000.png",
+          "alt": "腾讯Hunyuan3D 2.0官方生成结果演示的静态首帧，两个人物3D资产的完整正面渲染；不是输入输出配对图",
+          "label": "混元3D：生成资产展示",
+          "fit": "contain"
+        },
+        {
+          "path": "assets/wave-products/wave4-3d-triposr-results.png",
+          "alt": "TripoSR原论文图1，角色、独角兽、汉堡、椅子和摩托车等输入图像与生成3D网格的多角度对照",
+          "label": "TripoSR：单图到3D网格",
+          "fit": "contain"
+        }
+      ],
+      "sourceIds": [
+        "hunyuan3d-2-official-repository",
+        "hunyuan3d-2-original-paper",
+        "triposr-original-paper",
+        "triposr-official-repository"
+      ],
+      "notes": [
+        "主讲：生成式AI还可以把二维参考图变成三维资产。左边是腾讯混元3D的官方结果，人物可以从不同角度观看；右边是TripoSR论文里的输入和输出对照。同一个物体的正面、侧面和背面，可以来自一个生成的3D表示，方便继续进入游戏、美术和设计流程。",
+        "机制通俗说明：TripoSR从一张图提取特征，再预测物体的三维表示。混元3D 2.0把任务分成两步：先建立几何形状，再生成表面纹理。就像先塑形、再上色，但形状和外观都由学习到的模型依据参考图推断。前两段约60秒。",
+        "图源说明：左侧从混元3D官方仓库e2e-1.gif抽取第0帧（0.000秒），两个人物都是生成结果，不是左右输入输出对比；原GIF保留，幻灯片统一使用静态PNG。右侧直接采用TripoSR原论文图1：每组先展示输入图，再展示生成网格的多个视角。输入中包含插画或渲染图，不能统称真实照片；所有效果均为作者原始示例。",
+        "能力边界：单张图没有记录物体的全部背面，推断的形状不能当作真实测量值。图里展示的是资产生成，也不等于自动得到可直接使用的动画角色：网格、贴图、骨架与动作仍应分别检查。这是对任务信息条件和后续制作流程的教学解释，不是对所有产品质量的统一排名。"
+      ],
+      "timingSeconds": 60
+    }
+  ],
+  "images": [
+    {
+      "path": "assets/wave-products/wave4-voice-elevenlabs-tts.webp",
+      "sourceId": "elevenlabs-tts-product-guide",
+      "originalUrl": "https://elevenlabs.io/docs/_fern-img/32b6abef4b76c8652b0e55dbb26c9694fdc82e191a062678b93c9a5ca5d80c94.webp",
+      "sourcePage": "https://elevenlabs.io/docs/eleven-creative/playground/text-to-speech",
+      "nature": "官方操作指南截图，显示Eleven Multilingual v2界面",
+      "processing": "直接下载原文件；未裁切、未去背景、未重绘；由幻灯片以contain等比展示",
+      "selected": true,
+      "verifiedOn": "2026-10-14",
+      "sha256": "d6f294f858ad6aa885206ce47a21e6f1a51ace34df336eb6feeb41c6fef44671",
+      "bytes": 72474,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "assets/wave-products/wave4-music-suno-studio-window.jpg",
+      "sourceId": "suno-studio-official-release-notes",
+      "originalUrl": "https://cdn.sanity.io/images/cl7b1q1i/production/982d83d731b5f7b65a817f9a1fdbec8847db2929-3840x2160.jpg",
+      "sourcePage": "https://suno.com/release-notes",
+      "nature": "2026年8月13日Studio 2.0官方发布记录中的Suno Studio window图片",
+      "processing": "下载官方CDN原图3840×2160，去掉URL缩放参数，未修改图像内容；contain展示",
+      "selected": true,
+      "verifiedOn": "2026-10-14",
+      "sha256": "a2e2a11ee0b10a6269dce9ca4549703f30a90b970f488260bf48e77c59a825a7",
+      "bytes": 622769,
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "path": "assets/wave-products/wave4-3d-hunyuan-input-output.gif",
+      "sourceId": "hunyuan3d-2-official-repository",
+      "originalUrl": "https://raw.githubusercontent.com/Tencent-Hunyuan/Hunyuan3D-2/main/assets/images/e2e-1.gif",
+      "sourcePage": "https://github.com/Tencent-Hunyuan/Hunyuan3D-2",
+      "nature": "官方Generation results区的生成资产旋转演示；虽然本地文件名含input-output，但画面两个人物都是输出示例",
+      "processing": "原始GIF直接下载并保留；正文采用单独登记的第0帧PNG，保证浏览器、截图和PDF显示相同画面",
+      "selected": false,
+      "verifiedOn": "2026-10-14",
+      "sha256": "6c582fdb3f6560b70418d1166a8024640a49f162b6969e03dc1a54ad196a837c",
+      "bytes": 8786876,
+      "width": 2439,
+      "height": 1080
+    },
+    {
+      "path": "assets/wave-products/wave4-3d-hunyuan-results-frame-000.png",
+      "sourceId": "hunyuan3d-2-official-repository",
+      "originalUrl": "https://raw.githubusercontent.com/Tencent-Hunyuan/Hunyuan3D-2/main/assets/images/e2e-1.gif",
+      "sourcePage": "https://github.com/Tencent-Hunyuan/Hunyuan3D-2",
+      "sourceLocalPath": "assets/wave-products/wave4-3d-hunyuan-input-output.gif",
+      "nature": "官方旋转结果演示的静态帧；两个完整人物正面，均为输出结果",
+      "frameIndex": 0,
+      "timeSeconds": 0,
+      "processing": "使用本机现有ffmpeg提取第一帧：ffmpeg -i wave4-3d-hunyuan-input-output.gif -frames:v 1 wave4-3d-hunyuan-results-frame-000.png；不裁切、不缩放、不重绘，不生成新产品效果",
+      "selected": true,
+      "verifiedOn": "2026-10-14",
+      "sha256": "7426143013ed29a37f46321ece8674c20dccc9b21c64a7c1dc4c1c71b4859074",
+      "bytes": 1610372,
+      "width": 2439,
+      "height": 1080
+    },
+    {
+      "path": "assets/wave-products/wave4-3d-triposr-results.png",
+      "sourceId": "triposr-original-paper",
+      "originalUrl": "https://arxiv.org/html/2403.02151v1/teaser-results.png",
+      "sourcePage": "https://arxiv.org/html/2403.02151v1",
+      "nature": "作者论文图1，输入图像与TripoSR网格多视角输出；包含插画、渲染和物体参考图",
+      "processing": "直接下载论文原始PNG；未裁切、未修改；contain展示",
+      "selected": true,
+      "verifiedOn": "2026-10-14",
+      "sha256": "aa68e405780ba9b4f89a37c71b322a032cf89318aa862e2882860c3f6d3d77df",
+      "bytes": 465330,
+      "width": 1152,
+      "height": 600
+    },
+    {
+      "path": "assets/wave-products/wave4-3d-hunyuan-comparison.png",
+      "sourceId": "hunyuan3d-2-original-paper",
+      "originalUrl": "https://arxiv.org/html/2501.12202v1/e2e_withmethod.png",
+      "sourcePage": "https://arxiv.org/html/2501.12202v1",
+      "nature": "备用：作者论文图11，输入图与五种方法的结果比较；只有最右Ours列是混元3D结果",
+      "processing": "直接下载原始PNG；未裁切、未修改；完整图比较密集，不作为默认推荐",
+      "selected": false,
+      "verifiedOn": "2026-10-14",
+      "sha256": "0ce07145ee863966e779025e6a1c5328a2e961d6bf81df6da78b29c0bd40fdef",
+      "bytes": 1596567,
+      "width": 1325,
+      "height": 1699
+    }
+  ]
+}

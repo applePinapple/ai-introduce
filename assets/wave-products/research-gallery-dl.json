@@ -1,0 +1,128 @@
+{
+  "verifiedOn": "2026-10-14",
+  "scope": "第三次浪潮详情页的五类真实官方或作者原始图片；图注与机制说明供演讲备注使用。",
+  "images": [
+    {
+      "path": "assets/wave-products/dl-face-apple-face-id-setup.png",
+      "alt": "Apple 官方 Face ID 录入界面示例，含人脸扫描引导和手机外框",
+      "label": "人脸识别",
+      "fit": "contain",
+      "sourceId": "apple-face-id-setup-official",
+      "sourceURL": "https://support.apple.com/en-us/108411",
+      "sourceAssetURL": "https://cdsassets.apple.com/live/7WUAS350/images/ios/ios-27-iphone-17-pro-setup-face-id.png",
+      "notes": "Apple 官方支持文档中的 Face ID 录入界面示例，属于官方操作示意，非私人用户照片。Face ID 在 2017 年 iPhone X 上推出；Apple 当年的资料说明，红外图像与深度点阵经过神经网络生成面部数学表示，再匹配已登记信息。所用界面图是核验日的支持文档版本，不标为 2017 年历史截图。",
+      "supportingSourceIds": ["apple-iphone-x-face-id-2017"],
+      "treatment": "官方 PNG 原字节保存，未重绘、拼接、添加人脸或改动界面。"
+    },
+    {
+      "path": "assets/wave-products/dl-vacuum-roborock-s7-maxv.jpg",
+      "alt": "Roborock S7 MaxV 扫地机在客厅识别拖鞋的官方场景示意图",
+      "label": "扫地机",
+      "fit": "cover",
+      "position": "center bottom",
+      "sourceId": "roborock-s7-maxv-official",
+      "sourceURL": "https://us.roborock.com/pages/roborock-s7-maxv",
+      "sourceAssetURL": "https://us.roborock.com/cdn/shop/t/148/assets/section-sixth-bg.jpg?v=184454944988881792721783585785",
+      "notes": "Roborock S7 MaxV 官方产品页的避障场景营销图，画面中的识别提示是官方示意，不是本项目运行模型得到的测试结果。官方资料将 ReactiveAI 2.0 描述为结构光三维扫描、RGB 相机、NPU 与机器学习算法的结合，用于识别障碍。扫地机还包括定位、规划和传统控制，不能把所有扫地机或整套控制系统都归为深度学习；本来源未公开具体神经网络结构。",
+      "treatment": "官方 JPEG 原字节保存。建议显示底部主体，保留扫地机及拖鞋识别提示；不自行添加检测框。"
+    },
+    {
+      "path": "assets/wave-products/dl-driving-nvidia-drive.png",
+      "alt": "NVIDIA DRIVE 官方四摄像头与雷达融合感知图，道路车辆有绿色检测框",
+      "label": "智能驾驶",
+      "fit": "contain",
+      "sourceId": "nvidia-drive-camera-radar-fusion-2020",
+      "sourceURL": "https://developer.nvidia.com/blog/drive-labs-covering-every-angle-with-surround-camera-radar-fusion/",
+      "sourceAssetURL": "https://developer-blogs.nvidia.com/wp-content/uploads/2019/11/DRIVE_LABS_EMBEDDED_%40-624x615.png",
+      "notes": "NVIDIA DRIVE Labs 2020 年技术文章图 2，展示四摄像头与八雷达配置的感知融合：右侧道路图中的绿色框是摄像头目标，绿色点对应雷达目标；左侧为三维感知视图。图是官方技术可视化，不是量产车辆的驾驶员界面。另据 NVIDIA 2019 年官方资料，DRIVE 的视觉感知使用深度神经网络。智能驾驶还涉及定位、预测、规划与控制；单张感知图不能证明完整驾驶系统的安全水平。",
+      "supportingSourceIds": ["nvidia-drive-autopilot-dnn-2019"],
+      "treatment": "官方 PNG 原字节保存，四个视角与已有检测框均未改动。"
+    },
+    {
+      "path": "assets/wave-products/dl-arm-universal-robots-e-series.png",
+      "alt": "Universal Robots 官方 e-Series 工业协作机械臂产品图，展示三种尺寸的机械臂",
+      "label": "传统机械臂",
+      "fit": "contain",
+      "sourceId": "universal-robots-e-series-official",
+      "sourceURL": "https://www.universal-robots.com/products/",
+      "sourceAssetURL": "https://a.storyblok.com/f/169662/1000x750/d842367e53/e-series-cobot-family-universal-robots.png",
+      "notes": "Universal Robots e-Series 工业协作机械臂的官方产品图，用作传统自动化对照。机械臂本体、按程序执行轨迹或固定动作的控制，并不天然属于深度学习。只有加上经过学习的视觉识别、抓取等具体模块时，相关功能才可能使用深度学习；此产品图本身不证明图中设备部署了这些模块，也不将其误称为深度学习产物。",
+      "treatment": "官方 PNG 原字节保存，未去除品牌特征、改变机械结构或生成新场景。"
+    },
+    {
+      "path": "assets/wave-products/dl-yolo-author-horses.png",
+      "alt": "YOLO 作者官网的目标检测结果原截图，照片中的马匹被绿色检测框标为 horse",
+      "label": "YOLO",
+      "fit": "contain",
+      "sourceId": "yolo-author-detection-demo",
+      "sourceURL": "https://pjreddie.com/darknet/yolo/",
+      "sourceAssetURL": "https://pjreddie.com/darknet/yolo/horses.png",
+      "notes": "Joseph Redmon 的 YOLO 作者网站所附多图检测示例，原文件展示 predictions.png 窗口与马匹检测框。YOLO 通过神经网络预测目标类别和位置框，是目标检测方法；检测出类别不等于理解场景，也可能漏检或误检。沿用作者已有框、标签与窗口，不伪装成本项目运行结果。",
+      "treatment": "作者网站 PNG 原字节保存，保留窗口外框、检测框与 horse 标签；未重绘检测结果。"
+    }
+  ],
+  "alternatives": [
+    {
+      "path": "assets/wave-products/dl-face-apple-face-id.jpg",
+      "label": "人脸识别",
+      "sourceId": "apple-iphone-x-face-id-2017",
+      "sourceURL": "https://www.apple.com/newsroom/2017/09/the-future-is-here-iphone-x/",
+      "sourceAssetURL": "https://www.apple.com/newsroom/images/product/iphone/standard/iphonex_face_recognition_beach_inline.jpg.large.jpg",
+      "notes": "2017 年 Apple 官方发布稿 Face ID 段落配图，展示模特面向手机使用的场景；是官方宣传照片，不是私人照片。画面没有检测框，辨识度不如录入界面，留作横幅备选。",
+      "treatment": "官方 JPEG 原字节保存。"
+    }
+  ],
+  "sources": [
+    {
+      "id": "apple-face-id-setup-official",
+      "url": "https://support.apple.com/en-us/108411",
+      "title": "Use Face ID on your iPhone or iPad Pro",
+      "publisher": "Apple Support",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "id": "apple-iphone-x-face-id-2017",
+      "url": "https://www.apple.com/newsroom/2017/09/the-future-is-here-iphone-x/",
+      "title": "The future is here: iPhone X",
+      "publisher": "Apple Newsroom",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "id": "roborock-s7-maxv-official",
+      "url": "https://us.roborock.com/pages/roborock-s7-maxv",
+      "title": "Roborock S7 MaxV Series - Everything Made Easy",
+      "publisher": "Roborock",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "id": "nvidia-drive-camera-radar-fusion-2020",
+      "url": "https://developer.nvidia.com/blog/drive-labs-covering-every-angle-with-surround-camera-radar-fusion/",
+      "title": "DRIVE Labs: Covering Every Angle with Surround Camera-Radar Fusion",
+      "publisher": "NVIDIA Technical Blog",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "id": "nvidia-drive-autopilot-dnn-2019",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-introduces-drive-autopilot-worlds-first-commercially-available-level-2%2B-automated-driving-system",
+      "title": "NVIDIA Introduces DRIVE AutoPilot, World’s First Commercially Available Level 2+ Automated Driving System",
+      "publisher": "NVIDIA Newsroom",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "id": "universal-robots-e-series-official",
+      "url": "https://www.universal-robots.com/products/",
+      "title": "Robotic Arm | Robot Arms for Industrial Automation | Universal Robots",
+      "publisher": "Universal Robots",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "id": "yolo-author-detection-demo",
+      "url": "https://pjreddie.com/darknet/yolo/",
+      "title": "YOLO: Real-Time Object Detection",
+      "publisher": "Joseph Redmon / Darknet",
+      "verifiedOn": "2026-10-14"
+    }
+  ],
+  "rights": "素材来自已核验的官方或作者页面，版权归各原权利人；公开可访问不自动等于开放许可。保留页面及原始资源地址，用于署名说明出处的教学演讲。",
+  "safety": "仅下载 JPEG/PNG 静态图像；没有安装或执行网页代码、脚本或应用。文件经 Pillow 解码校验，并逐张实际查看。"
+}

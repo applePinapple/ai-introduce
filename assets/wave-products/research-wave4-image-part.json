@@ -1,0 +1,82 @@
+{
+  "sources": [
+    {
+      "id": "imagen-official-gallery-2022",
+      "title": "Imagen: Text-to-Image Diffusion Models",
+      "url": "https://imagen.research.google/",
+      "publisher": "Google Research, Brain Team",
+      "verifiedOn": "2026-10-14",
+      "supports": ["Imagen 官方生成图像画廊与对应文本提示", "戴草帽和墨镜、在时代广场骑自行车的柯基图来自官方原始样例", "Imagen 使用预训练文本编码器与级联扩散生成图像"]
+    },
+    {
+      "id": "imagen-paper-2022",
+      "title": "Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding",
+      "url": "https://arxiv.org/abs/2205.11487",
+      "publisher": "Google Research / arXiv",
+      "verifiedOn": "2026-10-14",
+      "supports": ["Imagen 论文于 2022 年 5 月 23 日提交", "文本编码器与扩散生成模型相结合的文生图技术路线"]
+    },
+    {
+      "id": "bfl-flux2-official-gallery",
+      "title": "FLUX.2 — Next Generation Image Generation",
+      "url": "https://bfl.ai/models/flux-2",
+      "publisher": "Black Forest Labs",
+      "verifiedOn": "2026-10-14",
+      "supports": ["FLUX.2 官方页面展示图像生成、编辑与多参考图控制", "针织毛衣是页面 Generate assets 段落的 Generated asset 1，与文字提示对应", "生成示例体现材质、图案与图中文字的组合"]
+    }
+  ],
+  "slides": [
+    {
+      "id": "wave-product-imagegen",
+      "title": "第四浪潮：图像生成",
+      "images": [
+        {
+          "path": "assets/wave-products/wave4-image-imagen-corgi.jpg",
+          "alt": "Google Imagen 官方生成作品：戴草帽与墨镜的柯基在时代广场骑自行车，右下角保留 Imagen 标识",
+          "label": "Imagen",
+          "fit": "contain"
+        },
+        {
+          "path": "assets/wave-products/wave4-image-flux2-knit-design.png",
+          "alt": "FLUX.2 官方生成作品：奶油色针织毛衣，编织出 BlackForestLabs 文字、红色缆车与雪山滑雪图案",
+          "label": "FLUX.2",
+          "fit": "contain"
+        }
+      ],
+      "sourceIds": ["imagen-official-gallery-2022", "imagen-paper-2022", "bfl-flux2-official-gallery"],
+      "notes": [
+        "第四次浪潮还包括图像生成。我们给出主体、场景、风格和构图要求，模型就能生成新的视觉内容。这里把大规模生成式 AI 放在同一波中讨论，具体模型并不都等同于聊天用的大语言模型。",
+        "左图来自 2022 年 Imagen 的官方画廊。提示要求把柯基、墨镜、草帽、自行车和时代广场组合起来；这是生成图，不是现场摄影。以 Imagen 为例，文本编码器提供语义条件，扩散模型据此逐步形成图像。",
+        "右图来自 FLUX.2 官方产品页。毛衣上的文字、滑雪图案和编织材质一起生成，可以用来讨论商品概念图、视觉草案和设计探索。图中毛衣是生成资产示例，不能据此声称它是真实生产或销售的商品。",
+        "两张图都是厂商公开挑选的原始生成样例，本项目没有重新生成或改图。它们展示可达到的效果，不能代表每次输出都一样可靠；文字、局部结构和细节是否符合要求，仍需要人工检查。这一页只看结果，详细提示词和图源保留在备注资料中。"
+      ],
+      "timingSeconds": 60
+    }
+  ],
+  "images": [
+    {
+      "path": "assets/wave-products/wave4-image-imagen-corgi.jpg",
+      "sourceId": "imagen-official-gallery-2022",
+      "sourceURL": "https://imagen.research.google/",
+      "imageURL": "https://imagen.research.google/main_gallery_images/a-photo-of-a-corgi-dog-riding-a-bike-in-times-square.jpg",
+      "dimensions": [1024, 1024],
+      "verifiedOn": "2026-10-14",
+      "nature": "Google Research 官方 Imagen 生成图像样例，不是真实事件摄影，也不是本项目新生成的图。",
+      "promptSummary": "柯基戴着草帽和墨镜，在时代广场骑自行车。",
+      "treatment": "官方下载的 JPEG 原始字节保存；保留右下角 Imagen 标识，未裁切、重绘、扩图或添加文字。",
+      "rights": "原图归原权利人；作为明确署名的官方研究样例展示，不推断为开放许可。"
+    },
+    {
+      "path": "assets/wave-products/wave4-image-flux2-knit-design.png",
+      "sourceId": "bfl-flux2-official-gallery",
+      "sourceURL": "https://bfl.ai/models/flux-2",
+      "imageURL": "https://cdn.sanity.io/images/2gpum2i6/production/f2046c135d999cf6e0cede667677bdf3e8fa7695-1162x1377.png",
+      "dimensions": [1162, 1377],
+      "verifiedOn": "2026-10-14",
+      "nature": "Black Forest Labs 官方 FLUX.2 页面中标为 Generated asset 1 的生成作品。",
+      "promptSummary": "奶油色毛衣平铺产品图，绿色品牌字样，红色缆车、雪山、滑雪者与松树组成复古针织图案。",
+      "treatment": "从页面图片代理链接中确认原始 CDN 地址后下载 PNG；原始字节保存，未裁切、重绘或增加标识。",
+      "rights": "原图归原权利人；作为明确署名的官方产品样例展示，不推断为开放许可。"
+    }
+  ]
+}

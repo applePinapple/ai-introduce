@@ -1,6 +1,53 @@
 {
   "sources": [
     {
+      "id": "mycin-rule-form",
+      "title": "The Evolution of MYCIN’s Rule Form — Rule-Based Expert Systems (1984), Chapter 3",
+      "url": "https://impact.dbmi.columbia.edu/shortliffe/Buchanan-Shortliffe-1984/Chapter-03.pdf",
+      "publisher": "Bruce G. Buchanan、Edward H. Shortliffe 编 / 作者档案，Columbia University",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "MYCIN 将领域专家知识编码为产生式规则，并进行链式推理",
+        "规则系统用于感染诊断与治疗建议研究；不代表自主临床诊断或广泛实际部署",
+        "符号与规则方法并非仅处理完全确定的知识，MYCIN 也处理不确定证据"
+      ]
+    },
+    {
+      "id": "google-intro-ml",
+      "title": "What is Machine Learning?",
+      "url": "https://developers.google.com/machine-learning/intro-to-ml/what-is-ml",
+      "publisher": "Google for Developers",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "机器学习从数据训练模型，以预测或生成内容",
+        "监督学习的常见任务包括回归与分类",
+        "垃圾邮件分类与房价预测是官方列出的示例"
+      ]
+    },
+    {
+      "id": "deep-learning-2015",
+      "title": "Deep learning (Nature 2015)",
+      "url": "https://www.cs.toronto.edu/~hinton/absps/NatureDeepReview.pdf",
+      "publisher": "Yann LeCun、Yoshua Bengio、Geoffrey Hinton / Nature 521, 436–444；作者公开版本",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "深度学习通过多层表示学习，从数据中学习不同抽象层次的特征",
+        "深度学习属于机器学习",
+        "图像识别与语音识别是该文明确讨论的应用"
+      ]
+    },
+    {
+      "id": "codex-2021",
+      "title": "Evaluating Large Language Models Trained on Code (2021)",
+      "url": "https://arxiv.org/abs/2107.03374",
+      "publisher": "Mark Chen 等 / arXiv",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "在代码上微调的 GPT 语言模型可以根据自然语言描述生成代码",
+        "代码辅助属于语言模型应用方向；输出仍有局限，需要检查"
+      ]
+    },
+    {
       "id": "video-ai",
       "title": "01-AI通识与基础-认识人工智能",
       "url": "https://www.bilibili.com/video/BV178w1z7EHQ/?p=2",
@@ -310,6 +357,16 @@
       ]
     },
     {
+      "id": "deepseek-logo",
+      "title": "DeepSeek-LLM — 官方品牌 Logo（images/logo.svg）",
+      "url": "https://github.com/deepseek-ai/DeepSeek-LLM/blob/main/images/logo.svg",
+      "publisher": "DeepSeek 官方 GitHub",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "第三页大语言模型使用的 DeepSeek 鲸鱼品牌图标；仅用作视觉标识"
+      ]
+    },
+    {
       "id": "aws-idempotent-retries",
       "title": "Making retries safe with idempotent APIs",
       "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
@@ -319,6 +376,442 @@
         "请求超时并不证明服务端操作未完成，盲目重试可能导致重复副作用",
         "幂等接口和调用方请求标识可让重复请求不额外创建资源或执行动作",
         "状态核对、请求身份和服务端语义是安全重试的重要部分"
+      ]
+    },
+    {
+      "id": "mycin-context-1984",
+      "title": "The Context of the MYCIN Experiments — Rule-Based Expert Systems (1984), Chapter 1",
+      "url": "https://www.shortliffe.net/Buchanan-Shortliffe-1984/Chapter-01.pdf",
+      "publisher": "Bruce G. Buchanan、Edward H. Shortliffe 编 / 作者公开档案",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "MYCIN 是斯坦福 20 世纪 70 年代的专家系统研究项目，用于特定感染领域的计算机辅助咨询。",
+        "原书第 4 页图 1-1 显示用户、界面、推理引擎与知识库之间的信息流。",
+        "知识以规则表示，系统可以链式推理并解释；图为专家系统构成示意，不是运行截图。"
+      ],
+      "localPath": "assets/wave-products/mycin-source-chapter01.pdf",
+      "evidence": "实际打开原书 PDF 并核验相关文字；用 Poppler 渲染第 4 页，再裁出原图与原图注。"
+    },
+    {
+      "id": "mycin-lessons-1984",
+      "title": "Major Lessons from This Work — Rule-Based Expert Systems (1984), Chapter 36",
+      "url": "https://www.shortliffe.net/Buchanan-Shortliffe-1984/Chapter-36.pdf",
+      "publisher": "Bruce G. Buchanan、Edward H. Shortliffe 编 / 作者公开档案",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "规则及反向链推理是 MYCIN 的主要机制，确定性因子用于处理不确定信息。",
+        "知识获取、构建和维护是重要瓶颈；系统的表示方式和知识工程存在限制。",
+        "第 36.2.5 节明确讨论知识库构建、维护与对知识工程师的依赖。"
+      ],
+      "evidence": "实际打开作者公开 PDF，核验原书第 673、686–688 页相关讨论。"
+    },
+    {
+      "id": "spambayes-faq",
+      "title": "SpamBayes FAQ",
+      "url": "https://spambayes.sourceforge.io/faq.html",
+      "publisher": "SpamBayes 项目官方文档",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "SpamBayes 使用代表性的正常邮件与垃圾邮件样本训练，再分类新邮件。",
+        "分类包含 ham、spam 与 unsure；Outlook 插件可以在用户指定的文件夹处理邮件。",
+        "训练应使用近期邮件，错误标注会干扰分类；用户需要纠正错误。"
+      ],
+      "evidence": "实际打开 FAQ，核验 1.1、1.6、3.3、4.5 与 4.16 节。"
+    },
+    {
+      "id": "spambayes-background",
+      "title": "SpamBayes: Background Reading",
+      "url": "https://spambayes.sourceforge.io/background.html",
+      "publisher": "SpamBayes 项目官方文档",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "处理流程包含邮件词项化、统计信息组合与训练。",
+        "系统保留 unsure 类别；训练样本偏差与数据来源差异会影响结果。",
+        "项目历史可追溯到 2002 年的开发讨论。"
+      ],
+      "evidence": "实际打开官方背景页面核验 Tokenizing、Training 与项目历史。"
+    },
+    {
+      "id": "spambayes-release-1-1a6",
+      "title": "SpamBayes 1.1a6 official source release and bundled Outlook documentation",
+      "url": "https://sourceforge.net/projects/spambayes/files/spambayes/1.1a6/spambayes-1.1a6.tar.gz/download",
+      "publisher": "SpamBayes 项目 / SourceForge / Python Software Foundation",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "官方源码包中 Outlook2000/docs/images/manager.jpg 与 training.jpg 为真实历史插件界面截图。",
+        "manager.jpg 可见版本标识 Outlook Addin beta 0.6（July 29, 2003）。",
+        "发布包 LICENSE.txt 为 PSF 许可，覆盖软件及关联文档，原许可随素材保留。"
+      ],
+      "localPath": "assets/wave-products/spam-source-spambayes-1.1a6.tar.gz",
+      "evidence": "从官方下载页跟踪发布包链接；下载后 MD5 d06ed6d097911ddc8db31b4e9663df4b 与官方 https://spambayes.sourceforge.io/download.html 登记值一致。只读取归档成员，未安装或执行软件。"
+    },
+    {
+      "id": "alphago-official-overview",
+      "title": "AlphaGo — Google DeepMind",
+      "url": "https://deepmind.google/research/alphago/",
+      "publisher": "Google DeepMind",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "2016年3月在首尔以4比1战胜李世石",
+        "策略网络、价值网络与高级搜索组合",
+        "先学习人类棋谱，再通过自我对弈改进"
+      ]
+    },
+    {
+      "id": "alphago-deep-rl-2016",
+      "title": "Deep Reinforcement Learning (2016-06-17)",
+      "url": "https://deepmind.google/blog/deep-reinforcement-learning/",
+      "publisher": "David Silver / Google DeepMind",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "AlphaGo结合深度神经网络与树搜索",
+        "2016年李世石对局4比1结果",
+        "官方比赛照片及李世石、黄士杰的图像说明"
+      ]
+    },
+    {
+      "id": "chatgpt-launch-2022",
+      "title": "Introducing ChatGPT (2022-11-30)",
+      "url": "https://openai.com/index/chatgpt/",
+      "publisher": "OpenAI",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "2022年11月30日发布ChatGPT研究预览",
+        "首发模型基于GPT-3.5系列并经过监督微调及人类反馈强化学习",
+        "多轮对话能力",
+        "会产生似是而非的错误答案，并对提问措辞敏感"
+      ]
+    },
+    {
+      "id": "chatgpt-ios-launch-2023",
+      "title": "Introducing the ChatGPT app for iOS (2023-05-18)",
+      "url": "https://openai.com/index/introducing-the-chatgpt-app-for-ios/",
+      "publisher": "OpenAI",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "ChatGPT官方iOS应用于2023年5月18日发布",
+        "官方列出的问答、创意、写作与总结等应用示例"
+      ]
+    },
+    {
+      "id": "chatgpt-official-appstore-image",
+      "title": "ChatGPT — OpenAI official App Store product screenshots",
+      "url": "https://apps.apple.com/us/app/chatgpt/id6448311069",
+      "publisher": "OpenAI OpCo, LLC / Apple App Store",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "OpenAI官方ChatGPT产品界面示例；商店展示读取于核验日，不代表2022首发界面"
+      ]
+    },
+    {
+      "id": "deepseek-r1-release-2025",
+      "title": "DeepSeek-R1 Release (2025-01-20)",
+      "url": "https://api-docs.deepseek.com/news/news250120/",
+      "publisher": "DeepSeek 官方 API 文档",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "DeepSeek-R1是后续大语言模型发展中的一个例子，发布公告同时提供模型与对话服务入口；不采纳其价格及性能宣传数字"
+      ]
+    },
+    {
+      "id": "shakey-sri-history",
+      "title": "Shakey the Robot — SRI history of innovation",
+      "url": "https://www.sri.com/hoi/shakey-the-robot/",
+      "publisher": "SRI",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "Shakey在1966至1972年间研究开发，能进行规划、寻路和简单物体重排。",
+        "官方历史展页图片用于规则与符号AI详情页，非深度学习产品示例。"
+      ]
+    },
+    {
+      "id": "deepseek-official-download-gallery",
+      "title": "DeepSeek 官方下载页与聊天界面展示",
+      "url": "https://www.deepseek.com/en/download/",
+      "publisher": "DeepSeek",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "官方下载页的DeepSeek app聊天及历史记录展示图；只作交互形式的配图，不采纳图片中的新闻回答作为事实依据。"
+      ]
+    },
+    {
+      "id": "apple-face-id-setup-official",
+      "url": "https://support.apple.com/en-us/108411",
+      "title": "Use Face ID on your iPhone or iPad Pro",
+      "publisher": "Apple Support",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "id": "apple-iphone-x-face-id-2017",
+      "url": "https://www.apple.com/newsroom/2017/09/the-future-is-here-iphone-x/",
+      "title": "The future is here: iPhone X",
+      "publisher": "Apple Newsroom",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "id": "roborock-s7-maxv-official",
+      "url": "https://us.roborock.com/pages/roborock-s7-maxv",
+      "title": "Roborock S7 MaxV Series - Everything Made Easy",
+      "publisher": "Roborock",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "id": "nvidia-drive-camera-radar-fusion-2020",
+      "url": "https://developer.nvidia.com/blog/drive-labs-covering-every-angle-with-surround-camera-radar-fusion/",
+      "title": "DRIVE Labs: Covering Every Angle with Surround Camera-Radar Fusion",
+      "publisher": "NVIDIA Technical Blog",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "id": "nvidia-drive-autopilot-dnn-2019",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-introduces-drive-autopilot-worlds-first-commercially-available-level-2%2B-automated-driving-system",
+      "title": "NVIDIA Introduces DRIVE AutoPilot, World’s First Commercially Available Level 2+ Automated Driving System",
+      "publisher": "NVIDIA Newsroom",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "id": "universal-robots-e-series-official",
+      "url": "https://www.universal-robots.com/products/",
+      "title": "Robotic Arm | Robot Arms for Industrial Automation | Universal Robots",
+      "publisher": "Universal Robots",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "id": "yolo-author-detection-demo",
+      "url": "https://pjreddie.com/darknet/yolo/",
+      "title": "YOLO: Real-Time Object Detection",
+      "publisher": "Joseph Redmon / Darknet",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "id": "moveit-rviz-motion-planning-official",
+      "title": "MoveIt Quickstart in RViz — moveit_tutorials Noetic documentation",
+      "url": "https://moveit.github.io/moveit_tutorials/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html",
+      "publisher": "MoveIt",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "MoveIt 的 RViz 插件可以设置起点与目标、测试运动规划器并显示路径",
+        "绿色与橙色机械臂分别表示规划起点和目标状态",
+        "Show Trail 显示规划路径中的机械臂姿态，教程执行对象为仿真机械臂",
+        "教程包含避免碰撞的逆运动学、关节与笛卡尔运动规划以及速度和加速度设置"
+      ]
+    },
+    {
+      "id": "roborock-qrevo-curv2-pro-recognition",
+      "url": "https://nl.roborock.com/store/products/roborock-qrevo-curv-2-pro-robotstofzuiger-multifunctioneel-dock-wit/buynow",
+      "title": "Roborock Qrevo Curv 2 Pro — Reactive AI-obstakelherkenning",
+      "publisher": "Roborock Netherlands Official Site",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "id": "darknet-coco-class-names",
+      "url": "https://github.com/pjreddie/darknet/blob/master/data/coco.names",
+      "title": "Darknet COCO class names (data/coco.names)",
+      "publisher": "Joseph Redmon / Darknet",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "id": "imagen-official-gallery-2022",
+      "title": "Imagen: Text-to-Image Diffusion Models",
+      "url": "https://imagen.research.google/",
+      "publisher": "Google Research, Brain Team",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "Imagen 官方生成图像画廊与对应文本提示",
+        "戴草帽和墨镜、在时代广场骑自行车的柯基图来自官方原始样例",
+        "Imagen 使用预训练文本编码器与级联扩散生成图像"
+      ]
+    },
+    {
+      "id": "imagen-paper-2022",
+      "title": "Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding",
+      "url": "https://arxiv.org/abs/2205.11487",
+      "publisher": "Google Research / arXiv",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "Imagen 论文于 2022 年 5 月 23 日提交",
+        "文本编码器与扩散生成模型相结合的文生图技术路线"
+      ]
+    },
+    {
+      "id": "bfl-flux2-official-gallery",
+      "title": "FLUX.2 — Next Generation Image Generation",
+      "url": "https://bfl.ai/models/flux-2",
+      "publisher": "Black Forest Labs",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "FLUX.2 官方页面展示图像生成、编辑与多参考图控制",
+        "针织毛衣是页面 Generate assets 段落的 Generated asset 1，与文字提示对应",
+        "生成示例体现材质、图案与图中文字的组合"
+      ]
+    },
+    {
+      "id": "google-veo3-prompt-guide",
+      "title": "How to create effective prompts with Veo 3",
+      "url": "https://deepmind.google/models/veo/prompt-guide/",
+      "publisher": "Google DeepMind",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "官方页面将老水手和月尘晶体花列为 Veo 3 提示词生成视频示例，并提供对应视频。",
+        "提示词可描述镜头、风格、光照、人物、场景、动作和对白。",
+        "本页两张图均从官方嵌入的 8 秒原始视频第 2 秒抽取，而非重新生成的插图。"
+      ]
+    },
+    {
+      "id": "google-veo-launch-2024",
+      "title": "New generative media models and tools, built with and for creators",
+      "url": "https://blog.google/innovation-and-ai/products/google-generative-ai-veo-imagen-3/",
+      "publisher": "Google",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "Google 于 2024 年 5 月 14 日发布 Veo 视频生成模型。",
+        "Veo 根据自然语言提示词生成不同电影与视觉风格的视频；本页图片采用后续 Veo 3 官方示例，不将其误标为初代 Veo。"
+      ]
+    },
+    {
+      "id": "elevenlabs-tts-product-guide",
+      "title": "Text to Speech — ElevenLabs product guide",
+      "url": "https://elevenlabs.io/docs/eleven-creative/playground/text-to-speech",
+      "publisher": "ElevenLabs",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "输入文本、选择声音与设置后生成语音文件",
+        "声音、模型与设置影响输出，重复生成可有差异",
+        "官方指南提供实际TTS界面截图，图中模型为Eleven Multilingual v2"
+      ]
+    },
+    {
+      "id": "suno-simple-mode-guide",
+      "title": "Make a song in Simple Mode",
+      "url": "https://help.suno.com/en/articles/2462273",
+      "publisher": "Suno",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "Simple模式根据文字描述生成歌曲",
+        "描述可涉及音乐风格、乐器与歌曲结构"
+      ]
+    },
+    {
+      "id": "suno-studio-official-launch",
+      "title": "Introducing Suno Studio",
+      "url": "https://suno.com/blog/suno-studio",
+      "publisher": "Suno",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "2025年9月25日发布Studio",
+        "将生成与多音轨时间线编辑结合",
+        "可生成声部变化并继续编辑音频"
+      ]
+    },
+    {
+      "id": "suno-studio-official-release-notes",
+      "title": "Suno Release Notes — Studio 2.0 is here",
+      "url": "https://suno.com/release-notes",
+      "publisher": "Suno",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "2026年8月13日的Studio 2.0发布条目",
+        "官方提供显示多音轨、波形及合成器面板的Studio window截图",
+        "本图是2026年工作台界面，不是早期首发界面"
+      ]
+    },
+    {
+      "id": "hunyuan3d-2-official-repository",
+      "title": "Hunyuan3D 2.0 — Official repository",
+      "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-2",
+      "publisher": "Tencent Hunyuan3D Team",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "输入图像可生成3D网格，随后生成纹理",
+        "Hunyuan3D-DiT与Hunyuan3D-Paint组成两阶段系统",
+        "仓库Generation results下的e2e-1.gif展示生成资产的旋转渲染"
+      ]
+    },
+    {
+      "id": "hunyuan3d-2-original-paper",
+      "title": "Hunyuan3D 2.0: Scaling Diffusion Models for High Resolution Textured 3D Assets Generation",
+      "url": "https://arxiv.org/html/2501.12202v1",
+      "publisher": "Tencent Hunyuan3D Team / arXiv",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "2025年1月21日技术报告",
+        "由输入图像生成几何形状，再合成纹理",
+        "基础输出是静态3D资产，驱动动画另有骨架、蒙皮与动作流程",
+        "图11包含输入图像和多种方法的生成结果，不能全部标为混元输出"
+      ]
+    },
+    {
+      "id": "triposr-original-paper",
+      "title": "TripoSR: Fast 3D Object Reconstruction from a Single Image",
+      "url": "https://arxiv.org/html/2403.02151v1",
+      "publisher": "Tripo AI and Stability AI / arXiv",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "2024年单图3D重建模型",
+        "利用图像编码器与Transformer将单张图像转换为3D表示",
+        "图1是输入图像及TripoSR网格多视角输出的官方示例"
+      ]
+    },
+    {
+      "id": "triposr-official-repository",
+      "title": "TripoSR — Official codebase",
+      "url": "https://github.com/VAST-AI-Research/TripoSR",
+      "publisher": "Tripo AI and Stability AI",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "官方代码库说明单张图像到3D重建的用途",
+        "提供官方输入/输出旋转示例GIF及网格导出用法"
+      ]
+    },
+    {
+      "id": "pi0-official-2024",
+      "title": "π0: Our First Generalist Policy",
+      "url": "https://www.pi.website/blog/pi0",
+      "publisher": "Physical Intelligence",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "2024 年 10 月 31 日公布 π0 通用机器人策略",
+        "以视觉语言模型为起点，结合机器人数据和 flow matching 输出连续动作",
+        "官方展示洗衣、叠衣、收桌等研究任务，同时明确该方向仍处于早期阶段",
+        "本页左图是官方演示视频的海报画面，保留原 autonomous, 1x speed 标识"
+      ]
+    },
+    {
+      "id": "pi0-paper-2024",
+      "title": "π0: A Vision-Language-Action Flow Model for General Robot Control",
+      "url": "https://www.pi.website/download/pi0.pdf",
+      "publisher": "Physical Intelligence",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "在预训练视觉语言模型基础上增加动作专家，利用 flow matching 建模连续动作",
+        "预训练与后训练结合，以机器人交互数据学习多种操作任务",
+        "泛化、数据与稳健性仍是机器人基础模型的重要问题"
+      ]
+    },
+    {
+      "id": "openvla-official-2024",
+      "title": "OpenVLA: An Open-Source Vision-Language-Action Model",
+      "url": "https://openvla.github.io/",
+      "publisher": "OpenVLA research team",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "OpenVLA 官方架构图展示图像与语言指令输入，以及机器人动作输出",
+        "视觉编码器和语言模型先预测动作 token，再将其解码为机器人可执行的连续动作",
+        "官方项目页同时展示成功和失败的机器人实验，性能依赖具体任务与设置"
+      ]
+    },
+    {
+      "id": "google-alphafold3-launch-2024",
+      "title": "AlphaFold 3 predicts the structure and interactions of all of life’s molecules",
+      "url": "https://blog.google/innovation-and-ai/products/google-deepmind-isomorphic-alphafold-3-ai-model/",
+      "publisher": "Google DeepMind AlphaFold team and Isomorphic Labs / Google",
+      "verifiedOn": "2026-10-14",
+      "supports": [
+        "AlphaFold 3 于 2024 年 5 月 8 日发布，给定一组分子输入，预测它们共同构成的三维结构。",
+        "模型处理蛋白质、DNA、RNA、配体等分子，在处理输入后通过扩散网络逐步形成结构预测。",
+        "官方 7R6R 动画展示蓝色蛋白质、粉色 DNA 的预测结构与灰色实验结构的叠合。",
+        "AlphaFold Server 用来帮助研究者提出需要在实验室测试的新假设；预测结果不等同于实验结论。",
+        "左图为官方文章蛋白结构主视觉，右图来自该文直接嵌入的 7R6R 原始动画。"
       ]
     }
   ]

@@ -1,0 +1,96 @@
+{
+  "verifiedOn": "2026-10-14",
+  "scope": "深度学习识别应用页补充素材：扫地机识别线缆等障碍与 YOLO 动物检测。仅素材目录记录，不修改主内容或主来源表。",
+  "recommendation": "扫地机优先使用新下载的 Qrevo Curv 2 Pro 官方障碍识别场景，画面直接展示线缆、拖鞋和玩具类别图标。YOLO 如需讲动物类别检测，继续使用原作者马匹检测图最准确；本轮新增牛群带框图可作为更宽幅的替代，但其标签是行为类别。Apple Face ID 沿用已有图片。",
+  "images": [
+    {
+      "path": "assets/wave-products/dl-vacuum-roborock-cable-recognition.jpg",
+      "label": "扫地机识别线缆等障碍",
+      "alt": "Roborock Qrevo Curv 2 Pro 官方障碍识别示意图，USB 线缆、拖鞋、玩具与纸团分别有轮廓和类别图标",
+      "fit": "cover",
+      "position": "center bottom",
+      "dimensions": [2000, 2000],
+      "suggestedCrop": [0, 775, 2000, 2000],
+      "sourceId": "roborock-qrevo-curv2-pro-recognition",
+      "sourceURL": "https://nl.roborock.com/store/products/roborock-qrevo-curv-2-pro-robotstofzuiger-multifunctioneel-dock-wit/buynow",
+      "imageURL": "https://gl2-files.roborock.com/shopify/products/136/7914677403731/006decc31441b2c36c7217b817635e96.jpg",
+      "verifiedOn": "2026-10-14",
+      "notes": "官方产品页的营销示意图，实际画面中线缆呈蓝色轮廓并配有线缆图标，拖鞋、玩具、纸团同样有分类图标，较旧图仅展示设备与拖鞋更直观。来源正文明确介绍结构光与 RGB 相机用于识别线缆等常见障碍；本图不是机器人摄像头实际输出截图，也不是本项目测试结果。顶部是荷兰语广告文案与厂家物体类别数量，不需要在演讲中引用该数值；建议裁切下方真实物体场景，备注保留图的官方示意性质。没有自行添加检测框或类别。",
+      "treatment": "JPEG 原始字节保存，尚未裁切。suggestedCrop 仅供版式使用，像素框为左、上、右、下；场景内已有轮廓与图标均来自官方原图。"
+    },
+    {
+      "path": "assets/wave-products/dl-yolo-ultralytics-cows.png",
+      "label": "YOLO 牛群检测与行为识别",
+      "alt": "Ultralytics 官方示例中六头牛分别被彩色检测框包围，标签为 Standing、Walking 和 Sitting",
+      "fit": "contain",
+      "dimensions": [1920, 1079],
+      "sourceId": "ultralytics-yolov8-animal-monitoring-2024",
+      "sourceURL": "https://www.ultralytics.com/blog/monitoring-animal-behavior-using-ultralytics-yolov8",
+      "imageURL": "https://cdn.ul.run/i/bdb6346e0c9fb64252bf75684ecd1275.avif",
+      "upstreamOfficialPostURL": "https://www.linkedin.com/feed/update/urn:li:activity:7165659079208517632/",
+      "verifiedOn": "2026-10-14",
+      "notes": "Ultralytics 官方 2024 年文章图 1，图注为使用 YOLOv8 监测牛的行为和位置，并链接到 Ultralytics 官方帖子。画面识别框很清楚，适合宽幅展示，但框上标的是站立、行走、坐卧等行为类别，不能将标签改写成 cow 或宣称是默认 COCO 权重的原始输出。右下角 Ultralytics 标识保留。",
+      "treatment": "保存官方 AVIF 原文件 dl-yolo-ultralytics-cows.avif，并使用 Pillow 解码为等尺寸 PNG 以兼容本地 HTML 与导出工具。未裁切、拼接、重绘、添加或替换识别框、文字、水印。"
+    },
+    {
+      "path": "assets/wave-products/dl-yolo-author-horses.png",
+      "label": "YOLO 动物类别检测",
+      "alt": "YOLO 作者官网原始示例中马匹被绿色检测框标为 horse",
+      "fit": "contain",
+      "dimensions": [1770, 1358],
+      "sourceId": "yolo-author-detection-demo",
+      "supportingSourceIds": ["darknet-coco-class-names"],
+      "sourceURL": "https://pjreddie.com/darknet/yolo/",
+      "imageURL": "https://pjreddie.com/darknet/yolo/horses.png",
+      "verifiedOn": "2026-10-14",
+      "notes": "沿用 Joseph Redmon 作者网站检测结果。这张图的 horse 标签直接对应动物类别，更适合讲位置与类别识别。作者官方 Darknet 仓库的 data/coco.names 共列 80 类，其中第 18、19、20 行依次为 horse、sheep、cow；作者教程使用 cfg/coco.data 与 YOLOv3 预训练权重，并将 names 指向 data/coco.names。讲稿可写：采用 COCO 预训练权重的 YOLO 支持牛、羊、马等类别；图中以马匹检测为例。这里指模型的支持类别，不保证任意场景都能正确识别，也不是所有自定义 YOLO 模型固定支持同一类表。",
+      "treatment": "沿用原始 PNG，不改动作者截图。"
+    }
+  ],
+  "sources": [
+    {
+      "id": "roborock-qrevo-curv2-pro-recognition",
+      "url": "https://nl.roborock.com/store/products/roborock-qrevo-curv-2-pro-robotstofzuiger-multifunctioneel-dock-wit/buynow",
+      "title": "Roborock Qrevo Curv 2 Pro — Reactive AI-obstakelherkenning",
+      "publisher": "Roborock Netherlands Official Site",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "id": "ultralytics-yolov8-animal-monitoring-2024",
+      "url": "https://www.ultralytics.com/blog/monitoring-animal-behavior-using-ultralytics-yolov8",
+      "title": "Monitoring animal behavior using Ultralytics YOLOv8",
+      "publisher": "Ultralytics",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "id": "yolo-author-detection-demo",
+      "url": "https://pjreddie.com/darknet/yolo/",
+      "title": "YOLO: Real-Time Object Detection",
+      "publisher": "Joseph Redmon / Darknet",
+      "verifiedOn": "2026-10-14"
+    },
+    {
+      "id": "darknet-coco-class-names",
+      "url": "https://github.com/pjreddie/darknet/blob/master/data/coco.names",
+      "title": "Darknet COCO class names (data/coco.names)",
+      "publisher": "Joseph Redmon / Darknet",
+      "verifiedOn": "2026-10-14"
+    }
+  ],
+  "notSelected": [
+    {
+      "path": "assets/wave-products/dl-vacuum-roborock-recognition-hazards.png",
+      "sourceURL": "https://us.roborock.com/pages/roborock-s7-maxv",
+      "imageURL": "https://us.roborock.com/cdn/shop/t/148/assets/qipan1.png?v=28003984569313284361783585303",
+      "reason": "官网动画第一帧只有很淡的障碍类型图标，没有真实物体，单独展示不清晰。"
+    },
+    {
+      "path": "assets/wave-products/dl-vacuum-roborock-recognition-test.png",
+      "sourceURL": "https://newsroom.roborock.com/us/news/understanding-how-robot-vacuums-navigate-and-how-it-significantly-impacts-your-cleaning-experience-",
+      "imageURL": "https://cdn.awsusor0.fds.api.mi-img.com/newsroom/dd3701b3aa4c84b7563513a5dc1befac.png",
+      "reason": "真实官方实验室测试照片，但没有可视的识别框或识别结果，不如选定场景图直接。"
+    }
+  ],
+  "evidence": ["assets/wave-products/dl-recognition-roborock-source.html", "assets/wave-products/dl-recognition-ultralytics-source.html"],
+  "rights": "图片保留原权利人的归属。官方页面可访问不自动表示开放许可；本记录保留可追溯地址和原始资源，不宣称本项目拥有图片版权。"
+}

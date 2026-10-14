@@ -1,0 +1,154 @@
+{
+  "verifiedOn": "2026-10-14",
+  "scope": "四次浪潮扩展页中的深度学习与大语言模型代表产物。历史事实与技术解释仅依据官方一级资料；界面图单独注明展示时期。",
+  "slides": [
+    {
+      "suggestedId": "deep-learning-alphago",
+      "title": "深度学习：AlphaGo 学会下围棋",
+      "subtitle": "2016 · 神经网络、强化学习与搜索结合",
+      "groups": [
+        {
+          "label": "解决什么",
+          "text": "在规则明确、变化极多的围棋中选择落点；2016 年以 4∶1 战胜李世石。"
+        },
+        {
+          "label": "怎样工作",
+          "text": "先学人类棋谱，再通过自我对弈改进；神经网络评估局面，搜索比较后续走法。"
+        },
+        {
+          "label": "能力边界",
+          "text": "强项是围棋这一封闭任务；棋力出色不等于能处理日常常识，也不等于通用智能。"
+        }
+      ],
+      "process": [
+        { "label": "棋盘局面", "text": "读入棋盘与合法落点" },
+        { "label": "评估与搜索", "text": "网络判断，再比较后续" },
+        { "label": "选择落点", "text": "输出当前要走的一步" }
+      ],
+      "notes": [
+        "2016 年 3 月，AlphaGo 在首尔以 4 比 1 战胜李世石。它不是把所有棋谱背下来，也不是只靠一张神经网络直接选点：策略网络帮助挑选候选走法，价值网络评估局面，再结合树搜索决定落点。训练先利用人类棋谱，随后通过自我对弈改进。不要把它与 2017 年从零开始学习的 AlphaGo Zero 混为一谈。这里的成功发生在规则、目标和结果都清晰的围棋任务中；不能直接外推成通用智能。照片右侧为李世石，左侧黄士杰负责代 AlphaGo 落子。"
+      ],
+      "sourceIds": ["alphago-official-overview", "alphago-deep-rl-2016"],
+      "image": {
+        "path": "assets/wave-products/alphago-lee-sedol-2016.jpg",
+        "caption": "2016 年人机围棋对局 · Google DeepMind 官方照片",
+        "alt": "Google DeepMind Challenge Match现场，李世石在右侧执棋，黄士杰在左侧代AlphaGo落子，桌上有棋盘、显示器和对局计时器。",
+        "credit": "Google DeepMind",
+        "sourcePage": "https://deepmind.google/blog/deep-reinforcement-learning/",
+        "directUrl": "https://lh3.googleusercontent.com/HlvA_-wpA-MxDBy-swN0gmKwNWfvE1QqeCqy-jpJXHaO3Pq2v46kBCXndQdzvolgorvqjfGEIUaHoshcBuOAaHAaxdTLkgay6-ppIaTcV1LJpML0ffY=w1440",
+        "dimensions": { "width": 1440, "height": 960 },
+        "verifiedOn": "2026-10-14",
+        "processing": "从官方文章 img 链接直接下载其 1440 像素版本；文件未裁剪、未重绘、未修改。已目视核对比赛背景、棋盘、人物与官方 alt 描述。",
+        "rightsNote": "保留 Google DeepMind 图片署名；未发现本图片单独的开放许可声明。"
+      },
+      "editorialNotes": [
+        "能力边界是基于该系统任务范围的教学解释，不把它写成论文直接引用。",
+        "避免把深度学习与强化学习混为同一概念；AlphaGo是两者加搜索的组合案例。",
+        "不使用观众人数、首次或提前十年等非必要宣传表述。"
+      ]
+    },
+    {
+      "suggestedId": "llm-chatgpt",
+      "title": "大语言模型：ChatGPT 把能力带进对话",
+      "subtitle": "2022 · 从任务专用系统到自然语言交互",
+      "groups": [
+        {
+          "label": "解决什么",
+          "text": "把问答、写作、改写变成多轮对话；ChatGPT 于 2022 年 11 月开放研究预览。"
+        },
+        {
+          "label": "怎样工作",
+          "text": "以语言模型为基础，先用对话示范训练，再通过人类对多个回答的比较反馈改进表现。"
+        },
+        {
+          "label": "能力边界",
+          "text": "回答流畅也可能编造事实，换种问法可能得到不同结果；重要信息仍然需要查证。"
+        }
+      ],
+      "process": [
+        { "label": "提出任务", "text": "用自然语言说明需求" },
+        { "label": "生成回答", "text": "结合对话上下文组织输出" },
+        { "label": "追问与核验", "text": "补充要求，检查重要事实" }
+      ],
+      "notes": [
+        "ChatGPT 于 2022 年 11 月 30 日以研究预览发布，首发版本从 GPT-3.5 系列模型微调而来。训练者提供对话示范，并比较不同回答，帮助模型更好地遵循指令与交流。这里的变化是用户可以用语言提出任务、继续追问和改写，不必为每个需求设计一套按钮。发布说明同时指出，它会给出听起来合理却不正确的答案。图为 OpenAI 当前 App Store 的官方问答界面局部，并非 2022 年首发界面。DeepSeek-R1 等后续模型可作为同类发展的例子点到，不做当前性能排名。"
+      ],
+      "optionalMention": "后续还有 DeepSeek-R1 等大语言模型与对话产品。",
+      "sourceIds": ["chatgpt-launch-2022", "chatgpt-ios-launch-2023", "chatgpt-official-appstore-image", "deepseek-r1-release-2025"],
+      "image": {
+        "path": "assets/wave-products/chatgpt-ipad-official-3.jpg",
+        "caption": "官方问答界面局部；非 2022 首发版",
+        "alt": "OpenAI官方ChatGPT iPad产品展示图中的问答界面，用户询问巴黎的建立，助手给出两段回答，下方有复制、反馈和分享等操作图标。",
+        "credit": "OpenAI / Apple App Store",
+        "sourcePage": "https://apps.apple.com/us/app/chatgpt/id6448311069",
+        "metadataUrl": "https://itunes.apple.com/lookup?id=6448311069&country=us",
+        "directUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/de/1e/b2/de1eb254-ed8f-e998-e006-fd5e522c5a73/3_iPad.jpg/1200x1600bb.jpg",
+        "dimensions": { "width": 1200, "height": 1600 },
+        "verifiedOn": "2026-10-14",
+        "historicalScope": "2026-10-14读取的官方商店展示，原图发布日未确定；不得标为2022或2023的历史界面。",
+        "processing": "通过 Apple 公开 lookup 元数据取得 OpenAI OpCo, LLC 的截图地址，使用官方 CDN 的 1200×1600 尺寸版本下载。原文件未裁剪、未重绘。幻灯片由 CSS 展示问答区域局部，以减少营销标题与纵向留白；必须保留 caption 的年代说明。",
+        "rightsNote": "OpenAI 官方商店产品展示图，保留 OpenAI / Apple App Store 署名；不把界面中的演示回答作为历史事实来源。"
+      },
+      "editorialNotes": [
+        "2022年的发布日期与训练方法由OpenAI首发文章支持，不从当前商店产品图推断。",
+        "2023年iOS文章仅支持问答、写作、创意与总结等用途描述，不承诺当前能力、价格或可用地区。",
+        "DeepSeek只作可选的一句话补充；不增加其图片、不引入性能或价格营销。",
+        "2023历史图片查找记录：OpenAI iOS首发页由web工具成功核验，但直接获取页面返回403；TechCrunch 2023转载图明确署名OpenAI，下载同样返回403。未将转载图或当前图伪装成首发原图。"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "alphago-official-overview",
+      "title": "AlphaGo — Google DeepMind",
+      "url": "https://deepmind.google/research/alphago/",
+      "publisher": "Google DeepMind",
+      "verifiedOn": "2026-10-14",
+      "supports": ["2016年3月在首尔以4比1战胜李世石", "策略网络、价值网络与高级搜索组合", "先学习人类棋谱，再通过自我对弈改进"]
+    },
+    {
+      "id": "alphago-deep-rl-2016",
+      "title": "Deep Reinforcement Learning (2016-06-17)",
+      "url": "https://deepmind.google/blog/deep-reinforcement-learning/",
+      "publisher": "David Silver / Google DeepMind",
+      "verifiedOn": "2026-10-14",
+      "supports": ["AlphaGo结合深度神经网络与树搜索", "2016年李世石对局4比1结果", "官方比赛照片及李世石、黄士杰的图像说明"]
+    },
+    {
+      "id": "chatgpt-launch-2022",
+      "title": "Introducing ChatGPT (2022-11-30)",
+      "url": "https://openai.com/index/chatgpt/",
+      "publisher": "OpenAI",
+      "verifiedOn": "2026-10-14",
+      "supports": ["2022年11月30日发布ChatGPT研究预览", "首发模型基于GPT-3.5系列并经过监督微调及人类反馈强化学习", "多轮对话能力", "会产生似是而非的错误答案，并对提问措辞敏感"]
+    },
+    {
+      "id": "chatgpt-ios-launch-2023",
+      "title": "Introducing the ChatGPT app for iOS (2023-05-18)",
+      "url": "https://openai.com/index/introducing-the-chatgpt-app-for-ios/",
+      "publisher": "OpenAI",
+      "verifiedOn": "2026-10-14",
+      "supports": ["ChatGPT官方iOS应用于2023年5月18日发布", "官方列出的问答、创意、写作与总结等应用示例"]
+    },
+    {
+      "id": "chatgpt-official-appstore-image",
+      "title": "ChatGPT — OpenAI official App Store product screenshots",
+      "url": "https://apps.apple.com/us/app/chatgpt/id6448311069",
+      "publisher": "OpenAI OpCo, LLC / Apple App Store",
+      "verifiedOn": "2026-10-14",
+      "supports": ["OpenAI官方ChatGPT产品界面示例；商店展示读取于核验日，不代表2022首发界面"]
+    },
+    {
+      "id": "deepseek-r1-release-2025",
+      "title": "DeepSeek-R1 Release (2025-01-20)",
+      "url": "https://api-docs.deepseek.com/news/news250120/",
+      "publisher": "DeepSeek 官方 API 文档",
+      "verifiedOn": "2026-10-14",
+      "supports": ["DeepSeek-R1是后续大语言模型发展中的一个例子，发布公告同时提供模型与对话服务入口；不采纳其价格及性能宣传数字"]
+    }
+  ],
+  "rejectedImageCandidates": [
+    "当前商店第1张为图像生成，第2张为语音营销展示，与本页文字问答解释不一致，未选用。",
+    "现行App Store截图不是历史界面；选用第3张仅展示普通问答，并明确排除首发年代含义。"
+  ]
+}

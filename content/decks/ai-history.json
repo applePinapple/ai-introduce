@@ -4,13 +4,13 @@
   "subtitle": "理解模型原理，找到业务落点",
   "language": "zh-CN",
   "audience": "老板与技术同事",
-  "durationMinutes": 50,
+  "durationMinutes": 58,
   "status": "ready",
   "slides": [
     {
       "id": "opening",
       "layout": "cover",
-      "section": "开场",
+      "section": "封面",
       "title": "AI、LLM\n与 Agent",
       "eyebrow": "AI 发展与应用 · 从模型到任务",
       "subtitle": "理解模型原理，找到业务落点",
@@ -24,8 +24,8 @@
       "imageAlt": "用户提供的 ReinBEE Z100L 轮式双臂机器人，白色机身、双机械臂与轮式底盘",
       "imageCredit": "ReinBEE · 轮式双臂机器人",
       "notes": [
-        "开场：今天用50分钟，把AI、大语言模型和Agent连成一条能用来做决策的线。前45分钟讲解，最后5分钟讨论。老板可以重点关注值得投入的任务、验收方式和成本，技术同事可以重点关注上下文、工具以及运行边界。",
-        "这次内容以指定的四段课程视频为起点。AI基础与大语言模型部分保留视频的核心讲解，Agent部分结合ReAct研究和官方工程资料延伸。视频中的手写数字、早餐生成和产品应用例子，会改写成适合现场讲述的版本。",
+        "开场：今天用58分钟，把AI、大语言模型和Agent连成一条能用来做决策的线。前53分钟讲解，最后5分钟讨论。老板可以重点关注值得投入的任务、验收方式和成本，技术同事可以重点关注上下文、工具以及运行边界。",
+        "这次内容以指定的四段课程视频为起点。AI基础与大语言模型部分保留视频的核心讲解，Agent部分结合ReAct研究和官方工程资料延伸。AI基础通过图片回顾代表性系统与应用，并用技术与场景关系图收束；语言模型部分保留早餐生成等适合现场讲述的例子。",
         "封面机器人图片、型号、汇报人及汇报时间由用户提供；机器人使用原图保留外观和机身品牌标识，未据图片推断技术参数或能力。浅色版Logo依据用户提供的品牌素材制作，Rein调整为蓝色，BEE保留金色。"
       ],
       "sourceIds": [
@@ -37,270 +37,643 @@
       ],
       "timingSeconds": 45,
       "chapter": "00",
-      "sectionLabel": "开场"
+      "sectionLabel": "封面"
     },
     {
-      "id": "one-business-question",
-      "section": "开场",
-      "layout": "spotlight",
-      "title": "一个订单问题，三种工作方式",
-      "timingSeconds": 75,
-      "lead": "“帮我查清订单为什么延迟，\n并把处理结果告诉客户。”",
-      "bullets": [
-        "聊天助手：帮我组织一段回复",
-        "业务工作流：按既定步骤查订单、生成草稿",
-        "Agent：模型按查询反馈选择下一步"
-      ],
-      "footnote": "贯穿全场的教学示例。订单、规则和处理结果均为虚构。",
+      "id": "ai-definition",
+      "section": "AI 基础",
+      "layout": "definition",
+      "theme": "reinbee",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "title": "什么是 AI",
+      "timingSeconds": 30,
+      "subtitle": "",
+      "definition": "AI（人工智能）：让机器执行学习、推理与问题求解等智能任务的技术。",
       "notes": [
-        "先让大家代入一个常见场景：销售收到客户催问，要求查清订单为什么延迟，并给出处理结果。一个只会对话的模型，可以帮我们写得更礼貌，却未必知道订单状态，更没有自然拥有公司的业务权限。",
-        "如果程序先查订单、再查物流、最后调用模型写回复，这是一个预先规定步骤的工作流，也可以包含固定的条件分支。如果由模型根据反馈动态选择是否补查运单、换查询入口或转人工，就出现了本讲所说的Agent决策。判别点是控制流程由谁决定，不只是路径是否变化。",
-        "现场互动：请大家想一想，自己最希望交给AI的工作，是写一段话，还是完成一个有结果可检查的任务？先不急着给答案。等讲到后面，我们会用这个订单例子检验系统究竟完成了什么。"
+        "先用一句话建立共同理解：AI是让机器执行学习、推理与问题求解等智能任务的技术。这是面向本次演讲的通俗定义，不表示机器已经具备人类全部认知能力。下一页沿课程的四次浪潮梳理几条主要路线。"
       ],
       "sourceIds": [
-        "effective-agents"
+        "video-ai",
+        "dartmouth-proposal"
       ],
-      "chapter": "00",
-      "sectionLabel": "开场",
-      "eyebrow": "ORIENTATION",
-      "subtitle": "",
-      "sourceLabel": "Building effective agents"
-    },
-    {
-      "id": "agenda",
-      "section": "开场",
-      "layout": "table",
-      "title": "50 分钟的路线",
-      "timingSeconds": 45,
-      "headers": [
-        "主题",
-        "时间",
-        "听完能回答什么"
-      ],
-      "rows": [
-        [
-          "AI 与神经网络",
-          "8 分钟",
-          "机器怎样从例子中学习"
-        ],
-        [
-          "大语言模型",
-          "18 分钟",
-          "为什么能回答，又为何会答错"
-        ],
-        [
-          "Agent 与应用",
-          "19 分钟",
-          "怎样接工具、验结果、算价值"
-        ],
-        [
-          "交流",
-          "5 分钟",
-          "我们的第一个试点选什么"
-        ]
-      ],
-      "notes": [
-        "讲解按四段展开。AI历史只保留理解今天技术所需的线索，不做年份背诵。大语言模型和Agent合计37分钟，占45分钟主体讲解的约82%。",
-        "大语言模型部分先解释Token、注意力和生成，再落到提示词、知识库和产品。Agent部分把模型接进任务流程，讨论真实研究案例以及可操作的试点方式。听到陌生术语不必记定义，只要把它放回同一个业务问题里。"
-      ],
-      "sourceIds": [],
-      "chapter": "00",
-      "sectionLabel": "开场",
-      "eyebrow": "ORIENTATION",
-      "subtitle": "",
-      "sourceLabel": "演讲安排 · 50 分钟",
-      "contentKind": "presentation-plan"
+      "chapter": "01",
+      "sectionLabel": "AI 基础",
+      "eyebrow": "AI · LEARNING",
+      "sourceLabel": "课程 002 · Dartmouth 1955/1956",
+      "evidencePaths": [
+        "assets/video-evidence/002/detail-280.jpg"
+      ]
     },
     {
       "id": "history",
       "section": "AI 基础",
-      "layout": "timeline",
-      "title": "AI 发展的四个路标",
-      "timingSeconds": 90,
-      "subtitle": "规则、学习和神经网络长期交叉发展",
-      "items": [
+      "layout": "waves",
+      "theme": "reinbee",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "title": "AI的发展的四次浪潮",
+      "timingSeconds": 60,
+      "subtitle": "",
+      "eras": [
         {
-          "label": "1956 研究议程",
-          "description": "达特茅斯暑期项目以人工智能为题"
+          "period": "1950’s - 1980’s",
+          "title": "规则和符号AI",
+          "description": "特点：基于逻辑和规则，使用符号表示知识和推理。依赖预定义的知识库和推理规则",
+          "application": "应用：医学诊断、化学结构分析",
+          "icon": "rules"
         },
         {
-          "label": "2012 深度学习",
-          "description": "AlexNet 展示图像识别的进步"
+          "period": "1980’s - 2010’s",
+          "title": "机器学习",
+          "description": "特点：基于数据，通过统计和优化方法训练模型。包括监督学习、无监督学习和强化学习等子领域。",
+          "application": "应用：游戏AI、垃圾邮件识别",
+          "icon": "learning"
         },
         {
-          "label": "2017 注意力架构",
-          "description": "注意力成为序列建模的核心"
+          "period": "2010’s - 2020’s",
+          "title": "深度学习",
+          "description": "特点：模仿人脑的结构和功能，使用多层神经元网络处理复杂任务，例如卷积神经网络",
+          "application": "应用：图像识别、自然语言处理",
+          "icon": "network"
         },
         {
-          "label": "2020—2022",
-          "description": "语言模型支持少样本任务与指令跟随"
+          "period": "2020’s – 至今",
+          "title": "大语言模型",
+          "description": "特点：基于海量数据，和超大规模的神经网络进行强化训练，使其具备了通用的泛化能力。",
+          "application": "应用：各行各业",
+          "icon": "deepseek"
         }
       ],
-      "takeaway": "今天的应用，建立在数据、算力与训练方法的长期积累上",
       "notes": [
-        "视频002在约01:30的画面中把AI分为规则、机器学习、深度学习和大语言模型几条路线。这里保留主线，但将关键日期锚定到原始资料。达特茅斯提案写于1955年，项目安排在1956年，这是研究议程形成的标志。",
-        "早期人们尝试把知识和规则写进程序。机器学习强调从样本中改进任务表现，神经网络则是其中一类方法。2012年的AlexNet在图像识别中展示深层网络、GPU和训练方法协同的效果，不代表深度学习从那一年才出现。",
-        "2017年Transformer首先在机器翻译中验证注意力架构。2020年GPT-3展示少样本任务能力，2022年InstructGPT研究指令跟随与人类反馈训练。注意，这条路线不意味着规则程序过时。像订单权限和金额校验这样的部分，今天仍非常适合用确定性程序实现。"
+        "按用户要求，本页标题、四类路线的名称、特点、应用和年代逐字保留课程002在04:40参考图的原文。AI定义已单独移到前一页。图中的年代是课程的教学分段，不是严格的诞生或终止时间；深度学习属于机器学习，当前主流大语言模型建立在深度神经网络之上。",
+        "讲述时补充概念边界：原图的“模仿人脑”是教学类比，不等于完整复制生物脑；“强化训练”是课程概述，不能理解为大语言模型完全由强化学习训练；“通用的泛化能力”与“各行各业”描述课程的应用方向，不保证在任意任务和行业都可靠。技术流程与局限以之后的训练、指令跟随和任务验收页面为准。",
+        "第一类是把知识和规则明确写进程序，再按逻辑进行推理，专家系统是典型应用。达特茅斯提案写于1955年、项目安排于1956年，是AI研究议程的早期标志，并不意味着所有符号方法都诞生于那一年。第二类是从样本中学习统计规律，例如通过已标注邮件学习分类；机器学习研究早于图中的1980年代。",
+        "第三类是用多层神经网络学习特征表示，在图像和语音识别中取得进展。2012年的AlexNet展示了深层网络、GPU和训练方法协同的效果，深度学习并非从2010年代才开始研究。第四类大语言模型通过大规模预训练学习语言模式，训练语料也可包含代码，再通过提示、示例或后训练适配任务；GPT-3、InstructGPT及Codex分别提供少样本任务、指令跟随和代码生成的研究依据。",
+        "四次浪潮没有让旧方法消失。业务权限、金额校验仍常用明确规则；传统机器学习仍适合许多预测问题。本页应用只用于说明常见任务类型，不代表任何客户已实现的收益，也不保证每个模型都能可靠完成这些任务。",
+        "范围说明：这张时间线保留课程参照图的四次浪潮原文，以大语言模型标记第四阶段。后面的详情页按本次演讲需要，扩展展示2020年代基础模型与生成式AI的代表性产物，包括图像、视频、语音音乐、3D、具身与科学AI。不同路线持续交叉发展，并非严格互相替代的学界统一分期；扩展产物也并不全部属于LLM。"
       ],
       "sourceIds": [
         "video-ai",
         "dartmouth-proposal",
         "alexnet-2012",
-        "transformer-2017",
         "few-shot-lm",
-        "instructgpt-2022"
+        "instructgpt-2022",
+        "mycin-rule-form",
+        "google-intro-ml",
+        "deep-learning-2015",
+        "codex-2021",
+        "deepseek-logo",
+        "foundation-models"
       ],
       "chapter": "01",
       "sectionLabel": "AI 基础",
       "eyebrow": "AI · LEARNING",
-      "sourceLabel": "课程 002 · Dartmouth 1955/1956 · AlexNet 2012",
+      "sourceLabel": "课程 002 · 04:40 参考图原文",
       "evidencePaths": [
         "assets/video-evidence/002/frame-004.jpg",
         "assets/video-evidence/002/detail-280.jpg"
       ]
     },
     {
-      "id": "concepts",
+      "id": "wave-product-rules",
+      "layout": "gallery",
       "section": "AI 基础",
-      "layout": "table",
-      "title": "AI、深度学习与大语言模型",
-      "timingSeconds": 75,
-      "headers": [
-        "概念",
-        "通俗解释",
-        "熟悉的例子"
-      ],
-      "rows": [
-        [
-          "人工智能 AI",
-          "让机器执行需要智能的任务",
-          "识别图像、规划、对话"
-        ],
-        [
-          "机器学习",
-          "从数据中学习规律",
-          "用历史邮件学习分类"
-        ],
-        [
-          "深度学习",
-          "多层神经网络学习表示",
-          "从像素学习识别手写数字"
-        ],
-        [
-          "大语言模型 LLM",
-          "在大规模语言数据上训练的模型",
-          "摘要、改写、代码、问答"
-        ]
-      ],
-      "takeaway": "本讲聚焦以大语言模型为核心的 Agent 系统",
-      "notes": [
-        "视频002用规则和符号AI、机器学习、深度学习、大语言模型串起发展脉络。本页进一步区分领域与方法：人工智能包括很多路线，深度学习是机器学习中的一类方法，当前主流大语言模型通常采用深度神经网络。",
-        "大语言模型的“大”没有统一的参数门槛。实际选型更应看它在我们的任务上能否达到质量要求，而不是只看参数数目。基础模型还可以处理图像、音频等，本讲为了保持清楚，以文本语言模型为主。",
-        "Agent描述的是一个感知、决策和行动的系统方式，不宜画成一个简单的模型大小层级。以后看到“AI”“大模型”“Agent”放在同一张宣传页，先问它说的是能力领域、模型，还是完整应用系统。"
-      ],
-      "sourceIds": [
-        "video-ai",
-        "foundation-models",
-        "effective-agents"
-      ],
+      "theme": "reinbee",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "title": "第一浪潮：规则和符号 AI",
+      "subtitle": "",
       "chapter": "01",
       "sectionLabel": "AI 基础",
-      "eyebrow": "AI · LEARNING",
-      "subtitle": "",
-      "sourceLabel": "课程 002 · Foundation Models 2021 · Building effective agents",
-      "evidencePaths": [
-        "assets/video-evidence/002/detail-280.jpg"
-      ]
-    },
-    {
-      "id": "neural-example",
-      "section": "AI 基础",
-      "layout": "diagram",
-      "title": "神经网络怎样学会认数字",
+      "eyebrow": "AI · PRODUCTS",
       "timingSeconds": 90,
-      "subtitle": "视频中的手写数字识别例子",
-      "takeaway": "学习发生在参数更新中，效果要用没见过的样本检验",
-      "notes": [
-        "视频003约06:30至12:00使用28乘28像素的手写数字讲网络输入与分类，约12:30至16:00讲预测、损失、反向传播和调权重。我们保留这个直观例子：机器收到的并不是人眼看见的“7”，而是一组像素强度。",
-        "可以把每个神经元粗略理解为带权重的评分器。某些输入更重要，乘上更大的权重，再经过非线性变换，多层组合后形成分类依据。将某层直接说成识别笔画、下一层识别数字，只是帮助理解的类比，不保证每个神经元都能被解释成这样的概念。",
-        "如果正确答案是7而模型偏向9，损失函数衡量偏差，反向传播计算参数应该如何调整，优化器执行更新。只在做过的题上答得好还不够，因此要用独立测试数据检验。神经网络受脑科学启发，但这里使用的是数学模型，不应当作人脑工作的完整复制。"
-      ],
       "sourceIds": [
-        "video-neural",
-        "backprop-google"
+        "mycin-context-1984",
+        "mycin-lessons-1984",
+        "shakey-sri-history"
       ],
-      "chapter": "01",
-      "sectionLabel": "AI 基础",
-      "eyebrow": "AI · LEARNING",
-      "sourceLabel": "课程 003 · Google ML Crash Course",
-      "diagramKind": "network",
-      "nodes": [
+      "notes": [
+        "MYCIN 是 20 世纪 70 年代斯坦福开发的专家系统研究项目，研究如何把特定领域的专家经验用于计算机辅助咨询。图来自研究团队 1984 年著作的原始架构图：用户提交案例信息，推理引擎调用知识库，再返回建议和解释。这里的核心是知识与推理过程分开，专家把经验写成规则，系统沿着规则链组织证据。它也用确定性因子处理不完全确定的信息。能力受知识库覆盖和表示方式限制；扩展规则需要专家与知识工程师维护。本页只讲计算机机制，不展示治疗方案或剂量。",
+        "讲解提纲：解决什么：支持医生分析特定感染问题，将专家经验变成可重复调用的咨询程序。；怎样工作：专家写入“如果…那么…”规则；系统按已知事实逐步推理，并解释依据。；能力边界：能力取决于知识库覆盖；规则新增、冲突检查与维护仍需要专家和工程师。",
+        "工作流程：知识库（专家写入 IF–THEN 规则） → 推理引擎（用事实匹配与串联规则） → 咨询结果（给出结论并解释依据）",
+        "配图顺序：左为 MYCIN 研究团队1984年原著作 Figure 1-1（结构图，不是运行截图），右为 SRI 官网的 Shakey 机器人历史展图。Shakey 于1966至1972年研究开发，结合环境感知、规划与行动，可用来说明符号规划路线。不要把它描述为深度学习机器人。",
+        "过渡语：这一代的核心是让计算机使用人提供的知识与显式表示；接下来再看机器怎样从数据里学到分类线索。图片署名：Buchanan & Shortliffe（1984）；SRI。"
+      ],
+      "sourceLabel": "MYCIN 原著 · 1984，第 1、36 章",
+      "images": [
         {
-          "label": "像素输入",
-          "description": "28 × 28 → 784 个数值",
-          "tone": "blue"
+          "path": "assets/wave-products/mycin-expert-system-figure1-1.png",
+          "alt": "MYCIN原著作中的专家系统结构图",
+          "label": "MYCIN 专家系统"
         },
         {
-          "label": "隐藏层",
-          "description": "加权组合与非线性变换",
-          "tone": "blue"
-        },
-        {
-          "label": "分类输出",
-          "description": "比较 0—9 的类别得分",
-          "tone": "orange"
+          "path": "assets/wave-products/shakey-robot-sri.jpg",
+          "alt": "SRI官方历史展页中的Shakey移动机器人",
+          "label": "Shakey 机器人"
         }
-      ],
-      "feedback": "预测 → 对照标签算损失 → 反向传播求梯度 → 优化器更新参数",
-      "footnote": "教学结构示意：节点和连线经过简化，不对应某个实际网络。",
-      "evidencePaths": [
-        "assets/video-evidence/003/frame-014.jpg",
-        "assets/video-evidence/003/frame-015.jpg",
-        "assets/video-evidence/003/frame-028.jpg"
       ]
     },
     {
-      "id": "train-infer",
+      "id": "wave-product-ml",
+      "layout": "gallery",
       "section": "AI 基础",
-      "layout": "duo",
-      "title": "训练与使用，是两个阶段",
-      "timingSeconds": 60,
-      "columns": [
-        {
-          "title": "训练：调整参数",
-          "bullets": [
-            "给样本，计算误差",
-            "反复更新模型权重",
-            "类比：练习与纠错"
-          ]
-        },
-        {
-          "title": "推理：产生输出",
-          "bullets": [
-            "给当前输入和上下文",
-            "通常使用已有权重",
-            "类比：带着已学能力答题"
-          ]
-        }
-      ],
-      "takeaway": "普通对话会改变当前上下文，通常不会立即训练模型",
-      "notes": [
-        "这组区别对管理者也很重要。训练意味着更新参数，可能涉及大量数据和算力。我们日常向模型发一个请求，通常是在做推理，调用已经训练好的能力。企业做一个知识库问答系统，并不必然要从头训练大模型。",
-        "这里的“推理”首先是模型运行产生输出的工程用语，不保证模型进行了正确的逻辑推导。普通对话里告诉它一个订单号，下轮它能接着使用，往往是应用把之前的消息继续发送给模型，不是它的参数立刻记住了这条记录。",
-        "过渡到下一部分：手写数字网络输出一个类别，而语言模型要输出一段话。接下来我们看，语言怎样被表示成数字，以及输出怎样一步一步生成。"
-      ],
-      "sourceIds": [
-        "video-neural",
-        "video-apps",
-        "few-shot-lm"
-      ],
+      "theme": "reinbee",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "title": "第二浪潮：机器学习",
+      "subtitle": "",
       "chapter": "01",
       "sectionLabel": "AI 基础",
-      "eyebrow": "AI · LEARNING",
+      "eyebrow": "AI · PRODUCTS",
+      "timingSeconds": 90,
+      "sourceIds": [
+        "spambayes-faq",
+        "spambayes-background",
+        "spambayes-release-1-1a6"
+      ],
+      "notes": [
+        "SpamBayes 是真实的开源垃圾邮件分类项目，曾以 Outlook 插件和邮件代理等形式使用。图是官方发布包保留的插件界面，窗口标明 2003 年的 0.6 测试版；它不是现在的 Outlook 界面。用户提供正常邮件和垃圾邮件样本，程序把邮件拆成词项，统计两类邮件中的线索，给新邮件分类。输出包含正常、垃圾和不确定三种结果。不确定类别让用户保留复核空间。样本内容会变化，错误标注也会干扰学习，因此需要持续纠正。这里体现了从人工定义规则转向从标注样本学习的思路。",
+        "讲解提纲：解决什么：把收到的邮件分为正常、垃圾或不确定，帮助用户处理收件箱中的杂信。；怎样工作：用户标注正常和垃圾邮件；系统学习词项统计规律，再判断新邮件属于哪类。；能力边界：错标、样本过时会影响分类；不确定邮件要复核，纠正后继续训练模型。",
+        "工作流程：标注样本（这封正常，那封是垃圾） → 统计学习（从两类邮件中学习线索） → 分类与纠错（判断新邮件，复核不确定项）",
+        "两张图均来自SpamBayes官方发布包中的原始文档。左为管理窗口，右为训练窗口。图中管理窗口明确标注0.6 beta（2003-07-29），不是当前Outlook界面；展示目的是解释训练样本，而非推荐现在安装旧插件。图片来源：SpamBayes / Python Software Foundation，许可随素材保留。"
+      ],
+      "sourceLabel": "SpamBayes 官方 FAQ、背景文档与历史截图",
+      "images": [
+        {
+          "path": "assets/wave-products/spam-manager.jpg",
+          "alt": "SpamBayes历史插件中的训练和过滤管理界面",
+          "label": "SpamBayes 管理窗口"
+        },
+        {
+          "path": "assets/wave-products/spam-training.jpg",
+          "alt": "SpamBayes选择正常邮件与垃圾邮件样本的训练窗口",
+          "label": "SpamBayes 训练窗口"
+        }
+      ]
+    },
+    {
+      "id": "wave-product-dl",
+      "layout": "gallery",
+      "section": "AI 基础",
+      "theme": "reinbee",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "title": "第三浪潮：深度学习 · 视觉识别",
       "subtitle": "",
-      "sourceLabel": "课程 003 · 课程 005 · GPT-3 2020",
-      "evidencePaths": [
-        "assets/video-evidence/003/frame-028.jpg"
+      "chapter": "01",
+      "sectionLabel": "AI 基础",
+      "eyebrow": "AI · PRODUCTS",
+      "timingSeconds": 45,
+      "sourceIds": [
+        "apple-face-id-setup-official",
+        "apple-iphone-x-face-id-2017",
+        "roborock-qrevo-curv2-pro-recognition",
+        "yolo-author-detection-demo",
+        "darknet-coco-class-names"
+      ],
+      "notes": [
+        "45秒讲解提纲：先看三种视觉识别场景。人脸识别把图像转成可匹配的特征；扫地机识别室内物体，为后续避障提供输入；YOLO为目标预测类别和位置框。共同点是从视觉数据中提取表示，再输出识别或检测结果；它们不等同于完整的行动系统。",
+        "配图资料（人脸识别）：Apple 官方支持文档中的 Face ID 录入界面示例，属于官方操作示意，非私人用户照片。Face ID 在 2017 年 iPhone X 上推出；Apple 当年的资料说明，红外图像与深度点阵经过神经网络生成面部数学表示，再匹配已登记信息。所用界面图是核验日的支持文档版本，不标为 2017 年历史截图。",
+        "配图资料（扫地机）：Roborock Qrevo Curv 2 Pro 官方营销场景图，USB线缆、拖鞋和玩具带有识别轮廓与类别图标，家具是场景背景。官网正文描述以结构光与RGB相机识别线缆等常见障碍。投屏保留场景区域，不展示原营销图中的广告文字与数量宣传。轮廓和图标属于官方功能示意，不是本项目运行模型得到的检测结果，也不由此推断家具已被单独标注识别。扫地机还包括定位、规划和控制，不能将整套系统都归为深度学习。",
+        "配图资料（YOLO）：Joseph Redmon 的 YOLO 作者网站所附多图检测示例，原文件展示 predictions.png 窗口与马匹检测框。YOLO 通过神经网络预测目标类别和位置框，是目标检测方法；检测出类别不等于理解场景，也可能漏检或误检。沿用作者已有框、标签与窗口，不伪装成本项目运行结果。 采用COCO预训练权重的YOLO支持牛、羊、马等类别；图中以马匹检测为例。类别依据为作者Darknet仓库的coco.names，其中列出horse、sheep、cow；具体可检测类别取决于所用模型权重与训练数据。",
+        "概念边界：不要把所有人脸算法或扫地机功能都归为深度学习。图片用于辅助解释识别场景，不能证明整套产品只使用一种技术，也不说明其具体性能。下一页继续看视觉感知怎样与驾驶和机械臂控制衔接。"
+      ],
+      "sourceLabel": "图片来源与技术边界详见讲者备注",
+      "images": [
+        {
+          "path": "assets/wave-products/dl-face-apple-face-id-setup.png",
+          "alt": "Apple 官方 Face ID 录入界面示例，含人脸扫描引导和手机外框",
+          "label": "人脸识别",
+          "fit": "contain"
+        },
+        {
+          "path": "assets/wave-products/dl-vacuum-roborock-cable-recognition.jpg",
+          "alt": "Roborock官方扫地机避障示意，USB线缆、拖鞋和玩具标有识别轮廓与类别图标，旁边为家具",
+          "label": "扫地机识别",
+          "fit": "cover",
+          "position": "center bottom"
+        },
+        {
+          "path": "assets/wave-products/dl-yolo-author-horses.png",
+          "alt": "YOLO 作者官网的目标检测结果原截图，照片中的马匹被绿色检测框标为 horse",
+          "label": "YOLO",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "wave-product-dl-control",
+      "layout": "gallery",
+      "section": "AI 基础",
+      "theme": "reinbee",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "title": "第三浪潮：深度学习 · 驾驶与控制",
+      "subtitle": "",
+      "chapter": "01",
+      "sectionLabel": "AI 基础",
+      "eyebrow": "AI · PRODUCTS",
+      "timingSeconds": 45,
+      "sourceIds": [
+        "nvidia-drive-camera-radar-fusion-2020",
+        "nvidia-drive-autopilot-dnn-2019",
+        "moveit-rviz-motion-planning-official"
+      ],
+      "notes": [
+        "45秒讲解提纲：这一页把感知和控制分开讲。驾驶系统先从摄像头等传感器获得周围目标，再由定位、预测、规划和控制模块决定行动。机械臂则适合作为对照：传统运动学与控制算法本身不属于深度学习，可在上游加入学习型视觉模型，帮助识别物体或确定抓取目标。",
+        "配图资料（智能驾驶）：NVIDIA DRIVE Labs 2020 年技术文章图 2，展示四摄像头与八雷达配置的感知融合：右侧道路图中的绿色框是摄像头目标，绿色点对应雷达目标；左侧为三维感知视图。图是官方技术可视化，不是量产车辆的驾驶员界面。另据 NVIDIA 2019 年官方资料，DRIVE 的视觉感知使用深度神经网络。智能驾驶还涉及定位、预测、规划与控制；单张感知图不能证明完整驾驶系统的安全水平。",
+        "配图资料（传统机械臂）：MoveIt 官方 RViz 运动规划教程的仿真可视化，绿色为起点、橙色为目标，灰色重叠的机械臂姿态显示规划路径；左侧可设置规划时间、速度与加速度等参数。用它说明从目标位姿到关节轨迹的传统规划与逆运动学算法。图片不是实际机器人现场，也不是深度学习模型的运行结果；不据此声称图中采用了某一种特定规划器。机械臂的运动学、规划与控制可和学习型视觉感知协作，本页把二者作为教学对照。",
+        "概念边界：算法是比深度学习更广的概念。传统控制能够完成许多确定性任务；深度学习感知也需要与规划、约束和控制配合。单张感知图不能证明完整驾驶系统的安全水平，机械臂图片也不代表完整的自主操作能力。"
+      ],
+      "sourceLabel": "图片来源与技术边界详见讲者备注",
+      "images": [
+        {
+          "path": "assets/wave-products/dl-driving-nvidia-drive.png",
+          "alt": "NVIDIA DRIVE 官方四摄像头与雷达融合感知图，道路车辆有绿色检测框",
+          "label": "智能驾驶",
+          "fit": "contain"
+        },
+        {
+          "path": "assets/wave-products/dl-arm-moveit-planned-path.png",
+          "alt": "MoveIt官方RViz运动规划示例，显示Panda机械臂的起点、目标与多重关节姿态形成的规划轨迹，以及左侧规划参数面板。",
+          "label": "传统机械臂：运动规划",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "wave-product-llm",
+      "layout": "gallery",
+      "section": "AI 基础",
+      "theme": "reinbee",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "title": "第四浪潮：大语言模型",
+      "subtitle": "",
+      "chapter": "01",
+      "sectionLabel": "AI 基础",
+      "eyebrow": "AI · PRODUCTS",
+      "timingSeconds": 90,
+      "sourceIds": [
+        "chatgpt-launch-2022",
+        "chatgpt-ios-launch-2023",
+        "chatgpt-official-appstore-image",
+        "deepseek-r1-release-2025",
+        "deepseek-official-download-gallery"
+      ],
+      "notes": [
+        "ChatGPT 于 2022 年 11 月 30 日以研究预览发布，首发版本从 GPT-3.5 系列模型微调而来。训练者提供对话示范，并比较不同回答，帮助模型更好地遵循指令与交流。这里的变化是用户可以用语言提出任务、继续追问和改写，不必为每个需求设计一套按钮。发布说明同时指出，它会给出听起来合理却不正确的答案。图为 OpenAI 当前 App Store 的官方问答界面局部，并非 2022 年首发界面。DeepSeek-R1 等后续模型可作为同类发展的例子点到，不做当前性能排名。",
+        "讲解提纲：解决什么：通过多轮对话完成问答、写作与改写；2022 年 11 月开放研究预览。；怎样工作：基于预训练语言模型，用对话示范与人类反馈，改进指令遵循和回答表现。；能力边界：回答流畅也可能编造事实，换种问法可能得到不同结果；重要信息仍需核对。",
+        "工作流程：提出任务（用自然语言说明需求） → 生成回答（结合对话上下文组织输出） → 追问与核验（补充要求，检查重要事实）",
+        "配图顺序：左是 OpenAI 官方商店的 ChatGPT 问答界面局部，右是 DeepSeek 官方下载页的聊天和历史记录宣传图。两图均于2026-10-14核验，不能当成2022年首发界面。图内回答和新闻文字只展示交互形式，不作为本演讲事实来源。图片署名：OpenAI / Apple App Store；DeepSeek。",
+        "过渡：聊天只是第四浪潮最熟悉的入口。接下来用六页图片看模型输出怎样扩展到图像、视频、声音、三维资产、机器人动作和分子结构；其中部分产品使用语言模型协作，但不能把它们的核心模型都直接等同于LLM。"
+      ],
+      "sourceLabel": "OpenAI · Introducing ChatGPT（2022）· 官方产品界面",
+      "images": [
+        {
+          "path": "assets/wave-products/chatgpt-ipad-official-3.jpg",
+          "alt": "ChatGPT官方展示图中的提问与生成回答界面",
+          "label": "ChatGPT",
+          "fit": "cover",
+          "position": "center 42%"
+        },
+        {
+          "path": "assets/wave-products/deepseek-app-official.webp",
+          "alt": "DeepSeek官方下载页的聊天和历史记录界面展示",
+          "label": "DeepSeek"
+        }
+      ]
+    },
+    {
+      "id": "wave-product-imagegen",
+      "layout": "gallery",
+      "section": "AI 基础",
+      "theme": "reinbee",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "title": "第四浪潮：图像生成",
+      "subtitle": "",
+      "chapter": "01",
+      "sectionLabel": "AI 基础",
+      "eyebrow": "AI · PRODUCTS",
+      "timingSeconds": 60,
+      "sourceIds": [
+        "imagen-official-gallery-2022",
+        "imagen-paper-2022",
+        "bfl-flux2-official-gallery"
+      ],
+      "notes": [
+        "第四次浪潮还包括图像生成。我们给出主体、场景、风格和构图要求，模型就能生成新的视觉内容。这里把大规模生成式 AI 放在同一波中讨论，具体模型并不都等同于聊天用的大语言模型。",
+        "左图来自 2022 年 Imagen 的官方画廊。提示要求把柯基、墨镜、草帽、自行车和时代广场组合起来；这是生成图，不是现场摄影。以 Imagen 为例，文本编码器提供语义条件，扩散模型据此逐步形成图像。",
+        "右图来自 FLUX.2 官方产品页。毛衣上的文字、滑雪图案和编织材质一起生成，可以用来讨论商品概念图、视觉草案和设计探索。图中毛衣是生成资产示例，不能据此声称它是真实生产或销售的商品。",
+        "两张图都是厂商公开挑选的原始生成样例，本项目没有重新生成或改图。它们展示可达到的效果，不能代表每次输出都一样可靠；文字、局部结构和细节是否符合要求，仍需要人工检查。这一页只看结果，详细提示词和图源保留在备注资料中。"
+      ],
+      "sourceLabel": "图片来源、模型说明与技术边界详见讲者备注",
+      "images": [
+        {
+          "path": "assets/wave-products/wave4-image-imagen-corgi.jpg",
+          "alt": "Google Imagen 官方生成作品：戴草帽与墨镜的柯基在时代广场骑自行车，右下角保留 Imagen 标识",
+          "label": "Imagen",
+          "fit": "contain"
+        },
+        {
+          "path": "assets/wave-products/wave4-image-flux2-knit-design.png",
+          "alt": "FLUX.2 官方生成作品：奶油色针织毛衣，编织出 BlackForestLabs 文字、红色缆车与雪山滑雪图案",
+          "label": "FLUX.2",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "wave-product-videogen",
+      "layout": "gallery",
+      "section": "AI 基础",
+      "theme": "reinbee",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "title": "第四浪潮：视频生成",
+      "subtitle": "",
+      "chapter": "01",
+      "sectionLabel": "AI 基础",
+      "eyebrow": "AI · PRODUCTS",
+      "timingSeconds": 60,
+      "sourceIds": [
+        "google-veo3-prompt-guide",
+        "google-veo-launch-2024"
+      ],
+      "notes": [
+        "第四浪潮也把生成能力扩展到了视频。这里以 Google 的 Veo 为例：我们可以用文字描述人物、地点、动作和镜头，让模型生成一段动态画面。左边偏写实，右边则是现实中不存在的幻想世界。",
+        "两张图都来自 Google DeepMind 的 Veo 3 官方提示词指南。左边的提示描述了老水手、蓝色针织帽、烟斗和海浪；右边描述了月尘平原、巨大的晶体花、彩虹以及穿行其中的人物。",
+        "讲解时可以把重点放在创作方式的变化：先表达想要什么场景，再对生成结果进行挑选和修改。这能帮助人快速探索镜头和视觉方向，但画面是否符合需求，仍需要观看完整视频来判断。",
+        "图源说明：两图分别从官方 8 秒视频的第 2 秒原样抽帧，只解码为 PNG，没有改动场景。它们是官方选取的生成示例，不是真实拍摄，也不是我们的实测；静态截图不能证明连续动作、声音或所有生成结果的质量。"
+      ],
+      "sourceLabel": "图片来源、模型说明与技术边界详见讲者备注",
+      "images": [
+        {
+          "path": "assets/wave-products/wave4-video-veo3-sailor-frame-002.png",
+          "alt": "Veo 3 官方生成视频第 2 秒：戴蓝色针织帽的老水手在海边船上手持烟斗。",
+          "label": "Veo 3：写实水手",
+          "fit": "contain"
+        },
+        {
+          "path": "assets/wave-products/wave4-video-veo3-moon-dust-frame-002.png",
+          "alt": "Veo 3 官方生成视频第 2 秒：披着毛皮斗篷的人走过蓝紫色晶体花与彩虹构成的幻想场景。",
+          "label": "Veo 3：幻想世界",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "wave-product-audiogen",
+      "layout": "gallery",
+      "section": "AI 基础",
+      "theme": "reinbee",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "title": "第四浪潮：语音与音乐",
+      "subtitle": "",
+      "chapter": "01",
+      "sectionLabel": "AI 基础",
+      "eyebrow": "AI · PRODUCTS",
+      "timingSeconds": 60,
+      "sourceIds": [
+        "elevenlabs-tts-product-guide",
+        "suno-simple-mode-guide",
+        "suno-studio-official-launch",
+        "suno-studio-official-release-notes"
+      ],
+      "notes": [
+        "主讲：第四浪潮也把输出从文字扩展到声音。左边是ElevenLabs，把一段文稿变成语音：选声音、输入文本，再试听和调整，可以用于旁白、有声内容和语音交互。右边是Suno，它能根据音乐描述生成歌曲；工作台里还能把不同声部分开继续编辑。",
+        "机制通俗说明：可以把这两类工具理解为按条件合成声音。语音更关心说什么、由什么声音来表达；音乐更关心风格、乐器和歌曲结构。人把方向描述清楚，模型给出声音候选，再由人试听、挑选和修改。这里不推断两家未公开的具体模型架构。前两段约60秒。",
+        "图源说明：两图均直接下载自官方页面。左图是ElevenLabs产品指南中的界面，显示Multilingual v2；右图来自Suno 2026年8月Studio 2.0发布记录。它们是不同时间的产品界面，不是2022年的首发截图，也不是本项目新生成的音频效果。",
+        "能力边界：图中的波形和控制面板说明创作流程，不能单凭截图判断音质。生成语音仍要核对读音、停顿和语气；音乐仍需要试听整体结构并进行编辑。这些产品扩展了可以生成的内容种类，不意味着每次输出都能直接成为成品。"
+      ],
+      "sourceLabel": "图片来源、模型说明与技术边界详见讲者备注",
+      "images": [
+        {
+          "path": "assets/wave-products/wave4-voice-elevenlabs-tts.webp",
+          "alt": "ElevenLabs官方文字转语音界面，左侧为文本，右侧为声音与模型选择及调节项",
+          "label": "ElevenLabs：文字转语音",
+          "fit": "contain"
+        },
+        {
+          "path": "assets/wave-products/wave4-music-suno-studio-window.jpg",
+          "alt": "Suno官方Studio 2.0音乐工作台，多条彩色声部波形及合成器编辑面板",
+          "label": "Suno：生成与编辑音乐",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "wave-product-3dgen",
+      "layout": "gallery",
+      "section": "AI 基础",
+      "theme": "reinbee",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "title": "第四浪潮：3D资产生成",
+      "subtitle": "",
+      "chapter": "01",
+      "sectionLabel": "AI 基础",
+      "eyebrow": "AI · PRODUCTS",
+      "timingSeconds": 60,
+      "sourceIds": [
+        "hunyuan3d-2-official-repository",
+        "hunyuan3d-2-original-paper",
+        "triposr-original-paper",
+        "triposr-official-repository"
+      ],
+      "notes": [
+        "主讲：生成式AI还可以把二维参考图变成三维资产。左边是腾讯混元3D的官方结果，人物可以从不同角度观看；右边是TripoSR论文里的输入和输出对照。同一个物体的正面、侧面和背面，可以来自一个生成的3D表示，方便继续进入游戏、美术和设计流程。",
+        "机制通俗说明：TripoSR从一张图提取特征，再预测物体的三维表示。混元3D 2.0把任务分成两步：先建立几何形状，再生成表面纹理。就像先塑形、再上色，但形状和外观都由学习到的模型依据参考图推断。前两段约60秒。",
+        "图源说明：左侧从混元3D官方仓库e2e-1.gif抽取第0帧（0.000秒），两个人物都是生成结果，不是左右输入输出对比；原GIF保留，幻灯片统一使用静态PNG。右侧直接采用TripoSR原论文图1：每组先展示输入图，再展示生成网格的多个视角。输入中包含插画或渲染图，不能统称真实照片；所有效果均为作者原始示例。",
+        "能力边界：单张图没有记录物体的全部背面，推断的形状不能当作真实测量值。图里展示的是资产生成，也不等于自动得到可直接使用的动画角色：网格、贴图、骨架与动作仍应分别检查。这是对任务信息条件和后续制作流程的教学解释，不是对所有产品质量的统一排名。"
+      ],
+      "sourceLabel": "图片来源、模型说明与技术边界详见讲者备注",
+      "images": [
+        {
+          "path": "assets/wave-products/wave4-3d-hunyuan-results-frame-000.png",
+          "alt": "腾讯Hunyuan3D 2.0官方生成结果演示的静态首帧，两个人物3D资产的完整正面渲染；不是输入输出配对图",
+          "label": "混元3D：生成资产展示",
+          "fit": "contain"
+        },
+        {
+          "path": "assets/wave-products/wave4-3d-triposr-results.png",
+          "alt": "TripoSR原论文图1，角色、独角兽、汉堡、椅子和摩托车等输入图像与生成3D网格的多角度对照",
+          "label": "TripoSR：单图到3D网格",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "wave-product-embodied",
+      "layout": "gallery",
+      "section": "AI 基础",
+      "theme": "reinbee",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "title": "第四浪潮：具身大模型",
+      "subtitle": "",
+      "chapter": "01",
+      "sectionLabel": "AI 基础",
+      "eyebrow": "AI · PRODUCTS",
+      "timingSeconds": 60,
+      "sourceIds": [
+        "pi0-official-2024",
+        "pi0-paper-2024",
+        "openvla-official-2024"
+      ],
+      "notes": [
+        "这一页把第四波的基础模型能力延伸到物理世界。具身模型需要把看到的画面和人给出的指令，转成机器人可以执行的动作。左图是 Physical Intelligence 的 π0 研究演示，机器人正在处理洗衣任务。",
+        "π0 从预训练视觉语言模型出发，再结合多种机器人的操作数据学习。它用动作专家和 flow matching 生成连续动作，让模型根据视觉与指令控制机械臂。复杂任务仍可能需要针对性的高质量数据和后训练。",
+        "右图是另一项研究 OpenVLA 的官方架构图。它接收图像与指令，先预测动作 token，再解码成机械臂位置、姿态和夹爪动作。这张图用来说明视觉、语言与行动怎样连接，不能把它当作 π0 的具体架构。",
+        "两张都是官方研究资料：左图为演示视频海报，右图为原始架构图。本项目没有改动实验画面。研究演示说明模型在相应设置中能完成部分任务，不代表任何机器人、环境或指令都能成功；稳定性、泛化和安全仍需持续验证。"
+      ],
+      "sourceLabel": "图片来源、模型说明与技术边界详见讲者备注",
+      "images": [
+        {
+          "path": "assets/wave-products/wave4-embodied-pi0-hero.jpg",
+          "alt": "Physical Intelligence 官方 π0 研究演示画面：从洗衣机内部看机器人双臂取衣，原图保留 autonomous, 1x speed 和 π 标识",
+          "label": "π0",
+          "fit": "contain"
+        },
+        {
+          "path": "assets/wave-products/wave4-embodied-openvla-model.jpg",
+          "alt": "OpenVLA 官方模型架构图：图像与语言指令进入视觉语言模型，预测动作 token 后解码为机械臂运动和夹爪动作",
+          "label": "OpenVLA",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "wave-product-science",
+      "layout": "gallery",
+      "section": "AI 基础",
+      "theme": "reinbee",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "title": "第四浪潮：科学 AI",
+      "subtitle": "",
+      "chapter": "01",
+      "sectionLabel": "AI 基础",
+      "eyebrow": "AI · PRODUCTS",
+      "timingSeconds": 60,
+      "sourceIds": [
+        "google-alphafold3-launch-2024"
+      ],
+      "notes": [
+        "第四波也扩展到科学研究。Google DeepMind 与 Isomorphic Labs 的 AlphaFold 3 是面向分子结构的科学模型。这里把它放在基础模型与生成式 AI 的扩展中理解，不把所有这类系统都称为大语言模型。",
+        "给定蛋白质、DNA、RNA 或配体等分子信息，AlphaFold 3 预测这些分子共同构成的三维结构。模型通过扩散网络，从带噪声的表示逐步形成结构预测，为研究者分析分子之间怎样结合提供线索。",
+        "左图是官方文章的分子结构主视觉。右图来自 7R6R 复合物动画：蓝色是预测的蛋白质，粉色是预测的 DNA，灰色是实验结构。把预测与实验结果叠在一起，是观察局部吻合与偏差的一种方式。",
+        "图片来自 Google 官方材料，右图是原动画第 2 秒的真实抽帧，没有重新绘制结构。预测结果需要结合实验验证，单张图也不能证明整体准确率；本页不把结构预测等同于已经研发出新药或取得医学效果。"
+      ],
+      "sourceLabel": "图片来源、模型说明与技术边界详见讲者备注",
+      "images": [
+        {
+          "path": "assets/wave-products/wave4-science-alphafold3-protein.webp",
+          "alt": "AlphaFold 3 官方文章主视觉：渐变背景中的绿色蛋白质结构与紫蓝色核酸链示意。",
+          "label": "AlphaFold 3：分子结构",
+          "fit": "contain"
+        },
+        {
+          "path": "assets/wave-products/wave4-science-alphafold3-7r6r-frame-002.png",
+          "alt": "AlphaFold 3 官方 7R6R 动画第 2 秒：蓝色蛋白质与粉色 DNA 预测结构叠合在灰色实验结构上。",
+          "label": "7R6R：DNA 与蛋白质复合物",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "ai-relationships",
+      "layout": "relationship",
+      "section": "AI 基础",
+      "theme": "reinbee",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "chapter": "01",
+      "sectionLabel": "AI 基础",
+      "eyebrow": "AI · RELATIONSHIPS",
+      "title": "AI 技术与应用场景的关系",
+      "subtitle": "",
+      "timingSeconds": 105,
+      "sourceLabel": "技术与场景关系示意 · 完整依据见讲稿",
+      "columnLabels": [
+        "技术包含关系",
+        "模型与能力",
+        "前面的应用场景"
+      ],
+      "taxonomy": {
+        "ai": "人工智能 AI",
+        "rules": "规则与符号 AI",
+        "learning": "机器学习",
+        "traditional": "传统机器学习\n（非深度学习）",
+        "deep": "深度学习"
+      },
+      "relations": [
+        {
+          "route": "rules",
+          "capability": "符号推理、搜索与规划",
+          "scenarios": "MYCIN · Shakey · 部分机械臂规划"
+        },
+        {
+          "route": "learning",
+          "capability": "分类与预测",
+          "scenarios": "垃圾邮件过滤（SpamBayes）"
+        },
+        {
+          "route": "deep",
+          "capability": "视觉识别与检测",
+          "scenarios": "人脸 · 扫地机 · YOLO · 驾驶感知"
+        },
+        {
+          "route": "deep",
+          "capability": "大语言模型 LLM",
+          "scenarios": "问答 · 写作 · 代码"
+        },
+        {
+          "route": "deep",
+          "capability": "视觉、音频与3D生成",
+          "scenarios": "图像 · 视频 · 语音音乐 · 3D资产"
+        },
+        {
+          "route": "deep",
+          "capability": "视觉语言动作 VLA",
+          "scenarios": "机器人取衣与操作（π0 / OpenVLA）"
+        },
+        {
+          "route": "deep",
+          "capability": "科学模型",
+          "scenarios": "分子结构预测（AlphaFold 3）"
+        }
+      ],
+      "footnote": "按主要能力列举，类别可重叠；自动驾驶与机器人常需组合：感知 + 规划 + 控制。",
+      "notes": [
+        "本页是对前面例子的教学关系示意，不是新的发展史分期。先看左侧包含关系：人工智能包含机器学习，深度学习是机器学习的一类。传统机器学习在此指非深度学习方法，并不表示已经过时；规则与符号方法也持续与学习方法并用。",
+        "再沿箭头看代表性能力和场景。规则知识支持MYCIN的符号推理，Shakey结合搜索与规划；SpamBayes学习邮件分类。图中的机械臂规划只指前面介绍的搜索和运动规划类算法，传统运动学、轨迹优化和反馈控制不能一概归为AI，更不是天然属于深度学习。",
+        "深度学习这一分支可以支持视觉识别与检测、语言生成、媒体和3D生成、视觉语言动作，以及分子结构预测。重点是技术与能力、能力与场景并不一一对应，同一技术可以服务多个场景，同一场景也会组合多种方法。前面的人脸、扫地机、YOLO和自动驾驶图是各自具体模块的例子，不证明整个产品只使用一种技术。",
+        "右侧七行按主要能力分组，并不是互斥或完整分类。LLM本身也是生成模型；视觉、音频与3D的生成方法可以有不同结构，不能说全部依赖LLM或全部使用扩散。π0与OpenVLA都连接视觉、语言和动作，但动作输出机制不同；AlphaFold 3用于分子结构预测，其生成机制也可能与其他组交叉。",
+        "最后把视线落到真实系统：扫地机、自动驾驶和机器人通常需要感知、定位、预测、规划与控制协作。学习型感知或动作模型只是其中的模块；必须根据任务和实际部署判断采用了哪些方法。机器人研究演示不代表任意环境都能完成任务，分子结构预测仍要结合实验验证。",
+        "105秒建议节奏：约25秒解释左侧包含关系，约50秒按右侧七行回顾之前图片，约30秒用机器人和自动驾驶说明组合技术。下一模块聚焦LLM，先从语言怎样变成模型输入开始，再讲以LLM为核心的Agent系统。"
+      ],
+      "sourceIds": [
+        "google-intro-ml",
+        "deep-learning-2015",
+        "mycin-rule-form",
+        "shakey-sri-history",
+        "moveit-rviz-motion-planning-official",
+        "spambayes-faq",
+        "apple-iphone-x-face-id-2017",
+        "roborock-qrevo-curv2-pro-recognition",
+        "yolo-author-detection-demo",
+        "nvidia-drive-autopilot-dnn-2019",
+        "few-shot-lm",
+        "codex-2021",
+        "imagen-paper-2022",
+        "hunyuan3d-2-original-paper",
+        "pi0-paper-2024",
+        "openvla-official-2024",
+        "google-alphafold3-launch-2024"
       ]
     },
     {
@@ -1054,7 +1427,7 @@
       ],
       "footnote": "虚构订单、制度与工单的教学示例。实际提交前由业务规则和权限决定是否需要审批。",
       "notes": [
-        "回到开场。这里假设订单A102已经出库，但超过了承诺日期。系统先查订单，再根据已出库这个状态决定查物流。如果查到还没出库，下一步就应该不同，比如查库存和仓库排期。",
+        "继续看订单延迟的教学示例。这里假设订单A102已经出库，但超过了承诺日期。系统先查订单，再根据已出库这个状态决定查物流。如果查到还没出库，下一步就应该不同，比如查库存和仓库排期。",
         "物流反馈运输异常、预计延迟一天，模型接着查询售后政策。假设政策允许申请运费补偿且需要审批，系统可以形成方案和申请材料，但不应自行承诺金额或越过审批。审批通过后，工具创建工单并返回T208，才算获得真实执行证据。",
         "这张表的价值是让不同角色看同一条证据链。业务负责人看方案是否符合制度，技术同事看每步接口与状态，客服看怎样向客户说明。这里所有编号、规则和结果都只是教学假设，没有任何实际业务操作。"
       ],
@@ -1543,7 +1916,7 @@
         "以一个可核验任务开始，按实测决定扩展"
       ],
       "notes": [
-        "回到最初的订单问题。我们已经看到，模型可以理解和组织语言，资料帮助它回答公司自己的问题，工具让它读取或改变业务状态，Agent把这些能力组织成随反馈推进的任务过程。",
+        "回顾订单处理的教学示例。我们已经看到，模型可以理解和组织语言，资料帮助它回答公司自己的问题，工具让它读取或改变业务状态，Agent把这些能力组织成随反馈推进的任务过程。",
         "对老板，判断依据是任务价值、净成本和责任。对技术同事，关键是数据、接口、评估和恢复。第一步可以很小，但要完整：输入清楚，动作有边界，结果可检查。接下来留下五分钟，讨论最值得拿来试点的一个任务。"
       ],
       "sourceIds": [

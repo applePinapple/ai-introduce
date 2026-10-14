@@ -38,3 +38,16 @@
 - 旧版概念图及其生成记录仍保留在 [演示文稿配图目录](../design/README.md)，当前完整演讲不再使用该概念图。
 
 后续如有更高清的官方浅色 Logo，可替换浅色适配版并保留原始素材与来源记录。
+
+## DeepSeek 鲸鱼标识
+
+`deepseek-logo.svg` 用于“四次浪潮”页的大语言模型图标，取自 DeepSeek 官方 GitHub 仓库中的品牌 SVG，保留官方鲸鱼路径及蓝色 `#4D6BFE`。
+
+- 官方来源：[DeepSeek-LLM / images / logo.svg](https://github.com/deepseek-ai/DeepSeek-LLM/blob/main/images/logo.svg)。
+- 下载地址：[官方仓库原始 SVG](https://raw.githubusercontent.com/deepseek-ai/DeepSeek-LLM/main/images/logo.svg)。
+- 下载及核验日期：2026-10-14。
+- 处理方式：从官方组合标中提取独立鲸鱼路径，移除文字标及其裁剪定义；鲸鱼 `d` 路径、填充颜色和填充规则与原文件逐字一致，未重绘或生成。画布裁为 `viewBox="0 0 56.2 41.3594"`，不设固定宽高，保持原始宽高比例。
+- 安全检查：下载内容按 XML 解析；核验无脚本、事件属性、外部资源、`foreignObject`、动画或实体声明。最终文件只含本地 `svg` 和 `path` 元素，无外链。
+- 官方下载文件 SHA-256：`ac13bdc805820c46bf0faf053aa5d31f72b051794abfe1dd72a682f09de2966b`。
+- 本地鲸鱼 SVG SHA-256：`08ded087f4db00cefc95a54319cad641818ffdf0611991d53d8869337e88d2f3`。
+- 性质：DeepSeek 品牌识别素材，仅用于讲解大语言模型的示例；不表示 DeepSeek 对本演讲提供背书。

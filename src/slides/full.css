@@ -1,6 +1,89 @@
 /* Additional layouts within the approved 1920 × 1080 visual system. */
 .full-body{flex-direction:column;justify-content:center;gap:32px;padding:32px 0 24px}
 .full-body p,.full-body .lead{white-space:pre-line}
+/* Four overlapping AI waves, arranged above and below a continuous time axis. */
+.layout-definition{padding:38px 0 80px;justify-content:center}
+.definition-panel{margin:0 68px;padding:60px 70px;background:var(--card);border:1px solid var(--line);border-left:10px solid var(--blue);border-radius:16px;box-shadow:0 12px 36px #0B122008}
+.definition-panel::before{content:"";display:block;width:160px;height:8px;margin-bottom:32px;background:var(--yellow,var(--orange))}
+.definition-statement{font-size:70px;line-height:1.65;font-weight:500;color:var(--blue);text-wrap:balance}
+.layout-waves{justify-content:center;padding:0;gap:0}
+.wave-chart{height:740px;flex:none;position:relative;width:100%}
+.wave-connectors{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;fill:var(--line);stroke:var(--line);stroke-width:2}
+.wave-connectors path{fill:none}
+.wave-periods{position:absolute;top:334px;left:0;right:0;height:64px;display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+.wave-period{background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;clip-path:polygon(0 0,calc(100% - 24px) 0,100% 50%,calc(100% - 24px) 100%,0 100%,24px 50%);font-family:var(--mono);font-size:28px;letter-spacing:-.025em;padding-left:12px}
+.wave-period:nth-child(2),.wave-period:nth-child(4){background:var(--yellow,var(--orange));color:var(--ink)}
+.wave-era{position:absolute;display:flex;align-items:flex-start;gap:24px;width:770px}
+.wave-era-1{left:0;top:20px}.wave-era-3{left:50%;top:20px;width:50%}
+.wave-era-2{left:230px;top:470px;width:750px}.wave-era-4{left:1020px;right:0;top:470px;width:auto}
+.wave-symbol{width:96px;height:96px;flex:none;position:relative;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--blue-soft);color:var(--blue);border:1px solid #B9C9FF;box-shadow:0 8px 24px #0B12200A}
+.wave-era-2 .wave-symbol,.wave-era-3 .wave-symbol{background:var(--yellow-soft,var(--orange-soft));color:var(--ink);border-color:var(--yellow,var(--orange))}
+.wave-symbol svg{width:56px;height:56px}
+.wave-copy{min-width:0;flex:1}
+.wave-copy h2{font-size:38px;line-height:1.3;font-weight:600;margin:0 0 16px}
+.wave-details{padding-left:24px;width:540px;max-width:100%;aspect-ratio:3 / 1}
+.wave-details li::marker{color:var(--blue);font-size:22px}
+.wave-description{font-size:26px;line-height:1.45;text-wrap:balance}
+.wave-application{font-size:26px;line-height:1.45;margin-top:12px;color:var(--ink)}
+/* Picture-only wave pages; explanations and credits live in the speaker notes. */
+.layout-gallery{padding:16px 0 28px;justify-content:center;gap:0}
+.picture-gallery{width:100%;height:700px;display:grid;gap:24px;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:minmax(0,1fr)}
+.gallery-picture{min-width:0;min-height:0;overflow:hidden;display:flex;align-items:center;justify-content:center;margin:0;padding:0;background:none;border:0;border-radius:0;box-shadow:none}
+.gallery-picture img{display:block;width:100%;height:100%}
+.picture-gallery-3{grid-template-columns:340px repeat(2,minmax(0,1fr));gap:32px}
+.slide[data-id="wave-product-dl"] .gallery-picture:nth-child(2){height:390px;align-self:center}
+.picture-gallery-4{grid-template-rows:repeat(2,minmax(0,1fr))}
+.picture-gallery-5{grid-template-columns:360px repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr))}
+.picture-gallery-5 .gallery-picture:first-child{grid-row:span 2}
+/* Technology containment on the left, representative capabilities and scenes on the right. */
+.layout-relationship{padding:0;gap:16px;justify-content:center}
+.relationship-map{position:relative;flex:none;width:1712px;height:710px}
+.relation-heading{position:absolute;top:0;color:var(--muted);font-size:24px;line-height:1.4;letter-spacing:.08em}
+.relation-heading-taxonomy{left:0}.relation-heading-capability{left:710px}.relation-heading-scenario{left:1170px}
+.relation-taxonomy{position:absolute;left:0;top:56px;width:480px;height:650px;border:2px solid #B9C9FF;border-radius:16px;background:#F7F9FC}
+.relation-taxonomy h2{position:absolute;left:28px;top:20px;font-size:40px;line-height:1.3;font-weight:600;color:var(--blue)}
+.relation-rules{position:absolute;left:30px;top:100px;width:416px;height:76px;display:flex;align-items:center;justify-content:center;background:var(--yellow-soft);border:1px solid var(--yellow);border-radius:10px;font-size:32px;line-height:1.35;font-weight:500}
+.relation-learning{position:absolute;left:22px;top:218px;width:432px;height:406px;border:2px solid #B9C9FF;border-radius:12px;background:var(--blue-soft)}
+.relation-learning h3{position:absolute;left:24px;top:20px;font-size:34px;line-height:1.3;font-weight:600;color:var(--blue)}
+.relation-traditional{position:absolute;left:26px;top:76px;width:376px;height:114px;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:29px;line-height:1.35;white-space:pre-line;display:flex;align-items:center;justify-content:center;text-align:center}
+.relation-deep{position:absolute;left:26px;top:240px;width:376px;height:142px;background:var(--blue);color:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:38px;line-height:1.35;font-weight:600}
+.relationship-edges{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+.relation-path{fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.relation-row{position:absolute;left:710px;right:0;height:80px;display:grid;grid-template-columns:400px 1fr;gap:60px;z-index:3}
+.relation-capability,.relation-scenario{display:flex;align-items:center;justify-content:center;min-width:0;padding:12px 16px;font-size:29px;line-height:1.4;text-align:center;border-radius:10px}
+.relation-capability{background:#fff;border:1px solid var(--line);border-left:5px solid var(--blue);font-weight:500}
+.relation-route-rules .relation-capability{border-left-color:var(--yellow)}
+.relation-route-learning .relation-capability{border-left-color:var(--muted)}
+.relation-scenario{background:var(--yellow-soft);border:1px solid #F2D68B}
+.layout-relationship .qualification{font-size:26px;line-height:1.4;max-width:none}
+/* A representative product: original source image, three explanations, one workflow. */
+.layout-product{justify-content:flex-start;padding:20px 0 12px;gap:28px}
+.product-overview{display:grid;grid-template-columns:960px 1fr;gap:48px;align-items:start}
+.product-visual{display:flex;flex-direction:column;gap:14px;margin:0;min-width:0}
+.product-identity{display:flex;align-items:baseline;gap:24px;min-height:56px}
+.product-identity h2{font-size:42px;line-height:1.2;color:var(--blue);font-weight:600}
+.product-identity>span{font-size:24px;line-height:1.4;color:var(--muted)}
+.product-image{height:410px;display:flex;align-items:center;justify-content:center;padding:14px;background:#fff;overflow:hidden}
+.product-image img{display:block;width:100%;height:100%;object-fit:contain}
+.product-image-pair{gap:22px}
+.product-image-pair img{width:calc((100% - 22px) / 2);object-fit:contain}
+.slide[data-id="wave-product-llm"] .product-image img{object-fit:cover;object-position:center 37%}
+.product-visual figcaption p{font-size:24px;line-height:1.45;color:var(--ink)}
+.product-visual figcaption>span{display:block;margin-top:5px;font-size:18px;line-height:1.4;color:var(--muted)}
+.product-facts{display:flex;flex-direction:column;gap:25px;padding-top:4px}
+.product-fact{padding:0 0 24px;border-bottom:1px solid var(--line)}
+.product-fact:last-child{border-bottom:0;padding-bottom:0}
+.product-fact h2{display:flex;align-items:center;gap:16px;font-size:28px;line-height:1.4;font-weight:600;margin-bottom:10px}
+.product-fact h2 span{font-family:var(--mono);font-size:20px;color:var(--blue);background:var(--blue-soft);padding:5px 10px;border-radius:6px}
+.product-fact:nth-child(2) h2 span{color:var(--ink);background:var(--yellow-soft,var(--orange-soft))}
+.product-fact p{font-size:30px;line-height:1.55;text-wrap:pretty}
+.product-process{display:flex;align-items:stretch;gap:18px;width:100%}
+.product-process-step{display:flex;align-items:center;gap:18px;flex:1;min-width:0;padding:18px 22px;background:#fff;border:1px solid var(--line);border-radius:12px;border-top:4px solid var(--blue)}
+.product-process-step:nth-of-type(2){border-top-color:var(--yellow,var(--orange))}
+.product-step-number{font-family:var(--mono);font-size:30px;color:var(--blue)}
+.product-process-step h3{font-size:24px;line-height:1.35;font-weight:600;margin-bottom:6px}
+.product-process-step p{font-size:24px;line-height:1.4;color:var(--muted)}
+.product-process-arrow{align-self:center;font-size:36px;color:var(--blue)}
 .split{display:flex;align-items:center;gap:72px;width:100%}
 .lead{font-size:54px;line-height:1.5;font-weight:500;width:49%;flex:none;color:var(--blue)}
 .spot-list{flex:1;min-width:0}.spot-list .list li{padding:25px 0}
@@ -34,3 +117,11 @@
 .full-slide.cover .band img{width:100%;height:1020px;object-fit:contain;object-position:center;opacity:1}
 .full-slide.cover .band .image-credit{bottom:26px;left:0;right:0;text-align:center;color:#46566E;background:none;padding:0;font-size:20px;letter-spacing:.02em}
 .full-slide.cover .band .image-credit.with-model{font-size:28px;line-height:1.4}
+/* User-approved ReinBEE section master: apply only to the AI fundamentals. */
+.slide[data-theme="reinbee"]{--blue:#194DF9;--blue-soft:#E7EDFF;--yellow:#F7AC01;--yellow-soft:#FFF2CC;--orange:#F7AC01;--orange-soft:#FFF2CC;--green:#194DF9;--green-soft:#E7EDFF}
+.module-logo{position:absolute;right:104px;top:60px;width:270px;height:90px;z-index:2}
+.module-logo img{display:block;width:100%;height:100%;object-fit:contain}
+.slide[data-theme="reinbee"] .takeaway{color:var(--blue);border-color:var(--yellow)}
+.slide[data-theme="reinbee"] .orange h2{color:var(--ink)}
+.slide[data-theme="reinbee"] .wave-symbol{border-color:var(--blue)}
+.slide[data-theme="reinbee"] .wave-era-2 .wave-symbol,.slide[data-theme="reinbee"] .wave-era-3 .wave-symbol{border-color:var(--yellow)}

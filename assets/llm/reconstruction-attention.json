@@ -1,0 +1,44 @@
+{
+  "createdOn": "2026-10-15",
+  "sourceVideo": "assets/videos/bilibili/BV178w1z7EHQ/media/004_03.AI通识与基础-大语言模型.mp4",
+  "sourceSegment": { "start": "00:08:30", "end": "00:12:30" },
+  "sourceIds": ["video-llm", "transformer-2017", "3b1b-gpt-2024"],
+  "inspectedEvidence": [
+    "assets/video-evidence/004/contact-03.jpg", "assets/video-evidence/004/contact-04.jpg",
+    "assets/video-evidence/004/frame-018.jpg", "assets/video-evidence/004/frame-019.jpg",
+    "assets/video-evidence/004/frame-020.jpg", "assets/video-evidence/004/frame-021.jpg",
+    "assets/video-evidence/004/frame-022.jpg", "assets/video-evidence/004/frame-023.jpg",
+    "assets/video-evidence/004/frame-024.jpg", "assets/video-evidence/004/frame-025.jpg",
+    "assets/video-evidence/004/frame-026.jpg"
+  ],
+  "primarySourceVerification": {
+    "verifiedOn": "2026-10-15",
+    "paperUrl": "https://arxiv.org/abs/1706.03762",
+    "fullTextUrl": "https://arxiv.org/html/1706.03762v7",
+    "checked": ["2017 publication", "self-attention and query/key/value weighting", "position-wise feed-forward sublayers", "encoder-decoder distinction and decoder causal masking", "learned output projection before softmax"],
+    "originalVisualCourse": "https://www.3blue1brown.com/lessons/gpt/"
+  },
+  "canvas": { "width": 1712, "height": 770, "outerHeaderAndBrandHandledByRoot": true },
+  "implementation": ["editable HTML paragraphs", "native SVG axes and arrows", "editable ASCII 0/1 silhouette", "SVG polygon layer boards with native textures", "unique SVG marker ids derived from slide id", "data-fit on all visible HTML and SVG text"],
+  "palette": ["#194DF9", "#F7AC01", "#0B1220", "#5B6B7F", "#E7EDFF", "#FFF2CC", "#FFF"],
+  "adaptations": [
+    "The source's artist passage was rewritten as a fictional classroom example, not biographical claims about a real person.",
+    "Two-dimensional semantic directions are teaching intuition, not measured embeddings, vector arithmetic for attention, or model interpretability results.",
+    "The binary silhouette is newly composed editable text, not an identified person or model-generated image.",
+    "Perspective layer boards preserve the source sequence while using ReinBee colors and larger readable labels.",
+    "Notes distinguish the original encoder-decoder translation architecture from causal decoder language generation.",
+    "Position information, residual connections, normalization and the vocabulary projection are explicitly acknowledged as omitted or merged details.",
+    "No full-slide screenshot, original institutional logo, watermark or author signature is used."
+  ],
+  "slides": [
+    {"id": "llm-attention-context", "kind": "attention-context", "timingSeconds": 40, "sourceTime": "08:30"},
+    {"id": "llm-attention-intro", "kind": "attention-intro", "timingSeconds": 40, "sourceTime": "09:00"},
+    {"id": "llm-attention-base-vector", "kind": "attention-base-vector", "timingSeconds": 30, "sourceTime": "09:30"},
+    {"id": "llm-attention-singing", "kind": "attention-singing", "timingSeconds": 35, "sourceTime": "10:00"},
+    {"id": "llm-attention-composite", "kind": "attention-composite", "timingSeconds": 45, "sourceTime": "10:30"},
+    {"id": "llm-transformer-attention", "kind": "transformer-attention", "timingSeconds": 45, "sourceTime": "11:00"},
+    {"id": "llm-transformer-stack", "kind": "transformer-stack", "timingSeconds": 50, "sourceTime": "11:30"},
+    {"id": "llm-transformer-softmax", "kind": "transformer-softmax", "timingSeconds": 40, "sourceTime": "12:00–12:30"}
+  ],
+  "totalTimingSeconds": 325
+}

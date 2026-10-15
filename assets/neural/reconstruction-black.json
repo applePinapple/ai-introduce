@@ -1,0 +1,166 @@
+{
+  "createdOn": "2026-10-15",
+  "sourceVideo": "assets/videos/bilibili/BV178w1z7EHQ/media/003_02-AI通识与基础-神经网络原理.mp4",
+  "sourceSegment": {
+    "start": "00:06:20",
+    "end": "00:12:15"
+  },
+  "sourceIds": [
+    "video-neural",
+    "3b1b-neural-network"
+  ],
+  "originalAuthorSource": "https://www.3blue1brown.com/lessons/neural-networks/",
+  "sourceVisual": "The original video segment uses a pure black background. This describes the source, not the final slide appearance.",
+  "reconstruction": "Native HTML/SVG on the shared light ReinBee slide master. Circles, weighted lines, mathematical labels and 28×28 grayscale pixel grids are editable geometry; diagram colors follow the blue/yellow theme. No full-frame screenshot, author logo, watermark or embedded video is used.",
+  "styleOverride": {
+    "requestedOn": "2026-10-15",
+    "authority": "用户后续要求",
+    "supersedes": "严格复现视频黑底数字识别演示的整页视觉；视频继续作为内容与图示结构参考。",
+    "outputStyle": "与前面页面一致的浅灰透视网格、ReinBee蓝黄浅色底板与统一图示配色。",
+    "headerLeft": "02 神经网络原理",
+    "headerRight": "ReinBee浅色标志",
+    "preserved": [
+      "12页结构/训练内容与13页数字识别内容的顺序：第16–21页结构、第22–34页数字识别、第35–40页训练。",
+      "全稿40页、1845秒；神经网络模块25页、885秒。",
+      "视频证据、教学示意性质与技术校正。"
+    ]
+  },
+  "dataNature": "Hand-reconstructed teaching pixels and illustrative activations/weights, not MNIST records or measured trained-network outputs. Colored strokes illustrate hoped-for compositional features; they do not establish actual interpretability of this small network.",
+  "inspectedFrames": [
+    "06:30",
+    "07:00",
+    "07:30",
+    "08:00",
+    "08:30",
+    "09:00",
+    "09:30",
+    "10:00",
+    "10:20",
+    "10:30",
+    "10:35",
+    "10:45",
+    "11:00",
+    "11:30",
+    "11:50",
+    "12:00"
+  ],
+  "omitted": [
+    "author logo and watermark",
+    "video player overlays",
+    "course subtitles",
+    "claims about contemporary model parameter counts"
+  ],
+  "adaptations": [
+    "Expanded parameter count explicitly into 12,960 weights and 42 biases.",
+    "Bias formula retains the source minus-threshold convention; notes explain equivalence to adding a signed bias.",
+    "Sigmoid notes restrict the (0,1) range to this activation example.",
+    "Slide titles are visible in the shared slide master, with the chapter header on the left and the light ReinBee logo on the right."
+  ],
+  "slides": [
+    {
+      "id": "neural-black-network",
+      "neuralKind": "black-network",
+      "timingSeconds": 30,
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-014.jpg"
+      ]
+    },
+    {
+      "id": "neural-black-pixels",
+      "neuralKind": "black-pixels",
+      "timingSeconds": 30,
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-015.jpg"
+      ]
+    },
+    {
+      "id": "neural-black-recognition",
+      "neuralKind": "black-recognition",
+      "timingSeconds": 25,
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-016.jpg"
+      ]
+    },
+    {
+      "id": "neural-black-strokes",
+      "neuralKind": "black-strokes",
+      "timingSeconds": 40,
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-017.jpg"
+      ]
+    },
+    {
+      "id": "neural-black-features",
+      "neuralKind": "black-features",
+      "timingSeconds": 25,
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-018.jpg"
+      ]
+    },
+    {
+      "id": "neural-black-pixel-neuron",
+      "neuralKind": "black-pixel-neuron",
+      "timingSeconds": 25,
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-019.jpg"
+      ]
+    },
+    {
+      "id": "neural-black-feature-detector",
+      "neuralKind": "black-feature-detector",
+      "timingSeconds": 25,
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-020.jpg"
+      ]
+    },
+    {
+      "id": "neural-black-weights",
+      "neuralKind": "black-weights",
+      "timingSeconds": 30,
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-021.jpg"
+      ]
+    },
+    {
+      "id": "neural-black-weighted-sum",
+      "neuralKind": "black-weighted-sum",
+      "timingSeconds": 25,
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-022.jpg"
+      ]
+    },
+    {
+      "id": "neural-black-feature-match",
+      "neuralKind": "black-feature-match",
+      "timingSeconds": 20,
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-022.jpg"
+      ]
+    },
+    {
+      "id": "neural-black-sigmoid",
+      "neuralKind": "black-sigmoid",
+      "timingSeconds": 30,
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-023.jpg"
+      ]
+    },
+    {
+      "id": "neural-black-bias-activation",
+      "neuralKind": "black-bias-activation",
+      "timingSeconds": 25,
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-024.jpg"
+      ]
+    },
+    {
+      "id": "neural-black-parameters",
+      "neuralKind": "black-parameters",
+      "timingSeconds": 25,
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-025.jpg"
+      ]
+    }
+  ],
+  "totalTimingSeconds": 355
+}

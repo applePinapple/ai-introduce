@@ -75,12 +75,12 @@
       "title": "02-AI通识与基础-神经网络原理",
       "url": "https://www.bilibili.com/video/BV178w1z7EHQ/?p=3",
       "publisher": "黑马程序员 / 用户提供的本地视频",
-      "verifiedOn": "2026-10-13",
+      "verifiedOn": "2026-10-15",
       "supports": [
         "讲解输入层、隐藏层、输出层与权重/偏置/激活，以 28×28 手写数字识别说明从像素到特征再到分类，并用误差反向传播解释训练。"
       ],
       "localPath": "assets/videos/bilibili/BV178w1z7EHQ/media/003_02-AI通识与基础-神经网络原理.mp4",
-      "evidence": "本地ffprobe核对时长，ffmpeg每30秒抽帧，实际阅读课件与可见硬字幕。不是逐字音频转写。时间段为已观察画面范围。",
+      "evidence": "本地 ffprobe 核对时长 974.310952 秒、852×480、30fps；实际查看全部5组contact及关键帧，并据画面顺序重构神经网络模块。证据为课件、图示与可见硬字幕，未进行音频逐字转写。",
       "timeRanges": [
         "00:30、01:00、01:30 神经元与网络直觉",
         "02:00、05:00、06:00 层、参数与计算",
@@ -89,9 +89,9 @@
         "12:30、13:00、13:30、14:00、15:30、16:00 训练循环"
       ],
       "screenshotReview": {
-        "reviewedOn": "2026-10-13",
+        "reviewedOn": "2026-10-15",
         "directory": "assets/video-evidence/003",
-        "method": "逐张阅读全部 contact 总览图；按正文 evidencePaths 关联关键画面。原生 HTML/SVG 重绘讲解，不将课件整页截图作为正文。"
+        "method": "逐张阅读5组contact总览与关键帧；白底结构/训练与黑底手写数字段分别以原生HTML/SVG重绘，生物图片仅裁切局部，无整页截图投屏。视觉复现记录见assets/neural/reconstruction-white.json与reconstruction-black.json。"
       }
     },
     {
@@ -99,12 +99,12 @@
       "title": "03.AI通识与基础-大语言模型",
       "url": "https://www.bilibili.com/video/BV178w1z7EHQ/?p=4",
       "publisher": "黑马程序员 / 用户提供的本地视频",
-      "verifiedOn": "2026-10-13",
+      "verifiedOn": "2026-10-15",
       "supports": [
         "以 Token 与词向量说明文字如何数值化，以语义向量关系和上下文注意力说明信息如何结合，再用北京早餐建议展示下一个 Token 生成、概率分布、温度参数与上下文窗口。"
       ],
       "localPath": "assets/videos/bilibili/BV178w1z7EHQ/media/004_03.AI通识与基础-大语言模型.mp4",
-      "evidence": "本地ffprobe核对时长，ffmpeg每30秒抽帧，实际阅读课件与可见硬字幕。不是逐字音频转写。时间段为已观察画面范围。",
+      "evidence": "本地ffprobe核对1362.317143秒、852×480、30fps；实际查看全部6组contact及关键帧，提炼课件、图示与可见硬字幕。未进行音频逐字转写。",
       "timeRanges": [
         "01:00、01:30、03:30、05:00 Token 与向量",
         "06:30、07:00、08:00 语义空间",
@@ -115,9 +115,9 @@
         "21:00、21:30、22:00、22:30 上下文窗口"
       ],
       "screenshotReview": {
-        "reviewedOn": "2026-10-13",
+        "reviewedOn": "2026-10-15",
         "directory": "assets/video-evidence/004",
-        "method": "逐张阅读全部 contact 总览图；按正文 evidencePaths 关联关键画面。原生 HTML/SVG 重绘讲解，不将课件整页截图作为正文。"
+        "method": "实际查看46帧的6组总览，按各阶段关键帧以可编辑HTML/SVG重建图示；整页沿用ReinBee蓝黄浅灰网格模板。技术核验与改编记录在assets/llm/，不把来源作者品牌或整页截图作为正文。"
       }
     },
     {
@@ -171,7 +171,7 @@
       "title": "Attention Is All You Need (2017)",
       "url": "https://arxiv.org/abs/1706.03762",
       "publisher": "Ashish Vaswani 等 / NeurIPS 2017, arXiv",
-      "verifiedOn": "2026-10-13",
+      "verifiedOn": "2026-10-15",
       "supports": [
         "2017年提出Transformer架构",
         "通过注意力处理序列关联；原论文验证任务为机器翻译",
@@ -183,7 +183,7 @@
       "title": "Language Models are Few-Shot Learners (2020)",
       "url": "https://arxiv.org/abs/2005.14165",
       "publisher": "Tom B. Brown 等 / NeurIPS 2020, arXiv",
-      "verifiedOn": "2026-10-13",
+      "verifiedOn": "2026-10-15",
       "supports": [
         "GPT-3为1750亿参数自回归语言模型",
         "少样本提示在推理时通过文本示例指定任务，无梯度更新",
@@ -218,7 +218,7 @@
       "title": "Neural Networks: Training using backpropagation",
       "url": "https://developers.google.com/machine-learning/crash-course/neural-networks/backpropagation",
       "publisher": "Google for Developers",
-      "verifiedOn": "2026-10-13",
+      "verifiedOn": "2026-10-15",
       "supports": [
         "反向传播计算梯度，支持多层网络的梯度下降训练",
         "训练是根据误差调整参数；推理使用已学参数产生输出"
@@ -229,7 +229,7 @@
       "title": "How Transformers solve tasks — LLM Course",
       "url": "https://huggingface.co/learn/llm-course/en/chapter1/5",
       "publisher": "Hugging Face 官方课程",
-      "verifiedOn": "2026-10-13",
+      "verifiedOn": "2026-10-15",
       "supports": [
         "GPT类因果语言模型根据前文预测后续token",
         "tokenization、embedding、masked self-attention与生成流程",
@@ -325,7 +325,7 @@
       "title": "How to generate text: using different decoding methods for language generation with Transformers",
       "url": "https://huggingface.co/blog/how-to-generate",
       "publisher": "Hugging Face 官方技术文章 / Patrick von Platen",
-      "verifiedOn": "2026-10-13",
+      "verifiedOn": "2026-10-15",
       "supports": [
         "采样依据下一token的条件概率分布选取候选",
         "降低温度使候选概率分布更尖锐，提高高概率候选相对权重",
@@ -337,7 +337,7 @@
       "title": "Generation — Transformers documentation",
       "url": "https://huggingface.co/docs/transformers/main/en/main_classes/text_generation",
       "publisher": "Hugging Face 官方文档",
-      "verifiedOn": "2026-10-13",
+      "verifiedOn": "2026-10-15",
       "supports": [
         "temperature用于调节下一token的概率；do_sample控制是否采样",
         "贪心解码与采样不同；并非所有解码模式都会让温度参数影响最终选择",
@@ -812,6 +812,110 @@
         "官方 7R6R 动画展示蓝色蛋白质、粉色 DNA 的预测结构与灰色实验结构的叠合。",
         "AlphaFold Server 用来帮助研究者提出需要在实验室测试的新假设；预测结果不等同于实验结论。",
         "左图为官方文章蛋白结构主视觉，右图来自该文直接嵌入的 7R6R 原始动画。"
+      ]
+    },
+    {
+      "id": "backprop-1986",
+      "title": "Learning representations by back-propagating errors",
+      "url": "https://www.nature.com/articles/323533a0",
+      "publisher": "David E. Rumelhart、Geoffrey E. Hinton、Ronald J. Williams / Nature 323, 533–536 (1986)",
+      "verifiedOn": "2026-10-15",
+      "supports": [
+        "1986年10月9日论文的作者、日期、卷号和页码",
+        "反向传播通过调整连接权重减小实际输出和目标输出的差异；隐藏单元可学习任务特征。论文是代表性历史文献，不据此声称该方法于1986年首次由单人发明。"
+      ]
+    },
+    {
+      "id": "3b1b-neural-network",
+      "title": "But what is a Neural Network? — Neural Networks, Chapter 1",
+      "url": "https://www.3blue1brown.com/lessons/neural-networks/",
+      "publisher": "Grant Sanderson / 3Blue1Brown，2017-10-05",
+      "verifiedOn": "2026-10-15",
+      "supports": [
+        "28×28像素、784输入、两个16单元隐藏层、10输出的手写数字示例",
+        "神经元加权和、偏置、Sigmoid激活与13002个可训练参数",
+        "边缘、笔画与数字的分层特征是解释动机的直觉示意，不保证该全连接网络真实学到这种可解释分工"
+      ],
+      "evidence": "实际阅读原作者课程正文、图示说明与参数计算；用户本地视频的黑底片段与该原始课程一致，最终以可编辑SVG重绘并在备注署明来源。"
+    },
+    {
+      "id": "hf-tokenizers",
+      "title": "Tokenizers — LLM Course",
+      "publisher": "Hugging Face",
+      "url": "https://huggingface.co/learn/llm-course/en/chapter2/4",
+      "verifiedOn": "2026-10-15",
+      "supports": [
+        "word/character/subword 与 byte-level BPE 等多种方法；文本先 tokenization 再映射 input IDs，不存在通用“中文一个字一个 token”。"
+      ]
+    },
+    {
+      "id": "word2vec-2013",
+      "title": "Efficient Estimation of Word Representations in Vector Space",
+      "publisher": "Tomas Mikolov 等 / arXiv",
+      "url": "https://arxiv.org/abs/1301.3781",
+      "verifiedOn": "2026-10-15",
+      "supports": [
+        "词向量及类比关系的原论文；King−Man+Woman 的结果在该示例中最接近 Queen，而不是普遍精确相等的语言代数。"
+      ]
+    },
+    {
+      "id": "emergence-metrics-2023",
+      "title": "Are Emergent Abilities of Large Language Models a Mirage?",
+      "publisher": "Rylan Schaeffer、Brando Miranda、Sanmi Koyejo / arXiv",
+      "url": "https://arxiv.org/abs/2304.15004",
+      "verifiedOn": "2026-10-15",
+      "supports": [
+        "“突现”现象可受非线性或不连续评测指标影响；不能将视频中的临界点说法当作已证实的普遍机制。"
+      ]
+    },
+    {
+      "id": "hf-sequence-length-course",
+      "title": "Handling multiple sequences — LLM Course",
+      "publisher": "Hugging Face",
+      "url": "https://huggingface.co/learn/llm-course/en/chapter2/5",
+      "verifiedOn": "2026-10-15",
+      "supports": [
+        "不同模型支持不同序列长度，超限需处理；只引用该一般原则，不复用其示例中的 512/1024 为当前所有模型限制。"
+      ]
+    },
+    {
+      "id": "google-long-context",
+      "title": "Long context",
+      "publisher": "Google AI for Developers",
+      "url": "https://ai.google.dev/gemini-api/docs/long-context",
+      "verifiedOn": "2026-10-15",
+      "supports": [
+        "上下文是一次提供给模型的信息，具体容量及输入/输出预算依具体模型和 API；本稿用抽象容量 L，避免固定 128K 或统一计费/预算断言。"
+      ]
+    },
+    {
+      "id": "3b1b-gpt-2024",
+      "title": "Transformers, the tech behind LLMs — Deep Learning Chapter 5",
+      "publisher": "Grant Sanderson / 3Blue1Brown",
+      "url": "https://www.3blue1brown.com/lessons/gpt/",
+      "verifiedOn": "2026-10-15",
+      "supports": [
+        "已打开原作者课程；视频 004 的黑底语义空间、分层板与英文续写图示与此课程的讲解结构一致。作为原始图示出处辅助署名，不从评论区采信参数数值。"
+      ]
+    },
+    {
+      "id": "3b1b-attention",
+      "title": "Attention in transformers, step-by-step — Deep Learning Chapter 6",
+      "publisher": "Grant Sanderson / 3Blue1Brown",
+      "url": "https://www.3blue1brown.com/lessons/attention/",
+      "verifiedOn": "2026-10-15",
+      "supports": [
+        "已打开原作者课程，可辅助解释上下文更新与 Q/K/V 示意；技术结论优先引用 Transformer 原论文。"
+      ]
+    },
+    {
+      "id": "llama-2023",
+      "title": "LLaMA: Open and Efficient Foundation Language Models",
+      "publisher": "Hugo Touvron 等 / Meta AI",
+      "url": "https://arxiv.org/abs/2302.13971",
+      "verifiedOn": "2026-10-15",
+      "supports": [
+        "表2与图1：LLaMA-13B为13.0B参数、5120维、1.0T训练token；LLaMA-65B为65.2B参数、8192维、1.4T训练token。论文发表于2023年。"
       ]
     }
   ]

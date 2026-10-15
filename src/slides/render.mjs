@@ -1,6 +1,11 @@
 import path from 'node:path';
 import { validateDeck } from './validate.mjs';
 import { renderFullLayout } from './full-layouts.mjs';
+import { renderNeuralWhite } from './neural-white.mjs';
+import { renderNeuralBlack } from './neural-black.mjs';
+import { renderLlmEmbedding } from './llm-embedding.mjs';
+import { renderLlmAttention } from './llm-attention.mjs';
+import { renderLlmGeneration } from './llm-generation.mjs';
 
 export const escapeHtml = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const e = escapeHtml;
@@ -17,7 +22,7 @@ function grid(id) {
   while (y < 1080) { lines += `<line x1="0" y1="${y}" x2="1920" y2="${y}" stroke="url(#fade-${id})" stroke-width="1"/>`; step *= 1.32; y += step; }
   return `<svg class="grid" aria-hidden="true" viewBox="0 0 1920 1080" preserveAspectRatio="none"><defs><linearGradient id="fade-${id}" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="1080"><stop offset="0" stop-color="#EEF2F6"/><stop offset=".55" stop-color="#EEF2F6"/><stop offset="1" stop-color="#DCE3EB"/></linearGradient></defs>${lines}</svg>`;
 }
-const header = s => `<div class="head"><div class="sec"><i></i><b data-fit>${e(s.chapter)}</b><span data-fit>${e(s.sectionLabel)}</span></div>${s.theme === 'reinbee' ? '' : `<div data-fit>${e(s.eyebrow)}</div>`}</div><h1 data-fit>${e(s.title)}<small>${e(s.subtitle)}</small></h1>`;
+const header = s => `<div class="head"><div class="sec"><i></i><b data-fit>${e(s.chapter)}</b><span data-fit>${e(s.sectionLabel)}</span></div>${s.theme === 'reinbee' || s.layout === 'neural' ? '' : `<div data-fit>${e(s.eyebrow)}</div>`}</div><h1 data-fit>${e(s.title)}<small>${e(s.subtitle)}</small></h1>`;
 const step = s => `<div class="step ${e(s.tone)}"><span class="lab" data-fit>${e(s.label)}</span><div data-fit>${e(s.text)}</div></div>`;
 const moduleLogo = s => s.theme && s.logoPath && s.layout !== 'cover' ? `<div class="module-logo"><img src="media/${e(path.basename(s.logoPath))}" alt="${e(s.logoAlt)}"></div>` : '';
 
@@ -29,6 +34,11 @@ function cover(s) {
 }
 
 function slideContent(s, index) {
+  if (s.layout === 'llm') {
+    const body = s.llmKind.startsWith('embedding-') ? renderLlmEmbedding(s, e) : /^(attention|transformer)-/.test(s.llmKind) ? renderLlmAttention(s, e) : renderLlmGeneration(s, e);
+    return `${header(s)}${body}`;
+  }
+  if (s.layout === 'neural') return `${header(s)}<div class="neural-viewport"><div class="neural-scale">${s.theme === 'neural-dark' ? renderNeuralBlack(s, e) : renderNeuralWhite(s, e)}</div></div>`;
   const full = renderFullLayout(s, e);
   if (full !== null) return `${header(s)}${full}`;
   if (s.layout === 'cover') return cover(s);
@@ -46,6 +56,6 @@ export function renderDeck(deck, sources, { css = '', runtime = '' } = {}) {
   const errors = validateDeck(deck, sources);
   if (errors.length) throw new Error(errors.join('\n'));
   const notes = speakerNotes(deck, sources);
-  const sections = deck.slides.map((s, i) => `<section class="slide${deck.durationMinutes ? ' full-slide' : ''}${s.layout === 'cover' ? ' cover' : ''}${i === 0 ? ' active' : ''}" data-theme="${e(s.theme || '')}" data-id="${e(s.id)}" data-sec="${e(s.section)}" data-title="${e(s.title)}" aria-label="${i + 1}. ${e(s.title)}">${grid(i)}${moduleLogo(s)}${slideContent(s, i)}${s.sourceLabel ? `<div class="foot">${s.layout === 'gallery' ? '' : `<div class="src" data-fit>${e(s.sourceLabel)}</div>`}${deck.durationMinutes ? `<div class="slide-page" data-fit>${String(i+1).padStart(2,'0')} / ${deck.slides.length}</div>` : ''}</div>` : ''}<template data-speaker-notes>${notes[i].notes.map(p => `<p>${e(p)}</p>`).join('')}<ul>${notes[i].sources.map(ref => `<li>${e(ref.title)} · ${e(ref.publisher)} · <a href="${e(ref.url)}">${e(ref.url)}</a> · 核验 ${e(ref.verifiedOn)}</li>`).join('')}</ul></template></section>`).join('\n');
+  const sections = deck.slides.map((s, i) => `<section class="slide${deck.durationMinutes ? ' full-slide' : ''}${s.layout === 'cover' ? ' cover' : ''}${s.layout === 'neural' ? ' neural-page' : ''}${s.layout === 'llm' ? ' llm-page' : ''}${i === 0 ? ' active' : ''}" data-theme="${e(s.theme || '')}" data-id="${e(s.id)}" data-sec="${e(s.section)}" data-title="${e(s.title)}" aria-label="${i + 1}. ${e(s.title)}">${grid(i)}${moduleLogo(s)}${slideContent(s, i)}${s.sourceLabel ? `<div class="foot">${s.layout === 'gallery' ? '' : `<div class="src" data-fit>${e(s.sourceLabel)}</div>`}${deck.durationMinutes ? `<div class="slide-page" data-fit>${String(i+1).padStart(2,'0')} / ${deck.slides.length}</div>` : ''}</div>` : ''}<template data-speaker-notes>${notes[i].notes.map(p => `<p>${e(p)}</p>`).join('')}<ul>${notes[i].sources.map(ref => `<li>${e(ref.title)} · ${e(ref.publisher)} · <a href="${e(ref.url)}">${e(ref.url)}</a> · 核验 ${e(ref.verifiedOn)}</li>`).join('')}</ul></template></section>`).join('\n');
   return `<!doctype html>\n<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${e(deck.title)}</title><style>${css}</style></head><body><main id="stage">${sections}</main><div id="nav-hot"></div><nav id="nav-btn" aria-label="幻灯片导航"><button type="button" class="b" id="nb-prev" aria-label="上一页">‹</button><span class="pg" id="nb-pg" aria-live="polite">1 / ${deck.slides.length}</span><button type="button" class="b" id="nb-next" aria-label="下一页">›</button><button type="button" class="b" id="nb-presenter" aria-label="打开讲者窗口" title="P">P</button><button type="button" class="b" id="nb-list" aria-label="页面目录" aria-controls="nav-panel" aria-expanded="false">☰</button></nav><div id="nav-panel" aria-label="页面目录"></div><div id="hud"></div><script>${runtime}</script></body></html>`;
 }

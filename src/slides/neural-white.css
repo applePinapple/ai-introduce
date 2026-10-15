@@ -1,0 +1,60 @@
+/* Video 003 diagram geometry inside the common brand viewport.
+   The outer wrapper owns scale; this inner translation removes the old header gap.
+   At outer scale .8: lead begins 41px below viewport top; lowest art ends at 755px.
+   No selectors affect existing deck themes. */
+.neural-slide.neural-light.nnw-screen{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;background:transparent;color:#0B1220;font-family:"Noto Sans SC","Microsoft YaHei",Arial,sans-serif;font-weight:400;transform:translateY(-120px);transform-origin:0 0}
+.neural-light .nnw-lead{position:absolute;left:105px;top:171px;width:1706px;margin:0;font-size:34px;line-height:1.8;letter-spacing:0}
+.neural-light .nnw-emphasis{color:#194DF9;font-weight:750}
+.neural-light .nnw-lead strong{font-weight:750}
+.neural-light .nnw-biology{position:absolute;object-fit:contain;display:block;max-width:none;max-height:none;box-shadow:none;border:0;border-radius:0;background:#fff}
+.neural-light .nnw-biology-neuron{left:144px;top:383px;width:695px;height:437px}
+.neural-light .nnw-biology-network{left:142px;top:380px;width:710px;height:519px}
+.neural-light .nnw-neuron-large{position:absolute;left:1009px;top:310px;width:812px;height:565px}
+.neural-light .nnw-network-large{position:absolute;left:976px;top:402px;width:856px;height:419px}
+.neural-light .nnw-network-small{position:absolute;left:1041px;top:276px;width:783px;height:365px;z-index:2}
+.neural-light .nnw-network-svg,.neural-light .nnw-neuron-svg{display:block;width:100%;height:100%;overflow:visible}
+.neural-light .nnw-network-svg{font-family:Arial,"Noto Sans SC",sans-serif}
+.neural-light .nnw-net-edges{fill:none;stroke:#5B6B7F;stroke-width:1.7}
+.neural-light .nnw-net-edges text{stroke:none;fill:#0B1220}
+.neural-light .nnw-net-nodes circle{fill:#fff;stroke:#194DF9;stroke-width:2}
+.neural-light .nnw-net-nodes text{fill:#0B1220;stroke:none;font-size:28px;font-weight:400}
+.neural-light .nnw-layer-label{font-size:24px;font-weight:400;paint-order:stroke;stroke:#fff;stroke-width:5px}
+.neural-light .nnw-math-label{font-family:"Times New Roman",serif;font-size:29px;font-style:italic;fill:#0B1220}
+.neural-light .nnw-weight-label{font-family:"Times New Roman",serif;font-size:22px;font-style:italic;fill:#5B6B7F}
+.neural-light .nnw-layer-copy{position:absolute;left:105px;top:246px;width:890px;margin:0;padding:0 0 0 38px;font-size:33px;line-height:1.9;list-style-type:disc}
+.neural-light .nnw-layer-copy li{padding-left:4px;margin:0 0 14px}
+.neural-light .nnw-layer-copy li::marker{color:#194DF9}
+.neural-light .nnw-layer-copy strong{font-size:31px;font-weight:750}
+.neural-light .nnw-neuron-svg{font-family:"Times New Roman","Noto Sans SC",serif}
+.neural-light .nnw-unit-boxes{fill:none;stroke:#5B6B7F;stroke-width:1.7;stroke-dasharray:5 4}
+.neural-light .nnw-unit-labels{font-family:"Noto Sans SC",sans-serif;font-size:27px;fill:#0B1220}
+.neural-light .nnw-unit-ink{fill:#fff;stroke:#5B6B7F;stroke-width:1.8}
+.neural-light .nnw-unit-ink circle{stroke:#194DF9}
+.neural-light .nnw-unit-ink rect{fill:#E7EDFF;stroke:#194DF9}
+.neural-light .nnw-unit-ink text{fill:#0B1220;stroke:none}
+.neural-light .nnw-unit-variable{font-size:29px;font-style:italic}
+.neural-light .nnw-unit-weight{font-size:26px;font-style:italic}
+.neural-light .nnw-unit-symbols{font-size:54px;fill:#0B1220}
+.neural-light .nnw-callout{position:absolute;left:1123px;top:543px;width:625px;height:510px;z-index:1}
+.neural-light .nnw-callout-outline{position:absolute;inset:0;width:100%;height:100%;fill:#fff;stroke:#194DF9;stroke-width:1.8}
+.neural-light .nnw-callout-neuron{position:absolute;left:63px;top:169px;width:520px;height:316px}
+.neural-light .nnw-formula{position:absolute;left:258px;top:728px;width:360px;height:133px;color:#0B1220;font-family:"Times New Roman",serif;font-size:36px}
+.neural-light .nnw-formula math{font-size:36px;margin:0;line-height:1}
+.neural-light .nnw-calculation-steps{position:absolute;left:659px;top:705px;margin:0;padding:0;list-style:none;font-size:31px;line-height:1.75}
+.neural-light .nnw-calculation-steps li{white-space:nowrap;display:flex;gap:17px}
+.neural-light .nnw-calculation-steps span{font-family:Arial,"Noto Sans SC",sans-serif;color:#194DF9}
+.neural-light .nnw-training-network{position:absolute;left:946px;top:300px;width:856px;height:407px}
+.neural-light .nnw-training-copy{position:absolute;left:105px;top:351px;width:807px;font-size:32px;line-height:1.85}
+.neural-light .nnw-flow-intro{margin:0 0 18px;font-size:33px}
+.neural-light .nnw-training-steps{margin:0;padding-left:37px;list-style-type:disc}
+.neural-light .nnw-training-steps li{margin:0 0 18px;padding-left:4px}
+.neural-light .nnw-training-steps li::marker{color:#194DF9}
+.neural-light .nnw-training-steps strong{font-weight:750}
+.neural-light .nnw-star{position:absolute;width:530px;height:235px;overflow:visible;font-family:"Noto Sans SC",Arial,sans-serif;font-size:34px;font-weight:750}
+.neural-light .nnw-star polygon{fill:#E7EDFF;stroke:currentColor;stroke-width:2.4}
+.neural-light .nnw-star text{fill:currentColor}
+.neural-light .nnw-star-en{font-family:"Courier New",monospace;font-size:31px;letter-spacing:1px}
+.neural-light .nnw-loss-star{left:910px;top:701px;color:#194DF9}
+.neural-light .nnw-gradient-star{left:1260px;top:840px;width:560px;height:224px;color:#F7AC01}
+.neural-light .nnw-gradient-star polygon{fill:#FFF2CC}
+.neural-light .nnw-gradient-star text{fill:#0B1220}

@@ -8,13 +8,13 @@ import { renderPresenter } from '../../src/slides/presenter.mjs';
 const out = path.join(root, outputDir);
 const { deck, sources } = await loadDeck();
 const read = file => fs.readFile(path.join(root, file), 'utf8');
-const [referenceCss, adaptations, runtime, fullCss] = await Promise.all(['src/slides/reference.css', 'src/slides/adaptations.css', 'src/slides/runtime.js', 'src/slides/full.css'].map(read));
+const [referenceCss, adaptations, runtime, fullCss, neuralWhiteCss, neuralBlackCss, llmEmbeddingCss, llmAttentionCss, llmGenerationCss] = await Promise.all(['src/slides/reference.css', 'src/slides/adaptations.css', 'src/slides/runtime.js', 'src/slides/full.css', 'src/slides/neural-white.css', 'src/slides/neural-black.css', 'src/slides/llm-embedding.css', 'src/slides/llm-attention.css', 'src/slides/llm-generation.css'].map(read));
 await fs.mkdir(path.join(out, 'media'), { recursive: true });
 const media = [...new Set(deck.slides.flatMap(s => [s.imagePath, s.detailImagePath, s.logoPath, ...(s.images ?? []).map(image => image.path)]).filter(Boolean))];
 media.push('assets/fonts/NotoSansSC.ttf', 'assets/fonts/JetBrainsMono.ttf', 'assets/fonts/notosanssc-OFL.txt', 'assets/fonts/jetbrainsmono-OFL.txt');
 if (new Set(media.map(file => path.basename(file).toLowerCase())).size !== media.length) throw new Error('媒体文件名冲突：请使用唯一文件名，避免导出覆盖。');
 for (const file of media) await fs.copyFile(path.join(root, file), path.join(out, 'media', path.basename(file)));
-await fs.writeFile(path.join(out, 'deck.html'), renderDeck(deck, sources, { css: referenceCss + '\n' + adaptations + (selectedDeck === 'sample' ? '' : '\n' + fullCss), runtime }));
+await fs.writeFile(path.join(out, 'deck.html'), renderDeck(deck, sources, { css: referenceCss + '\n' + adaptations + (selectedDeck === 'sample' ? '' : '\n' + fullCss + '\n' + neuralWhiteCss + '\n' + neuralBlackCss + '\n' + llmEmbeddingCss + '\n' + llmAttentionCss + '\n' + llmGenerationCss), runtime }));
 await fs.writeFile(path.join(out, 'speaker-notes.json'), JSON.stringify(speakerNotes(deck, sources), null, 2) + '\n');
 await fs.writeFile(path.join(out, 'build-manifest.json'), JSON.stringify({
   generatedAt: new Date().toISOString(), slideCount: deck.slides.length, canvas: { width: 1920, height: 1080 },

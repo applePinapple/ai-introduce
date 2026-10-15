@@ -1,0 +1,57 @@
+.llma-canvas {
+  position: relative;
+  width: 1712px;
+  height: 770px;
+  color: #0B1220;
+  font-family: var(--sans, "Noto Sans SC", Arial, sans-serif);
+}
+
+.llma-svg {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 1712px;
+  height: 770px;
+  overflow: visible;
+  font-family: var(--sans, "Noto Sans SC", Arial, sans-serif);
+}
+
+.llma-svg text {
+  letter-spacing: 0;
+  text-rendering: geometricPrecision;
+}
+
+.llma-lead {
+  position: absolute;
+  top: 0;
+  left: 60px;
+  width: 1592px;
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.55;
+  color: #0B1220;
+}
+
+.llma-context-badge {
+  margin: 2px 136px 24px;
+  padding-left: 18px;
+  border-left: 5px solid #F7AC01;
+  color: #5B6B7F;
+  font-size: 26px;
+  line-height: 1.5;
+}
+
+.llma-context-copy {
+  margin: 0 136px;
+  font-size: 30px;
+  line-height: 1.68;
+}
+
+.llma-context-copy p {
+  margin: 0 0 18px;
+  text-align: justify;
+}
+
+.llma-context-copy p:last-child {
+  margin-bottom: 0;
+}

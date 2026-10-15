@@ -1,10 +1,10 @@
 # AI、大语言模型与 Agent
 
-本地中文演讲幻灯片项目，面向老板与技术同事。**47 页、58 分钟的完整演讲采用原生 HTML**，其中讲解 53 分钟、讨论 5 分钟，保留首页封面，随后直接进入 AI 基础。AI 基础先用独立页面介绍定义，再讲四次浪潮，随后用十一页图片展示各阶段的代表性系统与应用；深度学习分为视觉识别、驾驶与控制两页，第四浪潮扩展到图像、视频、语音音乐、3D、具身与科学 AI。模块最后用一页关系图串起技术包含关系、模型能力和前面的应用场景。该模块使用用户指定的 ReinBEE 蓝黄底板与浅色标志，其他模块沿用现有样式。
+本地中文演讲幻灯片项目，面向老板与技术同事。**当前稿为 44 页、51分15秒（3075 秒），采用原生 HTML**，范围为首页封面、AI 基础、神经网络原理与大语言模型。AI 基础先用独立页面介绍定义，再讲四次浪潮，随后用十一页图片展示各阶段的代表性系统与应用；深度学习分为视觉识别、驾驶与控制两页，第四浪潮扩展到图像、视频、语音音乐、3D、具身与科学 AI。最后用一页关系图串起技术包含关系、模型能力和前面的应用场景。该模块使用用户指定的 ReinBEE 蓝黄底板与浅色标志。第 16–29 页的神经网络原理参考视频 003，第 30–44 页的大语言模型参考视频 004；两者均统一为浅灰透视网格与 ReinBee 蓝黄浅色底板，按用户要求合并连续展开页，保留完整讲稿。
 
-默认视觉来自用户认可的三页样例与 [lip-html-slides 技能](skills/lip-html-slides/SKILL.md)，参考 **skJack/-lip- 第 21 期 VLA 的 HTML 实现与风格**。三页样例继续作为独立视觉基准保留，AI 基础的局部样式不改变全局技能风格基准。
+默认视觉来自用户认可的三页样例与 [lip-html-slides 技能](skills/lip-html-slides/SKILL.md)，参考 **skJack/-lip- 第 21 期 VLA 的 HTML 实现与风格**。三页样例继续作为独立视觉基准保留，AI 基础、神经网络和大语言模型模块的局部样式不改变全局技能风格基准。
 
-原演讲内容提炼自用户提供的四段课程视频。视频证据来自实际抽帧、课件与可见硬字幕核对，没有进行音频逐字转写。AI 与大语言模型部分保留课程主线，Agent 执行闭环与应用实践根据论文和官方工程资料扩展；教学示例、研究结果与实施建议在正文或备注中明确区分。
+项目原始研究来自用户提供的四段课程视频，以及论文和官方资料。视频证据来自实际抽帧、课件与可见硬字幕核对，没有进行音频逐字转写。历史课程、LLM 与 Agent 研究资料继续保留供参考；当前大语言模型章节是依据视频 004 新做的重构，不是恢复原已删除的正文。当前正文和讲稿集中维护封面、AI 基础、神经网络原理与大语言模型，原 Agent 和讨论章节尚未恢复。
 
 ## 当前生成方式
 
@@ -30,23 +30,25 @@ npx playwright-core install chromium
 
 | 文件 | 用途 |
 | --- | --- |
-| [`deck.html`](output/ai-history/deck.html) | 47 页 HTML 演示入口 |
+| [`deck.html`](output/ai-history/deck.html) | 当前 44 页 HTML 演示入口 |
 | [`presenter.html`](output/ai-history/presenter.html) | 个人屏幕上的讲者窗口，讲稿随投屏翻页同步 |
 | [`deck.pdf`](output/ai-history/deck.pdf) | 静态阅读与打印 |
-| [`预览-全部页面.png`](output/ai-history/预览-全部页面.png) | 47 页视觉总览 |
+| [`预览-全部页面.png`](output/ai-history/预览-全部页面.png) | 当前 44 页视觉总览 |
 | `overview-01.png` 至 `overview-08.png` | 每组六页的复核图 |
-| `slides/slide-01.png` 至 `slide-47.png` | 逐页预览 |
-| `speaker-notes.html` | 浏览器可读的完整讲稿、建议时长与来源 |
+| `slides/slide-01.png` 至 `slide-44.png` | 逐页预览 |
+| `speaker-notes.html` | 浏览器可读的当前稿讲稿、建议时长与来源 |
 | `speaker-notes.json` | 逐页讲稿与完整来源 |
 | `verification.json` | 浏览器与导出检查结果 |
 
-用 Chrome 或 Edge 打开 HTML，保留相邻 `media/` 即可离线演示。重复构建覆盖当前演讲产物；`output/` 不手工修改或纳入 Git。HTML 是主要可编辑演示格式，PDF 和 PNG 是静态导出。完整正文在 `content/decks/ai-history.json` 修改，排版与交互在 `src/slides/` 修改，再重新构建。需要重建三页基准时运行 `npm run build -- --sample` 与 `npm run verify -- --sample`，结果仍在 `output/lip-sample/`。
+用 Chrome 或 Edge 打开 HTML，保留相邻 `media/` 即可离线演示。重复构建覆盖当前演讲产物；`output/` 不手工修改或纳入 Git。HTML 是主要可编辑演示格式，PDF 和 PNG 是静态导出。当前正文在 `content/decks/ai-history.json` 修改，排版与交互在 `src/slides/` 修改，再重新构建。需要重建三页基准时运行 `npm run build -- --sample` 与 `npm run verify -- --sample`，结果仍在 `output/lip-sample/`。
 
-三页基准分别是封面、Agent 执行闭环、固定工作流与 Agent 的比较。完整演讲复用这些版式，并补齐时间线、图片画廊、关系图、双栏、流程、案例、图解和表格。Token 与生成过程根据课程截图重新组织，保留原生文字与 SVG；证据路径记录在正文的 `evidencePaths` 中。
+三页基准分别是封面、Agent 执行闭环、固定工作流与 Agent 的比较，作为独立视觉样例保留。当前正文采用封面、AI 定义、四次浪潮时间线、图片画廊、关系图、神经网络原理与大语言模型图示；已有其他版式实现与历史视频证据继续供后续重构使用。
 
 第 04–14 页采用 `gallery` 布局，画面保留章节标题与品牌，图片不加白框：规则与符号 AI 页为 MYCIN 架构与 Shakey；机器学习页为 SpamBayes 两张界面图；深度学习第一页展示人脸识别、扫地机在家具旁识别线缆等障碍物、YOLO 以马为例的目标检测，第二页展示自动驾驶与传统机械臂的算法；大语言模型页为 ChatGPT 与 DeepSeek。第 09–14 页分别展示图像生成、视频生成、语音与音乐、3D 生成、具身大模型和科学 AI，每页两图、60 秒。两页深度学习各讲 45 秒。牛羊马等目标类别、图片解释、图源与概念边界维护在 `notes`：传统运动学与控制算法本身不属于深度学习，可用视觉模型增强。
 
-第 15 页采用 `relationship` 布局，按“技术包含关系 → 模型能力 → 应用场景”组织一张关系图，建议讲解 105 秒，详细解释放在 `notes`。第 03 页参考时间线原文与前面十一页图片保持；AI 基础覆盖第 02–15 页，大语言模型为第 16–29 页，Agent 与收束为第 30–46 页，第 47 页交流。
+第 15 页采用 `relationship` 布局，按“技术包含关系 → 模型能力 → 应用场景”组织一张关系图，建议讲解 105 秒，详细解释放在 `notes`。第 03 页参考时间线原文与前面十一页图片保持。封面第 01 页为45秒，AI 基础第 02–15 页为915秒，神经网络原理第 16–29 页为885秒，大语言模型第 30–44 页为1230秒，合计3075秒。
+
+LLM讲解中的Token不等于词，向量维度与上下文容量依具体模型和配置而定。示意向量、概率、人物描述和数值纹理不作为模型实测或真人事实；注意力不是简单词向量相加。规模页采用GPT-3、LLaMA等历史公开论文数据，替代缺乏可靠依据的GPT-4/GPT-5参数传闻，不以规模图推断固定AGI临界点。详细边界保留在讲稿中。
 
 项目中的 `skills/lip-html-slides/` 是技能源，个人技能目录为 `C:/Users/Edison/.codex/skills/lip-html-slides/`。开始新演讲时先读技能，复用 `src/slides/`，不重新生成多种风格供比选。更新技能时同步个人副本。
 
@@ -82,10 +84,10 @@ npx playwright-core install chromium
 
 ```text
 content/decks/sample.json      当前 3 页样例正文、讲稿与来源关联
-content/decks/ai-history.json  默认构建的 47 页完整演讲内容
+content/decks/ai-history.json  默认构建的当前 44 页正文与讲稿
 content/sources.json           来源、核验日期、支持范围与视频证据
 schemas/sample.schema.json    当前样例的内容契约
-schemas/full.schema.json      完整 HTML 演讲的内容契约
+schemas/full.schema.json      默认 HTML 演讲的内容契约
 schemas/deck.schema.json      原 39 页内容的历史契约
 src/slides/                   HTML、CSS、SVG 与播放实现
 scripts/slides/               检查、构建、浏览器导出与产物验证
@@ -95,11 +97,13 @@ docs/                         生成规则索引、讲解节奏与内容原则
 assets/references/            下载的参考项目及获取记录
 assets/videos/                视频、分 P 索引与来源记录
 assets/video-evidence/        抽帧清单与视频提炼依据
+assets/neural/                神经网络模块裁切、重构与样式覆盖记录
+assets/llm/                   大语言模型视频复核与原生重构记录
 assets/research/              论文和官方资料的核验结果
 assets/design/                已采用的概念插画
 assets/fonts/                 离线字体、许可与来源记录
 assets/inbox/                 待整理的原始图片
-output/ai-history/            完整 HTML 演讲及导出产物
+output/ai-history/            当前 HTML 演讲及导出产物
 output/lip-sample/            独立三页样例及导出产物
 ```
 
@@ -107,4 +111,9 @@ output/lip-sample/            独立三页样例及导出产物
 
 视频工具统一从项目根目录调用：通用下载脚本为 `scripts/media/you-get-bilibili.ps1`，课程下载与核验为 `scripts/media/download-bilibili.py`，课件抽帧为 `scripts/media/extract-video-evidence.py`。通用脚本默认下载到 `assets/videos/bilibili/downloads/`，可用 `-OutputDir` 指定其他位置；具体课程操作见 [视频素材说明](assets/videos/bilibili/BV178w1z7EHQ/README.md)。
 
-原 PPTX 流程及失败样稿不恢复。完整演讲与三页视觉基准分别维护，共用 HTML 渲染与播放实现。PDF 独立视觉复核可使用带有 `pypdfium2`、`Pillow` 的 Python 运行 `scripts/slides/render-pdf.py`；结果写入 `output/ai-history/pdf-review/`。
+原 PPTX 流程及失败样稿不恢复。当前稿与三页视觉基准分别维护，共用 HTML 渲染与播放实现。PDF 独立视觉复核可使用带有 `pypdfium2`、`Pillow` 的 Python 运行 `scripts/slides/render-pdf.py`；结果写入 `output/ai-history/pdf-review/`。
+
+
+## 2026-10-15 页面合并（覆盖前述拆页数量与页码）
+
+当前合并稿为44页、51分15秒（3075秒）：封面第01页，AI基础第02–15页，神经网络原理第16–29页（14页、885秒），大语言模型第30–44页（15页、1230秒）。2026-10-15按用户要求合并同一图示的连续展开，保留独立概念、原生可编辑图示、来源与各阶段讲稿；本轮只减少翻页，不压缩讲解时间。 旧页码与新页码见 [合并记录](docs/consolidation-2026-10-15.json)。

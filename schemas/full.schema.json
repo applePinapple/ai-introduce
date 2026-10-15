@@ -51,14 +51,20 @@
               "process",
               "example",
               "image",
-              "diagram"
+              "diagram",
+              "neural",
+              "llm"
             ]
           },
           "title": {
             "$ref": "#/$defs/text"
           },
           "theme": {
-            "enum": ["reinbee"]
+            "enum": [
+              "reinbee",
+              "neural-light",
+              "neural-dark"
+            ]
           },
           "section": {
             "$ref": "#/$defs/text"
@@ -125,16 +131,30 @@
             "maxItems": 5,
             "items": {
               "type": "object",
-              "required": ["path", "alt"],
+              "required": [
+                "path",
+                "alt"
+              ],
               "properties": {
                 "path": {
                   "type": "string",
                   "pattern": "^assets/(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\:]+$"
                 },
-                "alt": { "$ref": "#/$defs/text" },
-                "label": { "$ref": "#/$defs/text" },
-                "fit": { "enum": ["contain", "cover"] },
-                "position": { "$ref": "#/$defs/text" }
+                "alt": {
+                  "$ref": "#/$defs/text"
+                },
+                "label": {
+                  "$ref": "#/$defs/text"
+                },
+                "fit": {
+                  "enum": [
+                    "contain",
+                    "cover"
+                  ]
+                },
+                "position": {
+                  "$ref": "#/$defs/text"
+                }
               }
             }
           },
@@ -292,10 +312,17 @@
             "maxItems": 3,
             "items": {
               "type": "object",
-              "required": ["label", "text"],
+              "required": [
+                "label",
+                "text"
+              ],
               "properties": {
-                "label": { "$ref": "#/$defs/text" },
-                "text": { "$ref": "#/$defs/text" }
+                "label": {
+                  "$ref": "#/$defs/text"
+                },
+                "text": {
+                  "$ref": "#/$defs/text"
+                }
               }
             }
           },
@@ -363,13 +390,29 @@
           },
           "taxonomy": {
             "type": "object",
-            "required": ["ai", "rules", "learning", "traditional", "deep"],
+            "required": [
+              "ai",
+              "rules",
+              "learning",
+              "traditional",
+              "deep"
+            ],
             "properties": {
-              "ai": { "$ref": "#/$defs/text" },
-              "rules": { "$ref": "#/$defs/text" },
-              "learning": { "$ref": "#/$defs/text" },
-              "traditional": { "$ref": "#/$defs/text" },
-              "deep": { "$ref": "#/$defs/text" }
+              "ai": {
+                "$ref": "#/$defs/text"
+              },
+              "rules": {
+                "$ref": "#/$defs/text"
+              },
+              "learning": {
+                "$ref": "#/$defs/text"
+              },
+              "traditional": {
+                "$ref": "#/$defs/text"
+              },
+              "deep": {
+                "$ref": "#/$defs/text"
+              }
             }
           },
           "relations": {
@@ -378,11 +421,25 @@
             "maxItems": 7,
             "items": {
               "type": "object",
-              "required": ["route", "capability", "scenarios"],
+              "required": [
+                "route",
+                "capability",
+                "scenarios"
+              ],
               "properties": {
-                "route": { "enum": ["rules", "learning", "deep"] },
-                "capability": { "$ref": "#/$defs/text" },
-                "scenarios": { "$ref": "#/$defs/text" }
+                "route": {
+                  "enum": [
+                    "rules",
+                    "learning",
+                    "deep"
+                  ]
+                },
+                "capability": {
+                  "$ref": "#/$defs/text"
+                },
+                "scenarios": {
+                  "$ref": "#/$defs/text"
+                }
               }
             }
           },
@@ -390,7 +447,9 @@
             "type": "array",
             "minItems": 3,
             "maxItems": 3,
-            "items": { "$ref": "#/$defs/text" }
+            "items": {
+              "$ref": "#/$defs/text"
+            }
           },
           "eras": {
             "type": "array",
@@ -398,13 +457,35 @@
             "maxItems": 4,
             "items": {
               "type": "object",
-              "required": ["period", "title", "description", "application", "icon"],
+              "required": [
+                "period",
+                "title",
+                "description",
+                "application",
+                "icon"
+              ],
               "properties": {
-                "period": { "$ref": "#/$defs/text" },
-                "title": { "$ref": "#/$defs/text" },
-                "description": { "$ref": "#/$defs/text" },
-                "application": { "$ref": "#/$defs/text" },
-                "icon": { "enum": ["rules", "learning", "network", "language", "deepseek"] }
+                "period": {
+                  "$ref": "#/$defs/text"
+                },
+                "title": {
+                  "$ref": "#/$defs/text"
+                },
+                "description": {
+                  "$ref": "#/$defs/text"
+                },
+                "application": {
+                  "$ref": "#/$defs/text"
+                },
+                "icon": {
+                  "enum": [
+                    "rules",
+                    "learning",
+                    "network",
+                    "language",
+                    "deepseek"
+                  ]
+                }
               }
             }
           },
@@ -437,33 +518,130 @@
               "pipeline",
               "network"
             ]
+          },
+          "neuralKind": {
+            "enum": [
+              "white-neuron",
+              "white-network",
+              "white-layers",
+              "white-neuron-detail",
+              "white-neuron-formula",
+              "white-neuron-steps",
+              "white-backprop-history",
+              "white-train-forward",
+              "white-train-loss",
+              "white-train-backward",
+              "white-train-update",
+              "white-train-summary",
+              "black-network",
+              "black-pixels",
+              "black-recognition",
+              "black-strokes",
+              "black-features",
+              "black-pixel-neuron",
+              "black-feature-detector",
+              "black-weights",
+              "black-weighted-sum",
+              "black-feature-match",
+              "black-sigmoid",
+              "black-bias-activation",
+              "black-parameters"
+            ]
+          },
+          "neuralData": {
+            "type": "object"
+          },
+          "llmKind": {
+            "enum": [
+              "embedding-definition",
+              "embedding-tokens",
+              "embedding-single",
+              "embedding-2d",
+              "embedding-3d",
+              "embedding-high-d",
+              "embedding-cloud",
+              "embedding-royalty",
+              "embedding-parents",
+              "embedding-offset",
+              "embedding-arithmetic",
+              "attention-context",
+              "attention-intro",
+              "attention-base-vector",
+              "attention-singing",
+              "attention-composite",
+              "transformer-attention",
+              "transformer-stack",
+              "transformer-softmax",
+              "generation-distribution",
+              "generation-temperature",
+              "generation-selected",
+              "generation-append",
+              "generation-repeat",
+              "generation-english",
+              "scale-public",
+              "scale-capabilities",
+              "context-matrix",
+              "context-window",
+              "context-shift"
+            ]
+          },
+          "llmData": {
+            "type": "object"
           }
         },
         "dependentRequired": {
-          "presenter": ["reportDate"],
-          "reportDate": ["presenter"],
-          "detailImagePath": ["detailImageAlt"],
-          "detailImageAlt": ["detailImagePath"]
+          "presenter": [
+            "reportDate"
+          ],
+          "reportDate": [
+            "presenter"
+          ],
+          "detailImagePath": [
+            "detailImageAlt"
+          ],
+          "detailImageAlt": [
+            "detailImagePath"
+          ]
         },
         "allOf": [
           {
             "if": {
               "anyOf": [
-                { "required": ["presenter"] },
-                { "required": ["reportDate"] },
-                { "required": ["robotModel"] }
+                {
+                  "required": [
+                    "presenter"
+                  ]
+                },
+                {
+                  "required": [
+                    "reportDate"
+                  ]
+                },
+                {
+                  "required": [
+                    "robotModel"
+                  ]
+                }
               ]
             },
             "then": {
-              "properties": { "layout": { "const": "cover" } }
+              "properties": {
+                "layout": {
+                  "const": "cover"
+                }
+              }
             }
           },
           {
             "if": {
-              "required": ["logoPath"]
+              "required": [
+                "logoPath"
+              ]
             },
             "then": {
-              "required": ["logoAlt"]
+              "required": [
+                "logoAlt"
+              ]
             }
           },
           {
@@ -808,12 +986,2328 @@
                 "contentKind"
               ]
             }
+          },
+          {
+            "if": {
+              "properties": {
+                "layout": {
+                  "const": "neural"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "theme",
+                "neuralKind",
+                "neuralData",
+                "chapter",
+                "sectionLabel",
+                "eyebrow",
+                "subtitle",
+                "sourceLabel"
+              ],
+              "properties": {
+                "theme": {
+                  "enum": [
+                    "neural-light",
+                    "neural-dark"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "anyOf": [
+                {
+                  "required": [
+                    "neuralKind"
+                  ]
+                },
+                {
+                  "required": [
+                    "neuralData"
+                  ]
+                },
+                {
+                  "required": [
+                    "theme"
+                  ],
+                  "properties": {
+                    "theme": {
+                      "enum": [
+                        "neural-light",
+                        "neural-dark"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "then": {
+              "properties": {
+                "layout": {
+                  "const": "neural"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "theme"
+              ],
+              "properties": {
+                "theme": {
+                  "const": "neural-light"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "neuralKind": {
+                  "enum": [
+                    "white-neuron",
+                    "white-network",
+                    "white-layers",
+                    "white-neuron-detail",
+                    "white-neuron-formula",
+                    "white-neuron-steps",
+                    "white-backprop-history",
+                    "white-train-forward",
+                    "white-train-loss",
+                    "white-train-backward",
+                    "white-train-update",
+                    "white-train-summary"
+                  ]
+                },
+                "neuralData": {
+                  "$ref": "#/$defs/neuralWhiteData"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "theme"
+              ],
+              "properties": {
+                "theme": {
+                  "const": "neural-dark"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "neuralKind": {
+                  "enum": [
+                    "black-network",
+                    "black-pixels",
+                    "black-recognition",
+                    "black-strokes",
+                    "black-features",
+                    "black-pixel-neuron",
+                    "black-feature-detector",
+                    "black-weights",
+                    "black-weighted-sum",
+                    "black-feature-match",
+                    "black-sigmoid",
+                    "black-bias-activation",
+                    "black-parameters"
+                  ]
+                },
+                "neuralData": {
+                  "$ref": "#/$defs/neuralBlackData"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "neuralKind"
+              ],
+              "properties": {
+                "neuralKind": {
+                  "enum": [
+                    "white-neuron",
+                    "white-network"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "imagePath",
+                "imageAlt"
+              ]
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "neuralKind"
+              ],
+              "properties": {
+                "neuralKind": {
+                  "enum": [
+                    "white-layers",
+                    "white-neuron-detail",
+                    "white-neuron-formula",
+                    "white-neuron-steps"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "neuralData": {
+                  "required": [
+                    "layerDescriptions"
+                  ],
+                  "properties": {}
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "neuralKind"
+              ],
+              "properties": {
+                "neuralKind": {
+                  "enum": [
+                    "white-neuron-formula",
+                    "white-neuron-steps"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "neuralData": {
+                  "required": [
+                    "showFormula",
+                    "formula"
+                  ],
+                  "properties": {
+                    "showFormula": {
+                      "const": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "neuralKind"
+              ],
+              "properties": {
+                "neuralKind": {
+                  "enum": [
+                    "white-neuron-steps"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "neuralData": {
+                  "required": [
+                    "calculationSteps",
+                    "stepNumbers"
+                  ],
+                  "properties": {}
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "neuralKind"
+              ],
+              "properties": {
+                "neuralKind": {
+                  "enum": [
+                    "white-backprop-history",
+                    "white-train-forward",
+                    "white-train-loss",
+                    "white-train-backward",
+                    "white-train-update",
+                    "white-train-summary"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "neuralData": {
+                  "required": [
+                    "visibleSteps",
+                    "flowIntro",
+                    "trainingSteps"
+                  ],
+                  "properties": {}
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "neuralKind"
+              ],
+              "properties": {
+                "neuralKind": {
+                  "enum": [
+                    "white-train-summary"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "neuralData": {
+                  "required": [
+                    "showCallouts",
+                    "callouts"
+                  ],
+                  "properties": {
+                    "showCallouts": {
+                      "const": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "neuralKind"
+              ],
+              "properties": {
+                "neuralKind": {
+                  "enum": [
+                    "black-network",
+                    "black-recognition",
+                    "black-features",
+                    "black-parameters"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "neuralData": {
+                  "required": [
+                    "architecture"
+                  ],
+                  "properties": {}
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "neuralKind"
+              ],
+              "properties": {
+                "neuralKind": {
+                  "enum": [
+                    "black-weights"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "neuralData": {
+                  "required": [
+                    "weights"
+                  ],
+                  "properties": {}
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "neuralKind"
+              ],
+              "properties": {
+                "neuralKind": {
+                  "enum": [
+                    "black-weighted-sum",
+                    "black-feature-match",
+                    "black-bias-activation"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "neuralData": {
+                  "required": [
+                    "formulaTokens"
+                  ],
+                  "properties": {}
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "layout": {
+                  "const": "llm"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "llmKind",
+                "llmData",
+                "theme",
+                "chapter",
+                "sectionLabel",
+                "eyebrow",
+                "subtitle",
+                "sourceLabel",
+                "logoPath",
+                "logoAlt"
+              ],
+              "properties": {
+                "theme": {
+                  "const": "reinbee"
+                },
+                "chapter": {
+                  "const": "03"
+                },
+                "section": {
+                  "const": "大语言模型"
+                },
+                "sectionLabel": {
+                  "const": "大语言模型"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "anyOf": [
+                {
+                  "required": [
+                    "llmKind"
+                  ]
+                },
+                {
+                  "required": [
+                    "llmData"
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "properties": {
+                "layout": {
+                  "const": "llm"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "attention-context",
+                    "attention-intro",
+                    "attention-base-vector",
+                    "attention-singing",
+                    "attention-composite",
+                    "transformer-attention",
+                    "transformer-stack",
+                    "transformer-softmax"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "qualifier": {
+                      "$ref": "#/$defs/text"
+                    }
+                  },
+                  "required": [
+                    "description"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "attention-context"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "paragraphs": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/text"
+                      },
+                      "minItems": 4,
+                      "maxItems": 4
+                    },
+                    "badge": {
+                      "$ref": "#/$defs/text"
+                    }
+                  },
+                  "required": [
+                    "paragraphs",
+                    "badge"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "attention-intro"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "vectors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "from": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "to": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "labelPosition": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "tone": {
+                            "enum": [
+                              "blue",
+                              "yellow",
+                              "gray"
+                            ]
+                          },
+                          "dashed": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "label",
+                          "from",
+                          "to",
+                          "labelPosition",
+                          "tone"
+                        ]
+                      },
+                      "minItems": 1,
+                      "maxItems": 1
+                    }
+                  },
+                  "required": [
+                    "lead",
+                    "caption",
+                    "vectors"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "attention-base-vector"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "vectors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "from": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "to": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "labelPosition": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "tone": {
+                            "enum": [
+                              "blue",
+                              "yellow",
+                              "gray"
+                            ]
+                          },
+                          "dashed": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "label",
+                          "from",
+                          "to",
+                          "labelPosition",
+                          "tone"
+                        ]
+                      },
+                      "minItems": 1,
+                      "maxItems": 1
+                    }
+                  },
+                  "required": [
+                    "lead",
+                    "caption",
+                    "vectors"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "attention-singing"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "vectors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "from": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "to": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "labelPosition": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "tone": {
+                            "enum": [
+                              "blue",
+                              "yellow",
+                              "gray"
+                            ]
+                          },
+                          "dashed": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "label",
+                          "from",
+                          "to",
+                          "labelPosition",
+                          "tone"
+                        ]
+                      },
+                      "minItems": 2,
+                      "maxItems": 2
+                    }
+                  },
+                  "required": [
+                    "lead",
+                    "caption",
+                    "vectors"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "attention-composite"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "vectors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "from": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "to": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "labelPosition": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "tone": {
+                            "enum": [
+                              "blue",
+                              "yellow",
+                              "gray"
+                            ]
+                          },
+                          "dashed": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "label",
+                          "from",
+                          "to",
+                          "labelPosition",
+                          "tone"
+                        ]
+                      },
+                      "minItems": 5,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "lead",
+                    "caption",
+                    "vectors"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "attention-composite"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "asciiRows": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/text"
+                      },
+                      "minItems": 1
+                    }
+                  },
+                  "required": [
+                    "asciiRows"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "transformer-attention"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "flowLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "embeddingRows": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/text"
+                      },
+                      "minItems": 1
+                    },
+                    "boards": {
+                      "type": "array",
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "prefixItems": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "$ref": "#/$defs/text"
+                            },
+                            "kind": {
+                              "const": "embedding"
+                            }
+                          },
+                          "required": [
+                            "label",
+                            "kind"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "$ref": "#/$defs/text"
+                            },
+                            "kind": {
+                              "const": "attention"
+                            }
+                          },
+                          "required": [
+                            "label",
+                            "kind"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "lead",
+                    "caption",
+                    "flowLabel",
+                    "embeddingRows",
+                    "boards"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "transformer-stack"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "flowLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "embeddingRows": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/text"
+                      },
+                      "minItems": 1
+                    },
+                    "boards": {
+                      "type": "array",
+                      "minItems": 5,
+                      "maxItems": 5,
+                      "prefixItems": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "$ref": "#/$defs/text"
+                            },
+                            "kind": {
+                              "const": "embedding"
+                            }
+                          },
+                          "required": [
+                            "label",
+                            "kind"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "$ref": "#/$defs/text"
+                            },
+                            "kind": {
+                              "const": "attention"
+                            }
+                          },
+                          "required": [
+                            "label",
+                            "kind"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "$ref": "#/$defs/text"
+                            },
+                            "kind": {
+                              "const": "mlp"
+                            }
+                          },
+                          "required": [
+                            "label",
+                            "kind"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "$ref": "#/$defs/text"
+                            },
+                            "kind": {
+                              "const": "attention"
+                            }
+                          },
+                          "required": [
+                            "label",
+                            "kind"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "$ref": "#/$defs/text"
+                            },
+                            "kind": {
+                              "const": "mlp"
+                            }
+                          },
+                          "required": [
+                            "label",
+                            "kind"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "lead",
+                    "caption",
+                    "flowLabel",
+                    "embeddingRows",
+                    "boards"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "transformer-softmax"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "flowLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "embeddingRows": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/text"
+                      },
+                      "minItems": 1
+                    },
+                    "boards": {
+                      "type": "array",
+                      "minItems": 6,
+                      "maxItems": 6,
+                      "prefixItems": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "$ref": "#/$defs/text"
+                            },
+                            "kind": {
+                              "const": "embedding"
+                            }
+                          },
+                          "required": [
+                            "label",
+                            "kind"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "$ref": "#/$defs/text"
+                            },
+                            "kind": {
+                              "const": "attention"
+                            }
+                          },
+                          "required": [
+                            "label",
+                            "kind"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "$ref": "#/$defs/text"
+                            },
+                            "kind": {
+                              "const": "mlp"
+                            }
+                          },
+                          "required": [
+                            "label",
+                            "kind"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "$ref": "#/$defs/text"
+                            },
+                            "kind": {
+                              "const": "attention"
+                            }
+                          },
+                          "required": [
+                            "label",
+                            "kind"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "$ref": "#/$defs/text"
+                            },
+                            "kind": {
+                              "const": "mlp"
+                            }
+                          },
+                          "required": [
+                            "label",
+                            "kind"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "$ref": "#/$defs/text"
+                            },
+                            "kind": {
+                              "const": "softmax"
+                            }
+                          },
+                          "required": [
+                            "label",
+                            "kind"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "lead",
+                    "caption",
+                    "flowLabel",
+                    "embeddingRows",
+                    "boards"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "transformer-stack",
+                    "transformer-softmax"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "ellipsis": {
+                      "$ref": "#/$defs/text"
+                    }
+                  },
+                  "required": [
+                    "ellipsis"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "embedding-definition",
+                    "embedding-tokens",
+                    "embedding-single",
+                    "embedding-2d",
+                    "embedding-3d",
+                    "embedding-high-d",
+                    "embedding-cloud",
+                    "embedding-royalty",
+                    "embedding-parents",
+                    "embedding-offset",
+                    "embedding-arithmetic"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "lead": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "text": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "tone": {
+                            "enum": [
+                              "blue",
+                              "yellow",
+                              "ink"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "text"
+                        ]
+                      },
+                      "minItems": 0
+                    },
+                    "bullets": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "text": {
+                            "$ref": "#/$defs/text"
+                          }
+                        },
+                        "required": [
+                          "label",
+                          "text"
+                        ]
+                      },
+                      "minItems": 0
+                    },
+                    "qualifier": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "lead",
+                    "bullets",
+                    "qualifier"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "embedding-tokens",
+                    "embedding-single",
+                    "embedding-2d",
+                    "embedding-3d",
+                    "embedding-high-d"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "text": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "values": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "#/$defs/text"
+                            },
+                            "minItems": 1
+                          }
+                        },
+                        "required": [
+                          "text",
+                          "values"
+                        ]
+                      },
+                      "minItems": 8,
+                      "maxItems": 8
+                    },
+                    "selectedToken": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 7
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "selectedToken"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "embedding-2d"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "coordinateExamples": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "dimensions": {
+                            "enum": [
+                              2,
+                              3
+                            ]
+                          },
+                          "values": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 3
+                          },
+                          "vectorLabel": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "axisLabels": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "#/$defs/text"
+                            },
+                            "minItems": 2,
+                            "maxItems": 3
+                          }
+                        },
+                        "required": [
+                          "dimensions",
+                          "values",
+                          "vectorLabel",
+                          "axisLabels"
+                        ],
+                        "allOf": [
+                          {
+                            "if": {
+                              "properties": {
+                                "dimensions": {
+                                  "const": 2
+                                }
+                              }
+                            },
+                            "then": {
+                              "properties": {
+                                "values": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  },
+                                  "minItems": 2,
+                                  "maxItems": 2
+                                },
+                                "axisLabels": {
+                                  "type": "array",
+                                  "items": {
+                                    "$ref": "#/$defs/text"
+                                  },
+                                  "minItems": 2,
+                                  "maxItems": 2
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "if": {
+                              "properties": {
+                                "dimensions": {
+                                  "const": 3
+                                }
+                              }
+                            },
+                            "then": {
+                              "properties": {
+                                "values": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  },
+                                  "minItems": 3,
+                                  "maxItems": 3
+                                },
+                                "axisLabels": {
+                                  "type": "array",
+                                  "items": {
+                                    "$ref": "#/$defs/text"
+                                  },
+                                  "minItems": 3,
+                                  "maxItems": 3
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "minItems": 1,
+                      "maxItems": 1
+                    }
+                  },
+                  "required": [
+                    "coordinateExamples"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "embedding-3d",
+                    "embedding-high-d"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "coordinateExamples": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "dimensions": {
+                            "enum": [
+                              2,
+                              3
+                            ]
+                          },
+                          "values": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 3
+                          },
+                          "vectorLabel": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "axisLabels": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "#/$defs/text"
+                            },
+                            "minItems": 2,
+                            "maxItems": 3
+                          }
+                        },
+                        "required": [
+                          "dimensions",
+                          "values",
+                          "vectorLabel",
+                          "axisLabels"
+                        ],
+                        "allOf": [
+                          {
+                            "if": {
+                              "properties": {
+                                "dimensions": {
+                                  "const": 2
+                                }
+                              }
+                            },
+                            "then": {
+                              "properties": {
+                                "values": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  },
+                                  "minItems": 2,
+                                  "maxItems": 2
+                                },
+                                "axisLabels": {
+                                  "type": "array",
+                                  "items": {
+                                    "$ref": "#/$defs/text"
+                                  },
+                                  "minItems": 2,
+                                  "maxItems": 2
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "if": {
+                              "properties": {
+                                "dimensions": {
+                                  "const": 3
+                                }
+                              }
+                            },
+                            "then": {
+                              "properties": {
+                                "values": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  },
+                                  "minItems": 3,
+                                  "maxItems": 3
+                                },
+                                "axisLabels": {
+                                  "type": "array",
+                                  "items": {
+                                    "$ref": "#/$defs/text"
+                                  },
+                                  "minItems": 3,
+                                  "maxItems": 3
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "minItems": 2,
+                      "maxItems": 2
+                    }
+                  },
+                  "required": [
+                    "coordinateExamples"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "embedding-high-d"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "dimensionLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "dimensionCaption": {
+                      "$ref": "#/$defs/text"
+                    }
+                  },
+                  "required": [
+                    "dimensionLabel",
+                    "dimensionCaption"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "embedding-cloud"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "cloud": {
+                      "type": "object",
+                      "properties": {
+                        "words": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "text": {
+                                "$ref": "#/$defs/text"
+                              },
+                              "point": {
+                                "type": "array",
+                                "items": {
+                                  "type": "number"
+                                },
+                                "minItems": 3,
+                                "maxItems": 3
+                              },
+                              "tone": {
+                                "enum": [
+                                  "blue",
+                                  "yellow",
+                                  "ink"
+                                ]
+                              },
+                              "labelOffset": {
+                                "type": "array",
+                                "items": {
+                                  "type": "number"
+                                },
+                                "minItems": 2,
+                                "maxItems": 2
+                              }
+                            },
+                            "required": [
+                              "text",
+                              "point",
+                              "labelOffset"
+                            ]
+                          },
+                          "minItems": 1
+                        },
+                        "axisLabels": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "minItems": 3,
+                          "maxItems": 3
+                        },
+                        "caption": {
+                          "$ref": "#/$defs/text"
+                        }
+                      },
+                      "required": [
+                        "words",
+                        "axisLabels",
+                        "caption"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "cloud"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "embedding-royalty",
+                    "embedding-parents",
+                    "embedding-offset",
+                    "embedding-arithmetic"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "analogy": {
+                      "type": "object",
+                      "properties": {
+                        "vectors": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "$ref": "#/$defs/text"
+                              },
+                              "label": {
+                                "$ref": "#/$defs/text"
+                              },
+                              "point": {
+                                "type": "array",
+                                "items": {
+                                  "type": "number"
+                                },
+                                "minItems": 2,
+                                "maxItems": 2
+                              },
+                              "tone": {
+                                "enum": [
+                                  "blue",
+                                  "yellow",
+                                  "ink"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "key",
+                              "label",
+                              "point"
+                            ]
+                          },
+                          "minItems": 4,
+                          "maxItems": 4
+                        },
+                        "differences": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "from": {
+                                "$ref": "#/$defs/text"
+                              },
+                              "to": {
+                                "$ref": "#/$defs/text"
+                              }
+                            },
+                            "required": [
+                              "from",
+                              "to"
+                            ]
+                          },
+                          "minItems": 1,
+                          "maxItems": 2
+                        },
+                        "formula": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "text": {
+                                "$ref": "#/$defs/text"
+                              },
+                              "tone": {
+                                "enum": [
+                                  "blue",
+                                  "yellow",
+                                  "ink"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "text"
+                            ]
+                          },
+                          "minItems": 1
+                        },
+                        "qualifier": {
+                          "$ref": "#/$defs/text"
+                        }
+                      },
+                      "required": [
+                        "vectors",
+                        "differences",
+                        "formula",
+                        "qualifier"
+                      ]
+                    },
+                    "showOffsets": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "analogy",
+                    "showOffsets"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "generation-distribution",
+                    "generation-temperature",
+                    "generation-selected",
+                    "generation-append",
+                    "generation-repeat",
+                    "generation-english",
+                    "scale-public",
+                    "scale-capabilities",
+                    "context-matrix",
+                    "context-window",
+                    "context-shift"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "generation-distribution",
+                    "generation-selected",
+                    "generation-append",
+                    "generation-repeat",
+                    "generation-english"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "modelLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "promptLines": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/text"
+                      },
+                      "minItems": 1,
+                      "maxItems": 3
+                    },
+                    "probabilities": {
+                      "$ref": "#/$defs/llmProbabilities"
+                    },
+                    "stageLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "selectedToken": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "showFeedback": {
+                      "type": "boolean"
+                    },
+                    "feedbackLabel": {
+                      "$ref": "#/$defs/text"
+                    }
+                  },
+                  "required": [
+                    "modelLabel",
+                    "promptLines",
+                    "probabilities",
+                    "stageLabel"
+                  ],
+                  "allOf": [
+                    {
+                      "if": {
+                        "required": [
+                          "showFeedback"
+                        ],
+                        "properties": {
+                          "showFeedback": {
+                            "const": true
+                          }
+                        }
+                      },
+                      "then": {
+                        "required": [
+                          "feedbackLabel"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "generation-temperature"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "temperatureCases": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "temperature": {
+                            "type": "number",
+                            "exclusiveMinimum": 0
+                          },
+                          "probabilities": {
+                            "$ref": "#/$defs/llmProbabilities"
+                          }
+                        },
+                        "required": [
+                          "label",
+                          "temperature",
+                          "probabilities"
+                        ]
+                      },
+                      "minItems": 3,
+                      "maxItems": 3
+                    },
+                    "temperatureFormula": {
+                      "$ref": "#/$defs/text"
+                    }
+                  },
+                  "required": [
+                    "temperatureCases",
+                    "temperatureFormula"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "scale-public",
+                    "scale-capabilities"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "plotLabels": {
+                      "type": "object",
+                      "properties": {
+                        "parameterAxis": {
+                          "$ref": "#/$defs/text"
+                        }
+                      },
+                      "required": [
+                        "parameterAxis"
+                      ]
+                    },
+                    "tableHeaders": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/text"
+                      },
+                      "minItems": 4,
+                      "maxItems": 4
+                    },
+                    "models": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "year": {
+                            "type": "integer",
+                            "minimum": 1
+                          },
+                          "parametersB": {
+                            "type": "number",
+                            "exclusiveMinimum": 0
+                          },
+                          "trainingTokens": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "dimension": {
+                            "$ref": "#/$defs/text"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "year",
+                          "parametersB",
+                          "trainingTokens",
+                          "dimension"
+                        ]
+                      },
+                      "minItems": 3,
+                      "maxItems": 3
+                    },
+                    "tableCaption": {
+                      "$ref": "#/$defs/text"
+                    }
+                  },
+                  "required": [
+                    "plotLabels",
+                    "tableHeaders",
+                    "models",
+                    "tableCaption"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "context-matrix"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "vectors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "token": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "values": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "#/$defs/text"
+                            },
+                            "minItems": 7,
+                            "maxItems": 7
+                          }
+                        },
+                        "required": [
+                          "token",
+                          "values"
+                        ]
+                      },
+                      "minItems": 7,
+                      "maxItems": 7
+                    },
+                    "dimensionLabel": {
+                      "$ref": "#/$defs/text"
+                    }
+                  },
+                  "required": [
+                    "vectors",
+                    "dimensionLabel"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "context-window",
+                    "context-shift"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "windowLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "windowParagraphs": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/text"
+                      },
+                      "minItems": 3,
+                      "maxItems": 3
+                    },
+                    "excludedText": {
+                      "$ref": "#/$defs/text"
+                    }
+                  },
+                  "required": [
+                    "windowLabel",
+                    "windowParagraphs"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "llmKind"
+              ],
+              "properties": {
+                "llmKind": {
+                  "enum": [
+                    "context-shift"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "llmData": {
+                  "type": "object",
+                  "properties": {
+                    "excludedText": {
+                      "$ref": "#/$defs/text"
+                    }
+                  },
+                  "required": [
+                    "excludedText"
+                  ]
+                }
+              }
+            }
           }
         ]
       }
     },
     "durationMinutes": {
-      "type": "integer",
+      "type": "number",
       "minimum": 1
     }
   },
@@ -855,6 +3349,407 @@
       "items": {
         "$ref": "#/$defs/text"
       }
+    },
+    "neuralWhiteData": {
+      "type": "object",
+      "required": [
+        "lead",
+        "network",
+        "neuron"
+      ],
+      "properties": {
+        "lead": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "text"
+            ],
+            "properties": {
+              "text": {
+                "$ref": "#/$defs/text"
+              },
+              "emphasis": {
+                "type": "boolean"
+              },
+              "bold": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "network": {
+          "type": "object",
+          "required": [
+            "alt",
+            "layers",
+            "inputs",
+            "output",
+            "weights"
+          ],
+          "properties": {
+            "alt": {
+              "$ref": "#/$defs/text"
+            },
+            "layers": {
+              "type": "array",
+              "minItems": 4,
+              "maxItems": 4,
+              "items": {
+                "$ref": "#/$defs/text"
+              }
+            },
+            "inputs": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": {
+                "$ref": "#/$defs/text"
+              }
+            },
+            "output": {
+              "$ref": "#/$defs/text"
+            },
+            "weights": {
+              "type": "array",
+              "minItems": 6,
+              "maxItems": 6,
+              "items": {
+                "$ref": "#/$defs/text"
+              }
+            }
+          }
+        },
+        "neuron": {
+          "type": "object",
+          "required": [
+            "alt",
+            "inputs",
+            "weights",
+            "labels",
+            "sumSymbol",
+            "activationSymbol",
+            "output"
+          ],
+          "properties": {
+            "alt": {
+              "$ref": "#/$defs/text"
+            },
+            "inputs": {
+              "type": "array",
+              "minItems": 4,
+              "maxItems": 4,
+              "items": {
+                "$ref": "#/$defs/text"
+              }
+            },
+            "weights": {
+              "type": "array",
+              "minItems": 4,
+              "maxItems": 4,
+              "items": {
+                "$ref": "#/$defs/text"
+              }
+            },
+            "labels": {
+              "type": "array",
+              "minItems": 5,
+              "maxItems": 5,
+              "items": {
+                "$ref": "#/$defs/text"
+              }
+            },
+            "sumSymbol": {
+              "$ref": "#/$defs/text"
+            },
+            "activationSymbol": {
+              "$ref": "#/$defs/text"
+            },
+            "output": {
+              "$ref": "#/$defs/text"
+            }
+          }
+        },
+        "layerDescriptions": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "text"
+            ],
+            "properties": {
+              "label": {
+                "$ref": "#/$defs/text"
+              },
+              "text": {
+                "$ref": "#/$defs/text"
+              }
+            }
+          }
+        },
+        "showFormula": {
+          "type": "boolean"
+        },
+        "formula": {
+          "type": "object",
+          "required": [
+            "alt",
+            "result",
+            "activation",
+            "index",
+            "upper",
+            "weight",
+            "input",
+            "threshold"
+          ],
+          "properties": {
+            "alt": {
+              "$ref": "#/$defs/text"
+            },
+            "result": {
+              "$ref": "#/$defs/text"
+            },
+            "activation": {
+              "$ref": "#/$defs/text"
+            },
+            "index": {
+              "$ref": "#/$defs/text"
+            },
+            "upper": {
+              "$ref": "#/$defs/text"
+            },
+            "weight": {
+              "$ref": "#/$defs/text"
+            },
+            "input": {
+              "$ref": "#/$defs/text"
+            },
+            "threshold": {
+              "$ref": "#/$defs/text"
+            }
+          }
+        },
+        "calculationSteps": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "$ref": "#/$defs/text"
+          }
+        },
+        "stepNumbers": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "$ref": "#/$defs/text"
+          }
+        },
+        "visibleSteps": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "flowIntro": {
+          "$ref": "#/$defs/text"
+        },
+        "trainingSteps": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "text"
+            ],
+            "properties": {
+              "label": {
+                "$ref": "#/$defs/text"
+              },
+              "text": {
+                "$ref": "#/$defs/text"
+              }
+            }
+          }
+        },
+        "showCallouts": {
+          "type": "boolean"
+        },
+        "callouts": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "required": [
+              "alt",
+              "label",
+              "english"
+            ],
+            "properties": {
+              "alt": {
+                "$ref": "#/$defs/text"
+              },
+              "label": {
+                "$ref": "#/$defs/text"
+              },
+              "english": {
+                "$ref": "#/$defs/text"
+              }
+            }
+          }
+        }
+      }
+    },
+    "neuralBlackData": {
+      "type": "object",
+      "required": [
+        "description",
+        "labels",
+        "grids"
+      ],
+      "properties": {
+        "description": {
+          "$ref": "#/$defs/text"
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "$ref": "#/$defs/text"
+              },
+              {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/$defs/text"
+                }
+              }
+            ]
+          }
+        },
+        "grids": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "minItems": 784,
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "maxItems": 784
+          }
+        },
+        "architecture": {
+          "const": [
+            784,
+            16,
+            16,
+            10
+          ]
+        },
+        "weights": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "items": {
+            "type": "number"
+          }
+        },
+        "formulaTokens": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "text"
+            ],
+            "properties": {
+              "text": {
+                "$ref": "#/$defs/text"
+              },
+              "color": {
+                "enum": [
+                  "white",
+                  "green",
+                  "yellow"
+                ]
+              }
+            }
+          }
+        },
+        "activations": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "hidden1": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "hidden2": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "output": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "llmProbabilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "$ref": "#/$defs/text"
+          },
+          "probability": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "required": [
+          "token",
+          "probability"
+        ]
+      },
+      "minItems": 6,
+      "maxItems": 7
     }
   }
 }

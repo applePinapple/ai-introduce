@@ -1,0 +1,39 @@
+/* Native 1712 × 770 content area inside the shared ReinBEE 1920 × 1080 shell. */
+.llm-page .llme-body{position:absolute;left:104px;top:240px;width:1712px;height:770px;color:#0B1220;font-family:"Noto Sans SC","Microsoft YaHei",Arial,sans-serif;background:transparent}
+.llm-page .llme-lead{position:absolute;left:0;top:0;width:1712px;margin:0;font-size:32px;line-height:1.65;font-weight:500}
+.llm-page .llme-tone-blue{color:#194DF9;font-weight:700}
+.llm-page .llme-tone-yellow{color:#0B1220;text-decoration:underline;text-decoration-color:#F7AC01;text-decoration-thickness:4px;text-underline-offset:7px;font-weight:700}
+.llm-page .llme-tone-ink{color:#0B1220}
+.llm-page .llme-bullets{position:absolute;left:0;top:67px;width:1658px;margin:0;padding-left:37px;font-size:30px;line-height:1.6}
+.llm-page .llme-bullets li{padding-left:4px;margin-bottom:8px}
+.llm-page .llme-bullets li::marker{color:#194DF9}
+.llm-page .llme-bullets strong{font-weight:700;margin-right:8px}
+.llm-page .llme-qualifier{position:absolute;left:0;top:723px;width:1712px;margin:0;color:#5B6B7F;font-size:24px;line-height:1.5;text-align:center}
+.llm-page .llme-embedding-diagram{position:absolute;left:0;top:195px;width:1712px;height:530px;overflow:visible}
+.llm-page .llme-token-column>rect{fill:#E7EDFF;stroke:#194DF9;stroke-width:2}
+.llm-page .llme-token-selected>rect{fill:#FFF2CC;stroke:#F7AC01}
+.llm-page .llme-token-word{font-size:28px;fill:#0B1220;font-family:Arial,"Noto Sans SC",sans-serif;font-weight:500}
+.llm-page .llme-token-column>line{stroke:#5B6B7F;stroke-width:2}
+.llm-page .llme-number-column path{fill:none;stroke:#5B6B7F;stroke-width:2}
+.llm-page .llme-number-column text{fill:#0B1220;font-family:"Courier New",monospace;font-size:26px}
+.llm-page .llme-coordinate-axes{fill:none;stroke:#5B6B7F;stroke-width:2}
+.llm-page .llme-coordinate-grid{fill:none;stroke:#5B6B7F;stroke-width:1;opacity:.18}
+.llm-page .llme-axis-labels{fill:#5B6B7F;font-family:"Times New Roman",serif;font-style:italic;font-size:26px}
+.llm-page .llme-coordinate-vector{fill:none;stroke:#194DF9;stroke-width:4}
+.llm-page .llme-projection{fill:none;stroke:#5B6B7F;stroke-width:2;stroke-dasharray:7 7}
+.llm-page .llme-point-label{fill:#194DF9;font-family:"Times New Roman",serif;font-size:30px}
+.llm-page .llme-dimension-brace{fill:none;stroke:#194DF9;stroke-width:2.5}
+.llm-page .llme-dimension-label{fill:#194DF9;font-family:"Times New Roman",serif;font-size:46px;font-style:italic}
+.llm-page .llme-dimension-caption{fill:#5B6B7F;font-size:24px}
+.llm-page .llme-cloud-diagram{position:absolute;left:0;top:67px;width:1712px;height:640px;overflow:hidden}
+.llm-page .llme-cloud-grid{fill:none;stroke:#5B6B7F;stroke-width:1;opacity:.18}
+.llm-page .llme-cloud-axes{fill:none;stroke:#5B6B7F;stroke-width:1.6}
+.llm-page .llme-cloud-axes text{fill:#5B6B7F;stroke:none;font-size:26px;font-family:"Times New Roman",serif;font-style:italic}
+.llm-page .llme-cloud-vector{fill:none;stroke-width:3}
+.llm-page .llme-cloud-word{font-family:Arial,sans-serif;font-size:31px}
+.llm-page .llme-analogy-formula{position:absolute;left:0;top:8px;width:1712px;text-align:center;font-family:"Times New Roman","Noto Sans SC",serif;font-size:40px;line-height:1.5;white-space:nowrap;z-index:1}
+.llm-page .llme-analogy-diagram{position:absolute;left:0;top:67px;width:1712px;height:640px;overflow:visible}
+.llm-page .llme-analogy-axes{fill:none;stroke:#5B6B7F;stroke-width:1.5;opacity:.65}
+.llm-page .llme-analogy-vector{fill:none;stroke-width:2.8}
+.llm-page .llme-analogy-offset{fill:none;stroke:#F7AC01;stroke-width:6}
+.llm-page .llme-analogy-label{fill:#0B1220;font-family:"Times New Roman","Noto Sans SC",serif;font-size:32px}

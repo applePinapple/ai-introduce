@@ -1,0 +1,188 @@
+{
+  "date": "2026-10-15",
+  "originalCount": 70,
+  "newCount": 44,
+  "durationPolicy": "只合并页面，保留原讲解时间，总计3075秒；本轮不缩减讲稿。",
+  "groups": [
+    {
+      "originalPages": [
+        17,
+        18
+      ],
+      "newPage": 17,
+      "id": "neural-layers",
+      "title": "神经网络的输入层、隐藏层与输出层",
+      "originalIds": [
+        "neural-network",
+        "neural-layers"
+      ],
+      "timingSeconds": 75,
+      "reason": "连续展开同一图示，使用完整状态合并；来源、证据与各阶段讲解保留。"
+    },
+    {
+      "originalPages": [
+        19,
+        21
+      ],
+      "newPage": 18,
+      "id": "neural-unit-steps",
+      "title": "一个神经元：加权求和、阈值与激活",
+      "originalIds": [
+        "neural-unit-detail",
+        "neural-unit-formula",
+        "neural-unit-steps"
+      ],
+      "timingSeconds": 160,
+      "reason": "连续展开同一图示，使用完整状态合并；来源、证据与各阶段讲解保留。"
+    },
+    {
+      "originalPages": [
+        28,
+        31
+      ],
+      "newPage": 25,
+      "id": "neural-black-feature-match",
+      "title": "从像素权重到局部特征响应",
+      "originalIds": [
+        "neural-black-feature-detector",
+        "neural-black-weights",
+        "neural-black-weighted-sum",
+        "neural-black-feature-match"
+      ],
+      "timingSeconds": 100,
+      "reason": "连续展开同一图示，使用完整状态合并；来源、证据与各阶段讲解保留。"
+    },
+    {
+      "originalPages": [
+        35,
+        40
+      ],
+      "newPage": 29,
+      "id": "neural-train-summary",
+      "title": "训练循环：前向、损失、反传与更新",
+      "originalIds": [
+        "neural-backprop-history",
+        "neural-train-forward",
+        "neural-train-loss",
+        "neural-train-backward",
+        "neural-train-update",
+        "neural-train-summary"
+      ],
+      "timingSeconds": 250,
+      "reason": "连续展开同一图示，使用完整状态合并；来源、证据与各阶段讲解保留。"
+    },
+    {
+      "originalPages": [
+        43,
+        46
+      ],
+      "newPage": 32,
+      "id": "llm-embedding-high-d",
+      "title": "从二维、三维到 d 维词向量",
+      "originalIds": [
+        "llm-embedding-single",
+        "llm-embedding-2d",
+        "llm-embedding-3d",
+        "llm-embedding-high-d"
+      ],
+      "timingSeconds": 125,
+      "reason": "连续展开同一图示，使用完整状态合并；来源、证据与各阶段讲解保留。"
+    },
+    {
+      "originalPages": [
+        49,
+        51
+      ],
+      "newPage": 35,
+      "id": "llm-embedding-arithmetic",
+      "title": "用向量偏移表达词语类比",
+      "originalIds": [
+        "llm-embedding-parents",
+        "llm-embedding-offset",
+        "llm-embedding-arithmetic"
+      ],
+      "timingSeconds": 110,
+      "reason": "连续展开同一图示，使用完整状态合并；来源、证据与各阶段讲解保留。"
+    },
+    {
+      "originalPages": [
+        53,
+        56
+      ],
+      "newPage": 37,
+      "id": "llm-attention-composite",
+      "title": "注意力：结合多条上下文线索",
+      "originalIds": [
+        "llm-attention-intro",
+        "llm-attention-base-vector",
+        "llm-attention-singing",
+        "llm-attention-composite"
+      ],
+      "timingSeconds": 150,
+      "reason": "连续展开同一图示，使用完整状态合并；来源、证据与各阶段讲解保留。"
+    },
+    {
+      "originalPages": [
+        57,
+        59
+      ],
+      "newPage": 38,
+      "id": "llm-transformer-softmax",
+      "title": "Transformer：从词向量到概率分布",
+      "originalIds": [
+        "llm-transformer-attention",
+        "llm-transformer-stack",
+        "llm-transformer-softmax"
+      ],
+      "timingSeconds": 135,
+      "reason": "连续展开同一图示，使用完整状态合并；来源、证据与各阶段讲解保留。"
+    },
+    {
+      "originalPages": [
+        62,
+        65
+      ],
+      "newPage": 41,
+      "id": "llm-generate-repeat",
+      "title": "逐 Token 生成：选择、追加、再次预测",
+      "originalIds": [
+        "llm-select-token",
+        "llm-append-token",
+        "llm-generate-repeat",
+        "llm-english-generation"
+      ],
+      "timingSeconds": 150,
+      "reason": "连续展开同一图示，使用完整状态合并；来源、证据与各阶段讲解保留。"
+    },
+    {
+      "originalPages": [
+        66,
+        67
+      ],
+      "newPage": 42,
+      "id": "llm-capability-scaling",
+      "title": "公开模型的规模、配置与能力",
+      "originalIds": [
+        "llm-public-scale",
+        "llm-capability-scaling"
+      ],
+      "timingSeconds": 110,
+      "reason": "连续展开同一图示，使用完整状态合并；来源、证据与各阶段讲解保留。"
+    },
+    {
+      "originalPages": [
+        69,
+        70
+      ],
+      "newPage": 44,
+      "id": "llm-context-shift",
+      "title": "上下文窗口：本轮看得见哪些信息",
+      "originalIds": [
+        "llm-context-window",
+        "llm-context-shift"
+      ],
+      "timingSeconds": 100,
+      "reason": "连续展开同一图示，使用完整状态合并；来源、证据与各阶段讲解保留。"
+    }
+  ]
+}

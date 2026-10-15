@@ -1,0 +1,23 @@
+.neural-slide.neural-dark {
+  position: absolute;
+  inset: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: visible;
+  background: transparent;
+  color: #0B1220;
+}
+
+.neural-dark .nnb-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  font-family: "Times New Roman", "Cambria Math", Georgia, serif;
+  font-weight: 400;
+}
+
+.neural-dark .nnb-canvas text {
+  letter-spacing: 0;
+  text-rendering: geometricPrecision;
+}

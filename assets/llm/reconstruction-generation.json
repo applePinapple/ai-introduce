@@ -1,0 +1,96 @@
+{
+  "reviewedOn": "2026-10-15",
+  "sourceId": "video-llm",
+  "sourceSegment": "13:00–22:42",
+  "canvas": [
+    1712,
+    770
+  ],
+  "implementation": "Editable HTML and SVG inside the ReinBee light master; no full-frame screenshots or source branding.",
+  "kinds": [
+    {
+      "id": "llm-next-token",
+      "llmKind": "generation-distribution",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-028.jpg"
+      ]
+    },
+    {
+      "id": "llm-temperature",
+      "llmKind": "generation-temperature",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-029.jpg"
+      ]
+    },
+    {
+      "id": "llm-select-token",
+      "llmKind": "generation-selected",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-033.jpg"
+      ]
+    },
+    {
+      "id": "llm-append-token",
+      "llmKind": "generation-append",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-035.jpg"
+      ]
+    },
+    {
+      "id": "llm-generate-repeat",
+      "llmKind": "generation-repeat",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-036.jpg"
+      ]
+    },
+    {
+      "id": "llm-english-generation",
+      "llmKind": "generation-english",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-027.jpg"
+      ]
+    },
+    {
+      "id": "llm-public-scale",
+      "llmKind": "scale-public",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-038.jpg"
+      ]
+    },
+    {
+      "id": "llm-capability-scaling",
+      "llmKind": "scale-capabilities",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-040.jpg"
+      ]
+    },
+    {
+      "id": "llm-context-matrix",
+      "llmKind": "context-matrix",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-044.jpg"
+      ]
+    },
+    {
+      "id": "llm-context-window",
+      "llmKind": "context-window",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-045.jpg"
+      ]
+    },
+    {
+      "id": "llm-context-shift",
+      "llmKind": "context-shift",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-046.jpg"
+      ]
+    }
+  ],
+  "dataNature": "Probability bars and token/embedding values are classroom examples, not measured model outputs. Public scale table is verified historical data from GPT-3 Table 2.1 and LLaMA Table 2.",
+  "corrections": [
+    "No unverified GPT-4/GPT-5 parameter or hardware estimates",
+    "Embedding dimension d and context capacity N vary by model",
+    "Softmax, temperature, decoding and context policy are distinguished",
+    "No fixed intelligence threshold or AGI claim"
+  ]
+}

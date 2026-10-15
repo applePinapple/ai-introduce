@@ -1,0 +1,564 @@
+{
+  "reviewedOn": "2026-10-15",
+  "scope": "视频004的实际抽帧、技术核验与重构依据；本记录不维护演讲正文，正文和讲稿统一位于content/decks/ai-history.json。",
+  "module": {
+    "chapter": "03",
+    "sectionLabel": "大语言模型",
+    "startsAtDeckPage": 41,
+    "pageLimit": null,
+    "style": "沿用ReinBee浅灰透视网格、蓝黄配色、左页眉03 大语言模型、右侧浅色Logo。视频只作内容与图示结构参考，不复制视频白红/黑底整页视觉、品牌、水印或字幕。",
+    "reconstructedPages": 30,
+    "endsAtDeckPage": 70,
+    "timingSeconds": 1230
+  },
+  "video": {
+    "path": "assets/videos/bilibili/BV178w1z7EHQ/media/004_03.AI通识与基础-大语言模型.mp4",
+    "durationSeconds": 1362.317143,
+    "width": 852,
+    "height": 480,
+    "framesPerSecond": 30,
+    "videoCodec": "h264",
+    "audioCodec": "aac",
+    "measurement": "实际运行ffprobe读取format duration与video stream；时长约22分42.317秒。"
+  },
+  "evidence": {
+    "contactsRead": [
+      "assets/video-evidence/004/contact-01.jpg",
+      "assets/video-evidence/004/contact-02.jpg",
+      "assets/video-evidence/004/contact-03.jpg",
+      "assets/video-evidence/004/contact-04.jpg",
+      "assets/video-evidence/004/contact-05.jpg",
+      "assets/video-evidence/004/contact-06.jpg"
+    ],
+    "keyframesRead": [
+      "assets/video-evidence/004/frame-011.jpg",
+      "assets/video-evidence/004/frame-025.jpg",
+      "assets/video-evidence/004/frame-028.jpg",
+      "assets/video-evidence/004/frame-038.jpg",
+      "assets/video-evidence/004/frame-014.jpg",
+      "assets/video-evidence/004/frame-022.jpg",
+      "assets/video-evidence/004/frame-040.jpg",
+      "assets/video-evidence/004/frame-044.jpg",
+      "assets/video-evidence/004/frame-045.jpg",
+      "assets/video-evidence/004/frame-046.jpg"
+    ],
+    "coverage": "contact总览覆盖00:00至22:30，每30秒一帧；另放大查看列出的10张关键帧。讲解阶段依据课件、图示及可见文字，不声称完成音频逐字转写，也不声称连续看完视频。"
+  },
+  "observedStages": [
+    {
+      "timeRange": "00:00–00:30",
+      "topic": "课程封面与章节目录",
+      "observedLayout": "机器人手臂、课程标题与三项目录。",
+      "adaptation": "作为来源开场记录；当前模块直接接前40页，无需重复课程封面。",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-001.jpg",
+        "assets/video-evidence/004/frame-002.jpg"
+      ]
+    },
+    {
+      "timeRange": "01:00–03:00",
+      "topic": "Token 与词向量",
+      "observedLayout": "上方定义与两条说明，下方一行英文片段对应竖排浮点数组。",
+      "adaptation": "保留 token→向量的视觉关系，补中间 token ID；分词只作示意。",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-003.jpg",
+        "assets/video-evidence/004/frame-004.jpg",
+        "assets/video-evidence/004/frame-007.jpg"
+      ]
+    },
+    {
+      "timeRange": "03:30–05:00",
+      "topic": "二维、三维到高维",
+      "observedLayout": "二维坐标箭头、三维透视坐标、长向量并排，右侧括号标12288。",
+      "adaptation": "原数值数组是教学例子；12288标为特定GPT-3配置或改d。",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-008.jpg",
+        "assets/video-evidence/004/frame-009.jpg",
+        "assets/video-evidence/004/frame-010.jpg",
+        "assets/video-evidence/004/frame-011.jpg"
+      ]
+    },
+    {
+      "timeRange": "05:30",
+      "topic": "词语方向与语义空间",
+      "observedLayout": "黑底透视网格，多条词语箭头从原点发散。",
+      "adaptation": "保留透视方向结构，改统一ReinBee浅色；不推断轴有固定人工语义。",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-012.jpg"
+      ]
+    },
+    {
+      "timeRange": "06:00–08:00",
+      "topic": "向量关系与类比",
+      "observedLayout": "二维坐标、男人/女人、国王/王后、爸爸/妈妈箭头，顶部差向量或近似等式。",
+      "adaptation": "关系为特定向量空间中的近似教学类比，不将中文词组示意当成实测模型数据。",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-013.jpg",
+        "assets/video-evidence/004/frame-014.jpg",
+        "assets/video-evidence/004/frame-015.jpg",
+        "assets/video-evidence/004/frame-016.jpg",
+        "assets/video-evidence/004/frame-017.jpg"
+      ]
+    },
+    {
+      "timeRange": "08:30",
+      "topic": "上下文阅读例子",
+      "observedLayout": "一大段虚构男艺人描述占满中部。",
+      "adaptation": "提取短段落和关键词展示上下文；不照抄拥挤长文或识别真实个人。",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-018.jpg"
+      ]
+    },
+    {
+      "timeRange": "09:00–10:30",
+      "topic": "Transformer 与上下文更新",
+      "observedLayout": "2017论文说明，下方艺人向量依次添加唱歌、跳舞、篮球、背带裤线索，末态有点阵人物。",
+      "adaptation": "讲成上下文使表示变化；箭头不是实际QKV计算轨迹，人物形象是原视频类比。",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-019.jpg",
+        "assets/video-evidence/004/frame-020.jpg",
+        "assets/video-evidence/004/frame-021.jpg",
+        "assets/video-evidence/004/frame-022.jpg"
+      ]
+    },
+    {
+      "timeRange": "11:00–12:30",
+      "topic": "Transformer 分层处理链",
+      "observedLayout": "透视薄板从Word Embedding到Attention、MLP重复，最右Softmax。",
+      "adaptation": "标为生成型decoder示意；补位置信息、因果遮罩与线性输出头的备注，说明省略残差/归一化。",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-023.jpg",
+        "assets/video-evidence/004/frame-024.jpg",
+        "assets/video-evidence/004/frame-025.jpg",
+        "assets/video-evidence/004/frame-026.jpg"
+      ]
+    },
+    {
+      "timeRange": "13:00",
+      "topic": "英文下一个词预测",
+      "observedLayout": "黑底左模型立方体、候选词概率，右上爱因斯坦句子。",
+      "adaptation": "作为同一生成机制的英文示例；概率与句子不声称本项目实际运行所得。",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-027.jpg"
+      ]
+    },
+    {
+      "timeRange": "13:30–16:30",
+      "topic": "中文候选分布与温度说明",
+      "observedLayout": "左“北京早餐有什么推荐的？”中间模型立方体、右候选及横条，顶部温度说明。",
+      "adaptation": "将推/早/包等标为简化token标签；补其他候选，概率总和100%；不可把原80%当实测。",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-028.jpg",
+        "assets/video-evidence/004/frame-029.jpg",
+        "assets/video-evidence/004/frame-030.jpg",
+        "assets/video-evidence/004/frame-031.jpg",
+        "assets/video-evidence/004/frame-032.jpg",
+        "assets/video-evidence/004/frame-033.jpg",
+        "assets/video-evidence/004/frame-034.jpg"
+      ]
+    },
+    {
+      "timeRange": "17:00–17:30",
+      "topic": "自回归追加",
+      "observedLayout": "左侧输出从“推”变为“推荐炒”，候选分布随前缀变化。",
+      "adaptation": "每步基于已有token重新产生分布；不能概括为中文必逐字，含EOS/停止条件。",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-035.jpg",
+        "assets/video-evidence/004/frame-036.jpg"
+      ]
+    },
+    {
+      "timeRange": "18:00",
+      "topic": "英文续写回顾",
+      "observedLayout": "同黑底模型-候选-句子结构，句子已接到Relativity, which。",
+      "adaptation": "可保留为循环机制另一语言的回顾，不复制黑底或作者水印。",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-037.jpg"
+      ]
+    },
+    {
+      "timeRange": "18:30–20:30",
+      "topic": "模型规模、训练表及“涌现”说法",
+      "observedLayout": "左参数增长曲线带GPT-4/5推测，右参数/预训练/二次训练/数据量/卡数/天数表；上方强调“临界点突然拥有智能”。",
+      "adaptation": "需重大纠正：移除未经支持的GPT-4/5参数和混同ChatGPT/GPT的表；以公开历史配置及预训练/后训练结构替代。",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-038.jpg",
+        "assets/video-evidence/004/frame-039.jpg",
+        "assets/video-evidence/004/frame-040.jpg",
+        "assets/video-evidence/004/frame-041.jpg",
+        "assets/video-evidence/004/frame-042.jpg"
+      ]
+    },
+    {
+      "timeRange": "21:00–21:30",
+      "topic": "上下文与向量矩阵",
+      "observedLayout": "先复现长段落，再以男艺人/背带裤/两年半等作行标签，列维度括号12288。",
+      "adaptation": "矩阵行应称token位置，列称d_model；分词和坐标是教学示意。",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-043.jpg",
+        "assets/video-evidence/004/frame-044.jpg"
+      ]
+    },
+    {
+      "timeRange": "22:00–22:42.317",
+      "topic": "上下文窗口与超出窗口",
+      "observedLayout": "大段文字长卷，窗口以浅红框和左侧括号标Context128K，滚动后上下文在框外。",
+      "adaptation": "改抽象容量L或注明具体版本；框外如何处理由应用/模型机制决定，不统一称自动遗忘或滑窗。",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-045.jpg",
+        "assets/video-evidence/004/frame-046.jpg"
+      ]
+    }
+  ],
+  "technicalCorrections": [
+    {
+      "topic": "token边界",
+      "observed": "Token（词）及中文逐字生成演示。",
+      "use": "Token可为字、词片段、标点或字节相关片段，具体边界由该模型tokenizer决定；不宣称中文必为单字。",
+      "sources": [
+        "hf-tokenizers"
+      ]
+    },
+    {
+      "topic": "ID与embedding",
+      "observed": "每个Token变浮点数组。",
+      "use": "明确文本→token→ID→可学习的向量表示；ID为索引，不是语义坐标。",
+      "sources": [
+        "hf-tokenizers",
+        "transformer-2017"
+      ]
+    },
+    {
+      "topic": "12288维",
+      "observed": "05:00与21:30无模型限定地标12288。",
+      "use": "正文用d或明确GPT-3 175B历史例；不可推广给所有LLM，维度也不等于token数或参数总数。",
+      "sources": [
+        "few-shot-lm"
+      ]
+    },
+    {
+      "topic": "语义向量图",
+      "observed": "词语的二维/三维箭头与类比等式。",
+      "use": "说明为高维关系的教学投影，坐标非实测；类比通常是近似邻近关系，不是所有语言和模型的精确等式。",
+      "sources": [
+        "word2vec-2013"
+      ]
+    },
+    {
+      "topic": "静态embedding与上下文表示",
+      "observed": "艺人向量被线索箭头逐次累加。",
+      "use": "初始token embedding与经过网络后的上下文隐藏表示区分；图是直觉示意，不把词义箭头相加当真实注意力公式。",
+      "sources": [
+        "transformer-2017",
+        "llm-mechanics-hf"
+      ]
+    },
+    {
+      "topic": "Transformer组成",
+      "observed": "Word Embedding→Attention→MLP重复→Softmax。",
+      "use": "以decoder-only生成为本节范围；说明位置信息、因果遮罩、输出投影，备注省略残差和归一化；注意力并非全部结构。",
+      "sources": [
+        "transformer-2017"
+      ]
+    },
+    {
+      "topic": "因果性与并行",
+      "observed": "Transformer能结合上下文。",
+      "use": "自回归解码不能看未来token；训练可对已知序列位置并行计算，不等于生成整段文本只需一次预测。",
+      "sources": [
+        "transformer-2017",
+        "llm-mechanics-hf"
+      ]
+    },
+    {
+      "topic": "Softmax与采样",
+      "observed": "生成概率后随机挑一个结果。",
+      "use": "模型给出候选分布，解码可取最大概率或采样；temperature主要用于采样分布调节，不是所有模式都生效。",
+      "sources": [
+        "hf-decoding-temperature",
+        "hf-generation-config"
+      ]
+    },
+    {
+      "topic": "概率与事实",
+      "observed": "早餐示例推80%、其他1–2%，未覆盖完整词表。",
+      "use": "明确教学概率，保留“其他候选”使总和100%；下一token概率不是回答的事实正确率。",
+      "sources": [
+        "hf-decoding-temperature"
+      ]
+    },
+    {
+      "topic": "GPT-4/5参数与训练表",
+      "observed": "18:30–20:30参数预测曲线及模型/产品混用、硬件与天数表。",
+      "use": "删除未经对应原始来源支持的GPT-4/5参数、训练数据量、卡数与时长；GPT-4报告明确不披露model size。GPT-5此处不给数值。",
+      "sources": [
+        "gpt4-technical-report",
+        "gpt5-system-card"
+      ]
+    },
+    {
+      "topic": "产品与模型",
+      "observed": "表格将175B直接写作ChatGPT。",
+      "use": "ChatGPT是产品，不是恒定175B模型。若需要参数例，限定“GPT-3 175B（2020）”。",
+      "sources": [
+        "few-shot-lm",
+        "instructgpt-2022"
+      ]
+    },
+    {
+      "topic": "突现与AGI",
+      "observed": "19:30可见文字为规模/数据突破临界点后突然拥有智能；未在所阅画面见明确“AGI已实现”字样。",
+      "use": "不要把视频说法强化成AGI结论；能力与评测指标、数据和训练有关，“突现”解释有研究争议。",
+      "sources": [
+        "emergence-metrics-2023",
+        "few-shot-lm"
+      ]
+    },
+    {
+      "topic": "训练路线",
+      "observed": "只有预训练/二次训练表，没有完整SFT/RLHF流程。",
+      "use": "若展开则标典型路线补充：预训练、监督微调、偏好训练；InstructGPT是已核验实例，不声称所有LLM严格同路。",
+      "sources": [
+        "instructgpt-2022"
+      ]
+    },
+    {
+      "topic": "上下文128K",
+      "observed": "22:00与22:30窗口统一标128K。",
+      "use": "改容量L或限定具体模型版本；不同模型长度和输入/输出预算不同，不统一128K，也不把字符数当token数。",
+      "sources": [
+        "hf-sequence-length-course",
+        "google-long-context"
+      ]
+    },
+    {
+      "topic": "窗口外的信息",
+      "observed": "文字卷轴在框外，上下滚动。",
+      "use": "窗口表示本次可供模型使用的信息范围，溢出处理由产品/应用/模型策略决定；不能一律说自动滑窗或永久遗忘；上下文变化也不等于权重训练。",
+      "sources": [
+        "hf-sequence-length-course",
+        "few-shot-lm"
+      ]
+    }
+  ],
+  "sourceVerification": [
+    {
+      "id": "video-llm",
+      "url": "https://www.bilibili.com/video/BV178w1z7EHQ/?p=4",
+      "checked": "本地 ffprobe、全部 6 张 contact 和下列 10 张关键帧；未作音频逐字转写。",
+      "verifiedOn": "2026-10-15",
+      "existedBeforeReview": true
+    },
+    {
+      "id": "transformer-2017",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "checked": "论文正文 3.1–3.5：编码器/解码器、因果遮罩、自注意力、前馈层、embedding、线性输出与 softmax、位置编码。",
+      "verifiedOn": "2026-10-15",
+      "existedBeforeReview": true
+    },
+    {
+      "id": "few-shot-lm",
+      "url": "https://arxiv.org/abs/2005.14165",
+      "checked": "论文摘要与表 2.1：GPT-3 175B、d_model=12288；同系列多个尺寸使用不同维度，该批模型 n_ctx=2048。少样本提示无梯度更新。",
+      "verifiedOn": "2026-10-15",
+      "existedBeforeReview": true
+    },
+    {
+      "id": "llm-mechanics-hf",
+      "url": "https://huggingface.co/learn/llm-course/en/chapter1/5",
+      "checked": "官方课程的 GPT-2 文本生成示例：BPE、token embedding、位置信息、多层解码器与 masked self-attention。",
+      "verifiedOn": "2026-10-15",
+      "existedBeforeReview": true
+    },
+    {
+      "id": "hf-decoding-temperature",
+      "url": "https://huggingface.co/blog/how-to-generate",
+      "checked": "自回归条件分布、贪心和采样为不同解码方法，温度改变采样分布。",
+      "verifiedOn": "2026-10-15",
+      "existedBeforeReview": true
+    },
+    {
+      "id": "hf-generation-config",
+      "url": "https://huggingface.co/docs/transformers/main/en/main_classes/text_generation",
+      "checked": "do_sample、temperature、top_k、top_p、max_new_tokens 等为不同生成配置，temperature 不代表事实正确率。",
+      "verifiedOn": "2026-10-15",
+      "existedBeforeReview": true
+    },
+    {
+      "id": "instructgpt-2022",
+      "url": "https://arxiv.org/abs/2203.02155",
+      "checked": "示范数据监督微调，再收集输出偏好排序并做 RLHF；模型更大不自动更符合用户意图。可作训练路线补充。",
+      "verifiedOn": "2026-10-15",
+      "existedBeforeReview": true
+    },
+    {
+      "id": "foundation-models",
+      "url": "https://arxiv.org/abs/2108.07258",
+      "checked": "大规模数据预训练、下游适配与能力/风险框架；不支持“达到规模阈值便实现 AGI”。",
+      "verifiedOn": "2026-10-15",
+      "existedBeforeReview": true
+    },
+    {
+      "id": "hf-tokenizers",
+      "title": "Tokenizers — LLM Course",
+      "publisher": "Hugging Face",
+      "url": "https://huggingface.co/learn/llm-course/en/chapter2/4",
+      "checked": "word/character/subword 与 byte-level BPE 等多种方法；文本先 tokenization 再映射 input IDs，不存在通用“中文一个字一个 token”。",
+      "verifiedOn": "2026-10-15",
+      "existedBeforeReview": false
+    },
+    {
+      "id": "word2vec-2013",
+      "title": "Efficient Estimation of Word Representations in Vector Space",
+      "publisher": "Tomas Mikolov 等 / arXiv",
+      "url": "https://arxiv.org/abs/1301.3781",
+      "checked": "词向量及类比关系的原论文；King−Man+Woman 的结果在该示例中最接近 Queen，而不是普遍精确相等的语言代数。",
+      "verifiedOn": "2026-10-15",
+      "existedBeforeReview": false
+    },
+    {
+      "id": "gpt4-technical-report",
+      "title": "GPT-4 Technical Report",
+      "publisher": "OpenAI / arXiv",
+      "url": "https://arxiv.org/abs/2303.08774",
+      "checked": "第 2 节明确不提供包括 model size 在内的架构、硬件及训练计算细节；不能据视频曲线填 GPT-4 参数。",
+      "verifiedOn": "2026-10-15",
+      "existedBeforeReview": false
+    },
+    {
+      "id": "gpt5-system-card",
+      "title": "GPT-5 System Card",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/gpt-5-system-card/",
+      "checked": "系统卡概述描述快模型、推理模型与路由组成的系统，未支持视频里的单条参数预测曲线；本次不据此作“全网从未公开参数”的穷尽断言。",
+      "verifiedOn": "2026-10-15",
+      "existedBeforeReview": false
+    },
+    {
+      "id": "emergence-metrics-2023",
+      "title": "Are Emergent Abilities of Large Language Models a Mirage?",
+      "publisher": "Rylan Schaeffer、Brando Miranda、Sanmi Koyejo / arXiv",
+      "url": "https://arxiv.org/abs/2304.15004",
+      "checked": "“突现”现象可受非线性或不连续评测指标影响；不能将视频中的临界点说法当作已证实的普遍机制。",
+      "verifiedOn": "2026-10-15",
+      "existedBeforeReview": false
+    },
+    {
+      "id": "hf-sequence-length-course",
+      "title": "Handling multiple sequences — LLM Course",
+      "publisher": "Hugging Face",
+      "url": "https://huggingface.co/learn/llm-course/en/chapter2/5",
+      "checked": "不同模型支持不同序列长度，超限需处理；只引用该一般原则，不复用其示例中的 512/1024 为当前所有模型限制。",
+      "verifiedOn": "2026-10-15",
+      "existedBeforeReview": false
+    },
+    {
+      "id": "google-long-context",
+      "title": "Long context",
+      "publisher": "Google AI for Developers",
+      "url": "https://ai.google.dev/gemini-api/docs/long-context",
+      "checked": "上下文是一次提供给模型的信息，具体容量及输入/输出预算依具体模型和 API；本稿用抽象容量 L，避免固定 128K 或统一计费/预算断言。",
+      "verifiedOn": "2026-10-15",
+      "existedBeforeReview": false
+    },
+    {
+      "id": "3b1b-gpt-2024",
+      "title": "Transformers, the tech behind LLMs — Deep Learning Chapter 5",
+      "publisher": "Grant Sanderson / 3Blue1Brown",
+      "url": "https://www.3blue1brown.com/lessons/gpt/",
+      "checked": "已打开原作者课程；视频 004 的黑底语义空间、分层板与英文续写图示与此课程的讲解结构一致。作为原始图示出处辅助署名，不从评论区采信参数数值。",
+      "verifiedOn": "2026-10-15",
+      "existedBeforeReview": false
+    },
+    {
+      "id": "3b1b-attention",
+      "title": "Attention in transformers, step-by-step — Deep Learning Chapter 6",
+      "publisher": "Grant Sanderson / 3Blue1Brown",
+      "url": "https://www.3blue1brown.com/lessons/attention/",
+      "checked": "已打开原作者课程，可辅助解释上下文更新与 Q/K/V 示意；技术结论优先引用 Transformer 原论文。",
+      "verifiedOn": "2026-10-15",
+      "existedBeforeReview": false
+    },
+    {
+      "id": "llama-2023",
+      "title": "LLaMA: Open and Efficient Foundation Language Models",
+      "publisher": "Hugo Touvron 等 / Meta AI",
+      "url": "https://arxiv.org/abs/2302.13971",
+      "verifiedOn": "2026-10-15",
+      "checked": "表2与图1：LLaMA-13B为13.0B参数、5120维、1.0T训练token；LLaMA-65B为65.2B参数、8192维、1.4T训练token。论文发表于2023年。",
+      "existedBeforeReview": false
+    }
+  ],
+  "verifiedHistoricalModels": [
+    {
+      "name": "GPT-3 175B",
+      "year": 2020,
+      "parametersBillions": 175,
+      "pretrainingTokensBillions": 300,
+      "embeddingDimension": 12288,
+      "sourceId": "few-shot-lm",
+      "location": "Table 2.1 and caption",
+      "url": "https://arxiv.org/html/2005.14165v4"
+    },
+    {
+      "name": "LLaMA-13B",
+      "year": 2023,
+      "parametersBillions": 13,
+      "pretrainingTokensBillions": 1000,
+      "embeddingDimension": 5120,
+      "sourceId": "llama-2023",
+      "location": "Table 2 and Figure 1",
+      "url": "https://arxiv.org/html/2302.13971"
+    },
+    {
+      "name": "LLaMA-65B",
+      "year": 2023,
+      "parametersBillions": 65.2,
+      "pretrainingTokensBillions": 1400,
+      "embeddingDimension": 8192,
+      "sourceId": "llama-2023",
+      "location": "Table 2 and Figure 1",
+      "url": "https://arxiv.org/html/2302.13971"
+    }
+  ],
+  "historicalTableNote": "表头建议为预训练累计 token，不等同于去重语料库大小；LLaMA-65B为模型名称，原论文表2精确参数65.2B。不同模型采用不同tokenizer，token数是各自训练口径，不由此直接推断性能。",
+  "registeredSourceIds": [
+    "hf-tokenizers",
+    "word2vec-2013",
+    "emergence-metrics-2023",
+    "hf-sequence-length-course",
+    "google-long-context",
+    "3b1b-gpt-2024",
+    "3b1b-attention",
+    "llama-2023"
+  ],
+  "integration": {
+    "reusedSourceIds": [
+      "video-llm",
+      "transformer-2017",
+      "few-shot-lm",
+      "llm-mechanics-hf",
+      "hf-decoding-temperature",
+      "hf-generation-config",
+      "instructgpt-2022",
+      "foundation-models"
+    ],
+    "registeredSourceIds": [
+      "hf-tokenizers",
+      "word2vec-2013",
+      "emergence-metrics-2023",
+      "hf-sequence-length-course",
+      "google-long-context",
+      "3b1b-gpt-2024",
+      "3b1b-attention",
+      "llama-2023"
+    ],
+    "reviewedButUnusedSourceIds": [
+      "gpt4-technical-report",
+      "gpt5-system-card"
+    ],
+    "registerNote": "本模块采用的来源已登记content/sources.json，逐页通过sourceIds关联。原作者课程用于图示出处，技术事实优先论文与官方文档。",
+    "trainingNote": "本次以视频图示为范围，未增加单独的完整预训练/后训练路线。",
+    "laterMerge": "当前保留30页完整演示阶段，后续由用户融合；英文续写回顾可与生成循环合并。"
+  }
+}

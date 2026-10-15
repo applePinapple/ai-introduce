@@ -1,0 +1,19 @@
+/* Local, unscaled geometry preserves screen and PDF layout. */
+.llm-page .llm-module-body{position:absolute;left:104px;top:240px;width:1712px;height:770px;z-index:1;color:var(--ink)}
+.llm-page .llmg-lead{position:absolute;left:0;top:0;width:1680px;font-size:32px;line-height:1.65;margin:0;z-index:2}
+.llm-page .llmg-caption{position:absolute;left:0;bottom:0;width:1712px;font-size:25px;line-height:1.4;color:var(--muted);margin:0}
+.llm-page .llmg-svg{position:absolute;inset:0;display:block;width:1712px;height:770px;overflow:visible;font-family:var(--font)}
+.llm-page .llmg-model-table{position:absolute;left:865px;top:225px;width:835px}
+.llm-page .llmg-model-table table{width:100%;table-layout:fixed;border-collapse:collapse;background:#fff}
+.llm-page .llmg-model-table th{font-size:23px;line-height:1.5;padding:17px 12px;background:var(--blue-soft);color:var(--blue);font-weight:600;text-align:left}
+.llm-page .llmg-model-table th:nth-child(1){width:27%}.llm-page .llmg-model-table th:nth-child(2){width:17%}.llm-page .llmg-model-table th:nth-child(3){width:31%}
+.llm-page .llmg-model-table td{font-size:27px;line-height:1.5;padding:23px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+.llm-page .llmg-model-table p{font-size:24px;line-height:1.6;margin:18px 0 0;color:var(--muted)}
+.llm-page .llmg-window{position:absolute;left:260px;top:135px;width:1390px;height:500px;padding:42px 50px;background:#fff;border:2px solid var(--blue);border-left:8px solid var(--yellow)}
+.llm-page .llmg-window p{font-size:32px;line-height:1.85;margin:0 0 23px}
+.llm-page .llmg-window p:last-child{margin:0}
+.llm-page .llmg-window-label{position:absolute;left:-238px;top:160px;width:230px;white-space:pre-line;text-align:center;font-size:30px;line-height:1.6;color:var(--blue)}
+.llm-page .llmg-window-label::after{content:"";position:absolute;left:195px;top:-130px;width:24px;height:450px;border:2px solid var(--blue);border-right:0;border-radius:18px 0 0 18px}
+.llm-page .llmg-excluded{position:absolute;left:310px;top:54px;width:1290px;color:var(--muted);font-size:26px;line-height:1.5;margin:0}
+.llm-page .llmg-context-shift .llmg-window{top:175px;height:490px}
+.llm-page .llmg-context-shift .llmg-window-label{top:120px}

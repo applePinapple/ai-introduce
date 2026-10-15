@@ -1,0 +1,207 @@
+{
+  "verifiedOn": "2026-10-15",
+  "sourceId": "video-neural",
+  "localVideo": "assets/videos/bilibili/BV178w1z7EHQ/media/003_02-AI通识与基础-神经网络原理.mp4",
+  "videoSize": [
+    852,
+    480
+  ],
+  "outputCanvas": [
+    1920,
+    1080
+  ],
+  "sourceVisual": "原视频的结构与训练场景采用白底、深红标题与多色图示；此描述只记录原始来源。",
+  "method": "实际查看关键帧后，参考图示结构用可编辑HTML、SVG和MathML重构，页面与图示配色按后续用户要求统一为ReinBee蓝黄浅色体系。只有生物图使用局部视频裁切，不使用整页截图，不复制标题栏品牌、水印或字幕。",
+  "styleOverride": {
+    "requestedOn": "2026-10-15",
+    "authority": "用户后续要求",
+    "supersedes": "严格复现视频白底深红标题的整页视觉；视频继续作为内容与图示结构参考。",
+    "outputStyle": "与前面页面一致的浅灰透视网格、ReinBee蓝黄浅色底板与统一图示配色。",
+    "headerLeft": "02 神经网络原理",
+    "headerRight": "ReinBee浅色标志",
+    "preserved": [
+      "12页结构/训练内容与13页数字识别内容的顺序：第16–21页结构、第22–34页数字识别、第35–40页训练。",
+      "全稿40页、1845秒；神经网络模块25页、885秒。",
+      "原始局部裁切、视频证据与技术校正。"
+    ]
+  },
+  "crops": {
+    "createdOn": "2026-10-15",
+    "inputVideo": "assets/videos/bilibili/BV178w1z7EHQ/media/003_02-AI通识与基础-神经网络原理.mp4",
+    "inputVideoSize": {
+      "width": 852,
+      "height": 480
+    },
+    "inputFramesPerSecond": 30,
+    "method": "FFmpeg decodes one PNG frame at 59 seconds (neuron, input-side accurate seek) and 90 seconds (network, output-side seek), format=rgb24 before exact crop. The neuron was replaced after comparing 59/61/62-second frames to select a clear frame without a mouse pointer. No upscaling, recoloring, redrawing or generative editing.",
+    "reviewedEvidence": [
+      "assets/video-evidence/003/frame-003.jpg",
+      "assets/video-evidence/003/frame-004.jpg"
+    ],
+    "images": [
+      {
+        "path": "assets/neural/bio-neuron-video.png",
+        "timeSeconds": 59,
+        "crop": {
+          "x": 62,
+          "y": 168,
+          "width": 322,
+          "height": 185
+        },
+        "outputSize": {
+          "width": 322,
+          "height": 185
+        },
+        "nature": "用户提供课程视频中的生物神经元示意插图局部，保留原图中英局部标注；不是显微照片，也不是人工神经元计算图。",
+        "review": "相较建议宽度305增加17像素以完整保留右侧Synapse等原图标注。复核59/61/62秒帧后改用59秒无鼠标指针画面。无课程标题、字幕或品牌。已目视复核。",
+        "limitations": [
+          "原素材分辨率有限，未伪造高清细节。",
+          "原图的树突输入、突触输出等局部标注为课堂简化类比，不构成准确完整的生物神经系统说明；正文或讲稿应解释类比边界。",
+          "插图的最初作者与许可未从视频画面独立核实；图源登记应指向用户提供的课程视频。"
+        ]
+      },
+      {
+        "path": "assets/neural/bio-network-video.png",
+        "timeSeconds": 90,
+        "crop": {
+          "x": 61,
+          "y": 167,
+          "width": 313,
+          "height": 229
+        },
+        "outputSize": {
+          "width": 313,
+          "height": 229
+        },
+        "nature": "用户提供课程视频中的相连生物神经元示意插图局部；不是实测神经连接组，也不是人工神经网络层级结构。",
+        "review": "保留原画面完整矩形插图边界；外围神经元在原插图边界处已有截断。无课程标题、字幕、品牌或右侧人工网络图。已目视复核。",
+        "limitations": [
+          "原素材分辨率有限，未放大或重绘。",
+          "插图仅用于连接成网络的直觉类比，不能支持人工深度网络等同于大脑的技术结论。",
+          "插图的最初作者与许可未从视频画面独立核实；图源登记应指向用户提供的课程视频。"
+        ]
+      }
+    ],
+    "verifiedSourceId": "backprop-1986"
+  },
+  "inspectedEvidence": [
+    "assets/video-evidence/003/frame-003.jpg",
+    "assets/video-evidence/003/frame-004.jpg",
+    "assets/video-evidence/003/frame-005.jpg",
+    "assets/video-evidence/003/frame-006.jpg",
+    "assets/video-evidence/003/frame-011.jpg",
+    "assets/video-evidence/003/frame-013.jpg",
+    "assets/video-evidence/003/frame-026.jpg",
+    "assets/video-evidence/003/frame-027.jpg",
+    "assets/video-evidence/003/frame-028.jpg",
+    "assets/video-evidence/003/frame-029.jpg",
+    "assets/video-evidence/003/frame-033.jpg",
+    "assets/video-evidence/003/frame-012.jpg",
+    "assets/video-evidence/003/frame-032.jpg"
+  ],
+  "slides": [
+    {
+      "id": "neural-neuron",
+      "neuralKind": "white-neuron",
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-003.jpg"
+      ],
+      "reconstruction": "参考相应视频帧的内容与图示结构，图形原生重绘；页面与图示按2026-10-15用户后续要求统一为ReinBee蓝黄浅色体系，详见styleOverride。"
+    },
+    {
+      "id": "neural-network",
+      "neuralKind": "white-network",
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-004.jpg"
+      ],
+      "reconstruction": "参考相应视频帧的内容与图示结构，图形原生重绘；页面与图示按2026-10-15用户后续要求统一为ReinBee蓝黄浅色体系，详见styleOverride。"
+    },
+    {
+      "id": "neural-layers",
+      "neuralKind": "white-layers",
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-005.jpg"
+      ],
+      "reconstruction": "参考相应视频帧的内容与图示结构，图形原生重绘；页面与图示按2026-10-15用户后续要求统一为ReinBee蓝黄浅色体系，详见styleOverride。"
+    },
+    {
+      "id": "neural-unit-detail",
+      "neuralKind": "white-neuron-detail",
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-006.jpg"
+      ],
+      "reconstruction": "参考相应视频帧的内容与图示结构，图形原生重绘；页面与图示按2026-10-15用户后续要求统一为ReinBee蓝黄浅色体系，详见styleOverride。"
+    },
+    {
+      "id": "neural-unit-formula",
+      "neuralKind": "white-neuron-formula",
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-011.jpg"
+      ],
+      "reconstruction": "参考相应视频帧的内容与图示结构，图形原生重绘；页面与图示按2026-10-15用户后续要求统一为ReinBee蓝黄浅色体系，详见styleOverride。"
+    },
+    {
+      "id": "neural-unit-steps",
+      "neuralKind": "white-neuron-steps",
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-013.jpg"
+      ],
+      "reconstruction": "参考相应视频帧的内容与图示结构，图形原生重绘；页面与图示按2026-10-15用户后续要求统一为ReinBee蓝黄浅色体系，详见styleOverride。"
+    },
+    {
+      "id": "neural-backprop-history",
+      "neuralKind": "white-backprop-history",
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-026.jpg"
+      ],
+      "reconstruction": "参考相应视频帧的内容与图示结构，图形原生重绘；页面与图示按2026-10-15用户后续要求统一为ReinBee蓝黄浅色体系，详见styleOverride。"
+    },
+    {
+      "id": "neural-train-forward",
+      "neuralKind": "white-train-forward",
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-027.jpg"
+      ],
+      "reconstruction": "参考相应视频帧的内容与图示结构，图形原生重绘；页面与图示按2026-10-15用户后续要求统一为ReinBee蓝黄浅色体系，详见styleOverride。"
+    },
+    {
+      "id": "neural-train-loss",
+      "neuralKind": "white-train-loss",
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-028.jpg"
+      ],
+      "reconstruction": "课程步骤的渐显中间状态：新增独立停顿页，内容与原流程一致；并非声称13:30证据帧只显示两步。"
+    },
+    {
+      "id": "neural-train-backward",
+      "neuralKind": "white-train-backward",
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-028.jpg"
+      ],
+      "reconstruction": "参考相应视频帧的内容与图示结构，图形原生重绘；页面与图示按2026-10-15用户后续要求统一为ReinBee蓝黄浅色体系，详见styleOverride。"
+    },
+    {
+      "id": "neural-train-update",
+      "neuralKind": "white-train-update",
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-029.jpg"
+      ],
+      "reconstruction": "参考相应视频帧的内容与图示结构，图形原生重绘；页面与图示按2026-10-15用户后续要求统一为ReinBee蓝黄浅色体系，详见styleOverride。"
+    },
+    {
+      "id": "neural-train-summary",
+      "neuralKind": "white-train-summary",
+      "evidencePaths": [
+        "assets/video-evidence/003/frame-033.jpg"
+      ],
+      "reconstruction": "参考相应视频帧的内容与图示结构，图形原生重绘；页面与图示按2026-10-15用户后续要求统一为ReinBee蓝黄浅色体系，详见styleOverride。"
+    }
+  ],
+  "intentionalCorrections": [
+    "不沿用“AI的核心都是Transformer”或“精确模拟人脑”的概括。",
+    "层由计算单元组成；输入节点不等同于可训练神经元。",
+    "减阈值b与加偏置β使用β=−b的对应，避免公式和步骤矛盾。",
+    "1986论文署名Rumelhart、Hinton、Williams共同作者，不声称单人或首次发明。",
+    "区分反向传播计算梯度与优化器利用梯度更新参数，不保证每次更新损失都下降。"
+  ]
+}

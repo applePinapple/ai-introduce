@@ -1,0 +1,190 @@
+{
+  "module": "大语言模型：Token / Embedding / 语义向量",
+  "reviewedOn": "2026-10-15",
+  "video": "assets/videos/bilibili/BV178w1z7EHQ/media/004_03.AI通识与基础-大语言模型.mp4",
+  "status": "原生 HTML / SVG 重构；图中正文与图表数值由主内容 JSON 提供。",
+  "sourceIds": [
+    "video-llm",
+    "3b1b-gpt-2024",
+    "llm-mechanics-hf",
+    "hf-tokenizers",
+    "word2vec-2013"
+  ],
+  "references": [
+    {
+      "id": "hf-tokenizers",
+      "url": "https://huggingface.co/learn/llm-course/en/chapter2/4",
+      "title": "Tokenizers",
+      "publisher": "Hugging Face",
+      "verifiedOn": "2026-10-15",
+      "supports": [
+        "Token 不一定等于完整词",
+        "文本经分词和词表映射得到数值 ID"
+      ]
+    },
+    {
+      "id": "word2vec-2013",
+      "url": "https://arxiv.org/abs/1301.3781",
+      "fullTextURL": "https://arxiv.org/html/1301.3781v3",
+      "title": "Efficient Estimation of Word Representations in Vector Space",
+      "publisher": "Tomas Mikolov, Kai Chen, Greg Corrado, Jeffrey Dean / arXiv",
+      "verifiedOn": "2026-10-15",
+      "supports": [
+        "连续词向量",
+        "king − man + woman 近似对应 queen 的经典例子",
+        "向量偏移类比并非百分之百准确"
+      ]
+    }
+  ],
+  "adaptations": [
+    "实际逐张查看 frame-003 至 frame-017；不使用参考视频整页截图作为演示画面。",
+    "沿用原视频的文本区、八列数值、单列保留、二维/三维图、维度括号、语义箭头词云、两组词关系逐步显现顺序。",
+    "品牌版式由主 renderer 提供；自有组件使用 1712×770 原生尺寸，不使用 transform scale 或 zoom。",
+    "所有正文、词块、显示数值、轴标签、向量词名与公式 token 放入 llmData；箭头和坐标系为原生 SVG。",
+    "去掉原视频品牌和水印；黑底语义图改用浅色品牌底板与蓝黄箭头。",
+    "八个英文块按词分块仅为教学示意，不冒充具体分词器的真实 Token 输出。数值列同样不冒充实测嵌入。",
+    "原图多个省略点合并为一个 ⋮ 字符，不改变省略维度的含义。",
+    "原视频 12288 维替换为 d，并标注维度依模型设定。",
+    "二维/三维坐标、词云位置、类比端点均为教学坐标，不标成高维词向量的实测降维结果。",
+    "妈妈/爸爸向量算术保留近似符号；notes 明确不是任意模型的保证，语义类比不是 LLM 全部机制。"
+  ],
+  "slides": [
+    {
+      "id": "llm-embedding-definition",
+      "llmKind": "embedding-definition",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-003.jpg"
+      ],
+      "times": [
+        "01:00"
+      ],
+      "timingSeconds": 30
+    },
+    {
+      "id": "llm-embedding-tokens",
+      "llmKind": "embedding-tokens",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-004.jpg",
+        "assets/video-evidence/004/frame-005.jpg",
+        "assets/video-evidence/004/frame-006.jpg",
+        "assets/video-evidence/004/frame-007.jpg"
+      ],
+      "times": [
+        "01:30",
+        "02:00",
+        "02:30",
+        "03:00"
+      ],
+      "timingSeconds": 45
+    },
+    {
+      "id": "llm-embedding-single",
+      "llmKind": "embedding-single",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-007.jpg",
+        "assets/video-evidence/004/frame-008.jpg"
+      ],
+      "times": [
+        "03:00",
+        "03:30"
+      ],
+      "timingSeconds": 20
+    },
+    {
+      "id": "llm-embedding-2d",
+      "llmKind": "embedding-2d",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-008.jpg",
+        "assets/video-evidence/004/frame-009.jpg"
+      ],
+      "times": [
+        "03:30",
+        "04:00"
+      ],
+      "timingSeconds": 35
+    },
+    {
+      "id": "llm-embedding-3d",
+      "llmKind": "embedding-3d",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-009.jpg",
+        "assets/video-evidence/004/frame-010.jpg"
+      ],
+      "times": [
+        "04:00",
+        "04:30"
+      ],
+      "timingSeconds": 40
+    },
+    {
+      "id": "llm-embedding-high-d",
+      "llmKind": "embedding-high-d",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-010.jpg",
+        "assets/video-evidence/004/frame-011.jpg"
+      ],
+      "times": [
+        "04:30",
+        "05:00"
+      ],
+      "timingSeconds": 30
+    },
+    {
+      "id": "llm-embedding-cloud",
+      "llmKind": "embedding-cloud",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-012.jpg"
+      ],
+      "times": [
+        "05:30"
+      ],
+      "timingSeconds": 40
+    },
+    {
+      "id": "llm-embedding-royalty",
+      "llmKind": "embedding-royalty",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-013.jpg",
+        "assets/video-evidence/004/frame-014.jpg"
+      ],
+      "times": [
+        "06:00",
+        "06:30"
+      ],
+      "timingSeconds": 45
+    },
+    {
+      "id": "llm-embedding-parents",
+      "llmKind": "embedding-parents",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-015.jpg"
+      ],
+      "times": [
+        "07:00"
+      ],
+      "timingSeconds": 40
+    },
+    {
+      "id": "llm-embedding-offset",
+      "llmKind": "embedding-offset",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-016.jpg"
+      ],
+      "times": [
+        "07:30"
+      ],
+      "timingSeconds": 30
+    },
+    {
+      "id": "llm-embedding-arithmetic",
+      "llmKind": "embedding-arithmetic",
+      "evidencePaths": [
+        "assets/video-evidence/004/frame-017.jpg"
+      ],
+      "times": [
+        "08:00"
+      ],
+      "timingSeconds": 40
+    }
+  ]
+}

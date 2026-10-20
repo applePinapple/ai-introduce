@@ -125,12 +125,12 @@
       "title": "04-AI通识-大模型应用",
       "url": "https://www.bilibili.com/video/BV178w1z7EHQ/?p=5",
       "publisher": "黑马程序员 / 用户提供的本地视频",
-      "verifiedOn": "2026-10-13",
+      "verifiedOn": "2026-10-20",
       "supports": [
         "区分 GPT 模型和 ChatGPT 应用；说明对话上下文以及模型与传统程序的互补，再给出传统应用通过 HTTP API 调用模型的基本结构。"
       ],
       "localPath": "assets/videos/bilibili/BV178w1z7EHQ/media/005_04-AI通识-大模型应用.mp4",
-      "evidence": "本地ffprobe核对时长，ffmpeg每30秒抽帧，实际阅读课件与可见硬字幕。不是逐字音频转写。时间段为已观察画面范围。",
+      "evidence": "本轮实际复核26张30秒抽帧总览及关键帧，另用ffprobe核对752.467秒时长并补查05:45、06:15、08:45转场。课件和可见文字用于结构提炼，未做音频逐字转写；技术边界另据原论文与官方文档核验。",
       "timeRanges": [
         "00:30、01:00、01:30、02:00 GPT、模型与产品",
         "03:00、04:00、05:00、05:30、06:30 聊天应用和上下文",
@@ -139,9 +139,10 @@
         "11:30、12:00、12:30 章节归纳"
       ],
       "screenshotReview": {
-        "reviewedOn": "2026-10-13",
+        "reviewedOn": "2026-10-20",
         "directory": "assets/video-evidence/005",
-        "method": "逐张阅读全部 contact 总览图；按正文 evidencePaths 关联关键画面。原生 HTML/SVG 重绘讲解，不将课件整页截图作为正文。"
+        "method": "逐张阅读全部 contact 总览图；按正文 evidencePaths 关联关键画面。原生 HTML/SVG 重绘讲解，不将课件整页截图作为正文。",
+        "reviewRecord": "assets/applications/video-review.json"
       }
     },
     {
@@ -917,6 +918,254 @@
       "supports": [
         "表2与图1：LLaMA-13B为13.0B参数、5120维、1.0T训练token；LLaMA-65B为65.2B参数、8192维、1.4T训练token。论文发表于2023年。"
       ]
+    },
+    {
+      "id": "apps-chatgpt-launch",
+      "title": "Introducing ChatGPT (2022)",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/chatgpt/",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "2022年11月30日的研究预览提供对话交互界面；当时的ChatGPT模型从GPT-3.5系列模型微调而来。",
+        "对话训练包含人工编写的用户与助手示范、监督微调，以及基于回答排序的人类反馈强化学习；不能将对话表现只归因于界面包装。",
+        "发布说明明确列出生成看似合理但错误回答等局限；本稿的模型层与应用层分解是架构教学示意，不把2022年模型配置当作当前产品配置。"
+      ],
+      "verificationEvidence": "实际打开并阅读发布页的日期、Methods、Limitations及Iterative deployment。页面既使用ChatGPT称呼当时的对话模型，也讨论提供给用户的UI；据此保留命名语境，不将ChatGPT一词绝对限定为某一层。"
+    },
+    {
+      "id": "apps-gpt3-paper",
+      "title": "Language Models are Few-Shot Learners (2020)",
+      "publisher": "Tom B. Brown 等 / NeurIPS 2020, arXiv",
+      "url": "https://arxiv.org/abs/2005.14165",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "GPT-3是自回归语言模型，使用Transformer架构；论文以文本指令和示例指定任务，少样本评估时不更新参数。",
+        "预训练模型、提示中的上下文示例与后续监督微调是不同环节；GPT-3论文的少样本用法不等于为每次对话重新训练模型。",
+        "GPT可展开为Generative Pre-trained Transformer；全称由补充核验的OpenAI官方研究发布页明确给出。"
+      ],
+      "verificationEvidence": "实际打开arXiv摘要及全文https://arxiv.org/html/2005.14165v4，核对摘要、Section 2与2.1的自回归模型、文本交互和Transformer架构。另实际打开https://openai.com/index/gpts-are-gpts/，其Abstract首句明确给出Generative Pre-trained Transformer (GPT)；仅用该页核验名称，不引用就业影响数字。"
+    },
+    {
+      "id": "apps-instructgpt-paper",
+      "title": "Training language models to follow instructions with human feedback (2022)",
+      "publisher": "Long Ouyang 等 / NeurIPS 2022, arXiv",
+      "url": "https://arxiv.org/abs/2203.02155",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "InstructGPT先使用人工示范进行监督微调，再使用模型输出的人工排序进行人类反馈强化学习。",
+        "指令跟随需要与用户意图对齐的训练；增大模型规模并不自动保证更好地遵循用户意图。",
+        "论文指出模型仍会犯简单错误；指令微调不能作为事实正确性的保证。"
+      ],
+      "verificationEvidence": "实际打开论文摘要页，核对2022年3月4日提交日期，以及摘要中示范数据、排序数据、监督微调、RLHF和仍有简单错误的说明。"
+    },
+    {
+      "id": "apps-api-reference",
+      "title": "API Overview — OpenAI API Reference",
+      "publisher": "OpenAI",
+      "url": "https://developers.openai.com/api/reference/overview",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "应用可使用官方客户端库，或在支持HTTP请求的环境中直接调用HTTP API。",
+        "API凭据通过HTTP Bearer认证发送；API密钥是机密，不能暴露在浏览器或其他客户端代码中。",
+        "API密钥应由服务器从环境变量或密钥管理服务加载；幻灯片中的浏览器→应用后端→模型服务链路据此组织。"
+      ],
+      "verificationEvidence": "实际打开https://platform.openai.com/docs/api-reference/authentication并跟随官方重定向到API Overview，阅读Start here第3项及Authentication。只引用HTTP接口与密钥保管原则，不引用具体模型名称、价格或配额。"
+    },
+    {
+      "id": "apps-conversation-state",
+      "title": "Conversation state — OpenAI API",
+      "publisher": "OpenAI",
+      "url": "https://developers.openai.com/api/docs/guides/conversation-state",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "手动管理多轮对话时，应用将相关历史消息与当前问题共同提供给下一次请求，模型才能使用这些上下文。",
+        "API也可通过会话对象或前一响应标识管理状态，因此不应把所有API一概描述为必须由客户端每次重新发送全部历史。",
+        "会话状态的保存与上下文窗口限制是不同概念；本稿据此区分应用保存的记录和一次模型推理实际使用的上下文，不将其等同于重新训练模型或永久记忆。"
+      ],
+      "verificationEvidence": "实际打开并阅读Manually manage conversation state、OpenAI APIs for conversation state及Managing the context window；核对手动追加消息、持久会话对象和previous_response_id的说明。应用记忆与模型参数的区分为基于上述机制的教学归纳，不声称底层模型会自行持久保存所有对话。"
+    },
+    {
+      "id": "apps-function-calling",
+      "title": "Function calling — OpenAI API",
+      "publisher": "OpenAI",
+      "url": "https://developers.openai.com/api/docs/guides/function-calling",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "函数定义让模型向应用传递结构化调用信息；应用代码据此访问数据或执行模型建议的动作。",
+        "典型流程为提供工具、接收模型调用、由应用端执行代码、回传工具结果，再由模型生成回答或继续调用。",
+        "本稿将精确计算和业务权限校验交给程序执行，是基于该分工的工程建议；模型返回调用参数不等于动作已经执行，也不构成业务授权。"
+      ],
+      "verificationEvidence": "实际打开并阅读Functions versus tools与The tool calling flow，核对明确要求application side执行代码的五步流程。精确计算与业务授权的安排是教学中的应用设计原则，不声称该文档证明所有模型都无法计算，或提供了某一具体业务权限方案。"
+    },
+    {
+      "id": "agent-langchain-overview",
+      "title": "Agents — LangChain Python documentation",
+      "publisher": "LangChain",
+      "url": "https://docs.langchain.com/oss/python/langchain/agents",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "LangChain把Agent的核心描述为模型与工具之间的循环；提示、工具和中间件共同塑造该循环的行为。",
+        "create_agent可接收模型、工具列表与system_prompt；model可以是提供商标识字符串或已经初始化的模型实例。",
+        "Agent执行状态包含消息历史；跨调用保留会话需要相应检查点配置与会话标识，不能据此断言所有Agent天然拥有长期记忆。"
+      ],
+      "verificationEvidence": "实际打开并阅读页面导语、Core components中的Model/Tools/System prompt/Agent state，以及Invocation中的checkpointer与thread_id说明。本稿只使用上述框架机制，不复用页面中的最新模型名称或产品推广内容。"
+    },
+    {
+      "id": "agent-langchain-quickstart",
+      "title": "Quickstart — LangChain Python documentation",
+      "publisher": "LangChain",
+      "url": "https://docs.langchain.com/oss/python/langchain/quickstart",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "最小Agent示例定义带类型注解和说明的Python工具函数，将其与模型传入create_agent，再通过agent.invoke传入messages。",
+        "官方入门示例中的天气函数返回固定示例文本，并非真实天气接口；本稿相同类型的演示数据应明确标注为教学示意。",
+        "当前文档使用from langchain.agents import create_agent；历史教程中的其他旧API应按其录制版本理解，不与当前接口混用。"
+      ],
+      "verificationEvidence": "实际打开并阅读Install dependencies、Set up API keys及Build a basic agent中的函数定义、create_agent与invoke代码。另实际打开https://docs.langchain.com/oss/python/migrate/langchain-v1的Migrate to create_agent、Import path与Prompts，核对旧langgraph.prebuilt.create_react_agent到当前langchain.agents.create_agent及system_prompt的迁移。幻灯片仅展示结构，不声称已经安装依赖或执行真实模型请求。"
+    },
+    {
+      "id": "agent-langchain-tools",
+      "title": "Tools — LangChain Python documentation",
+      "publisher": "LangChain",
+      "url": "https://docs.langchain.com/oss/python/langchain/tools",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "工具有明确的名称、用途说明及输入结构；模型根据上下文决定工具选择与参数，工具实现负责实际计算或访问外部系统。",
+        "@tool默认用函数名、docstring与类型注解形成工具名称、说明和输入schema；复杂输入也可以使用Pydantic模型或JSON Schema。",
+        "普通字符串工具返回值被转换为ToolMessage，供模型决定下一步；工具也可返回结构化数据。return_direct等配置可改变回到模型的默认循环。"
+      ],
+      "verificationEvidence": "实际打开并阅读Tools导语、Basic tool definition、Advanced schema definition及Tool execution/Tool return values。文档还区分服务端内置工具与本地工具，本稿以应用运行时执行自定义Python工具为例，不把这一示例推广为所有工具都在用户本机执行。"
+    },
+    {
+      "id": "agent-langchain-models",
+      "title": "Models: Tool calling — LangChain Python documentation",
+      "publisher": "LangChain",
+      "url": "https://docs.langchain.com/oss/python/langchain/models#tool-calling",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "工具调用输出是模型提出的执行请求；单独使用模型时，开发者需要执行工具并回传结果，Agent抽象可代为编排循环。",
+        "调用请求包含工具名称与参数；执行结果通过ToolMessage与原调用的tool_call_id对应，再进入后续模型请求。",
+        "模型可决定选择工具、解释结果以及何时生成最终回答；工具调用记录属于可观察的消息与执行协议，不等同于模型内部的隐藏思维链。"
+      ],
+      "verificationEvidence": "实际打开并阅读Models导语、Tool calling、Binding user tools及Tool execution loop，核对tool_calls、工具执行代码、消息追加和tool_call_id。另核对Reasoning部分将reasoning内容块单列且依赖模型支持；工具轨迹与内部推理的区别是据上述接口分层作出的教学说明，未把课堂虚构轨迹当作实测模型推理。"
+    },
+    {
+      "id": "agent-react-primary",
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models (ICLR 2023)",
+      "publisher": "Shunyu Yao 等 / ICLR 2023, arXiv",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "ReAct研究把推理轨迹与任务动作交错生成，通过外部知识源或环境获得反馈，再更新后续行动。",
+        "论文中的Thought、Action与Observation是研究提示及交互轨迹的组织方式；现代工具调用循环不要求公开模型全部内部推理。",
+        "论文首次提交于2022年10月6日，后以ICLR 2023版本发表；特定任务基准结果不能直接外推为企业效率或普遍可靠性保证。"
+      ],
+      "verificationEvidence": "实际打开arXiv摘要页核对作者、首次提交日期和ICLR camera-ready说明，并打开https://arxiv.org/html/2210.03629v3核对交替行动、外部观察及附录示例。仅引用机制和历史来源，不采用论文基准提升数值作为本项目业务效果。保留旧react记录供历史页使用，本条记录本轮重新核验。"
+    },
+    {
+      "id": "agent-workflow-primary",
+      "title": "Building effective agents",
+      "publisher": "Anthropic",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "按该文的架构区分，Workflow沿预定义代码路径编排模型与工具，Agent由模型动态决定过程与工具使用；这是有用的工作定义，并非行业唯一术语标准。",
+        "Agent依据环境返回的工具结果持续评估进度；可以在检查点暂停或在完成任务、达到最大迭代次数等条件时停止。",
+        "框架简化调用与工具编排，但不免除对底层机制和效果的验证；应从简单方案开始，按任务收益权衡复杂度、延迟与成本。"
+      ],
+      "verificationEvidence": "实际打开并阅读What are agents?、When (and when not) to use agents、When and how to use frameworks以及Agents段落。基于文中反馈循环与停止条件，本稿在讲稿说明错误可累积和执行需边界；不把Agent等同于完全自主、永不失败的系统。保留旧effective-agents记录供历史页使用，本条记录本轮重新核验。"
+    },
+    {
+      "id": "video-agent",
+      "title": "14-LangChain入门-快速入门和Agent原理（课程第15集）",
+      "publisher": "Bilibili · BV178w1z7EHQ",
+      "url": "https://www.bilibili.com/video/BV178w1z7EHQ/?p=15",
+      "localPath": "assets/videos/bilibili/BV178w1z7EHQ/media/015_14-LangChain入门-快速入门和Agent原理.mp4",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "本地视频给出天气Agent示例、LangChain工具定义及create_agent/invoke、模型与工具循环、工具描述与调用消息、用户/Agent/模型时序。",
+        "内容顺序与图示结构依据视频；工具固定返回sunny是模拟数据，不能作为真实天气或实际业务效果。",
+        "重复停留的执行循环与时序图分别合为完整状态；安装过程收进讲稿，工程停止与校验补充另引官方文档。"
+      ],
+      "verificationEvidence": "实际抽帧查看6张总览、46个每30秒采样画面及关键细节帧；视频1365.034秒、852×480，无字幕轨，未做音频逐字转写。完整映射见assets/agent/video-review.json。代码和协议另由LangChain官方文档核对，不复制凭据或原视频整页截图。"
+    },
+    {
+      "id": "harness-anatomy",
+      "title": "The Anatomy of an Agent Harness",
+      "publisher": "Vivek Trivedy / LangChain",
+      "url": "https://www.langchain.com/blog/the-anatomy-of-an-agent-harness",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "该文把Harness定义为模型之外的代码、配置与执行逻辑，包括指令、工具、状态、编排、执行环境和约束；这是工程工作定义，不是统一行业标准。",
+        "持久存储、执行工具和反馈循环由外围系统提供；模型生成的工具请求需要相应运行逻辑才能执行。",
+        "沙箱、访问范围及网络隔离属于运行环境设计；测试、浏览器和日志帮助Agent观察结果并验证工作。"
+      ],
+      "verificationEvidence": "实际打开2026-03-10原文，阅读Can Someone Please Define a Harness、Filesystems、Sandboxes and Tools to Execute & Verify Work及Long Horizon Autonomous Execution。仅归纳组件职责，不采用榜单或效果数字；不把外部笔记当作模型权重更新，也不把沙箱描述为绝对安全保证。"
+    },
+    {
+      "id": "harness-improvement",
+      "title": "Improving Deep Agents with harness engineering",
+      "publisher": "Vivek Trivedy / LangChain",
+      "url": "https://www.langchain.com/blog/improving-deep-agents-with-harness-engineering",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "Harness工程可针对任务调整指令、工具和执行流程，通过运行轨迹定位失败并作有针对性的修改。",
+        "文章区分单次任务内的构建、验证、修复，与跨实验分析轨迹并改进系统的外层循环。",
+        "验收前检查、环境信息注入及重复失败检测是文中的设计实例；改动仍须检查其他任务是否退化。"
+      ],
+      "verificationEvidence": "实际打开2026-02-17原文，核对The Trace Analyzer Skill、Build & Self-Verify、Giving Agents Context about their Environment、Encouraging Agents to Step Back & Reconsider Plans及Practical Takeaways。仅采用方法与失败模式，不复用Terminal Bench提升数字或将经验启发式当成通用保证；课堂案例为据此设计的示意。"
+    },
+    {
+      "id": "harness-long-running",
+      "title": "Effective harnesses for long-running agents",
+      "publisher": "Anthropic",
+      "url": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "跨上下文窗口的长任务需要可交接的进展记录；仅做上下文压缩不足以解决所有连续工作问题。",
+        "文章用功能清单、逐项推进、进度文件及版本历史组织工作，新会话先读取状态并检查已有功能。",
+        "完成功能应有实际测试依据；自称完成不能替代端到端验收。"
+      ],
+      "verificationEvidence": "实际打开2025-11-26原文，阅读The long-running agent problem、Feature list、Incremental progress、Testing及Getting up to speed。文中是软件开发实验的方案；幻灯片提炼为长任务交接模式，不承诺任意任务都能无限运行，也不声称自动恢复已经具备所有业务幂等语义。"
+    },
+    {
+      "id": "harness-context",
+      "title": "Effective context engineering for AI agents",
+      "publisher": "Anthropic",
+      "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "上下文工程持续选择每次推理所需的指令、工具说明、外部资料和历史信息；信息应相关且足够。",
+        "可保留路径或链接，再按需加载资料；外部持久笔记只有重新读入后才能供当前模型使用。",
+        "压缩、结构化笔记及分工是管理长任务上下文的不同手段；压缩可能丢失随后需要的细节。"
+      ],
+      "verificationEvidence": "实际打开2025-09-29原文，阅读Context engineering vs. prompt engineering、Context retrieval and agentic search、Compaction及Structured note-taking。保留上下文与外部存储的区别，不把“越短越好”当作原则，不宣称检索总优于预载，也不引用特定模型窗口大小或产品状态。"
+    },
+    {
+      "id": "harness-evals",
+      "title": "Demystifying evals for AI agents",
+      "publisher": "Anthropic",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "Agent评测需定义任务、成功条件与评分方式，并区分交互轨迹和最终环境状态。",
+        "可结合程序检查、模型评分及人工复核；模型评分需校准，单次成功不能说明稳定性。",
+        "能力评测寻找改进空间，回归评测保护已有行为；阅读失败轨迹也有助发现任务或评分器本身的问题。"
+      ],
+      "verificationEvidence": "实际打开2026-01-09原文，核对The structure of an evaluation、Types of graders、Capability vs. regression evals以及Step 2、Step 4、Step 5、Step 6。强调明确标准、隔离试验与真实结果；不把固定工具顺序当作所有任务的唯一正确路径，不引用客户案例效果或基准得分。"
+    },
+    {
+      "id": "harness-middleware",
+      "title": "Prebuilt middleware — LangChain documentation",
+      "publisher": "LangChain",
+      "url": "https://docs.langchain.com/oss/python/langchain/middleware/built-in",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "运行时可处理工具异常、按配置有限重试、在重试耗尽后返回错误或停止，并限制模型或工具调用次数。",
+        "人工审核机制可在指定工具动作前暂停；审核策略、调用限制和工具访问应由系统配置与执行。",
+        "错误回传与自动重试是不同机制；可重试故障类型、次数和终止方式需要明确设计。"
+      ],
+      "verificationEvidence": "实际打开官方文档并阅读Provider-agnostic middleware、Tool error、Tool retry、Human-in-the-loop、Model call limit和Tool call limit。仅引用机制，不采用示例最新模型名、默认次数或绑定具体版本；“先校验、有限重试、失败明确退出”为结合这些能力的工程设计归纳，不意味着所有错误都应重试。"
     }
   ]
 }

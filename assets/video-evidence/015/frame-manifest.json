@@ -1,0 +1,32 @@
+{
+  "page": 15,
+  "source": "assets/videos/bilibili/BV178w1z7EHQ/media/015_14-LangChain入门-快速入门和Agent原理.mp4",
+  "durationSeconds": 1365.0339,
+  "width": 852,
+  "height": 480,
+  "hasSubtitleStream": false,
+  "frameIntervalSeconds": 30,
+  "frameCount": 46,
+  "supplementalFrameTimesSeconds": [
+    15,
+    105,
+    465,
+    495,
+    555,
+    735,
+    795,
+    1005,
+    1155,
+    1185,
+    1205,
+    1215,
+    1245,
+    1275
+  ],
+  "frameIndexRule": "frame-001.jpg = 00:00; frame-NNN.jpg = (NNN-1)*30 seconds",
+  "method": "Local ffmpeg frames; visual review of course slides, not an audio transcript.",
+  "omittedFrameTimesSeconds": [
+    45
+  ],
+  "omissionReason": "45秒帧显示疑似凭据；提取后已删除，不留存、不复述其值。"
+}

@@ -1,0 +1,198 @@
+{
+  "reconstructedOn": "2026-10-20",
+  "contentPath": "content/decks/ai-history.json",
+  "sourceId": "video-agent",
+  "videoReview": "assets/agent/video-review.json",
+  "implementation": [
+    "src/slides/agent.mjs",
+    "src/slides/agent.css"
+  ],
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "content": {
+      "x": 104,
+      "y": 240,
+      "width": 1712,
+      "height": 770
+    }
+  },
+  "style": "原框架的ReinBee蓝黄底板、浅灰透视网格、白色卡片与浅色Logo；05 Agent原理页眉。",
+  "retainedPreviousPages": {
+    "count": 52,
+    "timingSeconds": 3825,
+    "comparedWith": "本轮开始前52页正文的结构化快照",
+    "slidesSha256": "c3ee366157d281ceb75e49e0cf70026b0925b863e59e9d6bd3c1e51a15a65022",
+    "identical": true
+  },
+  "addedPages": [
+    {
+      "page": 53,
+      "id": "agent-weather",
+      "kind": "weather",
+      "timingSeconds": 75,
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-overview",
+        "agent-langchain-tools"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-002.jpg",
+        "assets/video-evidence/015/frame-003.jpg",
+        "assets/video-evidence/015/frame-004.jpg"
+      ]
+    },
+    {
+      "page": 54,
+      "id": "agent-setup",
+      "kind": "setup",
+      "timingSeconds": 90,
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-quickstart",
+        "agent-langchain-overview",
+        "agent-langchain-tools"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-006.jpg",
+        "assets/video-evidence/015/frame-011.jpg",
+        "assets/video-evidence/015/frame-015.jpg",
+        "assets/video-evidence/015/frame-016.jpg"
+      ]
+    },
+    {
+      "page": 55,
+      "id": "agent-loop",
+      "kind": "loop",
+      "timingSeconds": 120,
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-overview",
+        "agent-react-primary",
+        "agent-langchain-models",
+        "agent-workflow-primary"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-020.jpg",
+        "assets/video-evidence/015/frame-021.jpg",
+        "assets/video-evidence/015/frame-024.jpg",
+        "assets/video-evidence/015/frame-026.jpg"
+      ]
+    },
+    {
+      "page": 56,
+      "id": "agent-tool-schema",
+      "kind": "schema",
+      "timingSeconds": 105,
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-tools",
+        "agent-langchain-models"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-012.jpg",
+        "assets/video-evidence/015/frame-027.jpg",
+        "assets/video-evidence/015/frame-029.jpg",
+        "assets/video-evidence/015/frame-031.jpg"
+      ]
+    },
+    {
+      "page": 57,
+      "id": "agent-messages",
+      "kind": "messages",
+      "timingSeconds": 105,
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-models",
+        "agent-langchain-overview",
+        "agent-langchain-tools"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-017.jpg",
+        "assets/video-evidence/015/frame-036.jpg",
+        "assets/video-evidence/015/frame-040.jpg",
+        "assets/video-evidence/015/frame-041.jpg"
+      ]
+    },
+    {
+      "page": 58,
+      "id": "agent-sequence",
+      "kind": "sequence",
+      "timingSeconds": 120,
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-overview",
+        "agent-langchain-quickstart",
+        "agent-langchain-models",
+        "agent-workflow-primary"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-043.jpg",
+        "assets/video-evidence/015/frame-044.jpg",
+        "assets/video-evidence/015/frame-045.jpg"
+      ]
+    },
+    {
+      "page": 59,
+      "id": "agent-safeguards",
+      "kind": "safeguards",
+      "timingSeconds": 75,
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-overview",
+        "agent-langchain-tools",
+        "agent-workflow-primary"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-046.jpg"
+      ]
+    }
+  ],
+  "consolidation": [
+    "环境安装与模型提供商配置收进讲稿，将工具注册和Agent启动合成一页。",
+    "09:30–12:30重复出现的执行闭环合为一个完整状态。",
+    "工具定义/schema、调用消息与完整调用时序分别保留，解释不同层次。",
+    "21:00–22:15逐步展开的用户/Agent/模型时序合为完整九步图。"
+  ],
+  "adaptations": [
+    "原天气函数固定返回sunny，统一命名get_weather，所有天气结果明确为模拟。未发起真实模型或天气请求。",
+    "模型配置采用已初始化的model占位，代码按当前LangChain官方create_agent/invoke接口表达，不展示凭据。",
+    "工具名称、说明与参数schema提供给模型；程序负责工具实现与执行，模型提出调用请求不等于执行完成。",
+    "消息链使用教学调用ID展示tool_call_id匹配；可见调用记录不代表隐藏思维链。",
+    "循环的调用次数由任务和策略决定，可直接回答或多次调用；超时、轮次和错误处理为工程约束。",
+    "末页可靠执行原则由官方文档补充归纳，区别于视频逐字内容，不扩展到多Agent、RAG或长期记忆实现。"
+  ],
+  "notes": "此文件只保存映射与改编依据；正文和讲稿仅在content/decks/ai-history.json维护。",
+  "validation": {
+    "checkedOn": "2026-10-20",
+    "commands": [
+      "npm run check",
+      "npm test",
+      "npm run build",
+      "npm run verify"
+    ],
+    "testsPassed": 37,
+    "browserSlides": 59,
+    "viewportChecks": 177,
+    "viewports": [
+      {
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "pdfPages": 59,
+    "browserFailures": [],
+    "externalRequests": [],
+    "pdfIndependentRenderer": "PyMuPDF 1.28.2",
+    "visualReview": "逐页查看新增7页浏览器截图并复核修正稿；实际查看全部10张浏览器总览与全部10张独立PDF栅格化总览，另放大检查工具定义页和完整时序页。修正四页底部总结与图注间距、工具卡片位置、时序图第二次模型调用标签和投屏代码标题。前52页结构化正文及讲稿与本轮开始快照完全一致。",
+    "interactions": "翻页、目录、数字跳页、URL hash、全屏及讲者窗口双向同步共35项检查通过。"
+  }
+}

@@ -1,0 +1,259 @@
+{
+  "reviewedOn": "2026-10-20",
+  "source": {
+    "sourceId": "video-agent",
+    "video": "assets/videos/bilibili/BV178w1z7EHQ/media/015_14-LangChain入门-快速入门和Agent原理.mp4",
+    "url": "https://www.bilibili.com/video/BV178w1z7EHQ/?p=15",
+    "title": "14-LangChain入门-快速入门和Agent原理",
+    "uploader": "黑马程序员",
+    "durationSeconds": 1365.0339,
+    "width": 852,
+    "height": 480,
+    "hasSubtitleStream": false
+  },
+  "method": {
+    "description": "本地 ffprobe 核验媒体；复用 scripts/media/extract-video-evidence.py 的 extract(15)，生成每30秒单帧与6张总览。逐一视觉检查全部46帧所在总览，再查看5分钟工具函数、10分钟执行闭环、20分钟工具调用消息、22分钟时序图等单帧。额外抽取15个时点，全部检查，其中45秒帧因含疑似凭据已删除，不留存其内容。",
+    "evidenceRoot": "assets/video-evidence/015",
+    "frameIndexRule": "frame-001.jpg=00:00；frame-NNN.jpg=(NNN-1)*30秒。",
+    "observedFrames": 46,
+    "supplementalObservedSeconds": [15, 45, 105, 465, 495, 555, 735, 795, 1005, 1155, 1185, 1205, 1215, 1245, 1275],
+    "retainedSupplementalSeconds": [15, 105, 465, 495, 555, 735, 795, 1005, 1155, 1185, 1205, 1215, 1245, 1275],
+    "contactSheets": [
+      "assets/video-evidence/015/contact-01.jpg",
+      "assets/video-evidence/015/contact-02.jpg",
+      "assets/video-evidence/015/contact-03.jpg",
+      "assets/video-evidence/015/contact-04.jpg",
+      "assets/video-evidence/015/contact-05.jpg",
+      "assets/video-evidence/015/contact-06.jpg"
+    ],
+    "detailFrames": [
+      "assets/video-evidence/015/frame-011.jpg",
+      "assets/video-evidence/015/frame-021.jpg",
+      "assets/video-evidence/015/frame-041.jpg",
+      "assets/video-evidence/015/frame-045.jpg",
+      "assets/video-evidence/015/detail-1185.jpg",
+      "assets/video-evidence/015/detail-1205.jpg",
+      "assets/video-evidence/015/detail-1215.jpg",
+      "assets/video-evidence/015/detail-1245.jpg"
+    ],
+    "limitations": [
+      "本记录为视觉审阅，不是音频转录；没有把未收听的讲师口头说明写成已核实事实。",
+      "时间戳是实际抽样观察时点，不代表精确的转场边界；讲师会在代码、日志、执行图和文档间反复切换。",
+      "原视频用于主题、案例和图示顺序；技术定义、框架API和可靠性边界仍须核验官方资料。",
+      "原视频45秒位置可见疑似凭据，额外抽帧已删除；不得复述值、放入正文或使用该帧作为讲义素材。"
+    ]
+  },
+  "observedSequence": [
+    {
+      "key": "course-opening",
+      "observedAtSeconds": [0, 15],
+      "visibleTitle": "LangChain开发指南 / 认识LangChain",
+      "visibleText": ["架构体系", "什么是Agent", "快速入门"],
+      "diagram": "课程封面和章节目录，红白底与机器人手臂装饰。",
+      "adaptation": "不另做整场封面，不复制讲师品牌；本板块使用现有框架的“05 Agent原理”页眉。"
+    },
+    {
+      "key": "weather-motivation",
+      "observedAtSeconds": [30, 60, 90, 105],
+      "visibleTitle": "案例 天气查询智能体",
+      "visibleText": ["开发一个智能体，可以帮助用户查询天气信息", "明天杭州天气如何"],
+      "diagram": "先用用户与机器人对话说明天气查询需求，再运行普通模型请求；不同输出含不同年份/日期及具体天气描述。",
+      "adaptation": "以天气提问承接大模型应用章节，说明实时数据需要可靠外部来源。不能仅凭这些截图宣称已系统测出某个产品错误率；不用历史天气输出当真实天气。"
+    },
+    {
+      "key": "quickstart-setup",
+      "observedAtSeconds": [120, 150, 180, 210, 240, 270],
+      "visibleTitle": "LangChain快速入门 / 准备工作 / 加载环境变量",
+      "visibleText": ["安装LangChain及模型集成包", "加载环境变量", "定义工具", "定义Agent", "调用Agent"],
+      "diagram": "Notebook中依次展示依赖安装和dotenv配置，侧栏为课程目录。",
+      "adaptation": "用户要求Agent原理而非完整编程教程。将安装与环境配置移入讲稿概括，正文只保留最小组成及调用结构；不复制版本敏感命令，不复制任何凭据。"
+    },
+    {
+      "key": "weather-tool-definition",
+      "observedAtSeconds": [270, 300, 330, 360, 390, 420, 540, 870, 900, 930],
+      "visibleTitle": "定义工具",
+      "visibleText": ["@tool", "getWeather(location: str)", "Get the weather in a given location.", "location: city name or coordinates"],
+      "diagram": "Python函数有工具装饰器、类型标注、docstring与一个固定返回晴天的字符串；后期将该代码截图浮置于API文档旁讲解字段映射。",
+      "adaptation": "将工具的名称、用途、参数与程序实现拆开讲；名称统一为get_weather，参数统一为location。明确该函数是模拟工具，没有连接气象服务，不能称为真实天气查询。"
+    },
+    {
+      "key": "create-and-invoke",
+      "observedAtSeconds": [360, 390, 420, 450, 465, 720, 780, 960],
+      "visibleTitle": "创建Agent / 发起调用",
+      "visibleText": ["create_agent", "tools=[getWeather]", "agent.invoke", "杭州今天天气如何"],
+      "diagram": "模型名称和工具列表传入create_agent，随后用messages中的用户消息调用Agent。",
+      "adaptation": "可压缩为模型、工具、执行流程三个组成部分。LangChain只是框架实例；Agent不等同于特定框架或某一模型品牌。若展示代码，应依据官方文档核验并缩短到说明原理的程度。"
+    },
+    {
+      "key": "execution-cycle",
+      "observedAtSeconds": [510, 555, 570, 600, 630, 660, 690, 750, 1230, 1350],
+      "visibleTitle": "Agent 执行流程",
+      "visibleText": ["用户提问（Input）", "模型分析（Reasoning）", "调用工具（Action）", "感知分析（Observation）", "生成结果（Output）"],
+      "diagram": "上方Input指向菱形Model；Model右下分支直接Output；Model左下action指向Tools，Tools用observation弧线返回Model。右侧列模型判断是否需要工具、用哪个工具、结果是否足够等问题。",
+      "adaptation": "所有停留讲解合并成一张完整可编辑闭环图。区分模型生成工具请求与执行器真正调用工具；观察是读取工具结果，不是模型自动接触外部世界。不声称每次都调用工具或必须公开内部思维过程。"
+    },
+    {
+      "key": "tool-schema",
+      "observedAtSeconds": [735, 810, 840, 900, 930, 990],
+      "visibleTitle": "Agent如何知道工具信息 / OpenAI Chat API参考",
+      "visibleText": ["tools", "type", "function", "name", "description", "parameters", "tool_choice"],
+      "diagram": "阿里云百炼API文档工具字段，旁边浮置天气函数代码，说明函数名、docstring与参数描述如何对应模型可读取的工具信息。",
+      "adaptation": "保留工具说明书这一独立概念：名字、用途、参数结构。将完整函数实现留在应用侧，给模型工具元数据。API精确字段依提供商、接口与版本而异，不把视频截图作为当前接口规范。"
+    },
+    {
+      "key": "tool-call-response",
+      "observedAtSeconds": [795, 1005, 1020, 1050, 1080, 1110],
+      "visibleTitle": "Chat响应对象（非流式输出）",
+      "visibleText": ["message", "content", "tool_calls", "id", "function", "name", "arguments"],
+      "diagram": "API响应文档中展开tool_calls与function字段，与天气函数名和location参数对应。",
+      "adaptation": "说明模型返回结构化工具调用请求，例如get_weather与location=杭州；不是模型直接执行Python。使用小型原生JSON片段或字段卡，不重建整页网页文档。"
+    },
+    {
+      "key": "message-trace",
+      "observedAtSeconds": [480, 495, 1140, 1155, 1170, 1185, 1200, 1205, 1215, 1230],
+      "visibleTitle": "Agent调用结果 / 逐条打印messages",
+      "visibleText": ["HumanMessage", "AIMessage", "ToolMessage", "tool_calls", "tool_call_id"],
+      "diagram": "完整日志先以一长行输出，后用model_dump_json逐条打印。可见四条主要消息：用户天气问题、含getWeather和location=杭州的模型工具请求、工具返回固定晴天字符串、模型据结果生成中文答复。",
+      "adaptation": "合并连续滚动为一张四消息链，保留角色和工具调用关联ID概念；移除随机ID、token统计、缓存统计及内部元数据。工具响应与最终答案明确为教学模拟。"
+    },
+    {
+      "key": "full-sequence",
+      "observedAtSeconds": [1245, 1260, 1275, 1290, 1320],
+      "visibleTitle": "Agent如何知道工具信息",
+      "visibleText": ["用户", "Agent", "模型", "用户问题与工具信息作为请求参数", "调用模型", "执行工具", "返回工具结果", "返回答案"],
+      "diagram": "用户、Agent、模型三泳道。用户提问后Agent整理message和tools；模型选择工具，返回工具名与参数；Agent执行工具，把结果送回模型；模型组织答案，再由Agent返回用户。右上工具说明框有name=get_weather、description=查询天气、parameter=city；中间调用框有parameter=杭州。",
+      "adaptation": "保留完整时序图且合并21分钟起的重复停留。为避免Agent与模型概念重叠，中间泳道可命名“应用执行器（Agent运行时）”；把实际工具执行画为应用侧步骤或独立工具泳道。统一源图与源代码的命名不一致；再次强调模拟结果。"
+    }
+  ],
+  "recommendedMapping": {
+    "status": "供正文作者采用或调整的建议，尚非最终页数契约",
+    "firstPage": 53,
+    "lastPage": 59,
+    "pageCount": 7,
+    "durationSeconds": 690,
+    "chapter": "05 Agent原理",
+    "durationPolicy": "面向老板和技术同事的原理讲解规划；省去现场安装、运行等待与反复滚动，不声称与22分45秒源视频逐秒一致。"
+  },
+  "recommendedPages": [
+    {
+      "order": 1,
+      "durationSeconds": 75,
+      "suggestedTitle": "只会回答，还不够",
+      "sourceKeys": ["weather-motivation"],
+      "mainQuestion": "模型如何回答需要实时外部数据的问题？",
+      "layout": "用户天气请求→模型；下方加入外部天气工具的必要连接。用两条短说明区分已有知识与实时数据。",
+      "notes": "直接提问演示仅作为动机，不能把视频中具体日期和天气作为事实。本页回答从生成文字走向调用外部能力的需求。"
+    },
+    {
+      "order": 2,
+      "durationSeconds": 90,
+      "suggestedTitle": "Agent：模型、工具与执行流程",
+      "sourceKeys": ["quickstart-setup", "weather-tool-definition", "create-and-invoke"],
+      "mainQuestion": "一个最小Agent由哪些部分组成？",
+      "layout": "蓝色模型节点、橙色工具节点与外围执行器组成图；旁边保留三个短标签：做选择、提供能力、执行与回传。",
+      "notes": "把LangChain快速入门的配置步骤合为概念组成。安装、环境变量和密钥管理只在讲稿交代，不投屏低层次操作。"
+    },
+    {
+      "order": 3,
+      "durationSeconds": 120,
+      "suggestedTitle": "Agent的核心，是一个执行闭环",
+      "sourceKeys": ["execution-cycle"],
+      "mainQuestion": "Agent如何在模型和工具之间继续推进任务？",
+      "layout": "输入→模型判断；一支直接答复，另一支→执行工具→观察结果→回到模型。使用原生SVG箭头清楚区分调用方向与反馈方向。",
+      "notes": "保留视频五阶段，但把Reasoning表达为分析与选择，不展示伪造内部思维链。循环不是无限循环，停止与失败处理由应用设计。"
+    },
+    {
+      "order": 4,
+      "durationSeconds": 105,
+      "suggestedTitle": "模型先读懂工具说明书",
+      "sourceKeys": ["weather-tool-definition", "tool-schema"],
+      "mainQuestion": "模型怎样知道有哪些工具、什么时候使用？",
+      "layout": "左侧工具实现；右侧模型可见的name、description、parameters三个字段；中间箭头表示提供工具定义。",
+      "notes": "源码示例函数返回固定晴天，是mock。真实查询需把函数实现改为数据接口并校验时间、地点和错误状态。模型读到的是描述与参数规范，不靠工具名字自动获得真实能力。"
+    },
+    {
+      "order": 5,
+      "durationSeconds": 105,
+      "suggestedTitle": "一次工具调用，留下四条消息",
+      "sourceKeys": ["tool-call-response", "message-trace"],
+      "mainQuestion": "工具请求、工具结果与最终答案有什么不同？",
+      "layout": "四段消息链：用户问题→模型工具请求→工具结果→模型最终回复；突出tool_calls和tool_call_id对应关系。工具示例仅保留get_weather、location、杭州。",
+      "notes": "结构化调用请求只是执行意图，执行器负责校验并真正调用。统一名称，移除源日志随机ID和token统计；天气及回复标明模拟。"
+    },
+    {
+      "order": 6,
+      "durationSeconds": 120,
+      "suggestedTitle": "一次Agent调用，怎样完成",
+      "sourceKeys": ["full-sequence"],
+      "mainQuestion": "用户、执行器、模型与工具怎样协作？",
+      "layout": "用户、应用执行器、模型三泳道完整时序；工具执行作为应用自调用，或依可读性扩展第四工具泳道。依次呈现问题+工具定义、调用请求、执行工具、返回结果、生成答复。",
+      "notes": "保持视频末尾时序的所有独立阶段。强调通常至少两次模型调用完成示例：先选择工具，再根据结果答复；更一般的任务可以零次、一次或多次工具调用。"
+    },
+    {
+      "order": 7,
+      "durationSeconds": 75,
+      "suggestedTitle": "把闭环运行起来，也把边界设清楚",
+      "sourceKeys": ["execution-cycle", "message-trace", "full-sequence"],
+      "mainQuestion": "从演示到可用系统还需要哪些约束？",
+      "layout": "三条并列回顾：模型提出调用、程序校验执行、结果驱动下一步；底部一条停止/失败出口。",
+      "notes": "这是一页作者归纳，不声称视频有专门安全章节。实际数据、权限、参数校验、次数/时间上限等应引用官方文档；没有权限的工具不执行，失败如实返回，不假装成功。"
+    }
+  ],
+  "technicalCorrectionCandidates": [
+    {
+      "id": "mock-weather-not-live",
+      "sourceIssue": "天气函数固定返回sunny，未见真实天气API调用。",
+      "recommendedTreatment": "所有天气结果标记为模拟；不能称为实时天气查询成功案例，也不能把模型生成的活动建议当事实。",
+      "requiresPrimarySourceVerification": false
+    },
+    {
+      "id": "model-request-vs-execution",
+      "sourceIssue": "执行图的Model→Tools箭头容易被误解为语言模型自身执行Python。",
+      "recommendedTreatment": "显示模型生成结构化请求、应用执行器校验并调用函数、工具结果作为消息回送模型的职责分离。",
+      "requiresPrimarySourceVerification": true
+    },
+    {
+      "id": "framework-not-definition",
+      "sourceIssue": "完整视频是LangChain快速入门，容易把框架API当作Agent定义。",
+      "recommendedTreatment": "先解释模型-工具-执行循环，再把LangChain作为一种实现；正文不绑定特定模型品牌或版本敏感安装流程。",
+      "requiresPrimarySourceVerification": true
+    },
+    {
+      "id": "tool-schema-not-source-code",
+      "sourceIssue": "视频将装饰器代码与API文档并置，观众可能误以为模型拿到完整Python实现。",
+      "recommendedTreatment": "区分工具元数据和运行在应用侧的函数实现；精简schema为名称、描述、参数结构。",
+      "requiresPrimarySourceVerification": true
+    },
+    {
+      "id": "naming-consistency",
+      "sourceIssue": "代码和消息里是getWeather/location，末尾示意图为get_weather/parameter=city。",
+      "recommendedTreatment": "全章统一为get_weather，参数location，示例值杭州；标明这是规范化教学改编。",
+      "requiresPrimarySourceVerification": false
+    },
+    {
+      "id": "reasoning-not-transcript",
+      "sourceIssue": "流程图Reasoning阶段不能证明或复现模型内部推理轨迹。",
+      "recommendedTreatment": "只展示可观察的选择、调用、结果和下一步，避免编造内部思考文字或宣称完整思维可见。",
+      "requiresPrimarySourceVerification": true
+    },
+    {
+      "id": "termination-and-failures",
+      "sourceIssue": "原视频主例成功结束，没有完整说明错误、循环上限与高影响动作控制。",
+      "recommendedTreatment": "在讲稿和总结中补充应用需要停止条件、参数/权限校验、错误回传；以作者归纳而非源视频逐字内容标识。",
+      "requiresPrimarySourceVerification": true
+    },
+    {
+      "id": "credentials-omitted",
+      "sourceIssue": "额外抽帧45秒可见疑似API凭据。",
+      "recommendedTreatment": "删除该派生帧，不复述值；不将源视频全页截图投屏；讲稿只泛指环境变量或服务端配置。",
+      "requiresPrimarySourceVerification": false
+    }
+  ],
+  "scopeBoundary": [
+    "本次授权是追加Agent原理，重点采用天气案例、最小组成、执行闭环、工具元数据、消息链和完整时序。",
+    "现场安装、运行等待、滚动日志与查阅API文档属于教学操作过程，压缩为讲稿或简化示意，不复刻完整编程课程。",
+    "没有观察到多Agent协作、复杂规划算法、RAG、MCP、浏览器自动化或生产部署专题，不声称这些来自视频015。",
+    "源视频的工具调用闭环与工具说明书/消息链/时序图是不同解释层次，应保留独立概念；同图反复停留和展开只保留完整状态。",
+    "演示图以原生可编辑HTML/SVG重建，沿用蓝黄浅灰网格与ReinBee浅色Logo，不使用课程整页截图作为正文。"
+  ]
+}

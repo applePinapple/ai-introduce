@@ -1,0 +1,202 @@
+{
+  "reconstructedOn": "2026-10-20",
+  "contentPath": "content/decks/ai-history.json",
+  "sourceId": "video-apps",
+  "videoReview": "assets/applications/video-review.json",
+  "implementation": [
+    "src/slides/applications.mjs",
+    "src/slides/applications.css"
+  ],
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "content": {
+      "x": 104,
+      "y": 240,
+      "width": 1712,
+      "height": 770
+    }
+  },
+  "style": "原框架的ReinBee蓝黄底板、浅灰透视网格、浅色Logo与04 大模型应用页眉；图示为原生可编辑HTML/SVG。",
+  "retainedPreviousPages": {
+    "count": 44,
+    "timingSeconds": 3075,
+    "comparedWith": "Git HEAD正文",
+    "identical": true
+  },
+  "addedPages": [
+    {
+      "page": 45,
+      "id": "apps-gpt-chatgpt",
+      "kind": "relationship",
+      "timingSeconds": 90,
+      "sourceIds": [
+        "video-apps",
+        "apps-chatgpt-launch",
+        "apps-gpt3-paper",
+        "apps-instructgpt-paper"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-002.jpg",
+        "assets/video-evidence/005/frame-003.jpg",
+        "assets/video-evidence/005/frame-004.jpg"
+      ]
+    },
+    {
+      "page": 46,
+      "id": "apps-chatbot",
+      "kind": "chatbot",
+      "timingSeconds": 75,
+      "sourceIds": [
+        "video-apps",
+        "apps-chatgpt-launch",
+        "apps-conversation-state"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-007.jpg",
+        "assets/video-evidence/005/frame-008.jpg"
+      ]
+    },
+    {
+      "page": 47,
+      "id": "apps-dialogue-generation",
+      "kind": "generation",
+      "timingSeconds": 105,
+      "sourceIds": [
+        "video-apps",
+        "apps-gpt3-paper",
+        "apps-api-reference",
+        "apps-conversation-state"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-009.jpg",
+        "assets/video-evidence/005/frame-011.jpg",
+        "assets/video-evidence/005/frame-012.jpg"
+      ]
+    },
+    {
+      "page": 48,
+      "id": "apps-responsibilities",
+      "kind": "responsibilities",
+      "timingSeconds": 90,
+      "sourceIds": [
+        "video-apps",
+        "apps-api-reference",
+        "apps-conversation-state"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-013.jpg",
+        "assets/video-evidence/005/frame-014.jpg"
+      ]
+    },
+    {
+      "page": 49,
+      "id": "apps-capability-comparison",
+      "kind": "comparison",
+      "timingSeconds": 105,
+      "sourceIds": [
+        "video-apps",
+        "apps-gpt3-paper",
+        "apps-instructgpt-paper",
+        "apps-function-calling"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-015.jpg",
+        "assets/video-evidence/005/frame-016.jpg",
+        "assets/video-evidence/005/frame-017.jpg",
+        "assets/video-evidence/005/frame-018.jpg"
+      ]
+    },
+    {
+      "page": 50,
+      "id": "apps-hybrid",
+      "kind": "hybrid",
+      "timingSeconds": 90,
+      "sourceIds": [
+        "video-apps",
+        "apps-function-calling"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-019.jpg"
+      ]
+    },
+    {
+      "page": 51,
+      "id": "apps-api-sequence",
+      "kind": "sequence",
+      "timingSeconds": 120,
+      "sourceIds": [
+        "video-apps",
+        "apps-api-reference",
+        "apps-conversation-state"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-020.jpg",
+        "assets/video-evidence/005/frame-021.jpg",
+        "assets/video-evidence/005/frame-022.jpg",
+        "assets/video-evidence/005/frame-023.jpg"
+      ]
+    },
+    {
+      "page": 52,
+      "id": "apps-summary",
+      "kind": "summary",
+      "timingSeconds": 75,
+      "sourceIds": [
+        "video-apps",
+        "apps-chatgpt-launch",
+        "apps-api-reference",
+        "apps-function-calling"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-024.jpg",
+        "assets/video-evidence/005/frame-025.jpg",
+        "assets/video-evidence/005/frame-026.jpg"
+      ]
+    }
+  ],
+  "consolidation": [
+    "GPT字母与模型回顾合入模型/应用关系页，不重复此前LLM定义与概率生成章节。",
+    "Chatbot界面、生成机制与背后的分工分别保留为独立概念。",
+    "程序/模型能力勾叉展开合为任务适配对照；HTTP调用过程合为完整七步时序。",
+    "同一小结长时间停留合为三问一页。"
+  ],
+  "adaptations": [
+    "会议整理对话与订单查询流程为本项目构造的教学例，画面和讲稿均声明，不作为真实模型输出或业务效果。",
+    "Token片段仅帮助展示顺序，不声明真实分词边界，不展示伪造概率。",
+    "GPT/ChatGPT按模型层与应用层区分，保留历史命名语境与对话后训练说明。",
+    "会话记录、实际上下文和产品记忆分开说明，保留服务端会话状态等实现可能。",
+    "传统程序与模型按任务适配比较，去除绝对能/不能以及组合后必然可靠的结论。",
+    "应用负责权限和执行；HTTP为常见接入例，API密钥由服务端保管。"
+  ],
+  "notes": "本记录仅保存来源映射与改编依据；演示正文和讲稿只维护在content/decks/ai-history.json。",
+  "validation": {
+    "checkedOn": "2026-10-20",
+    "commands": [
+      "npm run check",
+      "npm test",
+      "npm run build",
+      "npm run verify"
+    ],
+    "testsPassed": 34,
+    "browserSlides": 52,
+    "viewports": [
+      {
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "pdfPages": 52,
+    "browserFailures": [],
+    "pdfIndependentRenderer": "PyMuPDF 1.28.2",
+    "visualReview": "逐页查看新增8页浏览器截图；查看全部9组浏览器总览和独立PDF栅格化总览，另放大检查API时序页。已修正聊天输入区间距、职责卡片高度、内容根类名冲突、生成反馈箭头及孤字换行。"
+  }
+}

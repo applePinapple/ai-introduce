@@ -1,4 +1,8 @@
-const layouts = new Set(['cover', 'loop', 'comparison', 'spotlight', 'closing', 'bullets', 'duo', 'table', 'timeline', 'definition', 'waves', 'product', 'gallery', 'relationship', 'neural', 'llm', 'process', 'example', 'image', 'diagram']);
+import { validateApplication } from './validate-application.mjs';
+import { validateAgent } from './validate-agent.mjs';
+import { validateHarness } from './validate-harness.mjs';
+
+const layouts = new Set(['cover', 'loop', 'comparison', 'spotlight', 'closing', 'bullets', 'duo', 'table', 'timeline', 'definition', 'waves', 'product', 'gallery', 'relationship', 'neural', 'llm', 'application', 'agent', 'harness', 'process', 'example', 'image', 'diagram']);
 const tones = new Set(['blue', 'orange', 'green']);
 const themes = new Set(['reinbee', 'neural-light', 'neural-dark']);
 const whiteKinds = new Set(['white-neuron', 'white-network', 'white-layers', 'white-neuron-detail', 'white-neuron-formula', 'white-neuron-steps', 'white-backprop-history', 'white-train-forward', 'white-train-loss', 'white-train-backward', 'white-train-update', 'white-train-summary']);
@@ -29,6 +33,12 @@ export function validateDeck(deck, sources) {
     if (['neural-light', 'neural-dark'].includes(slide.theme) && slide.layout !== 'neural') errors.push(`${label}.theme: neural themes require neural layout`);
     if (slide.layout !== 'neural' && (slide.neuralKind !== undefined || slide.neuralData !== undefined)) errors.push(`${label}: neuralKind and neuralData require neural layout`);
     if (slide.layout !== 'llm' && (slide.llmKind !== undefined || slide.llmData !== undefined)) errors.push(`${label}: llmKind and llmData require llm layout`);
+    if (slide.layout !== 'application' && (slide.applicationKind !== undefined || slide.applicationData !== undefined)) errors.push(`${label}: applicationKind and applicationData require application layout`);
+    if (slide.layout === 'application') errors.push(...validateApplication(slide));
+    if (slide.layout !== 'agent' && (slide.agentKind !== undefined || slide.agentData !== undefined)) errors.push(`${label}: agentKind and agentData require agent layout`);
+    if (slide.layout === 'agent') errors.push(...validateAgent(slide));
+    if (slide.layout !== 'harness' && (slide.harnessKind !== undefined || slide.harnessData !== undefined)) errors.push(`${label}: harnessKind and harnessData require harness layout`);
+    if (slide.layout === 'harness') errors.push(...validateHarness(slide));
     if (!Array.isArray(slide.notes) || !slide.notes.length || slide.notes.some(n => !nonempty(n))) errors.push(`${label}: notes required`);
     if (!Array.isArray(slide.sourceIds) || (!slide.sourceIds.length && slide.contentKind !== 'presentation-plan')) errors.push(`${label}: sourceIds required`);
     else for (const id of slide.sourceIds) {

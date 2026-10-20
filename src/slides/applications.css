@@ -1,0 +1,99 @@
+/* Application chapter only: native 1712 × 770 canvas on the shared ReinBEE master. */
+.application-page .application-body{position:absolute;left:104px;top:240px;width:1712px;height:770px;z-index:1;color:var(--ink)}
+.application-page .application-body *{box-sizing:border-box}
+.application-page .application-body h2,.application-page .application-body p{margin:0}
+.application-page .app-lead{position:absolute;left:0;top:0;width:1712px;font-size:32px;line-height:1.65;font-weight:500}
+.application-page .app-caption{position:absolute;left:0;bottom:0;width:1712px;font-size:24px;line-height:1.45;color:var(--muted)}
+.application-page .app-svg{position:absolute;inset:0;display:block;width:1712px;height:770px;overflow:visible;pointer-events:none;font-family:var(--font)}
+.application-page .app-blue{--app-accent:var(--blue);--app-soft:var(--blue-soft)}
+.application-page .app-yellow{--app-accent:var(--yellow);--app-soft:var(--yellow-soft)}
+.application-page .app-relationship-row{position:absolute;left:0;top:118px;width:1712px;display:grid;grid-template-columns:670px 372px 670px;align-items:center}
+.application-page .app-concept{height:288px;padding:34px 38px;border:1px solid var(--line);border-top:8px solid var(--app-accent);border-radius:12px;background:#fff}
+.application-page .app-kicker{font-family:var(--mono);font-size:23px;color:var(--muted);letter-spacing:.05em}
+.application-page .app-concept h2{font-size:60px;line-height:1.3;margin:15px 0 16px}
+.application-page .app-concept p{font-size:30px;line-height:1.7}
+.application-page .app-concept-bridge{text-align:center;padding:0 24px}
+.application-page .app-concept-bridge>span{display:block;font-size:90px;line-height:1;color:var(--yellow)}
+.application-page .app-concept-bridge p{font-size:27px;line-height:1.6;color:var(--muted);white-space:pre-line}
+.application-page .app-acronym{position:absolute;left:0;top:482px;width:1712px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.application-page .app-acronym>div{display:flex;align-items:center;gap:24px;padding:27px 26px;border-top:2px solid var(--line)}
+.application-page .app-acronym strong{flex:0 0 95px;height:95px;border-radius:50%;display:flex;justify-content:center;align-items:center;background:var(--blue-soft);color:var(--blue);font-size:55px;font-family:var(--mono)}
+.application-page .app-acronym>div:nth-child(2) strong{background:var(--yellow-soft);color:var(--ink)}
+.application-page .app-acronym b{display:block;font-size:28px;line-height:1.4}
+.application-page .app-acronym p{font-size:27px;line-height:1.6;color:var(--muted);margin-top:8px}
+.application-page .app-chat-window{position:absolute;left:0;top:100px;width:1060px;height:625px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 30px rgba(11,18,32,.04)}
+.application-page .app-chat-header{height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;border-bottom:1px solid var(--line)}
+.application-page .app-chat-header b{font-size:27px}.application-page .app-chat-header>span{font-size:22px;color:var(--muted)}
+.application-page .app-chat-messages{padding:20px 28px 15px;display:flex;flex-direction:column;gap:12px}
+.application-page .app-chat-message{max-width:820px;padding:13px 21px;border-radius:12px}
+.application-page .app-chat-message>span{display:block;font-size:20px;line-height:1.3;color:var(--muted);margin-bottom:5px}
+.application-page .app-chat-message>p{font-size:27px;line-height:1.5}
+.application-page .app-user{align-self:flex-end;background:var(--blue-soft)}
+.application-page .app-assistant{align-self:flex-start;background:#F4F6F9}
+.application-page .app-composer{position:absolute;left:28px;right:28px;bottom:20px;height:61px;border:1px solid var(--line);border-radius:30px;display:flex;justify-content:space-between;align-items:center;padding:0 12px 0 24px}
+.application-page .app-composer>span:first-child{font-size:25px;color:var(--muted)}
+.application-page .app-composer>span:last-child{width:39px;height:39px;border-radius:50%;background:var(--blue);color:#fff;text-align:center;font-size:29px}
+.application-page .app-chat-anatomy{position:absolute;left:1130px;top:125px;width:570px}
+.application-page .app-chat-anatomy h2{font-size:36px;line-height:1.4}
+.application-page .app-chat-anatomy ul,.application-page .app-responsibility ul{list-style:none;padding:0;margin:25px 0 0}
+.application-page .app-chat-anatomy li{padding:22px 0;border-bottom:1px solid var(--line)}
+.application-page .app-chat-anatomy b{font-size:29px;color:var(--blue);line-height:1.5}
+.application-page .app-chat-anatomy li p{font-size:27px;line-height:1.65;color:var(--muted);margin-top:8px}
+.application-page .app-generation-inputs{position:absolute;left:0;top:116px;width:490px}
+.application-page .app-generation-inputs h2,.application-page .app-generation-output h2{font-size:29px;line-height:1.5;margin-bottom:22px}
+.application-page .app-input{margin-bottom:16px;border-left:6px solid var(--blue);border-radius:8px;background:#fff;padding:15px 22px}
+.application-page .app-input b{display:block;font-size:23px;color:var(--muted);line-height:1.5}
+.application-page .app-input p{font-size:28px;line-height:1.5;margin-top:4px}
+.application-page .app-generation-model{position:absolute;left:650px;top:232px;width:410px;height:227px;background:var(--blue);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;z-index:1}
+.application-page .app-generation-model b{font-size:43px;font-family:var(--mono);line-height:1.4}
+.application-page .app-generation-model p{font-size:27px;line-height:1.6;margin-top:10px}
+.application-page .app-model-layers{position:absolute;left:0;right:0;top:-34px;height:34px}
+.application-page .app-model-layers i{position:absolute;left:0;right:0;height:14px;border:1px solid var(--blue);border-radius:5px;background:var(--blue-soft)}
+.application-page .app-model-layers i:nth-child(1){top:0;left:18px;right:18px}.application-page .app-model-layers i:nth-child(2){top:11px;left:9px;right:9px}.application-page .app-model-layers i:nth-child(3){top:22px}
+.application-page .app-generation-output{position:absolute;left:1235px;top:224px;width:477px}
+.application-page .app-tokens{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.application-page .app-tokens span{display:block;font-size:35px;line-height:1.4;padding:14px 17px;background:var(--yellow-soft);border:2px solid var(--yellow);border-radius:8px}
+.application-page .app-generation-stages{position:absolute;left:0;top:642px;width:1712px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.application-page .app-generation-stages>div{display:flex;align-items:flex-start;gap:18px}
+.application-page .app-generation-stages>div>span{font-family:var(--mono);font-size:25px;color:var(--blue);line-height:1.6}
+.application-page .app-generation-stages b{font-size:28px;line-height:1.5}
+.application-page .app-generation-stages p{font-size:25px;line-height:1.5;color:var(--muted)}
+.application-page .app-responsibilities{position:absolute;left:0;top:100px;display:grid;grid-template-columns:720px 272px 720px;align-items:center;width:1712px}
+.application-page .app-responsibility{height:530px;border:1px solid var(--line);border-top:8px solid var(--app-accent);border-radius:12px;background:#fff;padding:29px 36px}
+.application-page .app-responsibility h2{font-size:39px;line-height:1.5}
+.application-page .app-responsibility-header p{font-size:26px;line-height:1.5;color:var(--muted);margin-top:5px}
+.application-page .app-responsibility ul{margin-top:20px}
+.application-page .app-responsibility li{padding:12px 0;border-top:1px solid var(--line)}
+.application-page .app-responsibility li b{font-size:29px;line-height:1.5}
+.application-page .app-responsibility li p{font-size:26px;line-height:1.5;color:var(--muted);margin-top:4px}
+.application-page .app-responsibility-bridge{text-align:center;padding:0 25px}
+.application-page .app-responsibility-bridge span{font-size:88px;color:var(--yellow);line-height:1.3}
+.application-page .app-responsibility-bridge p{font-size:27px;line-height:1.6;color:var(--muted);white-space:pre-line}
+.application-page .app-boundary{position:absolute;left:0;top:650px;width:1712px;padding:12px 25px;border-left:6px solid var(--yellow);font-size:30px;line-height:1.5;background:var(--yellow-soft)}
+.application-page .app-comparison{position:absolute;left:0;top:116px;width:1712px;border-collapse:collapse;table-layout:fixed;background:#fff}
+.application-page .app-comparison thead th{font-size:27px;line-height:1.5;padding:21px 28px;text-align:left;background:var(--blue-soft);color:var(--blue);border-bottom:2px solid var(--blue)}
+.application-page .app-comparison thead th:first-child{width:24%}.application-page .app-comparison thead th:nth-child(2){width:38%}.application-page .app-comparison thead th:nth-child(3){background:var(--yellow-soft);color:var(--ink)}
+.application-page .app-comparison tbody th,.application-page .app-comparison tbody td{padding:24px 28px;font-size:30px;line-height:1.6;border-bottom:1px solid var(--line);text-align:left}
+.application-page .app-comparison tbody th{font-weight:600;background:#F8FAFC}
+.application-page .app-principle{position:absolute;left:0;top:638px;width:1712px;border-left:7px solid var(--yellow);padding:15px 26px;font-size:33px;line-height:1.6;color:var(--blue)}
+.application-page .app-hybrid-request{position:absolute;top:105px;left:0;width:1712px;display:flex;gap:30px;align-items:center}
+.application-page .app-hybrid-request span{font-size:24px;color:var(--blue);padding:8px 16px;border-radius:5px;background:var(--blue-soft)}
+.application-page .app-hybrid-request b{font-size:34px;line-height:1.5;font-weight:500}
+.application-page .app-hybrid-steps{position:absolute;left:0;top:220px;width:1712px;display:grid;grid-template-columns:repeat(4,1fr);gap:58px}
+.application-page .app-hybrid-steps article{position:relative;height:250px;padding:24px 28px;background:#fff;border:1px solid var(--line);border-top:7px solid var(--app-accent);border-radius:12px}
+.application-page .app-step-number{font-family:var(--mono);font-size:25px;line-height:1.5;color:var(--muted)}
+.application-page .app-hybrid-steps h2{font-size:34px;line-height:1.5;margin-top:9px}
+.application-page .app-hybrid-steps p{font-size:27px;line-height:1.65;margin-top:13px;color:var(--muted)}
+.application-page .app-step-arrow{position:absolute;right:-45px;top:90px;font-size:45px;color:var(--yellow)}
+.application-page .app-hybrid-result{position:absolute;left:0;top:581px;width:1712px;display:flex;gap:27px;align-items:center;padding:18px 25px;background:var(--blue-soft);border-radius:10px}
+.application-page .app-hybrid-result span{font-size:24px;color:var(--blue);white-space:nowrap}
+.application-page .app-hybrid-result p{font-size:30px;line-height:1.6}
+.application-page .app-hybrid-boundary{position:absolute;left:0;top:686px;width:1712px;font-size:27px;line-height:1.5;color:var(--muted)}
+.application-page .app-sequence-bottom{position:absolute;left:0;top:680px;width:1712px;text-align:center;font-size:28px;line-height:1.5;color:var(--blue)}
+.application-page .app-summary-questions{position:absolute;left:0;top:112px;width:1712px;display:grid;gap:24px}
+.application-page .app-summary-questions article{min-height:150px;display:grid;grid-template-columns:90px 650px 1fr;gap:26px;align-items:center;padding:22px 30px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.application-page .app-summary-questions article>span{display:flex;width:74px;height:74px;align-items:center;justify-content:center;background:var(--blue-soft);color:var(--blue);border-radius:50%;font-size:31px;font-family:var(--mono)}
+.application-page .app-summary-questions article:nth-child(2)>span{background:var(--yellow-soft);color:var(--ink)}
+.application-page .app-summary-questions h2{font-size:34px;line-height:1.5;font-weight:600}
+.application-page .app-summary-questions article p{font-size:30px;line-height:1.65;color:var(--muted)}
+.application-page .app-summary-closing{position:absolute;left:0;top:656px;width:1712px;font-size:35px;line-height:1.5;text-align:center;color:var(--blue)}

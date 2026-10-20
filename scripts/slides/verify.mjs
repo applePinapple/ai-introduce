@@ -89,6 +89,66 @@ try {
             clippedText: clippedBy.length > 0, clippedBy,
           };
         });
+        const applicationLayout = [];
+        const application = slide.querySelector('.application-body');
+        if (application) {
+          const scale = rect.width / 1920;
+          const box = application.getBoundingClientRect();
+          const near = (actual, expected) => Math.abs(actual - expected) <= 2 * scale;
+          if (!near(box.left - rect.left, 104 * scale) || !near(box.top - rect.top, 240 * scale)
+              || !near(box.width, 1712 * scale) || !near(box.height, 770 * scale)) {
+            applicationLayout.push('应用内容画布尺寸或位置不一致');
+          }
+          const lastMessage = application.querySelector('.app-chat-message:last-child');
+          const composer = application.querySelector('.app-composer');
+          if (lastMessage && composer && lastMessage.getBoundingClientRect().bottom > composer.getBoundingClientRect().top - 8 * scale) {
+            applicationLayout.push('最后一条聊天消息侵入输入区');
+          }
+          for (const card of application.querySelectorAll('.app-concept,.app-responsibility,.app-chat-message,.app-hybrid-steps article')) {
+            const bounds = card.getBoundingClientRect();
+            for (const field of card.querySelectorAll('[data-fit]')) {
+              const range = document.createRange(); range.selectNodeContents(field);
+              const text = range.getBoundingClientRect();
+              if (text.left < bounds.left - 3 * scale || text.right > bounds.right + 3 * scale
+                  || text.top < bounds.top - 3 * scale || text.bottom > bounds.bottom + 3 * scale) {
+                applicationLayout.push(`卡片内容越界：${field.textContent.trim().slice(0, 30)}`);
+              }
+            }
+          }
+          const caption = application.querySelector('.app-caption').getBoundingClientRect();
+          for (const ending of application.querySelectorAll('.app-generation-stages,.app-boundary,.app-principle,.app-hybrid-boundary,.app-sequence-bottom,.app-summary-closing')) {
+            if (ending.getBoundingClientRect().bottom > caption.top - 4 * scale) applicationLayout.push('主要内容与底部图注重叠');
+          }
+        }
+        const moduleLayouts = { agent: [], harness: [] };
+        for (const kind of ['agent', 'harness']) {
+          const body = slide.querySelector(`.${kind}-body`);
+          if (!body) continue;
+          const layoutIssues = moduleLayouts[kind];
+          const scale = rect.width / 1920;
+          const box = body.getBoundingClientRect();
+          const near = (actual, expected) => Math.abs(actual - expected) <= 2 * scale;
+          if (!near(box.left - rect.left, 104 * scale) || !near(box.top - rect.top, 240 * scale)
+              || !near(box.width, 1712 * scale) || !near(box.height, 770 * scale)) {
+            layoutIssues.push(`${kind}内容画布尺寸或位置不一致`);
+          }
+          for (const card of body.querySelectorAll(`[data-${kind}-card]`)) {
+            const bounds = card.getBoundingClientRect();
+            for (const field of card.querySelectorAll('[data-fit]')) {
+              const range = document.createRange(); range.selectNodeContents(field);
+              const text = range.getBoundingClientRect();
+              if (text.left < bounds.left - 3 * scale || text.right > bounds.right + 3 * scale
+                  || text.top < bounds.top - 3 * scale || text.bottom > bounds.bottom + 3 * scale) {
+                layoutIssues.push(`${kind}卡片内容越界：${field.textContent.trim().slice(0, 30)}`);
+              }
+            }
+          }
+          const caption = body.querySelector(`.${kind}-caption`)?.getBoundingClientRect();
+          if (!caption) layoutIssues.push(`${kind}图注缺失`);
+          else for (const ending of body.querySelectorAll(`.${kind}-bottom`)) {
+            if (ending.getBoundingClientRect().bottom > caption.top - 4 * scale) layoutIssues.push(`${kind}主要内容与底部图注重叠`);
+          }
+        }
         return {
           page: Array.from(document.querySelectorAll('.slide')).indexOf(slide) + 1,
           activeCount: document.querySelectorAll('.slide.active').length,
@@ -97,6 +157,9 @@ try {
           viewportOverflow: document.documentElement.scrollWidth > innerWidth + 1 || document.documentElement.scrollHeight > innerHeight + 1,
           stageOutsideViewport: rect.left < -1 || rect.top < -1 || rect.right > innerWidth + 1 || rect.bottom > innerHeight + 1,
           fields,
+          applicationLayout,
+          agentLayout: moduleLayouts.agent,
+          harnessLayout: moduleLayouts.harness,
           notes: slide.querySelector('template[data-speaker-notes]')?.content.textContent.trim() ?? '',
           notesInert: Array.from(slide.querySelectorAll('template[data-speaker-notes]')).every(template => getComputedStyle(template).display === 'none' && Array.from(template.content.childNodes).every(node => !node.isConnected)),
           visibleNoteText: Array.from(slide.querySelector('template[data-speaker-notes]')?.content.querySelectorAll('p') ?? []).filter(p => p.textContent.trim() && slide.innerText.includes(p.textContent.trim())).map(p => p.textContent.trim()),
@@ -115,6 +178,9 @@ try {
       if (result.viewportOverflow || result.stageOutsideViewport) failures.push(`${tag}: 未完整适配屏幕`);
       if (!result.fields.length && !result.imageCount) failures.push(`${tag}: 没有可见文字或图片内容`);
       for (const field of result.fields) if (field.overflow || field.outsideStage || field.clippedText) failures.push(`${tag}: 文本越界 ${field.text.slice(0, 45)}`);
+      for (const issue of result.applicationLayout) failures.push(`${tag}: ${issue}`);
+      for (const issue of result.agentLayout) failures.push(`${tag}: ${issue}`);
+      for (const issue of result.harnessLayout) failures.push(`${tag}: ${issue}`);
       if (!result.notes) failures.push(`${tag}: 缺少讲者备注`);
       if (!result.notesInert || result.visibleNoteText.length) failures.push(`${tag}: 讲者备注出现在观众画面`);
       if (result.fontStatus !== 'loaded' || result.fonts.some(font => font.status !== 'loaded')) failures.push(`${tag}: 字体加载未完成`);

@@ -627,6 +627,202 @@ test('当前演讲拒绝关系图缺失正文、不安全证据路径和不一�
   assert.match(errors,/must stay inside assets/);assert.match(errors,/durations must equal/);
 });
 
+test('大模型应用追加在完整LLM模块之后，保留视频顺序、讲稿和来源', () => {
+  const slides = full.slides.slice(44, 52);
+  assert.equal(slides.length, 8);
+  assert.equal(full.slides[43].llmKind, 'context-shift');
+  assert.deepEqual(slides.map(slide => slide.applicationKind), [
+    'relationship', 'chatbot', 'generation', 'responsibilities',
+    'comparison', 'hybrid', 'sequence', 'summary',
+  ]);
+  assert.equal(slides.reduce((sum, slide) => sum + slide.timingSeconds, 0), 750);
+  assert.equal(full.slides.slice(0, 44).reduce((sum, slide) => sum + slide.timingSeconds, 0), 3075);
+  for (const slide of slides) {
+    assert.equal(slide.layout, 'application');
+    assert.equal(slide.chapter, '04');
+    assert.equal(slide.theme, 'reinbee');
+    assert.ok(slide.sourceIds.includes('video-apps'));
+    assert.ok(slide.evidencePaths.some(path => path.includes('/005/')));
+    assert.ok(slide.notes.length >= 3);
+    assert.ok(slide.notes.join('').length >= 180);
+  }
+  const notes = speakerNotes(full, sources).slice(44, 52);
+  assert.deepEqual(notes.map(note => note.page), [45, 46, 47, 48, 49, 50, 51, 52]);
+  assert.ok(notes.every(note => note.sources.every(source => source?.verifiedOn)));
+});
+
+test('大模型应用拒绝损坏的消息、比较表和API参与者引用', () => {
+  const make = kind => ({
+    title: '应用内容契约',
+    slides: [structuredClone(full.slides.find(slide => slide.applicationKind === kind))],
+  });
+  for (const [kind, mutate, expected] of [
+    ['relationship', s => { delete s.applicationData.model; }, /model.title: nonempty/],
+    ['chatbot', s => { s.applicationData.messages[0] = null; }, /messages\[0\].role: nonempty/],
+    ['generation', s => { s.applicationData.outputTokens = []; }, /outputTokens: expected/],
+    ['responsibilities', s => { delete s.applicationData.app.items; }, /app.items: expected/],
+    ['comparison', s => { s.applicationData.rows[0].pop(); }, /rows\[0\]: expected/],
+    ['hybrid', s => { s.applicationData.steps.pop(); }, /steps: expected/],
+    ['sequence', s => { s.applicationData.events[0].to = 3; }, /participant index 0-2/],
+    ['sequence', s => { s.applicationData.events[0].tone = 'red'; }, /unsupported tone/],
+    ['summary', s => { s.applicationData.questions[0].answer = ''; }, /answer: nonempty/],
+    ['summary', s => { s.chapter = '03'; }, /application requires 04/],
+    ['summary', s => { s.applicationData = null; }, /applicationData: object required/],
+  ]) {
+    const changed = make(kind);
+    mutate(changed.slides[0]);
+    assert.match(validateDeck(changed, sources).join('\n'), expected, kind);
+    assert.throws(() => renderDeck(changed, sources), expected);
+  }
+  const changed = make('summary');
+  changed.slides[0].layout = 'bullets';
+  changed.slides[0].bullets = ['正文'];
+  assert.match(validateDeck(changed, sources).join('\n'), /applicationKind and applicationData require application layout/);
+});
+
+test('应用图示中的教学文字均转义，讲稿保持隐藏', () => {
+  const changed = { title: '应用转义', slides: structuredClone(full.slides.slice(44, 52)) };
+  const marker = '<img src=x onerror="alert(1)">';
+  changed.slides[0].applicationData.model.title = marker;
+  changed.slides[1].applicationData.messages[0].text = marker;
+  changed.slides[2].applicationData.outputTokens[0] = marker;
+  changed.slides[3].applicationData.app.items[0].text = marker;
+  changed.slides[4].applicationData.rows[0][1] = marker;
+  changed.slides[5].applicationData.resultText = marker;
+  changed.slides[6].applicationData.events[0].label = marker;
+  changed.slides[7].applicationData.questions[0].answer = marker;
+  const html = renderDeck(changed, sources);
+  assert.ok(!html.includes(marker));
+  assert.equal((html.match(/&lt;img src=x onerror=&quot;alert\(1\)&quot;&gt;/g) || []).length, 8);
+  assert.equal((html.match(/<template data-speaker-notes>/g) || []).length, 8);
+  assert.equal((html.match(/ application-page/g) || []).length, 8);
+  assert.ok(!html.includes('undefined'));
+});
+
+test('Agent章节保留七个原理概念、讲稿及可追溯证据', () => {
+  const slides = full.slides.slice(52, 59);
+  assert.equal(slides.length, 7);
+  assert.deepEqual(slides.map(slide => slide.agentKind), ['weather', 'setup', 'loop', 'schema', 'messages', 'sequence', 'safeguards']);
+  assert.equal(slides.reduce((sum, slide) => sum + slide.timingSeconds, 0), 690);
+  assert.deepEqual(validateDeck(full, sources), []);
+  for (const slide of slides) {
+    assert.equal(slide.layout, 'agent');
+    assert.equal(slide.chapter, '05');
+    assert.equal(slide.theme, 'reinbee');
+    assert.ok(slide.sourceIds.includes('video-agent'));
+    assert.ok(slide.evidencePaths.length > 0);
+    assert.ok(slide.notes.length >= 3);
+  }
+  const notes = speakerNotes(full, sources).slice(52, 59);
+  assert.deepEqual(notes.map(note => note.page), [53, 54, 55, 56, 57, 58, 59]);
+  assert.ok(slides.every(slide => /模拟|固定返回/.test(JSON.stringify(slide))));
+  assert.match(slides[4].notes.join('\n'), /tool_call_id/);
+  assert.match(slides[5].notes.join('\n'), /执行/);
+});
+
+test('Agent内容结构损坏时在绘图前给出具体错误', () => {
+  const make = kind => ({ title: 'Agent契约', slides: [structuredClone(full.slides.find(slide => slide.agentKind === kind))] });
+  for (const [kind, mutate, expected] of [
+    ['weather', s => { s.agentData.paths[0].steps.pop(); }, /steps: expected/],
+    ['setup', s => { s.agentData.codeLines = []; }, /codeLines: expected/],
+    ['loop', s => { s.agentData.model = null; }, /model.label: nonempty/],
+    ['schema', s => { s.agentData.fields[0].value = ''; }, /value: nonempty/],
+    ['messages', s => { s.agentData.rows[1].lines = null; }, /lines: expected/],
+    ['sequence', s => { s.agentData.events[0].from = 3; }, /participant index 0-2/],
+    ['sequence', s => { s.agentData.events[0].tone = 'red'; }, /unsupported tone/],
+    ['safeguards', s => { s.agentData.items[1] = null; }, /title: nonempty/],
+    ['safeguards', s => { s.chapter = '04'; }, /agent requires 05/],
+    ['safeguards', s => { s.agentData = null; }, /agentData: object required/],
+  ]) {
+    const changed = make(kind);
+    mutate(changed.slides[0]);
+    assert.match(validateDeck(changed, sources).join('\n'), expected, kind);
+    assert.throws(() => renderDeck(changed, sources), expected);
+  }
+  const changed = make('safeguards');
+  changed.slides[0].layout = 'bullets';
+  changed.slides[0].bullets = ['内容'];
+  assert.match(validateDeck(changed, sources).join('\n'), /agentKind and agentData require agent layout/);
+});
+
+test('Agent代码、消息和图示文本安全转义，完整讲稿留在备注', () => {
+  const changed = { title: 'Agent转义', slides: structuredClone(full.slides.slice(52, 59)) };
+  const marker = '<img src=x onerror="alert(1)">';
+  changed.slides[0].agentData.paths[0].title = marker;
+  changed.slides[1].agentData.codeLines[0] = marker;
+  changed.slides[2].agentData.model.questions[0] = marker;
+  changed.slides[3].agentData.fields[0].value = marker;
+  changed.slides[4].agentData.rows[0].lines[0] = marker;
+  changed.slides[5].agentData.events[0].label = marker;
+  changed.slides[6].agentData.items[0].title = marker;
+  const html = renderDeck(changed, sources);
+  assert.ok(!html.includes(marker));
+  assert.equal((html.match(/&lt;img src=x onerror=&quot;alert\(1\)&quot;&gt;/g) || []).length, 7);
+  assert.equal((html.match(/<template data-speaker-notes>/g) || []).length, 7);
+  assert.equal((html.match(/ agent-page/g) || []).length, 7);
+  assert.ok(!html.includes('undefined'));
+});
+
+test('Harness章节承接Agent，六个工程概念均关联已核验来源', () => {
+  const slides = full.slides.slice(59, 65);
+  assert.equal(slides.length, 6);
+  assert.deepEqual(slides.map(slide => slide.harnessKind), ['anatomy', 'context', 'continuity', 'execution', 'improvement', 'case']);
+  assert.equal(slides.reduce((sum, slide) => sum + slide.timingSeconds, 0), 600);
+  assert.deepEqual(validateDeck(full, sources), []);
+  for (const slide of slides) {
+    assert.equal(slide.layout, 'harness');
+    assert.equal(slide.chapter, '06');
+    assert.equal(slide.theme, 'reinbee');
+    assert.ok(slide.sourceIds.length >= 2);
+    assert.ok(slide.sourceIds.every(id => id.startsWith('harness-')));
+    assert.ok(slide.notes.length >= 4);
+  }
+  assert.deepEqual(speakerNotes(full, sources).slice(59, 65).map(note => note.page), [60, 61, 62, 63, 64, 65]);
+  assert.match(JSON.stringify(slides[5]), /教学示例|教学示意/);
+});
+
+test('Harness拒绝缺失状态、错误循环结构与无效比较行', () => {
+  const make = kind => ({ title: 'Harness契约', slides: [structuredClone(full.slides.find(slide => slide.harnessKind === kind))] });
+  for (const [kind, mutate, expected] of [
+    ['anatomy', s => { s.harnessData.model = null; }, /model.label: nonempty/],
+    ['anatomy', s => { s.harnessData.parts.pop(); }, /parts: expected 4/],
+    ['context', s => { s.harnessData.window.text = ''; }, /window.text: nonempty/],
+    ['continuity', s => { s.harnessData.record.items = null; }, /record.items: expected 3/],
+    ['execution', s => { s.harnessData.controls[0] = null; }, /controls\[0\].label: nonempty/],
+    ['improvement', s => { s.harnessData.outer.steps.pop(); }, /outer.steps: expected 5/],
+    ['case', s => { s.harnessData.rows[0].evidence = ''; }, /evidence: nonempty/],
+    ['case', s => { delete s.chapter; }, /harness requires 06/],
+    ['case', s => { delete s.sourceLabel; }, /sourceLabel: nonempty/],
+    ['case', s => { s.harnessData = []; }, /harnessData: object required/],
+  ]) {
+    const changed = make(kind);
+    mutate(changed.slides[0]);
+    assert.match(validateDeck(changed, sources).join('\n'), expected, kind);
+    assert.throws(() => renderDeck(changed, sources), expected);
+  }
+  const changed = make('case');
+  changed.slides[0].layout = 'bullets';
+  changed.slides[0].bullets = ['内容'];
+  assert.match(validateDeck(changed, sources).join('\n'), /harnessKind and harnessData require harness layout/);
+});
+
+test('Harness嵌套文本安全转义且讲稿不成为投屏正文', () => {
+  const changed = { title: 'Harness转义', slides: structuredClone(full.slides.slice(59, 65)) };
+  const marker = '<img src=x onerror="alert(1)">';
+  changed.slides[0].harnessData.parts[0].text = marker;
+  changed.slides[1].harnessData.window.text = marker;
+  changed.slides[2].harnessData.record.items[0] = marker;
+  changed.slides[3].harnessData.controls[0].text = marker;
+  changed.slides[4].harnessData.outer.steps[0] = marker;
+  changed.slides[5].harnessData.rows[0].evidence = marker;
+  const html = renderDeck(changed, sources);
+  assert.ok(!html.includes(marker));
+  assert.equal((html.match(/&lt;img src=x onerror=&quot;alert\(1\)&quot;&gt;/g) || []).length, 6);
+  assert.equal((html.match(/<template data-speaker-notes>/g) || []).length, 6);
+  assert.equal((html.match(/ harness-page/g) || []).length, 6);
+  assert.ok(!html.includes('undefined'));
+});
+
 test('三页样例的布局、引用和讲稿通过内容校验', () => {
   assert.equal(deck.slides.length, 3);
   assert.deepEqual(deck.slides.map(slide => slide.layout), ['cover', 'loop', 'comparison']);

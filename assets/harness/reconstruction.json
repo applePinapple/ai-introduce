@@ -1,0 +1,141 @@
+{
+  "createdOn": "2026-10-20",
+  "contentPath": "content/decks/ai-history.json",
+  "sourceReview": "assets/harness/source-review.json",
+  "implementation": [
+    "src/slides/harness.mjs",
+    "src/slides/harness.css"
+  ],
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "content": {
+      "x": 104,
+      "y": 240,
+      "width": 1712,
+      "height": 770
+    }
+  },
+  "style": "原有ReinBee蓝黄底板、浅灰透视网格、白色卡片、浅色Logo及原生HTML播放。",
+  "retainedPreviousPages": {
+    "count": 59,
+    "timingSeconds": 4515,
+    "comparedWith": "本轮开始前59页结构化正文快照",
+    "slidesSha256": "7272cfd8175304d31c87ff82490eb8dcf610c2a96cff4825f84ad81732a05094",
+    "identical": true
+  },
+  "addedPages": [
+    {
+      "page": 60,
+      "id": "harness-anatomy",
+      "kind": "anatomy",
+      "timingSeconds": 90,
+      "sourceIds": [
+        "harness-anatomy",
+        "harness-long-running"
+      ]
+    },
+    {
+      "page": 61,
+      "id": "harness-context",
+      "kind": "context",
+      "timingSeconds": 105,
+      "sourceIds": [
+        "harness-context",
+        "harness-anatomy"
+      ]
+    },
+    {
+      "page": 62,
+      "id": "harness-continuity",
+      "kind": "continuity",
+      "timingSeconds": 105,
+      "sourceIds": [
+        "harness-long-running",
+        "harness-context"
+      ]
+    },
+    {
+      "page": 63,
+      "id": "harness-execution",
+      "kind": "execution",
+      "timingSeconds": 90,
+      "sourceIds": [
+        "harness-anatomy",
+        "harness-middleware"
+      ]
+    },
+    {
+      "page": 64,
+      "id": "harness-improvement",
+      "kind": "improvement",
+      "timingSeconds": 120,
+      "sourceIds": [
+        "harness-improvement",
+        "harness-evals"
+      ]
+    },
+    {
+      "page": 65,
+      "id": "harness-case",
+      "kind": "case",
+      "timingSeconds": 90,
+      "sourceIds": [
+        "harness-long-running",
+        "harness-improvement",
+        "harness-evals"
+      ]
+    }
+  ],
+  "organization": [
+    "从Agent原理延伸到外围运行系统，单独定义Harness的工程工作范围。",
+    "每轮上下文构建与跨会话持久状态分开；跨会话交接单列完整执行图。",
+    "工具执行控制保留正常和失败路径，不把提示词当作权限边界。",
+    "单任务执行内循环与跨实验工程改进外循环分别显示。",
+    "以修复订单导出缺陷的教学示例连接失败现象、机制调整与可核验验收。"
+  ],
+  "adaptations": [
+    "六页为针对老板与技术同事归纳的教学结构，不是任一原文的逐字翻译，也不是视频015内容。",
+    "Agent=Model+Harness作为系统设计工作定义，不声称行业统一标准。",
+    "外部持久信息须重新读入上下文，压缩可能丢失细节；不把持久记录等同于模型权重更新。",
+    "长任务交接借鉴公开代码开发实验，文件名和具体框架不是通用强制要求。",
+    "有限重试、次数限制、异常反馈、停止或转交均需配置；沙箱不保证结果正确或消除全部风险。",
+    "工程改进比较任务结果、执行轨迹与成本/时延等指标；不编造提升比例或客户成效。",
+    "订单导出案例明确为教学示例，没有运行真实业务操作或部署Agent。"
+  ],
+  "notes": "只保存来源映射、版式与改编依据；演示正文和讲稿只维护在content/decks/ai-history.json。",
+  "validation": {
+    "checkedOn": "2026-10-20",
+    "commands": [
+      "npm run check",
+      "npm test",
+      "npm run build",
+      "npm run verify"
+    ],
+    "testsPassed": 40,
+    "browserSlides": 65,
+    "viewportChecks": 195,
+    "viewports": [
+      {
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "pdfPages": 65,
+    "browserFailures": [],
+    "externalRequests": [],
+    "pdfIndependentRenderer": "PyMuPDF 1.28.2",
+    "visualReview": "逐页查看新增六页浏览器截图并复核修改稿；查看完整稿的11张浏览器总览与11张独立PDF渲染总览，并放大检查新增页的PDF。调整步骤卡留白、外循环节点间距，明确模型与工具的双向请求/反馈，以及任务执行内循环的返回路径。前59页结构化正文与讲稿保持不变。",
+    "interactionChecks": 35,
+    "interactions": "翻页、目录、数字跳页、URL hash、全屏及讲者窗口双向同步全部通过。",
+    "contentSha256": "d9e9f0dbd6c5ce53743c63ab79218c11e3ca099e2360ababab0382b27f0e17f5"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "完整 AI 与 Agent HTML 演讲",
+  "title": "AI 基础、神经网络、大语言模型、应用、Agent 与 Harness 工程 HTML 演讲",
   "type": "object",
   "required": [
     "title",
@@ -53,7 +53,10 @@
               "image",
               "diagram",
               "neural",
-              "llm"
+              "llm",
+              "application",
+              "agent",
+              "harness"
             ]
           },
           "title": {
@@ -586,6 +589,48 @@
             ]
           },
           "llmData": {
+            "type": "object"
+          },
+          "applicationKind": {
+            "enum": [
+              "relationship",
+              "chatbot",
+              "generation",
+              "responsibilities",
+              "comparison",
+              "hybrid",
+              "sequence",
+              "summary"
+            ]
+          },
+          "applicationData": {
+            "type": "object"
+          },
+          "agentKind": {
+            "enum": [
+              "weather",
+              "setup",
+              "loop",
+              "schema",
+              "messages",
+              "sequence",
+              "safeguards"
+            ]
+          },
+          "agentData": {
+            "type": "object"
+          },
+          "harnessKind": {
+            "enum": [
+              "anatomy",
+              "context",
+              "continuity",
+              "execution",
+              "improvement",
+              "case"
+            ]
+          },
+          "harnessData": {
             "type": "object"
           }
         },
@@ -3299,6 +3344,2027 @@
                   "required": [
                     "excludedText"
                   ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "layout"
+              ],
+              "properties": {
+                "layout": {
+                  "const": "application"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "applicationKind",
+                "applicationData",
+                "theme",
+                "chapter",
+                "sectionLabel",
+                "logoPath",
+                "logoAlt",
+                "eyebrow",
+                "subtitle",
+                "sourceLabel"
+              ],
+              "properties": {
+                "theme": {
+                  "const": "reinbee"
+                },
+                "chapter": {
+                  "const": "04"
+                },
+                "section": {
+                  "const": "大模型应用"
+                },
+                "sectionLabel": {
+                  "const": "大模型应用"
+                }
+              }
+            },
+            "else": {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "applicationKind"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "applicationData"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "applicationKind"
+              ],
+              "properties": {
+                "applicationKind": {
+                  "const": "relationship"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "applicationData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "model",
+                    "product",
+                    "acronym",
+                    "bridgeLabel"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "model": {
+                      "type": "object",
+                      "required": [
+                        "title",
+                        "label",
+                        "summary"
+                      ],
+                      "properties": {
+                        "title": {
+                          "$ref": "#/$defs/text"
+                        },
+                        "label": {
+                          "$ref": "#/$defs/text"
+                        },
+                        "summary": {
+                          "$ref": "#/$defs/text"
+                        }
+                      }
+                    },
+                    "product": {
+                      "type": "object",
+                      "required": [
+                        "title",
+                        "label",
+                        "summary"
+                      ],
+                      "properties": {
+                        "title": {
+                          "$ref": "#/$defs/text"
+                        },
+                        "label": {
+                          "$ref": "#/$defs/text"
+                        },
+                        "summary": {
+                          "$ref": "#/$defs/text"
+                        }
+                      }
+                    },
+                    "acronym": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "letter",
+                          "term",
+                          "meaning"
+                        ],
+                        "properties": {
+                          "letter": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "term": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "meaning": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    },
+                    "bridgeLabel": {
+                      "$ref": "#/$defs/text"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "applicationKind"
+              ],
+              "properties": {
+                "applicationKind": {
+                  "const": "chatbot"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "applicationData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "appLabel",
+                    "exampleLabel",
+                    "messages",
+                    "composerLabel",
+                    "anatomyTitle",
+                    "anatomy"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "appLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "exampleLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "messages": {
+                      "type": "array",
+                      "minItems": 4,
+                      "maxItems": 4,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "role",
+                          "text"
+                        ],
+                        "properties": {
+                          "role": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "text": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    },
+                    "composerLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "anatomyTitle": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "anatomy": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "label",
+                          "text"
+                        ],
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "text": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "applicationKind"
+              ],
+              "properties": {
+                "applicationKind": {
+                  "const": "generation"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "applicationData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "inputLabel",
+                    "inputs",
+                    "modelLabel",
+                    "modelCaption",
+                    "outputLabel",
+                    "outputTokens",
+                    "feedbackLabel",
+                    "stages"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "inputLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "inputs": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "label",
+                          "text"
+                        ],
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "text": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    },
+                    "modelLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "modelCaption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "outputLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "outputTokens": {
+                      "type": "array",
+                      "minItems": 2,
+                      "maxItems": 8,
+                      "items": {
+                        "$ref": "#/$defs/text"
+                      }
+                    },
+                    "feedbackLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "stages": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "label",
+                          "text"
+                        ],
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "text": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "applicationKind"
+              ],
+              "properties": {
+                "applicationKind": {
+                  "const": "responsibilities"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "applicationData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "app",
+                    "model",
+                    "connectionLabel",
+                    "boundaryLabel"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "app": {
+                      "type": "object",
+                      "required": [
+                        "title",
+                        "caption",
+                        "items"
+                      ],
+                      "properties": {
+                        "title": {
+                          "$ref": "#/$defs/text"
+                        },
+                        "caption": {
+                          "$ref": "#/$defs/text"
+                        },
+                        "items": {
+                          "type": "array",
+                          "minItems": 3,
+                          "maxItems": 3,
+                          "items": {
+                            "type": "object",
+                            "required": [
+                              "label",
+                              "text"
+                            ],
+                            "properties": {
+                              "label": {
+                                "$ref": "#/$defs/text"
+                              },
+                              "text": {
+                                "$ref": "#/$defs/text"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "model": {
+                      "type": "object",
+                      "required": [
+                        "title",
+                        "caption",
+                        "items"
+                      ],
+                      "properties": {
+                        "title": {
+                          "$ref": "#/$defs/text"
+                        },
+                        "caption": {
+                          "$ref": "#/$defs/text"
+                        },
+                        "items": {
+                          "type": "array",
+                          "minItems": 3,
+                          "maxItems": 3,
+                          "items": {
+                            "type": "object",
+                            "required": [
+                              "label",
+                              "text"
+                            ],
+                            "properties": {
+                              "label": {
+                                "$ref": "#/$defs/text"
+                              },
+                              "text": {
+                                "$ref": "#/$defs/text"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "connectionLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "boundaryLabel": {
+                      "$ref": "#/$defs/text"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "applicationKind"
+              ],
+              "properties": {
+                "applicationKind": {
+                  "const": "comparison"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "applicationData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "headers",
+                    "rows",
+                    "principle"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "headers": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "items": {
+                        "$ref": "#/$defs/text"
+                      }
+                    },
+                    "rows": {
+                      "type": "array",
+                      "minItems": 4,
+                      "maxItems": 4,
+                      "items": {
+                        "type": "array",
+                        "minItems": 3,
+                        "maxItems": 3,
+                        "items": {
+                          "$ref": "#/$defs/text"
+                        }
+                      }
+                    },
+                    "principle": {
+                      "$ref": "#/$defs/text"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "applicationKind"
+              ],
+              "properties": {
+                "applicationKind": {
+                  "const": "hybrid"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "applicationData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "exampleLabel",
+                    "userRequest",
+                    "steps",
+                    "feedbackLabel",
+                    "resultLabel",
+                    "resultText",
+                    "boundaryLabel"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "exampleLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "userRequest": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "steps": {
+                      "type": "array",
+                      "minItems": 4,
+                      "maxItems": 4,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "label",
+                          "text"
+                        ],
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "text": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    },
+                    "feedbackLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "resultLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "resultText": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "boundaryLabel": {
+                      "$ref": "#/$defs/text"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "applicationKind"
+              ],
+              "properties": {
+                "applicationKind": {
+                  "const": "sequence"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "applicationData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "participants",
+                    "events",
+                    "bottomLine"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "participants": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "label",
+                          "caption"
+                        ],
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "caption": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    },
+                    "events": {
+                      "type": "array",
+                      "minItems": 7,
+                      "maxItems": 7,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "from",
+                          "to",
+                          "label",
+                          "tone"
+                        ],
+                        "properties": {
+                          "from": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 2
+                          },
+                          "to": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 2
+                          },
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "tone": {
+                            "$ref": "#/$defs/tone"
+                          }
+                        }
+                      }
+                    },
+                    "bottomLine": {
+                      "$ref": "#/$defs/text"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "applicationKind"
+              ],
+              "properties": {
+                "applicationKind": {
+                  "const": "summary"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "applicationData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "questions",
+                    "closing"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "questions": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "question",
+                          "answer"
+                        ],
+                        "properties": {
+                          "question": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "answer": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    },
+                    "closing": {
+                      "$ref": "#/$defs/text"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "layout": {
+                  "const": "agent"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "agentKind",
+                "agentData",
+                "theme",
+                "logoPath",
+                "logoAlt",
+                "chapter",
+                "sectionLabel",
+                "eyebrow",
+                "subtitle",
+                "sourceLabel"
+              ],
+              "properties": {
+                "theme": {
+                  "const": "reinbee"
+                },
+                "chapter": {
+                  "const": "05"
+                },
+                "section": {
+                  "const": "Agent原理"
+                },
+                "sectionLabel": {
+                  "const": "Agent原理"
+                }
+              }
+            },
+            "else": {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "agentKind"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "agentData"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "agentKind"
+              ],
+              "properties": {
+                "agentKind": {
+                  "const": "weather"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "agentData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "request",
+                    "exampleLabel",
+                    "takeaway",
+                    "paths"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "request": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "exampleLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "takeaway": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "paths": {
+                      "type": "array",
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "label",
+                          "title",
+                          "result",
+                          "steps"
+                        ],
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "title": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "result": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "steps": {
+                            "type": "array",
+                            "minItems": 3,
+                            "maxItems": 3,
+                            "items": {
+                              "$ref": "#/$defs/text"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "agentKind"
+              ],
+              "properties": {
+                "agentKind": {
+                  "const": "setup"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "agentData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "components",
+                    "codeTitle",
+                    "bottomLine",
+                    "codeLines"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "components": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "label",
+                          "text"
+                        ],
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "text": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    },
+                    "codeTitle": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "bottomLine": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "codeLines": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 12,
+                      "items": {
+                        "$ref": "#/$defs/text"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "agentKind"
+              ],
+              "properties": {
+                "agentKind": {
+                  "const": "loop"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "agentData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "input",
+                    "output",
+                    "tool",
+                    "model",
+                    "actionLabel",
+                    "observationLabel",
+                    "finishLabel",
+                    "repeatLabel"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "input": {
+                      "type": "object",
+                      "required": [
+                        "label",
+                        "text"
+                      ],
+                      "properties": {
+                        "label": {
+                          "$ref": "#/$defs/text"
+                        },
+                        "text": {
+                          "$ref": "#/$defs/text"
+                        }
+                      }
+                    },
+                    "output": {
+                      "type": "object",
+                      "required": [
+                        "label",
+                        "text"
+                      ],
+                      "properties": {
+                        "label": {
+                          "$ref": "#/$defs/text"
+                        },
+                        "text": {
+                          "$ref": "#/$defs/text"
+                        }
+                      }
+                    },
+                    "tool": {
+                      "type": "object",
+                      "required": [
+                        "label",
+                        "text"
+                      ],
+                      "properties": {
+                        "label": {
+                          "$ref": "#/$defs/text"
+                        },
+                        "text": {
+                          "$ref": "#/$defs/text"
+                        }
+                      }
+                    },
+                    "model": {
+                      "type": "object",
+                      "required": [
+                        "label",
+                        "questions"
+                      ],
+                      "properties": {
+                        "label": {
+                          "$ref": "#/$defs/text"
+                        },
+                        "questions": {
+                          "type": "array",
+                          "minItems": 3,
+                          "maxItems": 3,
+                          "items": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    },
+                    "actionLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "observationLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "finishLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "repeatLabel": {
+                      "$ref": "#/$defs/text"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "agentKind"
+              ],
+              "properties": {
+                "agentKind": {
+                  "const": "schema"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "agentData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "codeTitle",
+                    "mappingLabel",
+                    "codeLines",
+                    "fields"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "codeTitle": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "mappingLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "codeLines": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 12,
+                      "items": {
+                        "$ref": "#/$defs/text"
+                      }
+                    },
+                    "fields": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "label",
+                          "value",
+                          "text"
+                        ],
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "value": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "text": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "agentKind"
+              ],
+              "properties": {
+                "agentKind": {
+                  "const": "messages"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "agentData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "rows",
+                    "pairingLabel",
+                    "bottomLine"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "rows": {
+                      "type": "array",
+                      "minItems": 4,
+                      "maxItems": 4,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "role",
+                          "tag",
+                          "lines"
+                        ],
+                        "properties": {
+                          "role": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "tag": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "lines": {
+                            "type": "array",
+                            "minItems": 1,
+                            "maxItems": 3,
+                            "items": {
+                              "$ref": "#/$defs/text"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "pairingLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "bottomLine": {
+                      "$ref": "#/$defs/text"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "agentKind"
+              ],
+              "properties": {
+                "agentKind": {
+                  "const": "sequence"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "agentData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "participants",
+                    "events",
+                    "bottomLine"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "participants": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "label",
+                          "caption"
+                        ],
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "caption": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    },
+                    "events": {
+                      "type": "array",
+                      "minItems": 9,
+                      "maxItems": 9,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "from",
+                          "to",
+                          "label",
+                          "tone"
+                        ],
+                        "properties": {
+                          "from": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 2
+                          },
+                          "to": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 2
+                          },
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "tone": {
+                            "enum": [
+                              "blue",
+                              "orange"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "bottomLine": {
+                      "$ref": "#/$defs/text"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "agentKind"
+              ],
+              "properties": {
+                "agentKind": {
+                  "const": "safeguards"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "agentData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "items",
+                    "bottomLine"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "items": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "label",
+                          "title",
+                          "text"
+                        ],
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "title": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "text": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    },
+                    "bottomLine": {
+                      "$ref": "#/$defs/text"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "layout"
+              ],
+              "properties": {
+                "layout": {
+                  "const": "harness"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "harnessKind",
+                "harnessData",
+                "theme",
+                "chapter",
+                "sectionLabel",
+                "eyebrow",
+                "subtitle",
+                "sourceLabel",
+                "logoPath",
+                "logoAlt"
+              ],
+              "properties": {
+                "theme": {
+                  "const": "reinbee"
+                },
+                "chapter": {
+                  "const": "06"
+                },
+                "section": {
+                  "const": "Harness工程"
+                },
+                "sectionLabel": {
+                  "const": "Harness工程"
+                }
+              }
+            },
+            "else": {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "harnessKind"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "harnessData"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "harnessKind"
+              ],
+              "properties": {
+                "harnessKind": {
+                  "const": "anatomy"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "harnessData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "bottomLine",
+                    "input",
+                    "output",
+                    "model",
+                    "harnessLabel",
+                    "parts"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "bottomLine": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "input": {
+                      "type": "object",
+                      "required": [
+                        "label",
+                        "text"
+                      ],
+                      "properties": {
+                        "label": {
+                          "$ref": "#/$defs/text"
+                        },
+                        "text": {
+                          "$ref": "#/$defs/text"
+                        }
+                      }
+                    },
+                    "output": {
+                      "type": "object",
+                      "required": [
+                        "label",
+                        "text"
+                      ],
+                      "properties": {
+                        "label": {
+                          "$ref": "#/$defs/text"
+                        },
+                        "text": {
+                          "$ref": "#/$defs/text"
+                        }
+                      }
+                    },
+                    "model": {
+                      "type": "object",
+                      "required": [
+                        "label",
+                        "text"
+                      ],
+                      "properties": {
+                        "label": {
+                          "$ref": "#/$defs/text"
+                        },
+                        "text": {
+                          "$ref": "#/$defs/text"
+                        }
+                      }
+                    },
+                    "harnessLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "parts": {
+                      "type": "array",
+                      "minItems": 4,
+                      "maxItems": 4,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "label",
+                          "text"
+                        ],
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "text": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "harnessKind"
+              ],
+              "properties": {
+                "harnessKind": {
+                  "const": "context"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "harnessData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "bottomLine",
+                    "stores",
+                    "stages",
+                    "window",
+                    "stateLabel"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "bottomLine": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "stores": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "label",
+                          "text"
+                        ],
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "text": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    },
+                    "stages": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "label",
+                          "text"
+                        ],
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "text": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    },
+                    "window": {
+                      "type": "object",
+                      "required": [
+                        "label",
+                        "text"
+                      ],
+                      "properties": {
+                        "label": {
+                          "$ref": "#/$defs/text"
+                        },
+                        "text": {
+                          "$ref": "#/$defs/text"
+                        }
+                      }
+                    },
+                    "stateLabel": {
+                      "$ref": "#/$defs/text"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "harnessKind"
+              ],
+              "properties": {
+                "harnessKind": {
+                  "const": "continuity"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "harnessData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "bottomLine",
+                    "steps",
+                    "record",
+                    "resumeLabel"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "bottomLine": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "steps": {
+                      "type": "array",
+                      "minItems": 4,
+                      "maxItems": 4,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "label",
+                          "text"
+                        ],
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "text": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    },
+                    "record": {
+                      "type": "object",
+                      "required": [
+                        "label",
+                        "items"
+                      ],
+                      "properties": {
+                        "label": {
+                          "$ref": "#/$defs/text"
+                        },
+                        "items": {
+                          "type": "array",
+                          "minItems": 3,
+                          "maxItems": 3,
+                          "items": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    },
+                    "resumeLabel": {
+                      "$ref": "#/$defs/text"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "harnessKind"
+              ],
+              "properties": {
+                "harnessKind": {
+                  "const": "execution"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "harnessData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "bottomLine",
+                    "steps",
+                    "controls"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "bottomLine": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "steps": {
+                      "type": "array",
+                      "minItems": 4,
+                      "maxItems": 4,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "label",
+                          "text"
+                        ],
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "text": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    },
+                    "controls": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "label",
+                          "text"
+                        ],
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "text": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "harnessKind"
+              ],
+              "properties": {
+                "harnessKind": {
+                  "const": "improvement"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "harnessData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "bottomLine",
+                    "inner",
+                    "outer",
+                    "comparison"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "bottomLine": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "inner": {
+                      "type": "object",
+                      "required": [
+                        "label",
+                        "steps",
+                        "text"
+                      ],
+                      "properties": {
+                        "label": {
+                          "$ref": "#/$defs/text"
+                        },
+                        "steps": {
+                          "type": "array",
+                          "minItems": 3,
+                          "maxItems": 3,
+                          "items": {
+                            "$ref": "#/$defs/text"
+                          }
+                        },
+                        "text": {
+                          "$ref": "#/$defs/text"
+                        }
+                      }
+                    },
+                    "outer": {
+                      "type": "object",
+                      "required": [
+                        "label",
+                        "steps",
+                        "text"
+                      ],
+                      "properties": {
+                        "label": {
+                          "$ref": "#/$defs/text"
+                        },
+                        "steps": {
+                          "type": "array",
+                          "minItems": 5,
+                          "maxItems": 5,
+                          "items": {
+                            "$ref": "#/$defs/text"
+                          }
+                        },
+                        "text": {
+                          "$ref": "#/$defs/text"
+                        }
+                      }
+                    },
+                    "comparison": {
+                      "$ref": "#/$defs/text"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "harnessKind"
+              ],
+              "properties": {
+                "harnessKind": {
+                  "const": "case"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "harnessData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "bottomLine",
+                    "exampleLabel",
+                    "scenario",
+                    "acceptance",
+                    "columns",
+                    "rows"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "bottomLine": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "exampleLabel": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "scenario": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "acceptance": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "columns": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "items": {
+                        "$ref": "#/$defs/text"
+                      }
+                    },
+                    "rows": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "failure",
+                          "change",
+                          "evidence"
+                        ],
+                        "properties": {
+                          "failure": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "change": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "evidence": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }

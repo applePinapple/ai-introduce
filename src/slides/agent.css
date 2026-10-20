@@ -1,0 +1,69 @@
+/* Agent chapter: shared ReinBEE master with an editable 1712 × 770 canvas. */
+.agent-page .agent-body{position:absolute;left:104px;top:240px;width:1712px;height:770px;z-index:1;color:var(--ink)}
+.agent-page .agent-body *{box-sizing:border-box}
+.agent-page .agent-body h2,.agent-page .agent-body p{margin:0}
+.agent-page .agent-lead{position:absolute;left:0;top:0;width:1712px;font-size:32px;line-height:1.65;font-weight:500}
+.agent-page .agent-caption{position:absolute;left:0;bottom:0;width:1712px;font-size:24px;line-height:1.45;color:var(--muted)}
+.agent-page .agent-svg{position:absolute;inset:0;width:1712px;height:770px;display:block;overflow:visible;pointer-events:none;font-family:var(--font)}
+.agent-page .agent-blue{--agent-accent:var(--blue);--agent-soft:var(--blue-soft)}
+.agent-page .agent-yellow{--agent-accent:var(--yellow);--agent-soft:var(--yellow-soft)}
+.agent-page .agent-kicker{font-family:var(--mono);font-size:25px;line-height:1.5;color:var(--agent-accent)}
+.agent-page .agent-weather-request{position:absolute;left:0;top:96px;display:flex;align-items:center;gap:30px}
+.agent-page .agent-weather-request span{padding:8px 16px;border-radius:5px;background:var(--blue-soft);font-size:24px;color:var(--blue)}
+.agent-page .agent-weather-request b{font-size:36px;font-weight:500;line-height:1.6}
+.agent-page .agent-weather-paths{position:absolute;left:0;top:194px;width:1712px;display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.agent-page .agent-weather-paths article{height:416px;padding:28px 36px;border:1px solid var(--line);border-top:7px solid var(--agent-accent);background:#fff;border-radius:12px}
+.agent-page .agent-weather-paths h2{font-size:40px;line-height:1.5;margin:5px 0 14px}
+.agent-page .agent-weather-paths ol{margin:0 0 16px;padding-left:36px}
+.agent-page .agent-weather-paths li{font-size:29px;line-height:1.75;padding-left:7px}
+.agent-page .agent-path-result{padding:13px 18px;background:var(--agent-soft);font-size:28px;line-height:1.55}
+.agent-page .agent-takeaway{position:absolute;left:0;top:650px;width:1712px;font-size:34px;line-height:1.6;color:var(--blue)}
+.agent-page .agent-components{position:absolute;left:0;top:105px;width:1712px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.agent-page .agent-components article{display:flex;gap:23px;align-items:flex-start;height:155px;padding:24px 25px;background:#fff;border:1px solid var(--line);border-left:7px solid var(--agent-accent);border-radius:12px}
+.agent-page .agent-components article>span{font-family:var(--mono);font-size:27px;color:var(--agent-accent);line-height:1.6}
+.agent-page .agent-components h2{font-size:33px;line-height:1.5}
+.agent-page .agent-components p{font-size:26px;line-height:1.6;color:var(--muted);margin-top:5px}
+.agent-page .agent-code{position:absolute;background:#fff;border:1px solid var(--line);border-radius:12px;padding:25px 32px}
+.agent-page .agent-code h2{font-size:26px;line-height:1.5;color:var(--muted);font-weight:500;padding-bottom:17px;border-bottom:1px solid var(--line)}
+.agent-page .agent-code pre{margin:19px 0 0;font-family:var(--mono);font-size:27px;line-height:1.55;white-space:pre-wrap}
+.agent-page .agent-code code{font-family:inherit}
+.agent-page .agent-setup-code{left:0;top:300px;width:1712px;height:340px}
+.agent-page .agent-bottom-line{position:absolute;left:0;top:665px;width:1712px;font-size:28px;line-height:1.5;color:var(--blue)}
+.agent-page .agent-loop-node{position:absolute;border:1px solid var(--line);border-radius:12px;background:#fff;padding:24px 22px;text-align:center}
+.agent-page .agent-loop-node h2{font-size:37px;line-height:1.5}
+.agent-page .agent-loop-node p{font-size:27px;line-height:1.6;color:var(--muted);margin-top:8px}
+.agent-page .agent-loop-input{left:0;top:257px;width:354px;height:164px}
+.agent-page .agent-loop-output{left:1358px;top:257px;width:354px;height:164px;border-top:7px solid var(--yellow)}
+.agent-page .agent-loop-model{position:absolute;left:560px;top:172px;width:580px;height:276px;padding:23px 37px;border-radius:14px;border:2px solid var(--blue);background:var(--blue-soft)}
+.agent-page .agent-loop-model h2{font-size:39px;line-height:1.5;text-align:center;color:var(--blue)}
+.agent-page .agent-loop-model ul{padding-left:31px;margin:15px 0 0}
+.agent-page .agent-loop-model li{font-size:29px;line-height:1.8}
+.agent-page .agent-loop-tool{left:590px;top:520px;width:520px;height:140px;padding:17px 22px;border-top:7px solid var(--yellow)}
+.agent-page .agent-loop-tool h2{font-size:34px;line-height:1.4}
+.agent-page .agent-loop-tool p{font-size:27px;line-height:1.5;margin-top:5px}
+.agent-page .agent-loop-repeat{position:absolute;left:0;top:677px;width:1712px;text-align:center;font-size:27px;line-height:1.5;color:var(--blue)}
+.agent-page .agent-schema-code{left:0;top:118px;width:817px;height:499px}
+.agent-page .agent-schema-code pre{line-height:1.8;font-size:27px;margin-top:33px}
+.agent-page .agent-schema-fields{position:absolute;left:881px;top:118px;width:831px;display:grid;gap:18px}
+.agent-page .agent-schema-fields article{display:flex;align-items:flex-start;gap:22px;padding:14px 25px;min-height:154px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.agent-page .agent-field-number{display:flex;flex:0 0 55px;height:55px;justify-content:center;align-items:center;border-radius:50%;font-family:var(--mono);background:var(--blue-soft);font-size:23px;color:var(--blue)}
+.agent-page .agent-schema-fields h2{font-size:27px;line-height:1.35;color:var(--blue);font-family:var(--mono)}
+.agent-page .agent-schema-fields b{display:block;font-size:29px;line-height:1.5;margin-top:5px;font-weight:500}
+.agent-page .agent-schema-fields p{font-size:25px;line-height:1.5;color:var(--muted);margin-top:4px}
+.agent-page .agent-schema-mapping{position:absolute;left:0;top:642px;width:1712px;padding:13px 25px;background:var(--yellow-soft);border-left:6px solid var(--yellow);font-size:30px;line-height:1.5}
+.agent-page .agent-message-chain{position:absolute;left:0;top:128px;width:1712px;display:grid;grid-template-columns:repeat(4,1fr);gap:44px}
+.agent-page .agent-message-chain article{position:relative;height:416px;padding:25px 23px;border:1px solid var(--line);border-top:7px solid var(--agent-accent);background:#fff;border-radius:12px}
+.agent-page .agent-message-number{font-family:var(--mono);font-size:25px;line-height:1.5;color:var(--agent-accent)}
+.agent-page .agent-message-chain h2{font-family:var(--mono);font-size:27px;line-height:1.5;margin-top:13px}
+.agent-page .agent-message-tag{font-size:27px;line-height:1.6;color:var(--muted);padding:11px 0 17px;border-bottom:1px solid var(--line)}
+.agent-page .agent-message-lines{display:grid;gap:11px;margin-top:21px}
+.agent-page .agent-message-lines p{font-size:27px;line-height:1.6;overflow-wrap:anywhere;white-space:pre-line}
+.agent-page .agent-chain-arrow{position:absolute;right:-37px;top:178px;font-size:39px;color:var(--yellow)}
+.agent-page .agent-message-pairing{position:absolute;left:0;top:584px;width:1712px;padding:16px 24px;background:var(--blue-soft);font-size:30px;line-height:1.55;color:var(--blue);border-radius:10px}
+.agent-page .agent-message-bottom{position:absolute;left:0;top:679px;width:1712px;font-size:29px;line-height:1.5}
+.agent-page .agent-sequence-bottom{position:absolute;left:0;top:677px;width:1712px;font-size:29px;line-height:1.5;text-align:center;color:var(--blue)}
+.agent-page .agent-safeguards{position:absolute;left:0;top:145px;width:1712px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.agent-page .agent-safeguards article{height:430px;padding:36px 33px;background:#fff;border:1px solid var(--line);border-top:8px solid var(--agent-accent);border-radius:12px}
+.agent-page .agent-safeguards h2{font-size:42px;line-height:1.45;margin:30px 0 23px}
+.agent-page .agent-safeguards article p{font-size:30px;line-height:1.8;color:var(--muted)}
+.agent-page .agent-safeguards-bottom{position:absolute;left:0;top:639px;width:1712px;padding:17px 27px;background:var(--blue-soft);border-left:7px solid var(--blue);font-size:33px;line-height:1.55}

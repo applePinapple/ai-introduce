@@ -4,7 +4,7 @@
   "subtitle": "理解模型原理，找到业务落点",
   "language": "zh-CN",
   "audience": "老板与技术同事",
-  "durationMinutes": 51.25,
+  "durationMinutes": 85.25,
   "status": "draft",
   "slides": [
     {
@@ -17048,6 +17048,1436 @@
         "移动窗口只是课堂展示的一种策略，不表示所有模型或产品都会自动丢掉最早内容。应用可以选择截断、总结、检索、压缩，或者在超长时返回错误；必须根据实际实现判断。",
         "这也说明对话记录、当前上下文、外部记忆和训练参数是不同的层次。窗口外文字不是从模型参数里被删除，而是没有作为原始输入直接参与这一轮计算。讲到这里，本模块从Token、向量、注意力、生成一路回到可见上下文，后续可再按演讲需要融合页面。"
       ]
+    },
+    {
+      "layout": "application",
+      "theme": "reinbee",
+      "section": "大模型应用",
+      "chapter": "04",
+      "sectionLabel": "大模型应用",
+      "eyebrow": "LARGE MODEL APPLICATIONS",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "sourceLabel": "课程005 · 原生图示改编",
+      "id": "apps-gpt-chatgpt",
+      "title": "GPT 与 ChatGPT：模型与应用",
+      "applicationKind": "relationship",
+      "timingSeconds": 90,
+      "sourceIds": [
+        "video-apps",
+        "apps-chatgpt-launch",
+        "apps-gpt3-paper",
+        "apps-instructgpt-paper"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-002.jpg",
+        "assets/video-evidence/005/frame-003.jpg",
+        "assets/video-evidence/005/frame-004.jpg"
+      ],
+      "applicationData": {
+        "description": "左侧GPT模型与右侧ChatGPT应用相连，下方三个字母解释GPT名称。",
+        "lead": "把模型能力做成可交互、可管理的产品，才来到应用这一层。",
+        "caption": "这里按“模型层—应用层”建立教学区分；模型系列与产品名称的使用需结合语境。",
+        "model": {
+          "title": "GPT",
+          "label": "模型层 · 提供能力",
+          "summary": "一类生成式预训练 Transformer 模型"
+        },
+        "product": {
+          "title": "ChatGPT",
+          "label": "应用层 · 面向用户",
+          "summary": "围绕模型能力构建的对话产品"
+        },
+        "bridgeLabel": "模型能力\n进入产品",
+        "acronym": [
+          {
+            "letter": "G",
+            "term": "Generative",
+            "meaning": "生成：根据上下文续写"
+          },
+          {
+            "letter": "P",
+            "term": "Pre-trained",
+            "meaning": "预训练：先从数据中学习"
+          },
+          {
+            "letter": "T",
+            "term": "Transformer",
+            "meaning": "架构：处理序列与上下文"
+          }
+        ]
+      },
+      "notes": [
+        "本节从课程开头的问题切入：GPT与ChatGPT是什么关系？先用模型层和应用层帮助观众区分。GPT这个名称用于生成式预训练Transformer模型；ChatGPT在日常产品语境中是用户使用的对话产品。产品会组织交互、账户、会话以及模型调用，让模型能力进入可使用的服务。这里强调讨论的层次，而不是要求所有历史材料只允许一种命名。",
+        "下方三个字母只做上一章的回顾。Generative表示根据已有上下文生成后续内容；Pre-trained表示先在数据上进行训练，为后续使用或适配提供基础；Transformer指模型采用的架构路线。预训练不意味着发布后每次对话都会修改参数。对话行为还可能来自监督微调、偏好优化等后训练，不能把会聊天全部归因于预训练。",
+        "OpenAI在2022年ChatGPT发布介绍中，也使用对话模型的表述。因此本页不能被理解为“ChatGPT从来不是模型名称”的语言规则。我们只是在应用设计时将提供能力的模型和管理用户体验的产品分开观察，也不声称当前产品固定由某一个GPT版本构成。",
+        "视频005的00:30提出关系问题，01:00至02:30回顾GPT字母与逐Token生成。由于上一章已经讲过生成原理，本页合并重复展开，保留名称、层次和承接关系。引用GPT-3与InstructGPT论文支持预训练和后训练的区别，不从模型名称推导实际业务效果。"
+      ]
+    },
+    {
+      "layout": "application",
+      "theme": "reinbee",
+      "section": "大模型应用",
+      "chapter": "04",
+      "sectionLabel": "大模型应用",
+      "eyebrow": "LARGE MODEL APPLICATIONS",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "sourceLabel": "课程005 · 原生图示改编",
+      "id": "apps-chatbot",
+      "title": "对话机器人：多轮对话与上下文",
+      "applicationKind": "chatbot",
+      "timingSeconds": 75,
+      "sourceIds": [
+        "video-apps",
+        "apps-chatgpt-launch",
+        "apps-conversation-state"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-007.jpg",
+        "assets/video-evidence/005/frame-008.jpg"
+      ],
+      "applicationData": {
+        "description": "左侧四条课堂构造的聊天消息，右侧说明对话界面、会话上下文与应用状态。",
+        "lead": "用户看到的是一次次对话，应用负责把这些交互组织起来。",
+        "caption": "对话为课堂构造示例，并非真实产品截图或模型实测结果。",
+        "appLabel": "对话应用",
+        "exampleLabel": "教学示例",
+        "composerLabel": "继续输入问题…",
+        "messages": [
+          {
+            "role": "用户",
+            "text": "帮我把这段会议记录整理成三点。"
+          },
+          {
+            "role": "助手",
+            "text": "请把会议记录发给我。"
+          },
+          {
+            "role": "用户",
+            "text": "项目周五评审，方案由小李整理，预算待确认。"
+          },
+          {
+            "role": "助手",
+            "text": "① 周五评审　② 小李整理方案　③ 预算待确认"
+          }
+        ],
+        "anatomyTitle": "一次对话，三个层次",
+        "anatomy": [
+          {
+            "label": "交互界面",
+            "text": "接收输入，展示回复与状态"
+          },
+          {
+            "label": "会话上下文",
+            "text": "组织本次生成所需的消息"
+          },
+          {
+            "label": "应用中的记录",
+            "text": "按产品设计保存或管理历史"
+          }
+        ]
+      },
+      "notes": [
+        "沿课程03:00至03:30的对话机器人画面，先观察用户最熟悉的体验：输入一条消息，收到一条回复，然后接着追问。左侧是一段我们为课堂编写的会议整理对话，所有内容是教学示例，没有调用真实模型，也没有复刻某个产品的实际界面。整理任务只是为了让观众容易理解多轮交互。",
+        "对话界面把发送、等待、展示和继续提问组织成一个连续过程；本次生成还需要相应的输入。应用可以选择此前的相关消息，再通过客户端请求或服务端会话状态等方式提供给模型。模型能够接着上一句回答，通常要结合它本轮实际获得的上下文理解，而不是认定它天然记住了所有历史。",
+        "要区分三件事：产品保存的对话记录、本轮模型能使用的上下文，以及产品另行实现的长期记忆。记录存在数据库里，不表示每次都会完整参与生成；本轮没传入或没通过状态管理保留的信息，也不能假定模型一定知道。上下文容量和历史处理方式取决于所用模型、接口及应用实现。",
+        "课程把记忆作为Chatbot特征做直观介绍，这里改成更精确的会话组织与状态管理。对话机器人也不一定都由大语言模型驱动，历史上还存在规则式系统；本节聚焦的是使用大语言模型的对话应用，不把聊天窗口本身当成某种智能能力的证明。"
+      ]
+    },
+    {
+      "layout": "application",
+      "theme": "reinbee",
+      "section": "大模型应用",
+      "chapter": "04",
+      "sectionLabel": "大模型应用",
+      "eyebrow": "LARGE MODEL APPLICATIONS",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "sourceLabel": "课程005 · 原生图示改编",
+      "id": "apps-dialogue-generation",
+      "title": "一次回复是怎样生成的",
+      "applicationKind": "generation",
+      "timingSeconds": 105,
+      "sourceIds": [
+        "video-apps",
+        "apps-gpt3-paper",
+        "apps-api-reference",
+        "apps-conversation-state"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-009.jpg",
+        "assets/video-evidence/005/frame-011.jpg",
+        "assets/video-evidence/005/frame-012.jpg"
+      ],
+      "applicationData": {
+        "description": "左侧系统说明、当前问题和相关历史进入Transformer，右侧输出文字片段，再通过回路追加到上下文。",
+        "lead": "应用组织输入，模型在当前上下文的条件下逐 Token 生成。",
+        "caption": "输出片段仅作示意；实际 Token 边界、输入格式与生成策略由具体系统决定。",
+        "inputLabel": "本次输入",
+        "inputs": [
+          {
+            "label": "系统 / 开发者说明",
+            "text": "你是一名会议记录助手。"
+          },
+          {
+            "label": "用户问题",
+            "text": "请整理成三个要点。"
+          },
+          {
+            "label": "相关历史 / 材料",
+            "text": "本轮需要使用的会议记录"
+          }
+        ],
+        "modelLabel": "Transformer",
+        "modelCaption": "结合可见上下文生成",
+        "outputLabel": "生成的文字片段",
+        "outputTokens": [
+          "①",
+          "周五",
+          "评审",
+          "…"
+        ],
+        "feedbackLabel": "新生成的 Token 追加到上下文，再继续预测",
+        "stages": [
+          {
+            "label": "组织",
+            "text": "角色、消息与任务材料"
+          },
+          {
+            "label": "生成",
+            "text": "预测并选择后续 Token"
+          },
+          {
+            "label": "返回",
+            "text": "把输出交回应用展示"
+          }
+        ]
+      },
+      "notes": [
+        "视频04:00至05:30把一段对话前缀放进Transformer，再生成助手回复。本页沿用输入、模型和输出的图示结构，把左边分成系统或开发者说明、用户当前问题、相关历史或材料三部分。它们说明信息来源，不代表所有API都用完全相同的角色名称、字段或消息格式。",
+        "输入到达模型后，模型根据当前可见上下文计算后续Token的分布，再由具体解码策略选择输出。新产生的Token继续成为后续生成的条件，因此一条回复是连续生成出来的。图上为了便于阅读写成“①、周五、评审”等片段，它们未必恰好是任何分词器中的单个Token，也没有给出伪造的概率数据。",
+        "系统说明可以表达行为约束与任务定位，但它不等于应用外部的权限控制或事实保证。用户消息、历史消息与工具材料也需要按接口要求组织。服务可以在客户端组织历史，也可以借助提供方的会话状态功能；本页强调最终可供本轮计算的信息，不要求每次请求显式重发全部对话。",
+        "输出回路不表示模型在这次对话中更新训练参数。它改变的是当前生成所依据的上下文。应用还需要处理长度预算、停止条件、超时或失败等实际行为。生成结果可以流式返回，也可以在完成后整体返回，本图把返回过程简化成一个阶段，不限定具体传输方式。"
+      ]
+    },
+    {
+      "layout": "application",
+      "theme": "reinbee",
+      "section": "大模型应用",
+      "chapter": "04",
+      "sectionLabel": "大模型应用",
+      "eyebrow": "LARGE MODEL APPLICATIONS",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "sourceLabel": "课程005 · 原生图示改编",
+      "id": "apps-responsibilities",
+      "title": "应用与模型，各自负责什么",
+      "applicationKind": "responsibilities",
+      "timingSeconds": 90,
+      "sourceIds": [
+        "video-apps",
+        "apps-api-reference",
+        "apps-conversation-state"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-013.jpg",
+        "assets/video-evidence/005/frame-014.jpg"
+      ],
+      "applicationData": {
+        "description": "左右两栏分别列出应用程序与模型服务的典型分工，中间通过请求与结果交换相连。",
+        "lead": "能回答问题只是其中一环，完整产品还需要账户、数据与业务流程。",
+        "caption": "这是典型工程分工；具体产品可以采用不同的模块边界。",
+        "app": {
+          "title": "应用程序",
+          "caption": "管理交互、数据与执行",
+          "items": [
+            {
+              "label": "账户与权限",
+              "text": "登录鉴权，确定可访问的资源"
+            },
+            {
+              "label": "会话与存储",
+              "text": "保存记录，组织本轮上下文"
+            },
+            {
+              "label": "规则与业务流程",
+              "text": "校验参数，调用并记录执行结果"
+            }
+          ]
+        },
+        "model": {
+          "title": "模型服务",
+          "caption": "提供理解与生成能力",
+          "items": [
+            {
+              "label": "理解输入",
+              "text": "结合语境识别意图与信息"
+            },
+            {
+              "label": "分析与生成",
+              "text": "组织回答、摘要或候选方案"
+            },
+            {
+              "label": "产出供应用使用",
+              "text": "返回文本或结构化候选结果"
+            }
+          ]
+        },
+        "connectionLabel": "请求 →\n← 结果",
+        "boundaryLabel": "模型给出候选结果；应用负责决定怎样校验、展示或执行。"
+      },
+      "notes": [
+        "视频06:00至06:30把登录、存储放在传统程序一侧，把对话与思考放在大模型一侧。本页保留这种职责分解，并把容易拟人化的思考改成分析与生成。用户只看到同一个产品，但背后可以包含多个不同职责的模块，不能把整个系统都称为一个大模型。",
+        "左侧是产品层常见工作：账户登录与身份鉴别、资源权限、会话记录、业务流程，以及实际的系统调用。保存了哪些数据、何时读取、谁有权访问，需要由应用设计与执行。右侧模型可以帮助理解自然语言、形成摘要和候选方案，或者按接口要求给出结构化候选结果。",
+        "两侧会互相交换信息，但调用模型并不会自动完成登录、数据库写入或订单变更。即使模型输出看起来像一个函数调用或一份结构化数据，执行仍要经过应用的授权和校验。这里的关键不是认为模型完全不能参与某个环节，而是明确最终动作由哪个模块控制、结果在哪里被验证。",
+        "这张表是便于教学的典型分工，不是唯一架构。部分能力可能由外部服务或托管平台提供，模型也可能本地部署。权限与业务正确性不能仅靠提示词托付给模型；反过来，传统应用也可以集成搜索、规则系统或其他机器学习能力，不能将它们一概理解为纯手写规则。"
+      ]
+    },
+    {
+      "layout": "application",
+      "theme": "reinbee",
+      "section": "大模型应用",
+      "chapter": "04",
+      "sectionLabel": "大模型应用",
+      "eyebrow": "LARGE MODEL APPLICATIONS",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "sourceLabel": "课程005 · 原生图示改编",
+      "id": "apps-capability-comparison",
+      "title": "按任务特点，安排程序与模型的分工",
+      "applicationKind": "comparison",
+      "timingSeconds": 105,
+      "sourceIds": [
+        "video-apps",
+        "apps-gpt3-paper",
+        "apps-instructgpt-paper",
+        "apps-function-calling"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-015.jpg",
+        "assets/video-evidence/005/frame-016.jpg",
+        "assets/video-evidence/005/frame-017.jpg",
+        "assets/video-evidence/005/frame-018.jpg"
+      ],
+      "applicationData": {
+        "description": "四行原生对照表比较明确规则程序与大语言模型在语言处理、模式信息、计算和业务执行上的特点。",
+        "lead": "不同任务对开放表达、精确计算与业务执行的要求不同。",
+        "caption": "对比描述常见适配倾向，不能替代具体任务的测试与评估。",
+        "headers": [
+          "任务特点",
+          "明确规则的程序",
+          "大语言模型"
+        ],
+        "rows": [
+          [
+            "开放语言与表达",
+            "通常需要先定义规则或模板",
+            "可以生成多种候选表达"
+          ],
+          [
+            "复杂模式与信息提取",
+            "可结合规则、算法或其他 AI",
+            "可结合上下文理解与提取"
+          ],
+          [
+            "精确计算与固定逻辑",
+            "适合明确公式与可重复流程",
+            "结果需要计算工具或校验"
+          ],
+          [
+            "权限与业务执行",
+            "按约束调用系统并记录结果",
+            "可以建议动作，不能替代授权"
+          ]
+        ],
+        "principle": "开放表达交给模型探索，明确约束交给程序执行与验证。"
+      },
+      "notes": [
+        "课程07:00至08:30依次对比模糊问题处理、复杂模式识别、确定性逻辑，以及精确控制与可靠性。原视频用勾叉突出差异，容易被理解成“程序完全不会处理复杂模式、模型完全不会计算”。这里保留四组问题与对照结构，改写为典型适配倾向，避免绝对化结论。",
+        "第一行以语言表达为例，模型可以在提示下生成多个候选，而明确规则程序通常要事先设计模板或分支。第二行说明复杂模式并非大语言模型独占：传统软件也能接入规则、搜索、分类器、视觉模型等组件。哪些任务适合大语言模型，仍需看数据、准确性要求以及实际评估结果。课程用秋天的诗、猫狗图片、数学计算与订单支付分别说明这四类任务。猫狗图片识别需要具备视觉能力的模型，纯文本模型不能仅凭未提供的图像判断类别；本页把这些案例抽象为任务特点，便于迁移到自己的工作场景。",
+        "第三行强调精确计算与固定逻辑可以交给可靠的计算器、数据库查询或程序执行。模型也可能做对某道算术题，但不能由此把未经验证的生成当成精确执行保证。第四行涉及权限与业务动作，模型可生成候选参数或建议，而应用必须判断是否有权操作、参数是否合法、执行是否成功。",
+        "所以这不是两个技术阵营的优劣排名。一个合理设计可以让模型理解不规则输入，让程序落实规则并检查结果，必要时交给人处理例外。可靠性来自边界清楚、恰当评估和异常处理，不会因为表格某一列写着程序或模型就自然成立。"
+      ]
+    },
+    {
+      "layout": "application",
+      "theme": "reinbee",
+      "section": "大模型应用",
+      "chapter": "04",
+      "sectionLabel": "大模型应用",
+      "eyebrow": "LARGE MODEL APPLICATIONS",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "sourceLabel": "课程005 · 原生图示改编",
+      "id": "apps-hybrid",
+      "title": "混合式应用：让模型与程序协同",
+      "applicationKind": "hybrid",
+      "timingSeconds": 90,
+      "sourceIds": [
+        "video-apps",
+        "apps-function-calling"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-019.jpg"
+      ],
+      "applicationData": {
+        "description": "订单查询的四步教学流程：模型理解请求、程序查询数据、模型组织说明、应用校验展示；新问题可返回输入。",
+        "lead": "模型处理语言，程序连接业务系统，把各自适合的环节串起来。",
+        "caption": "Hybrid AI 在这里沿用课程的宽泛说法，表示模型能力与传统软件协同。",
+        "exampleLabel": "教学示例 · 订单查询",
+        "userRequest": "“帮我查一下订单 A103 到哪了。”",
+        "steps": [
+          {
+            "label": "理解请求",
+            "text": "模型提取订单号与查询意图"
+          },
+          {
+            "label": "查询数据",
+            "text": "程序校验权限，再读取系统"
+          },
+          {
+            "label": "组织说明",
+            "text": "模型依据返回数据形成答复"
+          },
+          {
+            "label": "校验展示",
+            "text": "核对结果，再展示给用户"
+          }
+        ],
+        "feedbackLabel": "需要补充信息时，回到输入继续交互",
+        "resultLabel": "构造结果",
+        "resultText": "“订单 A103 已发货。”——依据本轮查询返回的状态。",
+        "boundaryLabel": "混合架构不自动保证正确；关键数据、权限与执行结果仍要校验。"
+      },
+      "notes": [
+        "视频09:00把传统程序与大模型连起来，称为Hybrid AI。本页保留结合两者的核心思路，用一条固定的订单查询流程让分工更具体。这个例子是本项目为讲解构造的，不来自真实客户，也没有声称带来任何效率或成本收益；订单编号和发货状态都是教学数据。",
+        "用户先用自然语言提出请求，模型可以提取订单号和意图，形成候选参数。程序接到参数后检查身份、资源权限和格式，再查询订单系统。这里的实际查询由程序执行，并非模型凭空知道数据库中的最新状态。接口返回后，模型可以将结构化状态组织成容易阅读的语言。",
+        "最后由应用核对或约束展示结果。例如订单号与状态可以直接按原始字段展示，避免在重要字段上任意改写。若用户没有提供订单号或没有权限，流程要进入相应分支。本图的回路只表示可以补充信息后继续交互，不把它扩大成另外一个Agent章节。",
+        "Hybrid AI在不同文献中还可能指符号与神经网络等其他组合；这里明确沿用课程中较宽泛的模型加传统软件含义。组合并不会天然使每一环都可靠。模型可能提取错误，接口可能失败，业务系统也可能有数据问题，因此必须根据真实任务建立校验、异常处理与人工介入条件。"
+      ]
+    },
+    {
+      "layout": "application",
+      "theme": "reinbee",
+      "section": "大模型应用",
+      "chapter": "04",
+      "sectionLabel": "大模型应用",
+      "eyebrow": "LARGE MODEL APPLICATIONS",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "sourceLabel": "课程005 · 原生图示改编",
+      "id": "apps-api-sequence",
+      "title": "一次 API 调用：用户、应用与模型",
+      "applicationKind": "sequence",
+      "timingSeconds": 120,
+      "sourceIds": [
+        "video-apps",
+        "apps-api-reference",
+        "apps-conversation-state"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-020.jpg",
+        "assets/video-evidence/005/frame-021.jpg",
+        "assets/video-evidence/005/frame-022.jpg",
+        "assets/video-evidence/005/frame-023.jpg"
+      ],
+      "applicationData": {
+        "description": "用户、应用后端和模型服务的三条生命线，按顺序展示提问、应用检查、HTTP请求、模型生成、模型返回、应用检查和展示结果七步。",
+        "lead": "常见做法：应用通过 HTTP API 请求模型服务，再把结果交给用户。",
+        "caption": "七步时序为教学简化；流式返回、失败重试等细节按实际系统设计。",
+        "participants": [
+          {
+            "label": "用户",
+            "caption": "发起任务"
+          },
+          {
+            "label": "应用后端",
+            "caption": "组织与控制"
+          },
+          {
+            "label": "模型服务",
+            "caption": "推理与生成"
+          }
+        ],
+        "events": [
+          {
+            "from": 0,
+            "to": 1,
+            "label": "提交问题",
+            "tone": "blue"
+          },
+          {
+            "from": 1,
+            "to": 1,
+            "label": "请求整理 · 权限与合规检查",
+            "tone": "blue"
+          },
+          {
+            "from": 1,
+            "to": 2,
+            "label": "发送 HTTP 请求 · 调用 API",
+            "tone": "orange"
+          },
+          {
+            "from": 2,
+            "to": 2,
+            "label": "推理并生成输出",
+            "tone": "orange"
+          },
+          {
+            "from": 2,
+            "to": 1,
+            "label": "返回生成结果",
+            "tone": "blue"
+          },
+          {
+            "from": 1,
+            "to": 1,
+            "label": "结果校验 · 合规检查",
+            "tone": "blue"
+          },
+          {
+            "from": 1,
+            "to": 0,
+            "label": "展示结果或异常提示",
+            "tone": "blue"
+          }
+        ],
+        "bottomLine": "模型提供能力，应用贯穿请求、校验、状态与用户体验。"
+      },
+      "notes": [
+        "沿视频09:30至11:00的三条生命线，从上到下讲解一次完整交互。第一步用户提交问题；第二步应用整理请求，识别用户权限并进行相应合规检查；第三步把输入发送给模型服务。图中使用HTTP API是常见远程集成方式，API表示约定好的调用接口，不代表每个应用必须采用相同提供方或协议细节。",
+        "第四步模型服务根据输入执行推理并生成输出。这里把课程中的“思考并生成答案”改为技术含义更清楚的“推理并生成输出”，不把系统计算拟人化，也不暗示模型内心有可直接读取的完整思维过程。第五步返回生成结果，可能是文本、结构化数据或接口支持的其他输出。",
+        "第六步应用根据任务进行结果校验及合规检查，再在第七步展示结果或异常提示。检查规则取决于应用情境，图中不是对某家产品内部流程的事实披露。输入检查和输出检查也不能消除所有风险；若涉及真实业务动作，权限校验与执行确认仍需在对应的业务路径上完成。",
+        "为保持一页清楚，本图合并了网络认证、配额、计费、流式分片、超时、重试和日志等实现细节。服务端API密钥应由后端管理，不能把敏感密钥放到用户可读取的前端中。模型也可以通过本地推理或其他接口集成，所以HTTP API是本页的典型架构示例，并非大模型应用的必要定义。",
+        "不同接口对会话状态有不同机制。有的应用自行选择并提交消息，有的服务可以关联已保存的会话状态；不能笼统说所有模型API都无状态，或者每次都要手工发送全部历史。无论状态放在哪里，实际生成仍取决于本轮可用输入及系统配置，应用需要理解并管理这种状态关系。"
+      ]
+    },
+    {
+      "layout": "application",
+      "theme": "reinbee",
+      "section": "大模型应用",
+      "chapter": "04",
+      "sectionLabel": "大模型应用",
+      "eyebrow": "LARGE MODEL APPLICATIONS",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "sourceLabel": "课程005 · 原生图示改编",
+      "id": "apps-summary",
+      "title": "本节回顾：三个问题",
+      "applicationKind": "summary",
+      "timingSeconds": 75,
+      "sourceIds": [
+        "video-apps",
+        "apps-chatgpt-launch",
+        "apps-api-reference",
+        "apps-function-calling"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-024.jpg",
+        "assets/video-evidence/005/frame-025.jpg",
+        "assets/video-evidence/005/frame-026.jpg"
+      ],
+      "applicationData": {
+        "description": "三行问答总结GPT与ChatGPT的关系、大模型应用的组成，以及常见的接口架构。",
+        "lead": "从模型能力出发，最终要回到一个可运行、可检查的业务流程。",
+        "caption": "按具体任务评估效果与边界，不把模型能力直接等同于应用可靠性。",
+        "questions": [
+          {
+            "question": "GPT 与 ChatGPT 是什么关系？",
+            "answer": "区分模型层与应用层：模型提供能力，产品组织体验。"
+          },
+          {
+            "question": "什么是大模型应用？",
+            "answer": "把模型的理解与生成能力，嵌入软件和业务流程。"
+          },
+          {
+            "question": "应用如何与模型协作？",
+            "answer": "常见方式是调用 API，由应用组织输入、校验并使用输出。"
+          }
+        ],
+        "closing": "模型提供能力，工程把能力变成可用的服务。"
+      },
+      "notes": [
+        "视频11:30至12:30用三问总结本节。第一问回答模型与应用的层次关系：GPT可以作为模型层概念理解，ChatGPT在产品语境下是面向用户的应用。历史资料存在不同命名用法，但做系统设计时仍然需要区分模型计算和产品组织的职责。",
+        "第二问回到什么是大模型应用。它把模型的语言理解、分析和生成能力放到具体流程中，再结合账户、数据、业务规则及传统软件执行。对话窗口是一个常见入口，却不是唯一入口；判断应用是否完成任务，也不能只看生成的文字是否流畅。",
+        "第三问说明常见集成方式。应用把本次任务需要的输入组织起来，通过API调用模型服务，接到输出后再校验、展示或用于后续操作。模型可以远程调用，也可以通过其他方式部署；图示的七个阶段只是帮助理解责任和信息流，不是一份所有系统必须照抄的实现清单。",
+        "结束时请观众把注意力放在一件事上：模型提供了新的能力，但完整效果来自模型、程序、数据与流程的协同。选择一个任务后，需要定义什么算完成、哪些结果要验证，以及失败时怎样处理。本节到此承接视频005，不另外扩展Agent、RAG或工具链的新章节。"
+      ]
+    },
+    {
+      "layout": "agent",
+      "theme": "reinbee",
+      "section": "Agent原理",
+      "chapter": "05",
+      "sectionLabel": "Agent原理",
+      "eyebrow": "AGENT PRINCIPLES",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "sourceLabel": "课程015 · 原生图示改编",
+      "id": "agent-weather",
+      "title": "天气问题，为什么需要工具？",
+      "agentKind": "weather",
+      "timingSeconds": 75,
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-overview",
+        "agent-langchain-tools"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-002.jpg",
+        "assets/video-evidence/015/frame-003.jpg",
+        "assets/video-evidence/015/frame-004.jpg"
+      ],
+      "agentData": {
+        "description": "以杭州天气问题对比直接生成与通过工具取得数据，区分语言能力和外部信息。",
+        "lead": "能回答天气问题，不代表已经查询了天气。",
+        "caption": "本章沿用课程天气示例；“晴”是模拟返回值，不是真实天气预报。",
+        "exampleLabel": "贯穿示例",
+        "request": "杭州今天天气如何？",
+        "paths": [
+          {
+            "label": "直接问模型",
+            "title": "根据已有输入生成",
+            "steps": [
+              "读懂问题中的城市与时间",
+              "根据本轮输入组织回答",
+              "未连接数据时，无法据此确认实时天气"
+            ],
+            "result": "文字流畅 ≠ 信息已经查证"
+          },
+          {
+            "label": "接入查询工具",
+            "title": "把外部信息带回来",
+            "steps": [
+              "模型提出天气查询请求",
+              "程序调用工具，取得返回结果",
+              "模型依据工具结果组织回答"
+            ],
+            "result": "工具提供数据，模型负责理解与表达"
+          }
+        ],
+        "takeaway": "Agent 把“生成回答”扩展成“选择行动 → 接收反馈 → 继续判断”。"
+      },
+      "notes": [
+        "视频00:30用天气智能体引入，01:00至01:30展示直接调用模型询问天气。这里保留问题动机，不复刻画面中随演示时间变化的日期和天气文字。单独生成一个看似合理的回答，不足以证明系统已经访问了当天的外部数据；模型是否获得实时信息，取决于应用实际接入了什么工具和输入。",
+        "带工具的系统可以先识别用户想查询杭州天气，再提出调用天气工具及相应城市参数。程序执行查询，把结果作为本轮可见的信息交给模型，最后由模型面向用户表达。模型在此选择行动，真正执行函数、访问数据源和处理返回值的是应用运行时。",
+        "课程后续的getWeather函数直接返回sunny，并未访问真实天气接口。本章统一改写为get_weather，问题统一为“杭州今天天气如何”，返回值统一标注“晴（模拟）”，只演示调用链路。不能据此判断杭州实际天气，也不能把这个演示描述为已经接通天气服务。",
+        "Agent不是额外的一种神秘模型。本章所讲的是围绕语言模型组织起来的运行机制：把可用工具、任务和反馈交给模型，再让程序推进执行。是否适合使用这种机制，仍取决于任务是否确实需要动态选择下一步。"
+      ]
+    },
+    {
+      "layout": "agent",
+      "theme": "reinbee",
+      "section": "Agent原理",
+      "chapter": "05",
+      "sectionLabel": "Agent原理",
+      "eyebrow": "AGENT PRINCIPLES",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "sourceLabel": "课程015 · 原生图示改编",
+      "id": "agent-setup",
+      "title": "最小 Agent：模型、工具与运行循环",
+      "agentKind": "setup",
+      "timingSeconds": 90,
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-quickstart",
+        "agent-langchain-overview",
+        "agent-langchain-tools"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-006.jpg",
+        "assets/video-evidence/015/frame-011.jpg",
+        "assets/video-evidence/015/frame-015.jpg",
+        "assets/video-evidence/015/frame-016.jpg"
+      ],
+      "agentData": {
+        "description": "三个组成部分对应一段精简的LangChain Agent创建与调用示意代码。",
+        "lead": "把可用工具注册给 Agent，再用消息启动一次任务。",
+        "caption": "教学示意：model 已配置；get_weather 是模拟工具，示例代码不在幻灯片中执行。",
+        "components": [
+          {
+            "label": "模型",
+            "text": "理解任务，生成回答或工具请求"
+          },
+          {
+            "label": "工具",
+            "text": "提供清晰接口，执行具体操作"
+          },
+          {
+            "label": "运行循环",
+            "text": "传递消息，执行工具，再调用模型"
+          }
+        ],
+        "codeTitle": "LangChain · 创建与调用的最小结构",
+        "codeLines": [
+          "from langchain.agents import create_agent",
+          "agent = create_agent(model, tools=[get_weather])",
+          "result = agent.invoke({",
+          "    \"messages\": [{\"role\": \"user\", \"content\": \"杭州今天天气如何？\"}]",
+          "})"
+        ],
+        "bottomLine": "create_agent 组织执行过程；invoke 用本次消息启动这一过程。"
+      },
+      "notes": [
+        "视频02:00至08:00依次演示安装依赖、读取环境配置、定义工具、创建Agent和调用Agent。演讲将这些代码操作压缩到一页，让听众先识别三个职责：模型选择下一步，工具执行明确操作，运行循环负责把两者接起来。安装命令、依赖选择和凭据配置不占投屏篇幅。",
+        "代码采用核验时LangChain官方文档中的create_agent与invoke入口。model表示已经配置好的聊天模型实例，不是可直接照抄的具体产品字符串；调用者应按自己采用的模型提供方和依赖版本完成配置。tools列表把get_weather注册为本次Agent可调用的工具。凭据应通过适当的环境或密钥管理方式配置，不能写进幻灯片。",
+        "invoke接收包含用户消息的输入并运行Agent。普通模式下，返回结果通常含运行后的消息状态，不能把result简单当作一段纯文本。后续页会看到，消息列表除了用户问题和最终回答，还可能包括模型提出的工具调用以及程序写回的工具结果。",
+        "这里没有真正安装模型依赖、调用服务或查询天气；本地HTML只展示可编辑示意代码。课程的模拟工具用于理解控制流程，生产工具还需明确输入输出及失败处理。API名称按2026-10-20核验的官方文档说明，实际项目应以锁定的版本和提供方文档为准。"
+      ]
+    },
+    {
+      "layout": "agent",
+      "theme": "reinbee",
+      "section": "Agent原理",
+      "chapter": "05",
+      "sectionLabel": "Agent原理",
+      "eyebrow": "AGENT PRINCIPLES",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "sourceLabel": "课程015 · 原生图示改编",
+      "id": "agent-loop",
+      "title": "Agent 的核心，是一个反馈循环",
+      "agentKind": "loop",
+      "timingSeconds": 120,
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-overview",
+        "agent-react-primary",
+        "agent-langchain-models",
+        "agent-workflow-primary"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-020.jpg",
+        "assets/video-evidence/015/frame-021.jpg",
+        "assets/video-evidence/015/frame-024.jpg",
+        "assets/video-evidence/015/frame-026.jpg"
+      ],
+      "agentData": {
+        "description": "输入进入模型，模型可以请求运行时执行工具，工具结果回到模型，也可以生成最终输出。",
+        "lead": "每次得到新信息后，再判断下一步做什么。",
+        "caption": "结构示意：一次任务可能调用零次、一次或多次工具；示例工具仍为模拟天气。",
+        "input": {
+          "label": "Input",
+          "text": "用户问题与任务信息"
+        },
+        "model": {
+          "label": "Model · 判断下一步",
+          "questions": [
+            "是否需要使用工具？",
+            "选择哪个工具、哪些参数？",
+            "已有信息是否足以回答？"
+          ]
+        },
+        "tool": {
+          "label": "Tools · 程序执行",
+          "text": "执行函数，返回结果或错误"
+        },
+        "output": {
+          "label": "Output",
+          "text": "面向用户的最终回答"
+        },
+        "actionLabel": "Action · 请求调用",
+        "observationLabel": "Observation · 工具反馈",
+        "finishLabel": "生成最终回答",
+        "repeatLabel": "结果回传给模型；需要时继续调用，满足结束条件时停止。"
+      },
+      "notes": [
+        "视频09:30至12:30多次展示同一张Input、Model、Tools、Output关系图。本页保留完整状态，把连续讲解合并在一页中。先沿左侧箭头将输入送入模型，再看模型面对的三个问题：要不要用工具、选哪个工具和参数、现在的信息够不够形成回答。",
+        "Action在这里是模型生成的工具调用请求，例如调用get_weather，参数location为杭州。请求不是函数已经运行的证据。运行时检查并执行相应函数，然后把工具输出作为Observation反馈给模型。工具可能返回正常数据，也可能返回错误或缺失信息；模型和程序都需要据此决定后续处理。",
+        "这与ReAct论文中行动与观察交替推进任务的核心思路相呼应，但图示不是对某个具体模型内部计算的完整披露。页面中的“判断”描述可见功能，不代表我们可以读取模型完整的隐含推理。实际消息记录展示的是输入、工具调用及结果等接口信息。",
+        "工具循环不保证一定被执行。简单问题可以直接回答，复杂问题也可能需要多个工具或多轮反馈。在课程天气示例里，只调用一次模拟查询就足以演示回路；这里的“晴”来自硬编码的函数返回值，不是模型或系统进行了真实天气观测。",
+        "通常由模型生成不带工具调用的最终回复来结束一次任务，同时应用需要配置步数、时间等上限以及异常出口。达到上限、发生不可恢复错误或需要额外授权时，也应结束或暂停执行，不能把“持续循环”当作完成目标的保证。"
+      ]
+    },
+    {
+      "layout": "agent",
+      "theme": "reinbee",
+      "section": "Agent原理",
+      "chapter": "05",
+      "sectionLabel": "Agent原理",
+      "eyebrow": "AGENT PRINCIPLES",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "sourceLabel": "课程015 · 原生图示改编",
+      "id": "agent-tool-schema",
+      "title": "模型怎样知道工具能做什么？",
+      "agentKind": "schema",
+      "timingSeconds": 105,
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-tools",
+        "agent-langchain-models"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-012.jpg",
+        "assets/video-evidence/015/frame-027.jpg",
+        "assets/video-evidence/015/frame-029.jpg",
+        "assets/video-evidence/015/frame-031.jpg"
+      ],
+      "agentData": {
+        "description": "把Python工具函数的名称、说明和参数类型映射到模型可读的工具描述。",
+        "lead": "工具以“名称 + 用途 + 参数结构”的形式交给模型。",
+        "caption": "教学模拟：函数直接返回“晴”；真实查询需要把函数体替换为数据服务调用。",
+        "codeTitle": "工具实现 · 模拟天气函数",
+        "codeLines": [
+          "from langchain.tools import tool",
+          "@tool",
+          "def get_weather(location: str) -> str:",
+          "    \"\"\"查询指定城市的天气（教学模拟）。\"\"\"",
+          "    return f\"{location}：晴（模拟）\""
+        ],
+        "fields": [
+          {
+            "label": "name",
+            "value": "get_weather",
+            "text": "调用时用于识别目标工具"
+          },
+          {
+            "label": "description",
+            "value": "查询指定城市的天气（教学模拟）",
+            "text": "帮助模型判断何时使用"
+          },
+          {
+            "label": "parameters",
+            "value": "location: string · 必填",
+            "text": "规定调用需要提供的参数结构"
+          }
+        ],
+        "mappingLabel": "函数名、文档说明与类型标注 → 可传给模型的工具 Schema"
+      },
+      "notes": [
+        "视频12:30提出“Agent如何知道工具信息”，13:00至16:30结合工具代码和接口文档，说明工具名、描述和参数如何传给模型。本页把两边的对应关系画成原生可编辑结构，不复制服务商文档整页截图，也不保留IDE中无关的运行信息。",
+        "在这里，@tool把Python函数包装为工具。默认情况下，函数名用于工具名称，文档字符串说明工具用途，参数类型帮助形成输入结构。本例location是必填字符串，表达城市名称。实际工具可以自定义名称、描述和更严格的参数Schema，不能把这一种默认映射当作所有语言、框架和服务的统一格式。",
+        "模型获得的是工具描述和输入结构，而不是自动拥有执行任意代码的能力。描述要让模型理解何时适合调用，参数结构要让程序知道预期输入；具体网络请求、数据读取以及运行权限仍属于工具实现与运行时职责。模型生成了符合结构的参数，也不等于参数对应的事实或权限已经得到验证。",
+        "为忠实交代课程例子的性质，保留了函数返回固定天气的行为并显式标注模拟。将getWeather规范为get_weather只是Python命名改写，不改变调用关系。本章没有接入真实天气服务，也不把函数定义中的描述当作已被实现的真实能力。",
+        "工具输入在不同模型服务的协议中可能表示为JSON Schema或框架转换后的结构。投屏保留稳定的名称、说明、参数三个概念；具体协议字段和约束支持，应核对所使用模型与框架的版本。"
+      ]
+    },
+    {
+      "layout": "agent",
+      "theme": "reinbee",
+      "section": "Agent原理",
+      "chapter": "05",
+      "sectionLabel": "Agent原理",
+      "eyebrow": "AGENT PRINCIPLES",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "sourceLabel": "课程015 · 原生图示改编",
+      "id": "agent-messages",
+      "title": "一次工具调用，会留下哪些消息？",
+      "agentKind": "messages",
+      "timingSeconds": 105,
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-models",
+        "agent-langchain-overview",
+        "agent-langchain-tools"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-017.jpg",
+        "assets/video-evidence/015/frame-036.jpg",
+        "assets/video-evidence/015/frame-040.jpg",
+        "assets/video-evidence/015/frame-041.jpg"
+      ],
+      "agentData": {
+        "description": "四类消息串起用户输入、模型请求工具、工具返回结果与模型最终回复，并强调调用ID关联。",
+        "lead": "把执行过程展开，就能看到请求与结果如何对应。",
+        "caption": "消息内容与 call_01 均为教学示意；“晴（模拟）”是工具返回值。",
+        "rows": [
+          {
+            "role": "HumanMessage",
+            "tag": "用户输入",
+            "lines": [
+              "杭州今天天气如何？"
+            ]
+          },
+          {
+            "role": "AIMessage",
+            "tag": "包含 tool_calls",
+            "lines": [
+              "get_weather",
+              "location: \"杭州\"",
+              "id: call_01"
+            ]
+          },
+          {
+            "role": "ToolMessage",
+            "tag": "程序写回工具结果",
+            "lines": [
+              "杭州：晴（模拟）",
+              "tool_call_id:",
+              "call_01"
+            ]
+          },
+          {
+            "role": "AIMessage",
+            "tag": "组织最终回答",
+            "lines": [
+              "模拟查询结果显示：",
+              "杭州为晴天。"
+            ]
+          }
+        ],
+        "pairingLabel": "tool_call_id 对应前面的调用 id，把这次结果交还给这次请求。",
+        "bottomLine": "看到 tool_calls 表示模型请求调用；看到工具结果，才有执行反馈。"
+      },
+      "notes": [
+        "视频17:00至20:30检查接口输出和Agent消息列表，20:00附近可以看到工具名称、参数及调用标识。本页用四种消息概括一次成功完成的最小链路，删除令牌用量和无关元数据，让观众集中理解谁说了什么、谁执行了什么。",
+        "第一条HumanMessage记录用户问题。第二条AIMessage包含tool_calls：工具名get_weather、参数location为杭州，以及这次调用的id。这里的call_01是为教学而写的示意标识，不是从运行日志复制的真实标识。模型提出工具调用，仍不意味着工具已经执行成功。",
+        "第三条ToolMessage由程序在执行工具后提供，其中tool_call_id对应此前工具调用的id，使运行时和模型知道这条返回值属于哪次调用。课件把这个字段单独强调，因为在多次或多个工具调用中，正确关联请求与结果非常重要。实际框架可能处理多个工具调用，消息形式也会随接口而变化。",
+        "第四条AIMessage依据工具返回的信息组织最终回复。当前返回“晴（模拟）”，因此回答也明确保留模拟限定。若工具返回错误、超时或找不到城市，就需要如实处理这些反馈，不能仍把成功查询的模板拼成事实。",
+        "这些消息反映公开接口上的交互记录，不是模型完整的私有思维过程。工具名称、参数、调用ID与结果可以用于调试和审计，但不能仅凭一条看似合理的最终回答判断此前流程已经正确执行。消息状态也不自动等于跨会话持久记忆。"
+      ]
+    },
+    {
+      "layout": "agent",
+      "theme": "reinbee",
+      "section": "Agent原理",
+      "chapter": "05",
+      "sectionLabel": "Agent原理",
+      "eyebrow": "AGENT PRINCIPLES",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "sourceLabel": "课程015 · 原生图示改编",
+      "id": "agent-sequence",
+      "title": "把一次 Agent 执行串起来",
+      "agentKind": "sequence",
+      "timingSeconds": 120,
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-overview",
+        "agent-langchain-quickstart",
+        "agent-langchain-models",
+        "agent-workflow-primary"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-043.jpg",
+        "assets/video-evidence/015/frame-044.jpg",
+        "assets/video-evidence/015/frame-045.jpg"
+      ],
+      "agentData": {
+        "description": "用户、Agent运行时与模型三条生命线，从问题输入到工具执行再到最终回答，完整显示九步交互。",
+        "lead": "模型选择动作，Agent 运行时负责执行与消息传递。",
+        "caption": "改编自课程21:00–22:15时序图；查询结果仍为模拟，省略网络与框架内部细节。",
+        "participants": [
+          {
+            "label": "用户",
+            "caption": "提出任务"
+          },
+          {
+            "label": "Agent 运行时",
+            "caption": "编排与执行"
+          },
+          {
+            "label": "模型",
+            "caption": "判断与生成"
+          }
+        ],
+        "events": [
+          {
+            "from": 0,
+            "to": 1,
+            "label": "提问：杭州今天天气如何",
+            "tone": "blue"
+          },
+          {
+            "from": 1,
+            "to": 1,
+            "label": "组织消息、工具描述与配置",
+            "tone": "blue"
+          },
+          {
+            "from": 1,
+            "to": 2,
+            "label": "携带工具信息调用模型",
+            "tone": "orange"
+          },
+          {
+            "from": 2,
+            "to": 1,
+            "label": "返回工具名与参数：杭州",
+            "tone": "blue"
+          },
+          {
+            "from": 1,
+            "to": 1,
+            "label": "执行 get_weather",
+            "tone": "orange"
+          },
+          {
+            "from": 1,
+            "to": 2,
+            "label": "携工具结果再次调用模型",
+            "tone": "blue"
+          },
+          {
+            "from": 2,
+            "to": 2,
+            "label": "根据工具结果组织回答",
+            "tone": "orange"
+          },
+          {
+            "from": 2,
+            "to": 1,
+            "label": "返回最终回答",
+            "tone": "blue"
+          },
+          {
+            "from": 1,
+            "to": 0,
+            "label": "交付回答与必要说明",
+            "tone": "blue"
+          }
+        ],
+        "bottomLine": "如果仍需要工具，回到调用环节；最终回复或运行限制使本轮结束。"
+      },
+      "notes": [
+        "视频21:00至22:15用用户、Agent、模型三条生命线总结前面的代码与协议。本页保留三方角色及完整往返关系，将反复出现的图示展开合并为一个完整状态。课程中的Agent在这里明确标为Agent运行时，帮助区分语言模型和负责执行的程序。",
+        "第一步用户提出天气问题；第二步运行时组织消息、工具描述和模型配置；第三步调用模型。模型收到这些信息后，可以判断是否适合使用工具。本示例第四步返回get_weather及杭州参数，这是一项结构化请求，不是模型自行联网查询了天气。",
+        "第五步运行时执行工具函数，这是实际执行操作的位置。当前函数只返回模拟数据；真实系统可以在这里访问被授权的数据服务并处理失败情况。第六步将对应的工具结果连同调用关联信息交回模型，第七步模型在已有结果上组织回答。",
+        "第八步模型返回最终回复，第九步运行时将回复交付用户。图示简化了身份认证、参数校验、超时与重试等细节，但这些责任不会因为使用Agent框架而消失。模型服务和运行时也可以部署在不同位置，生命线区分的是职责，不是一份固定的服务器部署方案。",
+        "一次任务未必只发生这里画出的两次模型调用。如果工具结果不足以完成任务，模型可能继续提出其他调用；如果初始信息已经足够，也可能跳过工具直接回答。运行时应遵循工具协议和应用约束推进流程，并在最终回复、步数上限或异常出口处结束或暂停，而不是无条件重复调用。"
+      ]
+    },
+    {
+      "layout": "agent",
+      "theme": "reinbee",
+      "section": "Agent原理",
+      "chapter": "05",
+      "sectionLabel": "Agent原理",
+      "eyebrow": "AGENT PRINCIPLES",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "sourceLabel": "课程015 · 原生图示改编",
+      "id": "agent-safeguards",
+      "title": "让 Agent 循环可靠地结束",
+      "agentKind": "safeguards",
+      "timingSeconds": 75,
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-overview",
+        "agent-langchain-tools",
+        "agent-workflow-primary"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-046.jpg"
+      ],
+      "agentData": {
+        "description": "以可观察、受约束、可结束三个方面总结Agent运行时需要承担的工程责任。",
+        "lead": "原理是“行动与反馈”；可用系统还需要明确的执行边界。",
+        "caption": "本页为官方文档补充归纳；课程天气工具是模拟示例，不能代表应用可靠性。",
+        "items": [
+          {
+            "label": "01 · 看得见",
+            "title": "记录请求与结果",
+            "text": "保留工具名、参数、调用关联与返回值，查清每一步发生了什么。"
+          },
+          {
+            "label": "02 · 控得住",
+            "title": "校验输入与权限",
+            "text": "程序检查参数和可执行范围；有实际影响的操作按应用规则确认。"
+          },
+          {
+            "label": "03 · 停得下",
+            "title": "设置结束与退路",
+            "text": "限定步数与时间；遇到错误、缺失信息或授权不足时停止或转交。"
+          }
+        ],
+        "bottomLine": "Agent = 模型选择下一步 + 程序执行工具 + 结果反馈与受控循环"
+      },
+      "notes": [
+        "视频22:30回到Agent循环作总结。本页在循环基础上增加官方文档支持的工程归纳，明确这是补充说明，不声称视频逐项给出了这些要求。理解原理后，最重要的是知道模型能力与程序责任分别在哪里。",
+        "第一，保留可观察的执行过程。工具名称、参数、调用ID、结果和错误能帮助定位失败发生在哪个环节。此处记录公开交互和运行状态，不要求获得模型完整的隐含推理；日志还应按应用的数据管理规则处理，避免无目的地收集信息。",
+        "第二，运行时应验证工具参数与实际执行权限。模型提出了一个调用建议，不等于用户已经授权该操作，也不代表参数已经符合业务约束。真实产生外部影响的操作需要按照产品规定的权限与确认机制执行；模拟天气函数只用来说明机制，没有真实外部动作。",
+        "第三，为任务设置可判断的完成条件以及步数、时间等边界。工具错误、信息不足或授权缺失时，应有停止、请求补充信息或转交人工的路径。框架可以提供循环和状态管理能力，但应用仍需要选择符合任务的限制及处理方式。",
+        "最后用一句话回顾：模型根据任务和反馈选择下一步，程序执行工具，把结果送回来，并在受控循环中推进任务。固定流程足以解决的问题可以直接写成工作流；Agent更适合确实需要动态判断路径的场景。它既不天然保证正确答案，也不天然拥有长期记忆。"
+      ]
+    },
+    {
+      "layout": "harness",
+      "theme": "reinbee",
+      "section": "Harness工程",
+      "chapter": "06",
+      "sectionLabel": "Harness工程",
+      "eyebrow": "HARNESS ENGINEERING",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "id": "harness-anatomy",
+      "title": "模型之外，谁让任务持续推进？",
+      "harnessKind": "anatomy",
+      "timingSeconds": 90,
+      "sourceLabel": "LangChain · Agent Harness 原理",
+      "sourceIds": [
+        "harness-anatomy",
+        "harness-long-running"
+      ],
+      "harnessData": {
+        "description": "模型位于Harness运行系统内，周围包含上下文、工具执行、持久状态和控制验证四类能力，连接任务输入与可验收结果。",
+        "lead": "Harness 是围绕模型的运行系统，把一次生成连接成可推进的任务。",
+        "caption": "组成示意；边界随框架和任务而变，Harness 不是统一的产品或固定技术标准。",
+        "bottomLine": "工作定义：Agent = 模型 + Harness；能力来自二者配合。",
+        "harnessLabel": "Harness · 运行系统",
+        "input": {
+          "label": "任务",
+          "text": "目标与约束"
+        },
+        "output": {
+          "label": "结果",
+          "text": "产物与证据"
+        },
+        "model": {
+          "label": "模型",
+          "text": "判断下一步"
+        },
+        "parts": [
+          {
+            "label": "上下文",
+            "text": "准备本轮需要的信息"
+          },
+          {
+            "label": "工具执行",
+            "text": "把调用请求落为动作"
+          },
+          {
+            "label": "持久状态",
+            "text": "保存进度与工作产物"
+          },
+          {
+            "label": "控制与验证",
+            "text": "限定边界，核对结果"
+          }
+        ]
+      },
+      "notes": [
+        "上一节解释了模型提出工具请求、程序执行、结果回传的Agent循环。这里把视角从一次循环移到完整运行系统：谁准备信息，谁保管任务进度，谁执行动作，又由谁判断结果是否足够交付。工程实践中，这些围绕模型的支撑机制常被称为Agent Harness。",
+        "LangChain对Harness的说明使用“Agent等于模型加Harness”这一工作定义，强调模型之外的系统设计会改变Agent实际能完成的任务。本页采用这一表达帮助建立分工，而不是声称行业已有唯一、严格的术语标准；不同框架会把运行时、状态、工具和编排划在不同层级。",
+        "图中的四块是教学归纳。上下文模块选择本轮送给模型的信息；工具执行模块处理模型提出的调用；持久状态记录可在后续阶段读取的进度和产物；控制与验证则负责运行限制和可检查的完成条件。各块可以由普通程序、框架组件或业务基础设施实现，不要求采购一整套新平台。",
+        "模型提供判断与生成能力，Harness提供模型与实际工作环境的连接方式。两者都可能成为失败原因：输入遗漏、工具接口不清、状态丢失、验证不足都不能仅靠更换模型来解释；同样，良好的运行系统也不能保证模型在所有任务上正确。",
+        "来源已于2026-10-20核验：LangChain对Agent Harness的组成说明，以及Anthropic关于长任务运行机制的工程实践。后者主要针对编码Agent，本章借用其“持续推进和保存状态”的设计原则，不把特定编码方案当成全部业务的通用架构。"
+      ]
+    },
+    {
+      "layout": "harness",
+      "theme": "reinbee",
+      "section": "Harness工程",
+      "chapter": "06",
+      "sectionLabel": "Harness工程",
+      "eyebrow": "HARNESS ENGINEERING",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "id": "harness-context",
+      "title": "每一轮，先准备模型该看到什么",
+      "harnessKind": "context",
+      "timingSeconds": 105,
+      "sourceLabel": "Anthropic · Context Engineering",
+      "sourceIds": [
+        "harness-context",
+        "harness-anatomy"
+      ],
+      "harnessData": {
+        "description": "任务、外部材料和持久记录先经过选择、整理、必要压缩，再构成本轮上下文窗口；持久记录和窗口分开表示。",
+        "lead": "上下文工程关注：有限的输入空间里，哪些信息对当前决策最有用。",
+        "caption": "选择、整理与压缩是设计方法示意；压缩可能丢失信息，应保留可回查的原始记录。",
+        "bottomLine": "上下文窗口 ≠ 训练知识 ≠ 持久记忆；保存后还要按需读回来。",
+        "stores": [
+          {
+            "label": "任务与约束",
+            "text": "用户目标、规则、完成条件"
+          },
+          {
+            "label": "外部材料",
+            "text": "检索资料、文件、工具结果"
+          },
+          {
+            "label": "持久记录",
+            "text": "进度、产物位置、待办事项"
+          }
+        ],
+        "stages": [
+          {
+            "label": "选择",
+            "text": "取当前相关内容"
+          },
+          {
+            "label": "整理",
+            "text": "去重并明确来源"
+          },
+          {
+            "label": "必要时压缩",
+            "text": "保留关键事实"
+          }
+        ],
+        "window": {
+          "label": "本轮上下文",
+          "text": "模型在这一次调用中实际接收的信息"
+        },
+        "stateLabel": "持久记录保存在外部；检索并放入本轮输入后，模型才能利用它。"
+      },
+      "notes": [
+        "上下文工程不是把所有资料都堆进提示词。Anthropic将它讨论为围绕有限上下文空间进行信息选择和组织的系统工作：目标是让模型在当前一步拥有足够、相关且易于使用的信息。本页不承诺某种统一的最优上下文长度或固定压缩比例。",
+        "图上方三类材料可能来自不同位置：任务要求和约束来自用户与应用；外部材料来自检索、文件或工具；持久记录来自程序保存的工作进度。它们不是天然全部出现在模型的输入里，需要由Harness按任务阶段选择和组织。",
+        "中间三步是教学归纳。选择意味着避免把无关历史和冗余工具输出反复送入；整理意味着清楚标识内容来源与当前有效状态；压缩则在需要时将长记录概括为继续工作所需的信息。摘要可能遗漏细节，所以应保留重要原始证据、产物位置和可回查路径，必要时重新读取。",
+        "底部区分三个概念：训练知识是模型参数中学到的规律；上下文窗口是本轮调用接收的信息范围；持久记忆或状态是应用在调用之外保存的信息。把内容写进文件或数据库，并不等于模型永久记住了它，也不是重新训练了模型；未来调用必须检索或读取相关部分，才能继续使用。",
+        "来源已于2026-10-20核验：Anthropic关于有效上下文工程的原始工程文章，以及LangChain对Harness上下文管理职责的说明。本页讨论机制，不给出任何产品的最新窗口容量，也不把示意流程当作所有框架默认行为。"
+      ]
+    },
+    {
+      "layout": "harness",
+      "theme": "reinbee",
+      "section": "Harness工程",
+      "chapter": "06",
+      "sectionLabel": "Harness工程",
+      "eyebrow": "HARNESS ENGINEERING",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "id": "harness-continuity",
+      "title": "长任务靠可恢复的进度往前走",
+      "harnessKind": "continuity",
+      "timingSeconds": 105,
+      "sourceLabel": "Anthropic · Long-running Agents",
+      "sourceIds": [
+        "harness-long-running",
+        "harness-context"
+      ],
+      "harnessData": {
+        "description": "长任务依次经过初始化、小步执行、验证保存和恢复续作，持久记录保存完成状态、产物位置与下一步任务。",
+        "lead": "把大任务拆成可验证的小步，让下一次会话接得上前一次工作。",
+        "caption": "借鉴长任务编码Agent的工程实践；实际任务应按业务状态、成本与失败模式调整。",
+        "bottomLine": "继续工作的依据，是可检查的状态与产物，不只是“我已经做完”的描述。",
+        "steps": [
+          {
+            "label": "初始化",
+            "text": "拆分任务\n明确验收条件"
+          },
+          {
+            "label": "小步执行",
+            "text": "一次推进一项\n控制变更范围"
+          },
+          {
+            "label": "验证并保存",
+            "text": "检查实际结果\n记录剩余问题"
+          },
+          {
+            "label": "恢复续作",
+            "text": "读取并核对进度\n选择下一小步"
+          }
+        ],
+        "record": {
+          "label": "持久记录 · 为下一轮留下可靠交接",
+          "items": [
+            "进度：已完成 / 未完成",
+            "产物：文件与版本位置",
+            "待办：下一步与阻塞点"
+          ]
+        },
+        "resumeLabel": "读取进度 → 继续执行；每次保存前，都核对当前产物。"
+      },
+      "notes": [
+        "长任务可能超出一次模型调用或一次会话能可靠完成的范围。Anthropic在编码Agent实践中讨论了两类常见失败：一次试图完成太多，留下不完整状态；或者后续会话看到一些已有成果后过早认为任务已经完成。本页因此把重点放在可交接、可恢复的工作过程。",
+        "初始化阶段应把目标转成可判断的小任务和验收条件，并准备工作环境。后续执行阶段选择范围较小的一项推进，避免让模型在没有清晰边界时同时修改许多无关内容。任务列表是工程控制手段，具体粒度要根据业务和工具能力调整。",
+        "执行后先检查实际产物，再保存记录。对于编码任务，证据可以是差异、可运行状态和测试结果；其他业务任务则需要自己的验收方法。只有生成一句“已完成”或把待办标成完成，不能代替对真实结果的检查。",
+        "持久记录至少回答三类问题：当前完成到哪里，相关产物保存在哪里，下一步做什么或被什么阻塞。下一轮会话读取这些记录后，再结合实际环境核对并继续。程序保存记录本身不会让模型拥有跨会话的天然记忆，仍需安排读取和上下文组织。",
+        "来源已于2026-10-20核验：Anthropic的长任务Agent Harness实践与上下文工程文章。原文的初始化与编码Agent分工、版本记录、进度文件和验证方法来自特定工程场景；本页提取可迁移原则，不宣称所有任务都需要同样的文件结构、测试框架或多Agent配置。"
+      ]
+    },
+    {
+      "layout": "harness",
+      "theme": "reinbee",
+      "section": "Harness工程",
+      "chapter": "06",
+      "sectionLabel": "Harness工程",
+      "eyebrow": "HARNESS ENGINEERING",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "id": "harness-execution",
+      "title": "工具调用，要经过可控制的执行路径",
+      "harnessKind": "execution",
+      "timingSeconds": 90,
+      "sourceLabel": "LangChain · Harness / Middleware",
+      "sourceIds": [
+        "harness-anatomy",
+        "harness-middleware"
+      ],
+      "harnessData": {
+        "description": "模型请求经过参数与权限检查后进入隔离执行，运行时回传结果或错误，并以预算、业务确认和可追踪记录控制执行。",
+        "lead": "模型给出调用意图，运行时决定这次操作能否、如何执行。",
+        "caption": "隔离和校验降低风险，不能保证全部安全；权限必须在程序与基础设施中落实。",
+        "bottomLine": "能调用工具，不等于已获授权；失败也不等于应该无限重试。",
+        "steps": [
+          {
+            "label": "模型请求",
+            "text": "工具名与参数\n等待运行时处理"
+          },
+          {
+            "label": "校验与授权",
+            "text": "参数是否合法\n操作是否允许"
+          },
+          {
+            "label": "隔离执行",
+            "text": "限定资源范围\n处理运行失败"
+          },
+          {
+            "label": "回传反馈",
+            "text": "返回结果或错误\n决定继续或停止"
+          }
+        ],
+        "controls": [
+          {
+            "label": "运行预算",
+            "text": "限制调用次数与耗时；只对适合重试的错误有限重试。"
+          },
+          {
+            "label": "业务确认",
+            "text": "高影响操作按业务规则审核或确认，再执行。"
+          },
+          {
+            "label": "可追踪记录",
+            "text": "关联请求、结果与错误，保留核查实际动作的依据。"
+          }
+        ]
+      },
+      "notes": [
+        "上一节已经区分模型请求工具和程序执行工具。本页进一步展示实际工程路径：模型产生的名称与参数只是一个请求，运行时还要检查接口参数、身份权限和业务条件，再决定是否执行、暂停或拒绝。",
+        "工具执行环境可以限制文件、进程、网络或其他资源的访问范围。隔离机制和权限控制是程序与基础设施职责，仅在提示词中写“不要越权”不等于形成了强制边界。隔离也不是完整安全保证，仍要考虑凭证暴露、被授权工具的实际影响和应用数据管理。",
+        "运行预算包括调用次数、耗时等限制。工具失败后可以把结构化错误反馈给模型，也可以按规则直接结束或转交。重试适合某些暂时性故障，但参数错误、缺少权限或不满足业务条件，通常需要修正、补充信息或停止；不能把所有异常都处理成自动反复执行。",
+        "对有实际影响的操作，确认和审核条件应来自业务权限规则。可追踪记录保留请求、参数、调用关联、结果和错误，帮助核对执行了什么；它是可观察的运行轨迹，不等于模型隐藏的完整推理过程。记录内容也应符合应用的数据最小化和访问控制要求。",
+        "来源已于2026-10-20核验：LangChain的Harness组成说明与官方预置中间件文档，后者提供人工审核、调用次数限制和工具重试等能力的具体例子。本页是工程职责归纳，不暗示任何框架默认开启了全部保护，也不指定必须使用某一种沙箱或中间件。"
+      ]
+    },
+    {
+      "layout": "harness",
+      "theme": "reinbee",
+      "section": "Harness工程",
+      "chapter": "06",
+      "sectionLabel": "Harness工程",
+      "eyebrow": "HARNESS ENGINEERING",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "id": "harness-improvement",
+      "title": "Harness 工程：从失败轨迹里改系统",
+      "harnessKind": "improvement",
+      "timingSeconds": 120,
+      "sourceLabel": "LangChain · Harness Engineering / Anthropic · Evals",
+      "sourceIds": [
+        "harness-improvement",
+        "harness-evals"
+      ],
+      "harnessData": {
+        "description": "左侧展示执行一次任务的模型、工具、反馈内循环；右侧展示评测、观察轨迹、定位失败、修改机制、回归验证的工程外循环。",
+        "lead": "一次任务中的行动循环，与开发者改进系统的评测循环，是两件事。",
+        "caption": "工程改进示意；应检查最终环境与产物，不只依据Agent的完成话术评分。",
+        "bottomLine": "先建立能复现的任务与验收，再用证据决定改哪里。",
+        "inner": {
+          "label": "内循环 · 执行一个任务",
+          "steps": [
+            "模型选择下一步",
+            "运行时执行工具",
+            "接收反馈再判断"
+          ],
+          "text": "推进当前任务，直到完成、暂停或达到运行限制。"
+        },
+        "outer": {
+          "label": "外循环 · 改进运行系统",
+          "steps": [
+            "运行评测任务",
+            "观察执行轨迹",
+            "定位失败环节",
+            "修改运行机制",
+            "回归验证"
+          ],
+          "text": "对照完成质量、成本与耗时，再决定是否保留改动。"
+        },
+        "comparison": "比较时固定模型与任务条件，记录改动；必要时多次运行，关注结果的波动。"
+      },
+      "notes": [
+        "内循环是上一节的Agent运行过程：模型判断、程序执行、环境反馈，再决定下一步。外循环则是开发者持续改进Harness的过程，两者的主体、时间尺度和目的不同。不能把一次任务里反复调用模型，就称为已经完成Harness工程。",
+        "外循环从能反映真实需求的评测任务和明确验收方法开始。运行后观察轨迹，定位失败发生在信息准备、工具接口、权限执行、状态交接还是验证环节。轨迹是查找原因的证据，最终产物或环境状态则用来判断任务是否真的完成。",
+        "修改运行机制可以是调整上下文组织、工具说明、执行限制、错误处理或验证步骤，不必每次都更换模型。LangChain的Harness工程实践强调针对失败行为迭代运行系统；本页只提取工程方法，不复制其特定基准的成绩，也不预测本项目会获得同样提升。",
+        "回归验证应尽量保持模型和任务条件可比，记录这次改了什么，同时检查原本能通过的任务是否退步。模型输出存在变动，有条件时进行多次运行并观察分布；除了完成质量，也要看成本和耗时，不能仅因为轨迹更长或工具调用更多就判断系统更好。",
+        "来源已于2026-10-20核验：LangChain关于通过Harness工程改进Agent的原始实践，以及Anthropic关于Agent评测的工程文章。本页流程为教学整理，没有虚构通过率、业务收益或客户案例；评分应结合实际产物与环境证据，而不是只相信Agent声称“完成”。"
+      ]
+    },
+    {
+      "layout": "harness",
+      "theme": "reinbee",
+      "section": "Harness工程",
+      "chapter": "06",
+      "sectionLabel": "Harness工程",
+      "eyebrow": "HARNESS ENGINEERING",
+      "subtitle": "",
+      "logoPath": "assets/brand/reinbee-logo-light.png",
+      "logoAlt": "ReinBEE 浅色背景公司 Logo",
+      "id": "harness-case",
+      "title": "从一个可验收的小任务开始",
+      "harnessKind": "case",
+      "timingSeconds": 90,
+      "sourceLabel": "教学示意 · 基于 Anthropic / LangChain 工程实践",
+      "sourceIds": [
+        "harness-long-running",
+        "harness-improvement",
+        "harness-evals"
+      ],
+      "harnessData": {
+        "description": "以修复订单导出缺陷的虚构教学案例，将上下文丢失、未验证即完成、无效重复尝试三个失败现象对应到工程改进与验收证据。",
+        "lead": "把“Agent 不可靠”拆成具体失败，再为每项改进找可观察的证据。",
+        "caption": "虚构教学案例，不代表真实客户、模型输出或测得的业务成效。",
+        "bottomLine": "先做小而可测的闭环，再按实际失败增加复杂度。",
+        "exampleLabel": "教学示意",
+        "scenario": "任务：修复订单导出缺陷，并交付验证结果",
+        "columns": [
+          "观察到的失败",
+          "调整 Harness",
+          "验收时看什么"
+        ],
+        "rows": [
+          {
+            "failure": "换个会话，忘了修到哪里",
+            "change": "保存进度与产物位置",
+            "evidence": "恢复后能接着未完成项推进"
+          },
+          {
+            "failure": "改了代码，就宣称已完成",
+            "change": "完成前运行针对性验证",
+            "evidence": "缺陷复现用例通过，回归无退步"
+          },
+          {
+            "failure": "同一错误，反复无效尝试",
+            "change": "限定重试并设置停止出口",
+            "evidence": "到达限制后停止，留下错误记录"
+          }
+        ],
+        "acceptance": "验收材料：可复查的代码变更、测试结果、执行记录与未解决事项。"
+      },
+      "notes": [
+        "最后用一个虚构的编码任务把前面方法串起来：修复订单导出中的某个缺陷，并交付验证结果。这不是实际客户案例，也没有真实测得的改进指标；案例只用来演示如何把笼统的不可靠问题变成可定位、可修改、可验收的工程问题。",
+        "第一类失败是跨会话丢失进度。相应改进不是让模型口头承诺记住，而是在运行系统中保存完成状态、产物位置和待办，并在恢复时读取。验收可以安排中断后恢复，检查是否能在核对实际产物后继续处理未完成项，而不是重新开始或误认为全部完成。",
+        "第二类失败是修改之后就宣称成功。改进是在完成路径中加入与缺陷相关的验证，并保留结果。验收既要看原来失败的用例是否通过，也要看相邻能力有没有明显退步；“运行过测试”和“测试通过”是不同状态，不能只根据回答里的措辞做判断。",
+        "第三类失败是同一错误反复尝试而没有进展。改进可以限制适合重试的次数与耗时，并为不可恢复错误安排停止或转交路径。验收时检查是否遵守限制、是否留下错误记录和未解决事项；停止并说明原因有时比继续产生无效动作更符合任务要求。",
+        "来源已于2026-10-20核验：Anthropic的长任务Agent与评测实践，以及LangChain的Harness改进实践。具体三行案例由本演示自行构造。结尾建议属于工程教学归纳：先建立小规模、可测量的闭环，再依据真实失败增加机制，避免一开始就把所有可能组件都叠进系统。"
+      ]
     }
   ],
   "styleReference": {
@@ -17090,6 +18520,52 @@
           "assets/llm/reconstruction-attention.json",
           "assets/llm/reconstruction-generation.json",
           "assets/llm/video-review.json"
+        ]
+      },
+      {
+        "module": "大模型应用",
+        "pages": [
+          45,
+          52
+        ],
+        "sourceId": "video-apps",
+        "style": "内容与图示顺序参考视频005，合并连续展开为8页；统一ReinBee蓝黄浅灰透视网格、04 大模型应用页眉与右侧浅色Logo；1712×770原生可编辑HTML/SVG，不使用整页截图",
+        "records": [
+          "assets/applications/reconstruction.json",
+          "assets/applications/video-review.json"
+        ]
+      },
+      {
+        "module": "Agent原理",
+        "pages": [
+          53,
+          59
+        ],
+        "sourceId": "video-agent",
+        "style": "内容与图示结构依据视频015，将同图连续停留合并为完整状态；延续ReinBee蓝黄浅灰网格、05 Agent原理页眉与浅色Logo，1712×770原生可编辑HTML/SVG，正文不使用整页截图。",
+        "records": [
+          "assets/agent/reconstruction.json",
+          "assets/agent/video-review.json"
+        ]
+      },
+      {
+        "module": "Harness工程",
+        "pages": [
+          60,
+          65
+        ],
+        "sourceIds": [
+          "harness-anatomy",
+          "harness-context",
+          "harness-long-running",
+          "harness-middleware",
+          "harness-improvement",
+          "harness-evals"
+        ],
+        "style": "依据LangChain与Anthropic官方工程资料归纳；延续ReinBee蓝黄浅灰透视网格、06 Harness工程页眉与浅色Logo，1712×770原生可编辑HTML/SVG。",
+        "records": [
+          "assets/harness/source-review.json",
+          "assets/harness/reconstruction.json"
         ]
       }
     ]

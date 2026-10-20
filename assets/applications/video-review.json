@@ -1,0 +1,365 @@
+{
+  "reviewedOn": "2026-10-20",
+  "source": {
+    "sourceId": "video-apps",
+    "video": "assets/videos/bilibili/BV178w1z7EHQ/media/005_04-AI通识-大模型应用.mp4",
+    "url": "https://www.bilibili.com/video/BV178w1z7EHQ/?p=5",
+    "title": "04-AI通识-大模型应用",
+    "uploader": "黑马程序员",
+    "durationSeconds": 752.467075,
+    "width": 852,
+    "height": 480,
+    "hasSubtitleStream": false
+  },
+  "method": {
+    "description": "逐一视觉检查现有每30秒抽帧的四张总览，并放大检查GPT三字母、ChatBot拆解、能力对比与HTTP时序图的单帧。另从本地视频补抽05:45、06:15、08:45三个时点检查转场与分工图；补帧临时文件不纳入仓库。依据本地manifest核对视频身份、时长、分辨率和字幕情况。",
+    "evidenceRoot": "assets/video-evidence/005",
+    "frameIndexRule": "frame-001.jpg=00:00；frame-NNN.jpg=(NNN-1)*30秒。",
+    "observedFrames": 26,
+    "supplementalObservedSeconds": [345, 375, 525],
+    "supplementalObservations": [
+      {
+        "seconds": 345,
+        "visibleState": "黑底对话生成图正在转场回到ChatBot界面，画面中间可见缩小的ChatBot白底页；说明此前两种图示是不同讲解阶段。"
+      },
+      {
+        "seconds": 375,
+        "visibleState": "已呈现完整ChatBot三部分分工图：左程序员与登录/存储，中聊天界面，右机器人与对话/思考；与390秒帧一致。"
+      },
+      {
+        "seconds": 525,
+        "visibleState": "能力对比正在转为组合图，程序与机器人间出现双向箭头，底部两套能力及勾叉尚未合并；540秒帧显示完整Hybrid AI组合状态。"
+      }
+    ],
+    "contactSheets": [
+      "assets/video-evidence/005/contact-01.jpg",
+      "assets/video-evidence/005/contact-02.jpg",
+      "assets/video-evidence/005/contact-03.jpg",
+      "assets/video-evidence/005/contact-04.jpg"
+    ],
+    "detailFrames": [
+      "assets/video-evidence/005/frame-004.jpg",
+      "assets/video-evidence/005/frame-014.jpg",
+      "assets/video-evidence/005/frame-018.jpg",
+      "assets/video-evidence/005/frame-020.jpg"
+    ],
+    "limitations": [
+      "本记录是画面审阅，不是音频转录；不将讲师口头解释作为已核实内容。",
+      "时间戳为实际观察的抽帧时点，不是精确转场边界；两个抽样点之间可能存在未记录的动画细节。",
+      "原视频仅用作主题、顺序、图示结构的改编依据；技术纠偏建议须由正文作者对照论文或官方文档落实，不代表原视频已作该说明。"
+    ]
+  },
+  "observedSequence": [
+    {
+      "key": "course-cover",
+      "observedAtSeconds": [0],
+      "frameIds": ["frame-001"],
+      "visibleTitle": "LangChain开发指南",
+      "visibleSubtitle": "AI通识与基础篇",
+      "diagram": "左侧课程标题，右侧机器人手臂。",
+      "adaptation": "仅识别原课程开场，不复制课程名、原作者品牌或重复增加整套演讲封面。"
+    },
+    {
+      "key": "gpt-chatgpt-question",
+      "observedAtSeconds": [30],
+      "frameIds": ["frame-002"],
+      "visibleText": ["思考", "GPT和ChatGpt到底是什么关系？"],
+      "diagram": "左侧大圆“思考”，右侧单一关系问题。",
+      "adaptation": "作为大模型应用板块的进入问题，随后用模型与产品的关系图回答。"
+    },
+    {
+      "key": "gpt-letters",
+      "observedAtSeconds": [60, 90],
+      "frameIds": ["frame-003", "frame-004"],
+      "visibleTitle": "大模型",
+      "visibleText": [
+        "G / Generative",
+        "P / Pre-trained",
+        "T / Transformer"
+      ],
+      "diagram": "三列大圆字母；下方分别解释生成式、预训练和Transformer。60秒帧G尚未出现解释，90秒帧三列完整。",
+      "adaptation": "同一图的逐项展开合并为三列完整状态；字母解释用于承接上一章，不重新讲所有底层原理。"
+    },
+    {
+      "key": "llm-definition",
+      "observedAtSeconds": [120],
+      "frameIds": ["frame-005"],
+      "visibleTitle": "大模型",
+      "visibleText": [
+        "大语言模型（Large Language Model，LLM）是指模型的参数规模、训练数据量、训练成本、智能程度都远超普通模型的一种神经网络模型。"
+      ],
+      "diagram": "只有一条定义长句，正文大面积留白。",
+      "adaptation": "与已完成的大语言模型章节重合，建议放入GPT回顾讲稿，不单独新建定义页；“智能程度都远超普通模型”不照搬。"
+    },
+    {
+      "key": "completion-reminder",
+      "observedAtSeconds": [150],
+      "frameIds": ["frame-006"],
+      "visibleText": ["Transformer"],
+      "diagram": "黑底Transformer方块、候选Token概率条、关于爱因斯坦的英语连续文本。",
+      "adaptation": "下一Token生成机制在上一板块已有说明，建议作为后续对话生成页讲稿中的回顾，不另加重复页面；不复制未经核验的概率数值。"
+    },
+    {
+      "key": "chatbot-example",
+      "observedAtSeconds": [180, 210, 360],
+      "frameIds": ["frame-007", "frame-008", "frame-013"],
+      "visibleTitle": "大模型应用",
+      "visibleText": [
+        "对话机器人（ChatBot）是指可以与用户聊天、答疑，而且具有记忆的大模型应用。例如：ChatGpt、通义千问。"
+      ],
+      "diagram": "上方一条ChatBot定义，下方ChatGPT界面截图，展示问候与询问用户姓名的多轮对话。",
+      "adaptation": "以可编辑的简化聊天界面表示多轮对话，不必嵌入低分辨率整页截图；记忆说明需区分会话上下文和持久记忆。"
+    },
+    {
+      "key": "conversation-generation",
+      "observedAtSeconds": [240, 270, 300, 330],
+      "frameIds": ["frame-009", "frame-010", "frame-011", "frame-012"],
+      "visibleText": [
+        "What follows is a conversation between a user and a helpful, very knowledgeable AI assistant.",
+        "User: Give me some ideas for what to do when visiting Santiago.",
+        "AI Assistant:",
+        "Transformer"
+      ],
+      "diagram": "黑底左侧先放系统说明、用户问题和空助手续写；中部Transformer方块；最后助手文本逐渐增长，右侧出现下一Token候选概率条。",
+      "adaptation": "合并为一张完整状态：系统说明/用户问题/历史消息进入模型，模型生成回复，并以箭头说明新回复进入后续上下文；英文旅行例可中文化并标为教学示例。"
+    },
+    {
+      "key": "chatbot-components",
+      "observedAtSeconds": [375, 390],
+      "frameIds": ["frame-014"],
+      "visibleTitle": "大模型应用",
+      "visibleText": ["登录", "存储", "对话", "思考"],
+      "diagram": "原ChatBot截图缩小居中；左边程序员插画与登录/存储列表；右边机器人插画与对话/思考列表。",
+      "adaptation": "这是前面同一ChatBot应用的完整拆解状态。定稿为独立分工页，放在对话生成之后，保留原视频讲解顺序；使用原生应用图标和模型图形；“思考”改为更准确的“分析/生成”。"
+    },
+    {
+      "key": "program-model-comparison",
+      "observedAtSeconds": [420, 450, 480, 510],
+      "frameIds": ["frame-015", "frame-016", "frame-017", "frame-018"],
+      "visibleTitle": "大模型应用",
+      "visibleText": [
+        "大模型应用是基于大模型的推理、分析、生成能力，结合传统编程精确计算控制能力，开发出的各种应用。",
+        "传统程序",
+        "AI大模型",
+        "模糊问题处理",
+        "复杂模式识别",
+        "确定性逻辑处理",
+        "精确控制和高可靠性",
+        "帮我写一首关于秋天的诗",
+        "判断一张图片是“猫”还是“狗”",
+        "数学计算",
+        "订单支付"
+      ],
+      "diagram": "左程序员、右机器人；中间列四个任务。逐次补上两边能力列表与对错符号；完整状态把传统程序前两项打叉后两项打勾，把模型前两项打勾后两项打叉。",
+      "adaptation": "保留两列比较和四个任务的结构；合并连续展开；把绝对勾叉改为任务分工或相对优势，避免将传统程序等同规则系统，避免声称模型不能计算或程序不能识别。"
+    },
+    {
+      "key": "hybrid-application",
+      "observedAtSeconds": [525, 540],
+      "frameIds": ["frame-019"],
+      "visibleTitle": "大模型应用",
+      "visibleText": ["大模型应用（Hybrid AI）"],
+      "diagram": "左右程序员与机器人，中间双向粗箭头，上方Hybrid AI标签；下方四项能力全部打勾。",
+      "adaptation": "作为独立概念页保留：应用编排负责权限、数据与确定性执行，模型负责语言分析与生成。用交互箭头和任务闭环展示互补，不宣称组合后自动保证正确性或可靠性。"
+    },
+    {
+      "key": "api-sequence",
+      "observedAtSeconds": [570, 600, 630, 660],
+      "frameIds": ["frame-020", "frame-021", "frame-022", "frame-023"],
+      "visibleTitle": "大模型应用结构",
+      "visibleText": [
+        "大模型应用通常是由传统web应用作为入口，再由传统应用调用大模型服务提供的基于HTTP协议的API接口，实现用户与大模型的交互。",
+        "传统应用",
+        "大模型",
+        "1.提问",
+        "2.处理请求，并合规检查",
+        "3.发送HTTP请求，调用大模型接口",
+        "4.思考并生成答案",
+        "5.返回结果",
+        "6.合规检查",
+        "7.返回结果"
+      ],
+      "diagram": "三泳道时序图：用户、传统应用、大模型；应用和模型有纵向生命线与激活条；请求为实线右向箭头，返回为虚线左向箭头；处理/检查用自调用小折线。",
+      "adaptation": "合并所有停留讲解为一张完整原生SVG时序图，保留7个步骤；入口可称应用前端，服务端负责权限、上下文整理、模型调用与输出校验。HTTP(S) API应表达为常见远程调用方式。"
+    },
+    {
+      "key": "summary",
+      "observedAtSeconds": [690, 720, 750],
+      "frameIds": ["frame-024", "frame-025", "frame-026"],
+      "visibleTitle": "小结",
+      "visibleText": [
+        "GPT和ChatGpt是什么关系？",
+        "GPT是大语言模型",
+        "ChatGpt是基于GPT的一个对话产品，是一种大模型应用",
+        "什么是大模型应用？",
+        "大模型应用是利用大模型的推理、分析、生成能力，结合传统编程的计算、控制能力来实现的混合式应用。",
+        "大模型应用的结构是怎样的？",
+        "大模型应用通常是由传统web应用作为入口，再由传统应用调用大模型服务提供的基于HTTP协议的API接口，实现用户与大模型的交互。"
+      ],
+      "diagram": "左侧大圆“小结”，右侧三组问题与对应解释。",
+      "adaptation": "保留三问结构并精炼为模型/产品关系、能力互补、API交互三组结论；同一小结长时间停留合并一页。"
+    }
+  ],
+  "adoptedMapping": {
+    "status": "已按主代理确定的8页方案记录",
+    "firstPage": 45,
+    "lastPage": 52,
+    "pageCount": 8,
+    "durationSeconds": 750,
+    "durationPolicy": "演讲规划750秒，不声称与源视频752.467秒逐秒一致。各页在完整状态下保留讲解，不重复拆动画页。",
+    "chapter": "04 大模型应用"
+  },
+  "recommendedPages": [
+    {
+      "order": 1,
+      "deckPage": 45,
+      "durationSeconds": 90,
+      "suggestedTitle": "GPT 与 ChatGPT：模型与应用",
+      "sourceKeys": ["gpt-chatgpt-question", "gpt-letters", "llm-definition", "summary"],
+      "mainQuestion": "GPT和ChatGPT处于哪两个不同层次？",
+      "layout": "左右两个大节点：GPT模型能力与ChatGPT应用产品；模型到产品一条连接箭头。GPT一侧合并G/P/T三个关键词，产品一侧展示界面、用户、会话等应用要素。",
+      "notes": "用源视频开场问题引出整个应用板块，将GPT三字母回顾合入同一关系页。总结中的回答前置为本页结论，最后小结再回顾；避免把GPT当作单一固定版本；不重复上一章的LLM定义与生成机制。"
+    },
+    {
+      "order": 2,
+      "deckPage": 46,
+      "durationSeconds": 75,
+      "suggestedTitle": "对话机器人：把模型能力带给用户",
+      "sourceKeys": ["chatbot-example"],
+      "mainQuestion": "面向用户的ChatBot是什么？",
+      "layout": "较大的原生聊天界面，展示用户与助手的两轮短对话；外侧保留应用产品标识和一条定义。",
+      "notes": "将03:00、03:30、06:00重复ChatBot示例合为一页。示例可改为可编辑中文教学对话；区分应用界面与底层模型，记忆能力不是所有ChatBot的必要条件。"
+    },
+    {
+      "order": 3,
+      "deckPage": 47,
+      "durationSeconds": 105,
+      "suggestedTitle": "对话怎样成为模型输入",
+      "sourceKeys": ["conversation-generation", "completion-reminder"],
+      "mainQuestion": "模型如何知道这一轮该接着回答什么？",
+      "layout": "左侧系统说明/历史消息/用户问题组成消息堆栈，中间模型，右侧逐Token形成回复；可用箭头表示将生成文本追加并继续预测。",
+      "notes": "合并04:00–05:30的对话生成展开，保留系统说明、用户旅行问题、助手续写与生成循环。02:30文本续写仅作回顾。教学示例不显示伪造实测概率；Token与汉字/词语的区别已在上一章说明，可简短提醒。"
+    },
+    {
+      "order": 4,
+      "deckPage": 48,
+      "durationSeconds": 90,
+      "suggestedTitle": "聊天界面背后的两类工作",
+      "sourceKeys": ["chatbot-components"],
+      "mainQuestion": "聊天界面背后，程序与模型分别做什么？",
+      "layout": "居中原生聊天卡片；左应用服务节点（登录、会话存储）；右模型节点（理解输入、生成回复）；三者以清晰连线相连。",
+      "notes": "采用06:15和06:30的完整三部分图，保留原视频在对话生成之后才揭示应用分工的顺序。说明历史消息由应用选择并送入上下文，不承诺自动长期记忆。"
+    },
+    {
+      "order": 5,
+      "deckPage": 49,
+      "durationSeconds": 105,
+      "suggestedTitle": "程序与模型，各有擅长",
+      "sourceKeys": ["program-model-comparison"],
+      "mainQuestion": "哪些任务交给模型，哪些任务交给程序？",
+      "layout": "原生三列表：任务、模型适合承担的部分、程序适合承担的部分；沿用诗歌、图像分类、数学计算、订单支付四个案例。",
+      "notes": "保留原视频对比逻辑，避免绝对对错。图像识别需要具备视觉能力的模型；订单支付由权限、交易系统与业务逻辑控制。"
+    },
+    {
+      "order": 6,
+      "deckPage": 50,
+      "durationSeconds": 90,
+      "suggestedTitle": "大模型应用：把两种能力组合起来",
+      "sourceKeys": ["hybrid-application"],
+      "mainQuestion": "能力互补如何形成可使用的业务应用？",
+      "layout": "两侧大节点：应用程序与大模型；中间双向箭头；下方用三步例子展示理解请求→程序执行→组织回答。",
+      "notes": "原视频称Hybrid AI，适合作为课程中的组合式应用表述；不要把该词当作唯一严格定义，也不把能力全打勾视作可靠性承诺。"
+    },
+    {
+      "order": 7,
+      "deckPage": 51,
+      "durationSeconds": 120,
+      "suggestedTitle": "一次模型调用，怎样完成",
+      "sourceKeys": ["api-sequence"],
+      "mainQuestion": "从用户提问到拿到回复，中间发生什么？",
+      "layout": "用户、应用服务、大模型三泳道时序图，完整呈现7个步骤；请求蓝色实线，返回绿色虚线，自处理动作使用短折线或旁注。",
+      "notes": "保留源视频结构与步骤顺序。将“思考”改为推理并生成；说明HTTP(S) API是常见远程接口，本地推理或其他协议也可能存在；关键接口权限与密钥由服务端管理。"
+    },
+    {
+      "order": 8,
+      "deckPage": 52,
+      "durationSeconds": 75,
+      "suggestedTitle": "从模型能力，到可用应用",
+      "sourceKeys": ["summary"],
+      "mainQuestion": "本章需要带走哪三个结论？",
+      "layout": "三条横向总结：模型与产品、模型与程序、用户到API调用；每条用一个图标与一句短结论。",
+      "notes": "与源视频三问一一对应；不扩展到视频未覆盖的Agent、RAG、微调等后续主题。"
+    }
+  ],
+  "technicalCorrectionCandidates": [
+    {
+      "id": "program-vs-model-not-binary",
+      "sourceKey": "program-model-comparison",
+      "sourceIssue": "原图以绝对勾叉表示传统程序不能处理模糊问题/复杂识别，模型不能逻辑计算/可靠控制。",
+      "recommendedTreatment": "改为相对优势与系统分工；程序可承载机器学习能力，模型也可推理和计算，但确定性业务执行应由程序与验证机制承担。",
+      "requiresPrimarySourceVerification": true
+    },
+    {
+      "id": "chatbot-memory",
+      "sourceKey": "chatbot-example",
+      "sourceIssue": "原定义把“具有记忆”作为ChatBot必然属性。",
+      "recommendedTreatment": "定义改为通过自然语言与用户交互的应用；在讲稿区分会话历史、上下文窗口与持久记忆，说明这些能力取决于应用实现。",
+      "requiresPrimarySourceVerification": true
+    },
+    {
+      "id": "gpt-family-product",
+      "sourceKey": "summary",
+      "sourceIssue": "原总结将GPT简称为一个大语言模型，ChatGPT简称为其对话产品。",
+      "recommendedTreatment": "使用“GPT：模型系列/模型技术命名；ChatGPT：面向用户的应用产品”，不绑定过期的单一模型版本。",
+      "requiresPrimarySourceVerification": true
+    },
+    {
+      "id": "llm-scale-intelligence",
+      "sourceKey": "llm-definition",
+      "sourceIssue": "“智能程度都远超普通模型”的定义不可操作，且暗示参数、成本和能力的绝对排序。",
+      "recommendedTreatment": "应用板块不重复该定义；回顾放讲稿，避免以训练成本或笼统智能程度作为严格判定标准。",
+      "requiresPrimarySourceVerification": true
+    },
+    {
+      "id": "hybrid-reliability",
+      "sourceKey": "hybrid-application",
+      "sourceIssue": "模型与程序组合后的四项全勾图可能暗示系统自动具有高可靠性。",
+      "recommendedTreatment": "用能力分工、输出校验、业务执行等结构表达互补；不把组合等同于正确性保证。",
+      "requiresPrimarySourceVerification": true
+    },
+    {
+      "id": "vision-capability",
+      "sourceKey": "program-model-comparison",
+      "sourceIssue": "猫狗图片识别被泛化为所有AI大模型的能力。",
+      "recommendedTreatment": "注明这是视觉/多模态模型示例，纯文本模型不能直接读取图像；不列未经验证的产品能力。",
+      "requiresPrimarySourceVerification": true
+    },
+    {
+      "id": "api-pattern-not-definition",
+      "sourceKey": "api-sequence",
+      "sourceIssue": "Web入口及HTTP API是常见架构，不是大模型应用的唯一结构。",
+      "recommendedTreatment": "标题与正文写“常见远程调用结构”；示意图可写HTTPS API；讲稿说明也有移动端、桌面端、端侧/本地模型等形态。",
+      "requiresPrimarySourceVerification": true
+    },
+    {
+      "id": "generation-not-human-thought",
+      "sourceKey": "api-sequence",
+      "sourceIssue": "“思考并生成答案”可能被理解为拟人的内部过程。",
+      "recommendedTreatment": "图示采用“推理并生成回复”或“根据输入生成回复”；不添加未经观察的内部推理细节。",
+      "requiresPrimarySourceVerification": true
+    },
+    {
+      "id": "token-probability-example",
+      "sourceKey": "conversation-generation",
+      "sourceIssue": "源动画使用具体概率条，无法从当前证据证明其来自任何指定模型实测。",
+      "recommendedTreatment": "不复用概率数字；若确需概率图，清楚写教学示意且与实测区分。",
+      "requiresPrimarySourceVerification": false
+    }
+  ],
+  "scopeBoundary": [
+    "本视频覆盖模型与产品关系、ChatBot、对话输入组织、模型与程序分工、混合应用和API交互结构。",
+    "现有抽帧中未见RAG、Agent、微调、工具调用协议等专题，不应声称它们来自本视频。",
+    "图示以原生可编辑HTML/SVG重建，覆盖原白红/黑底视觉，继续使用项目浅灰透视网格、蓝黄底板和ReinBee浅色标志。",
+    "不将课程整页截图作为演示正文，不复制原讲师品牌。"
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "reviewedOn": "2026-10-20",
+  "method": "实际检索并打开LangChain、Anthropic原始文章和官方文档，逐段核对支持概念。正文仍仅维护在content/decks/ai-history.json；本文件只记录来源映射及改编边界。",
+  "sources": [
+    {
+      "sourceId": "harness-anatomy",
+      "url": "https://www.langchain.com/blog/the-anatomy-of-an-agent-harness",
+      "publishedOn": "2026-03-10",
+      "reviewedSections": [
+        "Can Someone Please Define a Harness?",
+        "Filesystems for Durable Storage and Context Management",
+        "Sandboxes and Tools to Execute & Verify Work",
+        "Long Horizon Autonomous Execution"
+      ],
+      "conceptMapping": ["模型与外围运行系统的分工", "持久状态与执行环境", "可执行约束"],
+      "adaptationBoundary": "定义按作者的系统视角讲解；组件图为本稿归纳，不表示唯一标准架构。沙箱限制执行范围，不保证结果正确或消除全部风险。"
+    },
+    {
+      "sourceId": "harness-context",
+      "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "publishedOn": "2025-09-29",
+      "reviewedSections": [
+        "Context engineering vs. prompt engineering",
+        "Context retrieval and agentic search",
+        "Compaction",
+        "Structured note-taking"
+      ],
+      "conceptMapping": ["每次调用的上下文构建", "按需加载与外部笔记", "压缩与信息损失"],
+      "adaptationBoundary": "外部保存的数据不等于已进入当前上下文；不会借保存笔记改变模型权重。压缩需要检查关键要求与未完成事项是否保留。"
+    },
+    {
+      "sourceId": "harness-long-running",
+      "url": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+      "publishedOn": "2025-11-26",
+      "reviewedSections": [
+        "The long-running agent problem",
+        "Feature list",
+        "Incremental progress",
+        "Testing",
+        "Getting up to speed"
+      ],
+      "conceptMapping": ["拆解任务和逐项验收", "保存进度与恢复工作", "交接前后检查"],
+      "adaptationBoundary": "从代码开发实验提炼一般交接思路；不把特定文件名或初始化Agent设计当作每种业务都必须使用的实现。恢复前需检查实际状态，不能仅凭摘要认定前序动作成功。"
+    },
+    {
+      "sourceId": "harness-middleware",
+      "url": "https://docs.langchain.com/oss/python/langchain/middleware/built-in",
+      "reviewedSections": [
+        "Provider-agnostic middleware",
+        "Tool error",
+        "Tool retry",
+        "Human-in-the-loop",
+        "Model call limit",
+        "Tool call limit"
+      ],
+      "conceptMapping": ["执行前审核", "错误反馈与有限重试", "调用次数与停止路径"],
+      "adaptationBoundary": "不复制具体API代码或默认值；参数、权限、重试与停止属于应用设计。提示模型遵守规则不能替代运行时的实际检查。"
+    },
+    {
+      "sourceId": "harness-improvement",
+      "url": "https://www.langchain.com/blog/improving-deep-agents-with-harness-engineering",
+      "publishedOn": "2026-02-17",
+      "reviewedSections": [
+        "The Trace Analyzer Skill",
+        "Build & Self-Verify",
+        "Giving Agents Context about their Environment",
+        "Encouraging Agents to Step Back & Reconsider Plans",
+        "Practical Takeaways for Building Agent Harnesses"
+      ],
+      "conceptMapping": ["分析失败轨迹", "针对性修改运行机制", "单任务反馈与系统改进的两层循环"],
+      "adaptationBoundary": "引用方法，不引用榜单排名、得分提升、token或时间效率数字。教学案例是根据公开方法构造，不是LangChain或本项目的实测结果。"
+    },
+    {
+      "sourceId": "harness-evals",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "publishedOn": "2026-01-09",
+      "reviewedSections": [
+        "The structure of an evaluation",
+        "Types of graders for agents",
+        "Capability vs. regression evals",
+        "Step 2: Write unambiguous tasks with reference solutions",
+        "Step 4: Build a robust eval harness with a stable environment",
+        "Step 5: Design graders thoughtfully",
+        "Step 6: Check the transcripts"
+      ],
+      "conceptMapping": ["任务集和明确验收", "检查结果与运行轨迹", "能力评测、回归与评分器校准"],
+      "adaptationBoundary": "评测Harness和Agent运行Harness职责不同。应检查真实产物或状态，避免只评最终自然语言声明；不要求所有有效解法遵循相同工具调用顺序。"
+    }
+  ],
+  "globalBoundaries": [
+    "不引入未经核验的产品价格、性能百分比、客户案例或收益保证。",
+    "运行轨迹指可观察消息、工具请求、工具结果及状态；不声称可读出完整隐藏思维链。",
+    "六页组织和教学案例由本稿为受众归纳，引用的是来源支持的机制；不作为原文逐字翻译。",
+    "本次只创建本地演讲材料，不运行真实Agent、不接入外部模型、不执行示例中的业务动作。"
+  ]
+}

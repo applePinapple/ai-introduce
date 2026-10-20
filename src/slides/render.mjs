@@ -6,6 +6,9 @@ import { renderNeuralBlack } from './neural-black.mjs';
 import { renderLlmEmbedding } from './llm-embedding.mjs';
 import { renderLlmAttention } from './llm-attention.mjs';
 import { renderLlmGeneration } from './llm-generation.mjs';
+import { renderApplication } from './applications.mjs';
+import { renderAgent } from './agent.mjs';
+import { renderHarness } from './harness.mjs';
 
 export const escapeHtml = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const e = escapeHtml;
@@ -34,6 +37,9 @@ function cover(s) {
 }
 
 function slideContent(s, index) {
+  if (s.layout === 'application') return `${header(s)}${renderApplication(s, e)}`;
+  if (s.layout === 'agent') return `${header(s)}${renderAgent(s, e)}`;
+  if (s.layout === 'harness') return `${header(s)}${renderHarness(s, e)}`;
   if (s.layout === 'llm') {
     const body = s.llmKind.startsWith('embedding-') ? renderLlmEmbedding(s, e) : /^(attention|transformer)-/.test(s.llmKind) ? renderLlmAttention(s, e) : renderLlmGeneration(s, e);
     return `${header(s)}${body}`;
@@ -56,6 +62,6 @@ export function renderDeck(deck, sources, { css = '', runtime = '' } = {}) {
   const errors = validateDeck(deck, sources);
   if (errors.length) throw new Error(errors.join('\n'));
   const notes = speakerNotes(deck, sources);
-  const sections = deck.slides.map((s, i) => `<section class="slide${deck.durationMinutes ? ' full-slide' : ''}${s.layout === 'cover' ? ' cover' : ''}${s.layout === 'neural' ? ' neural-page' : ''}${s.layout === 'llm' ? ' llm-page' : ''}${i === 0 ? ' active' : ''}" data-theme="${e(s.theme || '')}" data-id="${e(s.id)}" data-sec="${e(s.section)}" data-title="${e(s.title)}" aria-label="${i + 1}. ${e(s.title)}">${grid(i)}${moduleLogo(s)}${slideContent(s, i)}${s.sourceLabel ? `<div class="foot">${s.layout === 'gallery' ? '' : `<div class="src" data-fit>${e(s.sourceLabel)}</div>`}${deck.durationMinutes ? `<div class="slide-page" data-fit>${String(i+1).padStart(2,'0')} / ${deck.slides.length}</div>` : ''}</div>` : ''}<template data-speaker-notes>${notes[i].notes.map(p => `<p>${e(p)}</p>`).join('')}<ul>${notes[i].sources.map(ref => `<li>${e(ref.title)} · ${e(ref.publisher)} · <a href="${e(ref.url)}">${e(ref.url)}</a> · 核验 ${e(ref.verifiedOn)}</li>`).join('')}</ul></template></section>`).join('\n');
+  const sections = deck.slides.map((s, i) => `<section class="slide${deck.durationMinutes ? ' full-slide' : ''}${s.layout === 'cover' ? ' cover' : ''}${s.layout === 'neural' ? ' neural-page' : ''}${s.layout === 'llm' ? ' llm-page' : ''}${s.layout === 'application' ? ' application-page' : ''}${s.layout === 'agent' ? ' agent-page' : ''}${s.layout === 'harness' ? ' harness-page' : ''}${i === 0 ? ' active' : ''}" data-theme="${e(s.theme || '')}" data-id="${e(s.id)}" data-sec="${e(s.section)}" data-title="${e(s.title)}" aria-label="${i + 1}. ${e(s.title)}">${grid(i)}${moduleLogo(s)}${slideContent(s, i)}${s.sourceLabel ? `<div class="foot">${s.layout === 'gallery' ? '' : `<div class="src" data-fit>${e(s.sourceLabel)}</div>`}${deck.durationMinutes ? `<div class="slide-page" data-fit>${String(i+1).padStart(2,'0')} / ${deck.slides.length}</div>` : ''}</div>` : ''}<template data-speaker-notes>${notes[i].notes.map(p => `<p>${e(p)}</p>`).join('')}<ul>${notes[i].sources.map(ref => `<li>${e(ref.title)} · ${e(ref.publisher)} · <a href="${e(ref.url)}">${e(ref.url)}</a> · 核验 ${e(ref.verifiedOn)}</li>`).join('')}</ul></template></section>`).join('\n');
   return `<!doctype html>\n<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${e(deck.title)}</title><style>${css}</style></head><body><main id="stage">${sections}</main><div id="nav-hot"></div><nav id="nav-btn" aria-label="幻灯片导航"><button type="button" class="b" id="nb-prev" aria-label="上一页">‹</button><span class="pg" id="nb-pg" aria-live="polite">1 / ${deck.slides.length}</span><button type="button" class="b" id="nb-next" aria-label="下一页">›</button><button type="button" class="b" id="nb-presenter" aria-label="打开讲者窗口" title="P">P</button><button type="button" class="b" id="nb-list" aria-label="页面目录" aria-controls="nav-panel" aria-expanded="false">☰</button></nav><div id="nav-panel" aria-label="页面目录"></div><div id="hud"></div><script>${runtime}</script></body></html>`;
 }

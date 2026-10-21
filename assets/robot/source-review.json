@@ -1,0 +1,220 @@
+{
+  "reviewedOn": "2026-10-20",
+  "method": "读取用户指定的中文字幕整理稿，实际检索并打开RPent官方仓库、原论文及官方文档，按概念逐项核对；不运行机器人、模型服务或仿真复现。正文只保存在content/decks/ai-history.json，本文件记录来源和改编边界。",
+  "namingPolicy": {
+    "presentationName": "智蜂创元机器人Agent",
+    "status": "面向公司机器人业务的方案设计与教学阐释",
+    "attribution": "原研究、代码、开源状态、Franka演示及排行榜均属于RPent / Harness VLA原作者；论文v5列出清华大学、Striding AI、Purdue University、中科院自动化所、Infinigence AI、香港科技大学、中关村学院等机构。真实归属保留于讲稿和来源，不能借品牌改写成为公司既有成果。"
+  },
+  "sources": [
+    {
+      "sourceId": "robot-video",
+      "url": "https://www.bilibili.com/video/BV1qTHr6KE7z/",
+      "localPath": "assets/videos/bilibili/BV1qTHr6KE7z/transcript.md",
+      "reviewedSections": [
+        "00:00–00:29 长程任务问题与Runtime",
+        "00:29–01:02 分层与VLA技能",
+        "01:02–01:31.5 检查、恢复与记忆",
+        "01:31.5–01:55.5 仿真成绩与真机接入",
+        "01:55.5–02:13.5 系统闭环与后续问题"
+      ],
+      "conceptMapping": [
+        "章节叙述顺序",
+        "拿杯子教学案例",
+        "四层闭环与后续验证问题"
+      ],
+      "adaptationBoundary": "字幕整理稿注明按每0.5秒抽帧复核，非音频逐字转写。视频提出的判断与具体数值另经官方资料校对；详细设计、公司落地步骤与验收指标为教学扩展。"
+    },
+    {
+      "sourceId": "robot-rpent",
+      "url": "https://arxiv.org/html/2607.08448v5",
+      "publishedOn": "2026-09-24",
+      "additionalUrls": [
+        "https://github.com/RLinf/RPent",
+        "https://rpent.readthedocs.io/en/latest/rst_source/development/architecture.html"
+      ],
+      "reviewedSections": [
+        "论文作者与机构",
+        "Figure 1",
+        "2.1 Problem Formulation and Agentic Execution Loop",
+        "2.2 The Harness VLA Architecture",
+        "2.3 Unified Primitive Interface",
+        "官方文档Task Execution及Component Responsibilities"
+      ],
+      "conceptMapping": [
+        "Planner / Harness / Skills / Robot职责",
+        "局部接触技能与解析动作互补",
+        "刷新观察、重新安排与有限执行"
+      ],
+      "adaptationBoundary": "VLA作为可重试技能是原方案设计，不代表全部机器人系统都必须采用相同分层；传统控制不是深度学习。规划器决策与底层动作执行不同。公司版图示为方案归纳，不声称实现、开源或原创全部机制。"
+    },
+    {
+      "sourceId": "robot-memory",
+      "url": "https://rpent.readthedocs.io/en/latest/rst_source/development/memory.html",
+      "additionalUrls": [
+        "https://rpent.readthedocs.io/en/latest/rst_source/guides/memory.html",
+        "https://rpent.readthedocs.io/en/latest/rst_source/guides/flash.html"
+      ],
+      "reviewedSections": [
+        "Layout and Access Scope",
+        "Exploration and Merging",
+        "Release Provenance and Compatibility",
+        "Flash Mode / How Replay Works"
+      ],
+      "conceptMapping": [
+        "经验分层、来源与适用范围",
+        "探索写入与评估只读",
+        "重新定位目标和语义锚点",
+        "从轨迹归纳到经验复用"
+      ],
+      "adaptationBoundary": "记忆是外部经验文件与重读机制，不等于持续训练模型权重；越积越多不保证越可靠。自动结构校验无法确认物理成功，需结果证据。Flash复用固定顺序并更新定位，不能泛称任意任务的自主重规划。"
+    },
+    {
+      "sourceId": "robot-interface",
+      "url": "https://rpent.readthedocs.io/en/latest/rst_source/development/interfaces.html",
+      "additionalUrls": [
+        "https://rpent.readthedocs.io/en/latest/rst_source/guides/configure_primitives.html"
+      ],
+      "reviewedSections": [
+        "Robot Entry",
+        "Planner",
+        "Toolkit",
+        "Inter-process Communication",
+        "Choose Action Tools",
+        "Models by Platform"
+      ],
+      "conceptMapping": [
+        "技能契约",
+        "读观察与写动作区别",
+        "模型请求、运行时执行、结果反馈",
+        "设备适配边界"
+      ],
+      "adaptationBoundary": "统一工具接口不表示不同机械臂可无成本互换；坐标、单位、状态、动作空间、服务和checkpoint仍需适配。超时重试须先核对物理状态，不能把网络错误等同动作未执行。"
+    },
+    {
+      "sourceId": "robot-evaluation",
+      "url": "https://rpent.readthedocs.io/en/latest/rst_source/leaderboard/performance.html",
+      "additionalUrls": [
+        "https://rpent.readthedocs.io/en/latest/rst_source/guides/memory.html"
+      ],
+      "reviewedSections": [
+        "LIBERO-PRO first result row",
+        "Footnote [4]",
+        "September 2026 evaluation and VLA checkpoint notes",
+        "Memory / Release Provenance and Compatibility"
+      ],
+      "conceptMapping": [
+        "外部仿真参考",
+        "实验条件与成绩的对应",
+        "公司验证计划需独立测试"
+      ],
+      "evaluation": {
+        "owner": "RPent原作者公开报告",
+        "environment": "LIBERO-PRO仿真",
+        "period": "2026-09",
+        "planner": "Codex / GPT-6 Astra / low / reasoning",
+        "memoryEnabled": true,
+        "successes": 741,
+        "episodes": 800,
+        "unroundedPercent": 92.625,
+        "reportedPercent": 92.63,
+        "suites": [
+          {
+            "name": "Spatial Task",
+            "successes": 100,
+            "episodes": 100
+          },
+          {
+            "name": "Spatial Swap",
+            "successes": 98,
+            "episodes": 100
+          },
+          {
+            "name": "Object Task",
+            "successes": 100,
+            "episodes": 100
+          },
+          {
+            "name": "Object Swap",
+            "successes": 99,
+            "episodes": 100
+          },
+          {
+            "name": "Goal Task",
+            "successes": 88,
+            "episodes": 100
+          },
+          {
+            "name": "Goal Swap",
+            "successes": 99,
+            "episodes": 100
+          },
+          {
+            "name": "Long Task",
+            "successes": 85,
+            "episodes": 100
+          },
+          {
+            "name": "Long Swap",
+            "successes": 72,
+            "episodes": 100
+          }
+        ],
+        "batches": [
+          {
+            "suites": "Long Task与Long Swap",
+            "successes": 157,
+            "episodes": 200,
+            "historicalMemoryRevision": "cf5d14ce9b3ec6c72de5477ec0fea806a3884efa"
+          },
+          {
+            "suites": "Spatial、Object、Goal的Task与Swap共六套",
+            "successes": 584,
+            "episodes": 600,
+            "historicalMemoryRevision": "984c57f7c6caf48b572f5926851dd9134ae041d8"
+          }
+        ],
+        "memoryCondition": "每批探索后固定自己的快照；评估不写入。800次没有共用一个快照。当前合并发布版尚未重新评估。",
+        "vlaCondition": "RLinf-Pi05-LIBERO-130-fullshot-SFT预先经过监督微调；在LIBERO-PRO评估中不继续微调、保持权重冻结。",
+        "reproducibilityCaveat": "官方文档记录历史记忆在runtime commit 014a0fa、场景seed修复之前生成；当前main和合并记忆不能直接等同历史协议。本文未复现任何实验。"
+      },
+      "adaptationBoundary": "92.63%不能标作智蜂创元成绩、真机稳定率或产品可用性保证。不同方法的训练、探索、预算和结果选择不同，本稿不作公平横向胜负推断。"
+    },
+    {
+      "sourceId": "robot-franka",
+      "url": "https://rpent.readthedocs.io/en/latest/rst_source/real_world_robots/dual_franka.html",
+      "additionalUrls": [
+        "https://rpent.readthedocs.io/en/latest/rst_source/real_world_robots/franka.html"
+      ],
+      "reviewedSections": [
+        "Calibration",
+        "Robot Configuration",
+        "VLA Configuration",
+        "View Results",
+        "Tools and Artifacts",
+        "Attended Exploration",
+        "Stop the Run",
+        "Single-Arm Development Configuration and Flash plans"
+      ],
+      "conceptMapping": [
+        "机器人适配、标定和状态对齐",
+        "抓取、交接、放置技能",
+        "实体验收与操作员反馈",
+        "底层控制与硬件停止独立于高层规划"
+      ],
+      "adaptationBoundary": "接入文档存在不等于公司设备已接通；单臂VLA需兼容外部服务，双臂公开权重对原实验布局训练。真机需本机标定、样本和验证。慢模型只承担高层任务选择；实时执行与急停依赖控制系统。软件取消或网络超时不保证已发动作立即停止。"
+    }
+  ],
+  "engineeringExtensions": [
+    "将原视频整理为公司方案、独立定义技能输入/前置条件/结束条件/返回证据，是本稿的教学与工程设计。",
+    "有限重试、异常升级、状态再观测、软件预算、独立控制器与硬件急停为结合官方实现边界提出的建议，不声称所有措施已在公司部署。",
+    "公司评测应固定任务、起始条件、硬件及模型版本，分别记录首次成功、恢复后成功、人工介入、耗时和异常；这是建议的验证方案，不是既有测量结果。"
+  ],
+  "globalBoundaries": [
+    "用户指定的智蜂创元机器人Agent作为本章方案名称；不能把原项目开源、研究机构、演示或数据移作公司成果。",
+    "原字幕以画面文字为依据，媒体模型名称仅保留在来源与榜单配置，主图使用通用模型以避免无关产品状态宣称。",
+    "任务结束、工具调用成功、机器人完成动作、业务目标达成是不同事件；讲解不得混同。",
+    "机器人观察具有延迟与误差；经验复用必须重新确认现场与适用条件。",
+    "本轮仅制作本地HTML演讲材料，不接入机械臂、不调用真实VLA、不执行机器人动作、不提供可直接运行的机械臂操作脚本。"
+  ]
+}

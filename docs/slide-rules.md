@@ -2,6 +2,8 @@
 
 用户已确认三页样例，并指定以后优先使用此风格。唯一技能入口是 [lip-html-slides](../skills/lip-html-slides/SKILL.md)，精确视觉与实现参数维护在 [design-system.md](../skills/lip-html-slides/references/design-system.md)，不再维护多套风格规则。
 
+2026-10-21按用户要求，当前演讲统一去除左下角来源/方案页签（`sourceLabel`），右下页码及翻页功能保留。来源记录和完整引用继续维护在正文数据、讲稿与 `content/sources.json` 中；独立三页视觉基准保留。
+
 AI 基础模块（第 02–15 页）按用户新要求使用 ReinBEE 蓝黄底板与浅色标志，独立的 AI 定义页之后为四次浪潮，第 03 页保留参考时间线原文。第 04–14 页采用仅图片的 `gallery` 布局，图片不加白框，保留章节标题与品牌：第 04 页为 MYCIN 架构与 Shakey，第 05 页为 SpamBayes 两图，第 06 页为人脸识别、扫地机在家具旁识别线缆等障碍物、YOLO以马为例的目标检测（牛羊马等类别在讲稿说明）三类视觉图例，第 07 页为自动驾驶与传统机械臂的算法图，第 08 页为 ChatGPT 与 DeepSeek，第 09–14 页依次为图像生成、视频生成、语音与音乐、3D生成、具身大模型、科学AI，每页两图60秒。深度学习拆为两页各45秒，解释、图源与“传统运动学与控制算法本身不属于深度学习，可用视觉模型增强”等概念边界维护在 `notes`，不投屏显示。第 15 页以 `ai-relationships`（`relationship` 布局、105 秒）呈现技术包含关系 → 模型能力 → 前面的应用场景，详细解释维护在 `notes`。此局部要求不改变全局技能风格基准及三页样例；后续重构继续遵循已确认的样式。
 
 神经网络模块按用户2026-10-15的后续要求，与前面页面统一使用浅灰透视网格、ReinBee蓝黄浅色底板、标准标题与页眉：左侧“02 神经网络原理”，右侧ReinBee浅色标志。该要求覆盖视频003原有的白红或黑底整页视觉；视频继续提供内容、图示结构和讲解顺序参考。`src/slides/neural-white.mjs/css` 和 `neural-black.mjs/css` 保留为图示实现的文件名，图示配色统一调整，页面使用共同底板，不跳过网格与页眉。合并后第16–18页介绍结构，第19–28页介绍数字识别，第29页介绍完整训练循环。每页主题标题来自主JSON的 `title`，图示说明、公式与图注来自 `neuralData`，演讲稿来自 `notes`；完整画面不使用截图。重构记录在 `assets/neural/reconstruction-white.json` 和 `reconstruction-black.json`，通过 `styleOverride` 记录后续样式要求，并保留裁切、视频证据与技术校正，不复制原作者品牌。
@@ -15,12 +17,12 @@ LLM内容须区分Token与词、初始embedding与上下文表示；维度、分
 - HTML/CSS/SVG及播放：`src/slides/`；检查、构建及导出实现：`scripts/slides/`。
 - 离线字体、授权与来源记录：`assets/fonts/`。
 - 检查、测试、构建、导出：`npm run check`、`npm test`、`npm run build`、`npm run verify`。
-- 默认当前稿：`output/ai-history/deck.html`，65页、85分15秒（5115秒），包含封面（45秒）、AI基础（915秒）、神经网络原理（885秒）、大语言模型（1230秒）、大模型应用（750秒）、Agent原理（690秒）与Harness工程（600秒），配套PDF、逐页PNG、分组总览及可读HTML讲稿。截图为 `slides/slide-01.png` 至 `slide-65.png`，分组总览为 `overview-01.png` 至 `overview-11.png`。
+- 默认当前稿：`output/ai-history/deck.html`，81页、111分45秒（6705秒），包含封面（45秒）、AI基础（915秒）、神经网络原理（885秒）、大语言模型（1230秒）、大模型应用（750秒）、Agent原理（690秒）、Harness工程（600秒）与机器人Agent（1590秒），配套PDF、逐页PNG、分组总览及可读HTML讲稿。截图为 `slides/slide-01.png` 至 `slide-81.png`，分组总览为 `overview-01.png` 至 `overview-14.png`。
 - 个人讲者窗口：`output/ai-history/presenter.html`；演示时按 `P` 或导航 `P` 按钮打开，讲稿随翻页同步。分屏与会议共享的用法见 [README](../README.md#演示操作)。
 - 构建与验证命令添加 `-- --sample` 可生成独立样例到 `output/lip-sample/`。历史正文契约 `schemas/deck.schema.json` 仅作历史记录。
 - 视频下载及抽帧工具：`scripts/media/`；待整理图片：`assets/inbox/`。
 
-三页是已确认的独立视觉基准，当前稿为65页，包含封面、第02–15页AI基础、第16–29页神经网络原理、第30–44页大语言模型、第45–52页大模型应用、第53–59页Agent原理和第60–65页Harness工程。视频模块按实际概念组织，同图连续展开合并；Harness工程依据官方网络资料补充。历史课程、论文和研究素材可保留供参考。当前LLM与Agent分别依据视频004和015新做重构，不恢复原已删除的正文；原讨论章节仍未恢复。后续按实际内容确定页数与时长，同步内容契约、渲染与检查，沿用已确认视觉系统及用户明确指定的局部样式。生成目录不能手工维护正文。依据路径使用 `evidencePaths` 关联，来源仍统一由 `sourceIds` 登记。
+三页是已确认的独立视觉基准，当前稿为81页，包含封面、第02–15页AI基础、第16–29页神经网络原理、第30–44页大语言模型、第45–52页大模型应用、第53–59页Agent原理、第60–65页Harness工程和第66–81页机器人Agent。视频模块按实际概念组织，同图连续展开合并；Harness工程依据官方网络资料补充。历史课程、论文和研究素材可保留供参考。当前LLM与Agent分别依据视频004和015新做重构，不恢复原已删除的正文；原讨论章节仍未恢复。后续按实际内容确定页数与时长，同步内容契约、渲染与检查，沿用已确认视觉系统及用户明确指定的局部样式。生成目录不能手工维护正文。依据路径使用 `evidencePaths` 关联，来源仍统一由 `sourceIds` 登记。
 
 个人技能安装到 `~/.codex/skills/lip-html-slides`（或 `CODEX_HOME/skills/lip-html-slides`），允许自动选用，也可以 `$lip-html-slides` 显式调用。项目 `skills/lip-html-slides/` 是可维护的技能源；同步个人安装时只更新这一技能。新的明确需求优先于默认偏好。
 
@@ -46,8 +48,18 @@ GPT名称回顾合入GPT与ChatGPT关系页；API时序保留请求前后的应�
 
 ## 2026-10-20 Harness工程
 
-在前59页之后新增第60–65页，共6页、600秒，整稿65页、5115秒。使用 `harness` 布局与 `harnessKind`，`src/slides/harness.mjs/css` 实现1712×770原生内容子画布；左页眉“06 Harness工程”，延续ReinBee蓝黄浅灰网格、白卡片与浅色Logo。主标题来自 `title`，图示正文来自 `harnessData`，讲稿来自 `notes`；前59页和独立三页视觉基准保持。
+该次在前59页之后新增第60–65页，共6页、600秒，完成时整稿65页、5115秒。使用 `harness` 布局与 `harnessKind`，`src/slides/harness.mjs/css` 实现1712×770原生内容子画布；左页眉“06 Harness工程”，延续ReinBee蓝黄浅灰网格、白卡片与浅色Logo。主标题来自 `title`，图示正文来自 `harnessData`，讲稿来自 `notes`；前59页和独立三页视觉基准保持。
 
 内容顺序为系统组成、上下文与持久状态、长任务分解和恢复、工具执行约束、评测改进外循环，以及失败到工程改进的教学案例。依据实际核验的LangChain、Anthropic官方网络材料，来源记录在 `content/sources.json`，核验与改编映射分别在 `assets/harness/source-review.json` 和 `assets/harness/reconstruction.json`。本章不归为视频015内容，不恢复原讨论章节。
 
 Harness属于工程用语，不作为统一标准；任务执行内循环与工程评估外循环须区分。上下文压缩可能丢失信息，持久化状态需要应用选择与管理，检查点恢复不能直接保证外部动作只执行一次。调用轨迹是可观察行为，不是隐藏思维链；示例与建议明确标注，不编造真实客户效果、性能提升或通用安全保证。本轮仅制作本地幻灯片，不部署Agent系统、不接入模型API。
+
+## 2026-10-20 机器人Agent（最后一章）
+
+第66–81页追加16页、1590秒，整稿81页、111分45秒（6705秒）。本章以“智蜂创元机器人Agent”为公司方案名称，充分展开 `assets/videos/bilibili/BV1qTHr6KE7z/transcript.md`：长任务目标、四层架构、Planner、Harness、技能选择、拿杯执行、结果检查、失败恢复、记忆与场景迁移、机器人接口、执行记录、仿真评测、真机验证、落地顺序与结语。前65页及独立三页样例保留。
+
+使用 `robot` 布局、`robotKind` 与 `robotData`；实现为 `src/slides/robot.mjs/css`，内容校验为 `src/slides/validate-robot.mjs`，同步 `schemas/full.schema.json` 与测试。左页眉“07 机器人Agent”，延续1712×770内容子画布、ReinBee蓝黄浅灰网格、白卡片和浅色Logo。机械臂、杯子、架构、流程、表格及状态反馈均为原生可编辑HTML/SVG，完整讲解放在 `notes`。
+
+对外页面使用公司方案名称，原始视频与外部项目的真实归属保存在讲稿和来源登记中。公司方案、教学例子及待实测项目明确标注；外部仿真92.63%（741/800）只作为有条件的参考，不写成公司实测、真机成功率或公司开源成果。核验须保留冻结VLA、探索与评估分离、不同memory快照等条件。记忆复用需要重新观察与绑定现场，动作执行仍受机器人控制层、限位、碰撞与急停机制约束。
+
+本地字幕原件保持不变；来源核验及页面改编记录在 `assets/robot/source-review.json` 与 `assets/robot/reconstruction.json`。本轮制作演讲材料与导出，不运行真实机器人、不接入模型API。

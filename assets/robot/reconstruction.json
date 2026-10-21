@@ -1,0 +1,318 @@
+{
+  "createdOn": "2026-10-20",
+  "contentPath": "content/decks/ai-history.json",
+  "transcriptPath": "assets/videos/bilibili/BV1qTHr6KE7z/transcript.md",
+  "sourceReview": "assets/robot/source-review.json",
+  "implementation": [
+    "src/slides/robot.mjs",
+    "src/slides/robot.css",
+    "src/slides/validate-robot.mjs"
+  ],
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "content": {
+      "x": 104,
+      "y": 240,
+      "width": 1712,
+      "height": 770
+    }
+  },
+  "style": "沿用ReinBee蓝黄底板、浅灰透视网格、白色卡片、浅色Logo、系统字体与原生HTML播放。",
+  "retainedPreviousPages": {
+    "count": 65,
+    "timingSeconds": 5115,
+    "comparedWith": "本轮开始前65页结构化正文快照",
+    "slidesSha256": "fc2c22ee0895b968acd17bcf566ca22d4ab71471e300c3cb612d52599e33a1d2",
+    "identical": true
+  },
+  "addedPages": [
+    {
+      "page": 66,
+      "id": "robot-vision",
+      "kind": "vision",
+      "timingSeconds": 90,
+      "transcriptRanges": [
+        "00:00–00:29"
+      ],
+      "sourceIds": [
+        "robot-video",
+        "robot-rpent",
+        "harness-anatomy"
+      ]
+    },
+    {
+      "page": 67,
+      "id": "robot-architecture",
+      "kind": "architecture",
+      "timingSeconds": 120,
+      "transcriptRanges": [
+        "00:29–00:49"
+      ],
+      "sourceIds": [
+        "robot-video",
+        "robot-rpent",
+        "robot-interface",
+        "harness-anatomy"
+      ]
+    },
+    {
+      "page": 68,
+      "id": "robot-planner",
+      "kind": "planner",
+      "timingSeconds": 105,
+      "transcriptRanges": [
+        "00:29–00:49"
+      ],
+      "sourceIds": [
+        "robot-video",
+        "robot-rpent",
+        "harness-context"
+      ]
+    },
+    {
+      "page": 69,
+      "id": "robot-runtime",
+      "kind": "runtime",
+      "timingSeconds": 105,
+      "transcriptRanges": [
+        "00:29–00:49",
+        "01:02–01:16.5"
+      ],
+      "sourceIds": [
+        "robot-video",
+        "robot-rpent",
+        "robot-interface",
+        "harness-middleware"
+      ]
+    },
+    {
+      "page": 70,
+      "id": "robot-skills",
+      "kind": "skills",
+      "timingSeconds": 90,
+      "transcriptRanges": [
+        "00:49–01:02"
+      ],
+      "sourceIds": [
+        "robot-video",
+        "robot-rpent",
+        "robot-interface"
+      ]
+    },
+    {
+      "page": 71,
+      "id": "robot-task",
+      "kind": "task",
+      "timingSeconds": 105,
+      "transcriptRanges": [
+        "00:49–01:16.5"
+      ],
+      "sourceIds": [
+        "robot-video",
+        "robot-rpent",
+        "robot-interface"
+      ]
+    },
+    {
+      "page": 72,
+      "id": "robot-verification",
+      "kind": "verification",
+      "timingSeconds": 105,
+      "transcriptRanges": [
+        "01:02–01:16.5"
+      ],
+      "sourceIds": [
+        "robot-video",
+        "robot-rpent",
+        "harness-evals"
+      ]
+    },
+    {
+      "page": 73,
+      "id": "robot-recovery",
+      "kind": "recovery",
+      "timingSeconds": 105,
+      "transcriptRanges": [
+        "01:02–01:16.5"
+      ],
+      "sourceIds": [
+        "robot-video",
+        "robot-rpent",
+        "robot-franka",
+        "harness-middleware"
+      ]
+    },
+    {
+      "page": 74,
+      "id": "robot-memory",
+      "kind": "memory",
+      "timingSeconds": 105,
+      "transcriptRanges": [
+        "01:16.5–01:31.5"
+      ],
+      "sourceIds": [
+        "robot-video",
+        "robot-memory",
+        "harness-context"
+      ]
+    },
+    {
+      "page": 75,
+      "id": "robot-transfer",
+      "kind": "transfer",
+      "timingSeconds": 90,
+      "transcriptRanges": [
+        "01:16.5–01:31.5"
+      ],
+      "sourceIds": [
+        "robot-video",
+        "robot-memory",
+        "robot-rpent"
+      ]
+    },
+    {
+      "page": 76,
+      "id": "robot-interface",
+      "kind": "interface",
+      "timingSeconds": 105,
+      "transcriptRanges": [
+        "01:47–01:55.5"
+      ],
+      "sourceIds": [
+        "robot-video",
+        "robot-interface",
+        "robot-franka"
+      ]
+    },
+    {
+      "page": 77,
+      "id": "robot-trace",
+      "kind": "trace",
+      "timingSeconds": 90,
+      "transcriptRanges": [
+        "01:55.5–02:05.5"
+      ],
+      "sourceIds": [
+        "robot-video",
+        "robot-rpent",
+        "harness-evals"
+      ]
+    },
+    {
+      "page": 78,
+      "id": "robot-benchmark",
+      "kind": "benchmark",
+      "timingSeconds": 105,
+      "transcriptRanges": [
+        "01:31.5–01:47"
+      ],
+      "sourceIds": [
+        "robot-video",
+        "robot-evaluation",
+        "robot-memory",
+        "harness-evals"
+      ]
+    },
+    {
+      "page": 79,
+      "id": "robot-validation",
+      "kind": "validation",
+      "timingSeconds": 105,
+      "transcriptRanges": [
+        "01:31.5–01:55.5"
+      ],
+      "sourceIds": [
+        "robot-video",
+        "robot-evaluation",
+        "robot-interface",
+        "robot-franka"
+      ]
+    },
+    {
+      "page": 80,
+      "id": "robot-roadmap",
+      "kind": "roadmap",
+      "timingSeconds": 90,
+      "transcriptRanges": [
+        "00:00–00:12.5",
+        "01:02–01:31.5",
+        "02:05.5–02:13.5"
+      ],
+      "sourceIds": [
+        "robot-video",
+        "robot-rpent",
+        "robot-memory",
+        "harness-evals"
+      ]
+    },
+    {
+      "page": 81,
+      "id": "robot-closing",
+      "kind": "closing",
+      "timingSeconds": 75,
+      "transcriptRanges": [
+        "01:55.5–02:13.5"
+      ],
+      "sourceIds": [
+        "robot-video",
+        "robot-rpent",
+        "robot-memory",
+        "harness-evals"
+      ]
+    }
+  ],
+  "organization": [
+    "以视频开头的能力选择、结果检查、失败恢复、经验积累四个问题引出公司方案。",
+    "四层架构分别展开Planner、Harness、动作技能与机器人接口，用拿杯案例贯穿观察、接近、抓取和检查。",
+    "检查与恢复分开；记忆结构与目标位置变化分开，帮助区分经验、现场观测和模型参数。",
+    "任务轨迹连接执行与经验，再引入仿真参考、真机验证和公司实施路线。",
+    "结尾保留视频提出的长期记忆与真机稳定性问题，作为后续可测的工程目标。"
+  ],
+  "adaptations": [
+    "按用户要求，投屏以智蜂创元机器人Agent作为公司方案名称。原项目RPent及清华等合作机构归属保留在讲稿和来源，不冒充公司已有开源成果或硬件接入。",
+    "视频为中文字幕整理稿，时间定位精度约0.5秒；不是音频逐字稿。正文完整覆盖实质内容，片尾关注号召不纳入演讲。",
+    "原生机器人、机械臂、杯子、场景比较、架构和流程均为教学示意；不使用整页截图，不给出未经测量的实际动作参数。",
+    "VLA是可调度技能之一；具体输入、动作空间、控制频率、训练覆盖及硬件适配由实现决定。高层规划与实时设备控制分工。",
+    "工具返回、物理动作结束和任务成功分别判断；失败或超时先确认实际状态，恢复采用有界重试并保留停止出口。",
+    "记忆是外部可检索记录，重新读入上下文后使用，不等于更新模型权重；复用策略仍需重新观察、目标绑定和结果检查。",
+    "92.63%与741/800为外部项目LIBERO-PRO仿真参考，显著注明非公司实测；两批评估使用各自冻结记忆快照，VLA此前已监督微调，评估阶段冻结。",
+    "当前合并发布记忆尚未重新评估，不承诺下载当前版本即可复现历史成绩。仿真成绩、硬件接入文档和真机验收分开。",
+    "T0–T3轨迹、三阶段验收与公司路线为教学设计和实施建议，不捏造完成周期、客户案例、收益比例或已完成里程碑。"
+  ],
+  "notes": "只保存映射、改编和验证记录；唯一正文与讲稿位于content/decks/ai-history.json。",
+  "validation": {
+    "checkedOn": "2026-10-20",
+    "commands": [
+      "npm run check",
+      "npm test",
+      "npm run build",
+      "npm run verify"
+    ],
+    "testsPassed": 44,
+    "browserSlides": 81,
+    "viewportChecks": 243,
+    "viewports": [
+      {
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "pdfPages": 81,
+    "browserFailures": [],
+    "externalRequests": [],
+    "pdfIndependentRenderer": "PyMuPDF 1.28.2",
+    "visualReview": "逐页检查新增16页浏览器截图，并复核修正后的架构输入/反馈/双向记忆通道、执行图标、评测卡片留白、目标位置标注及单字换行；检查完整稿14张浏览器总览与14张独立PDF渲染总览，放大检查新增16页PDF。前65页结构化正文与讲稿保持不变。",
+    "interactionChecks": 35,
+    "interactions": "翻页、目录、数字跳页、URL hash、全屏及讲者窗口双向同步通过。",
+    "contentSha256": "8c462586269c05d076e1d15a76d2c286dda81785e165be69316709f20b26e390"
+  }
+}

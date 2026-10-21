@@ -1166,6 +1166,85 @@
         "错误回传与自动重试是不同机制；可重试故障类型、次数和终止方式需要明确设计。"
       ],
       "verificationEvidence": "实际打开官方文档并阅读Provider-agnostic middleware、Tool error、Tool retry、Human-in-the-loop、Model call limit和Tool call limit。仅引用机制，不采用示例最新模型名、默认次数或绑定具体版本；“先校验、有限重试、失败明确退出”为结合这些能力的工程设计归纳，不意味着所有错误都应重试。"
+    },
+    {
+      "id": "robot-video",
+      "title": "Astra + VLA + Harness 与 RPent — BV1qTHr6KE7z 中文字幕整理稿",
+      "publisher": "物理 AI plus / Bilibili",
+      "url": "https://www.bilibili.com/video/BV1qTHr6KE7z/",
+      "localPath": "assets/videos/bilibili/BV1qTHr6KE7z/transcript.md",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "视频围绕长程机器人任务的规划、Harness、VLA与传统动作技能、结果检查、失败恢复和记忆复用组织讲解。",
+        "00:29–01:31.5提供三层分工、VLA作为技能、执行检查与现场重绑定的讲解顺序；拿杯子作为说明性例子。",
+        "01:31.5–01:55.5给出原项目仿真成绩与Franka真机接入线索；这些表述须结合官方资料核验，不能转为智蜂创元公司的实测或成果。"
+      ],
+      "verificationEvidence": "本轮实际读取本地transcript.md。该整理稿由前序任务按每0.5秒抽帧复核中文字幕形成，时长136.092秒；是画面字幕整理，非音频逐字ASR。保留原视频分段定位及校对备注。技术事实另以robot-rpent、robot-memory、robot-interface、robot-evaluation、robot-franka核验；本条不将视频观点自动视为事实。"
+    },
+    {
+      "id": "robot-rpent",
+      "title": "Harness VLA: Steering Frozen VLAs into Reliable Manipulation Primitives via Memory-Guided Agents",
+      "publisher": "Yixian Zhang 等 / Harness VLA 与 RPent 作者",
+      "url": "https://arxiv.org/html/2607.08448v5",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "原研究把冻结VLA封装为局部接触动作技能，并与定位、移动、姿态调整、释放等解析动作组合；高层规划器选择技能及参数。",
+        "Harness组织工具接口、动作执行、观察刷新、轨迹记录、记忆读取与任务预算；失败后可重新安排姿态和技能调用。",
+        "原项目为RPent，论文作者机构包括清华大学等；本稿“智蜂创元机器人Agent”仅为公司方案名称，不转移开源项目归属或既有研究成果。"
+      ],
+      "verificationEvidence": "实际打开arXiv v5（2026-09-24），核对作者与机构、图1及第2.1–2.3节；同时打开官方仓库https://github.com/RLinf/RPent及官方Architecture and Execution文档https://rpent.readthedocs.io/en/latest/rst_source/development/architecture.html，核对Planner、Toolkit、Environment、VLA服务职责。图示为中文重绘的设计归纳，不引用论文其他提升数字，不把示例方案当作公司已实现系统。"
+    },
+    {
+      "id": "robot-memory",
+      "title": "RPent Memory Design / Memory and Exploration / Flash Mode",
+      "publisher": "RPent Contributors / RLinf",
+      "url": "https://rpent.readthedocs.io/en/latest/rst_source/development/memory.html",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "官方记忆实现区分global、task-family、task-specific；使用经验前须匹配适用前提和证据范围。",
+        "评估时记忆只读；探索产生带出处的经验草稿，依据环境结果或操作员判断审核并合并。结构校验通过不等于任务成功。",
+        "Flash复用保存的动作组织，并根据当前图像重新定位语义锚点、更新动作坐标；保存经验不是自动更新VLA或通用模型权重。"
+      ],
+      "verificationEvidence": "实际阅读Memory Design的Layout and Access Scope、Exploration and Merging；并打开https://rpent.readthedocs.io/en/latest/rst_source/guides/memory.html的Release Provenance and Compatibility，以及https://rpent.readthedocs.io/en/latest/rst_source/guides/flash.html的How Replay Works。Flash固定已有动作顺序，不保证任意场景泛化；三层记忆为当前文档实现，不把它说成视频逐字内容。"
+    },
+    {
+      "id": "robot-interface",
+      "title": "RPent Core Interfaces / Action Primitives and Tools",
+      "publisher": "RPent Contributors / RLinf",
+      "url": "https://rpent.readthedocs.io/en/latest/rst_source/development/interfaces.html",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "规划器读取工具schema、提交名称与参数，由Toolkit调用实现，再把数据和图像结果传回规划器；工具声明不等于动作执行。",
+        "环境/机器人、VLA与规划服务有清晰接口，机器人适配器需提供运行配置、服务生命周期与工具实现。",
+        "动作技能包括VLA预测和参数化脚本动作；感知或状态读取工具不等同于机器人运动；结束规划不自动构成任务成功。"
+      ],
+      "verificationEvidence": "实际阅读Core Interfaces的Robot Entry、Planner、Toolkit与Inter-process Communication，以及https://rpent.readthedocs.io/en/latest/rst_source/guides/configure_primitives.html的Choose Action Tools、Models by Platform、Services and Extensions。仅采用职责和契约，不复用可能随版本变化的安装参数。公司方案中的超时、幂等、状态一致性与技能准入属于据此提出的工程设计建议。"
+    },
+    {
+      "id": "robot-evaluation",
+      "title": "RPent Leaderboard — LIBERO-PRO Performance and Evaluation Conditions",
+      "publisher": "RPent Contributors / RLinf",
+      "url": "https://rpent.readthedocs.io/en/latest/rst_source/leaderboard/performance.html",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "官方公开的Codex / GPT-6 Astra / low / reasoning、memory-enabled配置，在2026年9月LIBERO-PRO仿真评估报告741/800，四舍五入为92.63%。",
+        "8套各100次：Spatial Task/Swap、Object Task/Swap、Goal Task/Swap、Long Task/Swap；Long两套157/200，其余六套584/600，使用两批探索后各自冻结的记忆快照。",
+        "所用VLA是已在LIBERO-130进行监督微调的RLinf-Pi05 checkpoint，评估期间冻结；不同方法训练数据、探索记忆、预算和结果选择可能不同，不能视为统一条件横向对比。"
+      ],
+      "verificationEvidence": "实际打开Performance，核对首行、注[4]及页面末尾评估说明；复算741÷800=92.625%。另核对官方Memory and Exploration的Release Provenance：当前合并发布的Astra记忆尚未重新评估，历史成绩来自两份原快照，不保证下载当前main即可复现。仅作为外部仿真参考；未运行复现实验，不是智蜂创元或真机成功率。"
+    },
+    {
+      "id": "robot-franka",
+      "title": "RPent Single-Arm and Dual-Arm Franka Integration",
+      "publisher": "RPent Contributors / RLinf",
+      "url": "https://rpent.readthedocs.io/en/latest/rst_source/real_world_robots/dual_franka.html",
+      "verifiedOn": "2026-10-20",
+      "supports": [
+        "官方提供单臂和双臂Franka接入文档，覆盖相机标定、工作空间与机器人配置、动作工具、VLA服务及状态记录。",
+        "双臂示例提供抓取、交接、放置技能；公开checkpoint针对原作者的设备布局和物体训练，换部署场景仍需采集、适配与验证。",
+        "真机结果由操作员验收；成功RPC或finish文本不等于物理成功。运动控制、工作空间检查及硬件急停不能被高层语言模型或软件停止请求替代。"
+      ],
+      "verificationEvidence": "实际打开Dual-Arm Franka，核对Calibration、Robot Configuration、VLA Configuration、View Results、Attended Exploration、Stop the Run；并打开https://rpent.readthedocs.io/en/latest/rst_source/real_world_robots/franka.html，核对Development Configuration、VLA Grasp Demo与Flash plans。单臂VLA仍要求兼容的外部服务；双臂在途RPC可能继续完成。实时控制独立于慢规划层为基于架构及控制器职责的工程归纳，不声称本公司已经完成硬件适配或安全认证。"
     }
   ]
 }

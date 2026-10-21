@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AI 基础、神经网络、大语言模型、应用、Agent 与 Harness 工程 HTML 演讲",
+  "title": "AI 基础、模型原理、应用、Harness 与机器人 Agent HTML 演讲",
   "type": "object",
   "required": [
     "title",
@@ -56,7 +56,8 @@
               "llm",
               "application",
               "agent",
-              "harness"
+              "harness",
+              "robot"
             ]
           },
           "title": {
@@ -631,6 +632,29 @@
             ]
           },
           "harnessData": {
+            "type": "object"
+          },
+          "robotKind": {
+            "enum": [
+              "vision",
+              "architecture",
+              "planner",
+              "runtime",
+              "skills",
+              "task",
+              "verification",
+              "recovery",
+              "memory",
+              "transfer",
+              "interface",
+              "trace",
+              "benchmark",
+              "validation",
+              "roadmap",
+              "closing"
+            ]
+          },
+          "robotData": {
             "type": "object"
           }
         },
@@ -5368,6 +5392,366 @@
                 }
               }
             }
+          },
+          {
+            "if": {
+              "required": [
+                "layout"
+              ],
+              "properties": {
+                "layout": {
+                  "const": "robot"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "robotKind",
+                "robotData",
+                "theme",
+                "chapter",
+                "sectionLabel",
+                "eyebrow",
+                "subtitle",
+                "sourceLabel",
+                "logoPath",
+                "logoAlt"
+              ],
+              "properties": {
+                "theme": {
+                  "const": "reinbee"
+                },
+                "chapter": {
+                  "const": "07"
+                },
+                "section": {
+                  "const": "机器人Agent"
+                },
+                "sectionLabel": {
+                  "const": "机器人Agent"
+                }
+              }
+            },
+            "else": {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "robotKind"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "robotData"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "robotKind"
+              ],
+              "properties": {
+                "robotKind": {
+                  "const": "vision"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "robotData": {
+                  "$ref": "#/$defs/robot-vision"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "robotKind"
+              ],
+              "properties": {
+                "robotKind": {
+                  "const": "architecture"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "robotData": {
+                  "$ref": "#/$defs/robot-architecture"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "robotKind"
+              ],
+              "properties": {
+                "robotKind": {
+                  "const": "planner"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "robotData": {
+                  "$ref": "#/$defs/robot-planner"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "robotKind"
+              ],
+              "properties": {
+                "robotKind": {
+                  "const": "runtime"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "robotData": {
+                  "$ref": "#/$defs/robot-runtime"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "robotKind"
+              ],
+              "properties": {
+                "robotKind": {
+                  "const": "skills"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "robotData": {
+                  "$ref": "#/$defs/robot-skills"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "robotKind"
+              ],
+              "properties": {
+                "robotKind": {
+                  "const": "task"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "robotData": {
+                  "$ref": "#/$defs/robot-task"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "robotKind"
+              ],
+              "properties": {
+                "robotKind": {
+                  "const": "verification"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "robotData": {
+                  "$ref": "#/$defs/robot-verification"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "robotKind"
+              ],
+              "properties": {
+                "robotKind": {
+                  "const": "recovery"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "robotData": {
+                  "$ref": "#/$defs/robot-recovery"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "robotKind"
+              ],
+              "properties": {
+                "robotKind": {
+                  "const": "memory"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "robotData": {
+                  "$ref": "#/$defs/robot-memory"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "robotKind"
+              ],
+              "properties": {
+                "robotKind": {
+                  "const": "transfer"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "robotData": {
+                  "$ref": "#/$defs/robot-transfer"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "robotKind"
+              ],
+              "properties": {
+                "robotKind": {
+                  "const": "interface"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "robotData": {
+                  "$ref": "#/$defs/robot-interface"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "robotKind"
+              ],
+              "properties": {
+                "robotKind": {
+                  "const": "trace"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "robotData": {
+                  "$ref": "#/$defs/robot-trace"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "robotKind"
+              ],
+              "properties": {
+                "robotKind": {
+                  "const": "benchmark"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "robotData": {
+                  "$ref": "#/$defs/robot-benchmark"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "robotKind"
+              ],
+              "properties": {
+                "robotKind": {
+                  "const": "validation"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "robotData": {
+                  "$ref": "#/$defs/robot-validation"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "robotKind"
+              ],
+              "properties": {
+                "robotKind": {
+                  "const": "roadmap"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "robotData": {
+                  "$ref": "#/$defs/robot-roadmap"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "robotKind"
+              ],
+              "properties": {
+                "robotKind": {
+                  "const": "closing"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "robotData": {
+                  "$ref": "#/$defs/robot-closing"
+                }
+              }
+            }
           }
         ]
       }
@@ -5816,6 +6200,1429 @@
       },
       "minItems": 6,
       "maxItems": 7
+    },
+    "robot-vision": {
+      "type": "object",
+      "required": [
+        "description",
+        "lead",
+        "caption",
+        "bottomLine",
+        "brand",
+        "goal",
+        "cards"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caption": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bottomLine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "brand": {
+          "type": "string",
+          "minLength": 1,
+          "const": "智蜂创元机器人Agent"
+        },
+        "goal": {
+          "type": "object",
+          "required": [
+            "label",
+            "text"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "cards": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "text"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "robot-architecture": {
+      "type": "object",
+      "required": [
+        "description",
+        "lead",
+        "caption",
+        "bottomLine",
+        "brand",
+        "layers",
+        "input",
+        "output",
+        "memory",
+        "feedback"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caption": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bottomLine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "brand": {
+          "type": "string",
+          "minLength": 1,
+          "const": "智蜂创元机器人Agent"
+        },
+        "layers": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "text"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "input": {
+          "type": "object",
+          "required": [
+            "label",
+            "text"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "output": {
+          "type": "object",
+          "required": [
+            "label",
+            "text"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "memory": {
+          "type": "object",
+          "required": [
+            "label",
+            "text"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "feedback": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "robot-planner": {
+      "type": "object",
+      "required": [
+        "description",
+        "lead",
+        "caption",
+        "bottomLine",
+        "brand",
+        "inputs",
+        "decision",
+        "outputs",
+        "boundary"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caption": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bottomLine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "brand": {
+          "type": "string",
+          "minLength": 1,
+          "const": "智蜂创元机器人Agent"
+        },
+        "inputs": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "text"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "decision": {
+          "type": "object",
+          "required": [
+            "label",
+            "text"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "outputs": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "text"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "boundary": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "robot-runtime": {
+      "type": "object",
+      "required": [
+        "description",
+        "lead",
+        "caption",
+        "bottomLine",
+        "brand",
+        "steps",
+        "controls"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caption": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bottomLine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "brand": {
+          "type": "string",
+          "minLength": 1,
+          "const": "智蜂创元机器人Agent"
+        },
+        "steps": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "text"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "controls": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "text"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "robot-skills": {
+      "type": "object",
+      "required": [
+        "description",
+        "lead",
+        "caption",
+        "bottomLine",
+        "brand",
+        "columns",
+        "rows",
+        "routing"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caption": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bottomLine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "brand": {
+          "type": "string",
+          "minLength": 1,
+          "const": "智蜂创元机器人Agent"
+        },
+        "columns": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "rows": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "phase",
+              "capability",
+              "reason"
+            ],
+            "properties": {
+              "phase": {
+                "type": "string",
+                "minLength": 1
+              },
+              "capability": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "routing": {
+          "type": "object",
+          "required": [
+            "label",
+            "text"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "robot-task": {
+      "type": "object",
+      "required": [
+        "description",
+        "lead",
+        "caption",
+        "bottomLine",
+        "brand",
+        "scenario",
+        "steps",
+        "success"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caption": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bottomLine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "brand": {
+          "type": "string",
+          "minLength": 1,
+          "const": "智蜂创元机器人Agent"
+        },
+        "scenario": {
+          "type": "string",
+          "minLength": 1
+        },
+        "steps": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "text"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "success": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "robot-verification": {
+      "type": "object",
+      "required": [
+        "description",
+        "lead",
+        "caption",
+        "bottomLine",
+        "brand",
+        "columns",
+        "rows",
+        "rule"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caption": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bottomLine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "brand": {
+          "type": "string",
+          "minLength": 1,
+          "const": "智蜂创元机器人Agent"
+        },
+        "columns": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "rows": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "claim",
+              "evidence",
+              "decision"
+            ],
+            "properties": {
+              "claim": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence": {
+                "type": "string",
+                "minLength": 1
+              },
+              "decision": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "rule": {
+          "type": "object",
+          "required": [
+            "label",
+            "text"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "robot-recovery": {
+      "type": "object",
+      "required": [
+        "description",
+        "lead",
+        "caption",
+        "bottomLine",
+        "brand",
+        "steps",
+        "triggers",
+        "stop"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caption": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bottomLine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "brand": {
+          "type": "string",
+          "minLength": 1,
+          "const": "智蜂创元机器人Agent"
+        },
+        "steps": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "text"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "triggers": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "text"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "stop": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "robot-memory": {
+      "type": "object",
+      "required": [
+        "description",
+        "lead",
+        "caption",
+        "bottomLine",
+        "brand",
+        "fields",
+        "excluded",
+        "reuse"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caption": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bottomLine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "brand": {
+          "type": "string",
+          "minLength": 1,
+          "const": "智蜂创元机器人Agent"
+        },
+        "fields": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "text"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "excluded": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "reuse": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "robot-transfer": {
+      "type": "object",
+      "required": [
+        "description",
+        "lead",
+        "caption",
+        "bottomLine",
+        "brand",
+        "before",
+        "after",
+        "steps",
+        "sceneLabels"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caption": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bottomLine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "brand": {
+          "type": "string",
+          "minLength": 1,
+          "const": "智蜂创元机器人Agent"
+        },
+        "before": {
+          "type": "object",
+          "required": [
+            "label",
+            "text"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "after": {
+          "type": "object",
+          "required": [
+            "label",
+            "text"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "steps": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "text"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "sceneLabels": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "robot-interface": {
+      "type": "object",
+      "required": [
+        "description",
+        "lead",
+        "caption",
+        "bottomLine",
+        "brand",
+        "layers",
+        "inputs",
+        "outputs",
+        "boundary"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caption": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bottomLine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "brand": {
+          "type": "string",
+          "minLength": 1,
+          "const": "智蜂创元机器人Agent"
+        },
+        "layers": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "text"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "inputs": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "outputs": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "boundary": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "robot-trace": {
+      "type": "object",
+      "required": [
+        "description",
+        "lead",
+        "caption",
+        "bottomLine",
+        "brand",
+        "columns",
+        "rows",
+        "provenance"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caption": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bottomLine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "brand": {
+          "type": "string",
+          "minLength": 1,
+          "const": "智蜂创元机器人Agent"
+        },
+        "columns": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "rows": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "time",
+              "action",
+              "observation",
+              "decision"
+            ],
+            "properties": {
+              "time": {
+                "type": "string",
+                "minLength": 1
+              },
+              "action": {
+                "type": "string",
+                "minLength": 1
+              },
+              "observation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "decision": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "provenance": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "robot-benchmark": {
+      "type": "object",
+      "required": [
+        "description",
+        "lead",
+        "caption",
+        "bottomLine",
+        "brand",
+        "reference",
+        "criteria",
+        "company"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caption": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bottomLine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "brand": {
+          "type": "string",
+          "minLength": 1,
+          "const": "智蜂创元机器人Agent"
+        },
+        "reference": {
+          "type": "object",
+          "required": [
+            "label",
+            "rate",
+            "count",
+            "conditions",
+            "disclaimer"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "rate": {
+              "type": "string",
+              "minLength": 1
+            },
+            "count": {
+              "type": "string",
+              "minLength": 1
+            },
+            "conditions": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "disclaimer": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "criteria": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "text"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "company": {
+          "type": "object",
+          "required": [
+            "label",
+            "text"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "robot-validation": {
+      "type": "object",
+      "required": [
+        "description",
+        "lead",
+        "caption",
+        "bottomLine",
+        "brand",
+        "stages",
+        "gates",
+        "scenario"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caption": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bottomLine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "brand": {
+          "type": "string",
+          "minLength": 1,
+          "const": "智蜂创元机器人Agent"
+        },
+        "stages": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "text"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "gates": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "text"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "scenario": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "robot-roadmap": {
+      "type": "object",
+      "required": [
+        "description",
+        "lead",
+        "caption",
+        "bottomLine",
+        "brand",
+        "phases",
+        "metrics"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caption": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bottomLine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "brand": {
+          "type": "string",
+          "minLength": 1,
+          "const": "智蜂创元机器人Agent"
+        },
+        "phases": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "scope",
+              "gate"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "scope": {
+                "type": "string",
+                "minLength": 1
+              },
+              "gate": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "metrics": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "robot-closing": {
+      "type": "object",
+      "required": [
+        "description",
+        "lead",
+        "caption",
+        "bottomLine",
+        "brand",
+        "pillars",
+        "questions",
+        "statement"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caption": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bottomLine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "brand": {
+          "type": "string",
+          "minLength": 1,
+          "const": "智蜂创元机器人Agent"
+        },
+        "pillars": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "text"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "questions": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
     }
   }
 }

@@ -1,8 +1,9 @@
 import { validateApplication } from './validate-application.mjs';
 import { validateAgent } from './validate-agent.mjs';
 import { validateHarness } from './validate-harness.mjs';
+import { validateRobot } from './validate-robot.mjs';
 
-const layouts = new Set(['cover', 'loop', 'comparison', 'spotlight', 'closing', 'bullets', 'duo', 'table', 'timeline', 'definition', 'waves', 'product', 'gallery', 'relationship', 'neural', 'llm', 'application', 'agent', 'harness', 'process', 'example', 'image', 'diagram']);
+const layouts = new Set(['cover', 'loop', 'comparison', 'spotlight', 'closing', 'bullets', 'duo', 'table', 'timeline', 'definition', 'waves', 'product', 'gallery', 'relationship', 'neural', 'llm', 'application', 'agent', 'harness', 'robot', 'process', 'example', 'image', 'diagram']);
 const tones = new Set(['blue', 'orange', 'green']);
 const themes = new Set(['reinbee', 'neural-light', 'neural-dark']);
 const whiteKinds = new Set(['white-neuron', 'white-network', 'white-layers', 'white-neuron-detail', 'white-neuron-formula', 'white-neuron-steps', 'white-backprop-history', 'white-train-forward', 'white-train-loss', 'white-train-backward', 'white-train-update', 'white-train-summary']);
@@ -39,6 +40,8 @@ export function validateDeck(deck, sources) {
     if (slide.layout === 'agent') errors.push(...validateAgent(slide));
     if (slide.layout !== 'harness' && (slide.harnessKind !== undefined || slide.harnessData !== undefined)) errors.push(`${label}: harnessKind and harnessData require harness layout`);
     if (slide.layout === 'harness') errors.push(...validateHarness(slide));
+    if (slide.layout !== 'robot' && (slide.robotKind !== undefined || slide.robotData !== undefined)) errors.push(`${label}: robotKind and robotData require robot layout`);
+    if (slide.layout === 'robot') errors.push(...validateRobot(slide));
     if (!Array.isArray(slide.notes) || !slide.notes.length || slide.notes.some(n => !nonempty(n))) errors.push(`${label}: notes required`);
     if (!Array.isArray(slide.sourceIds) || (!slide.sourceIds.length && slide.contentKind !== 'presentation-plan')) errors.push(`${label}: sourceIds required`);
     else for (const id of slide.sourceIds) {

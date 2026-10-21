@@ -1,0 +1,190 @@
+/* Robot Agent: native diagrams within the established ReinBEE master. */
+.robot-page .robot-body{position:absolute;left:104px;top:240px;width:1712px;height:770px;z-index:1;color:var(--ink)}
+.robot-page .robot-body *{box-sizing:border-box}
+.robot-page .robot-body p,.robot-page .robot-body h2{margin:0}
+.robot-page .robot-lead{position:absolute;left:0;top:0;width:1712px;font-size:32px;line-height:1.65;font-weight:500}
+.robot-page .robot-bottom{position:absolute;left:0;top:661px;width:1712px;font-size:31px;line-height:1.6;color:var(--blue)}
+.robot-page .robot-caption{position:absolute;left:0;bottom:0;width:1712px;font-size:24px;line-height:1.45;color:var(--muted)}
+.robot-page .robot-svg{position:absolute;inset:0;width:1712px;height:770px;display:block;overflow:visible;pointer-events:none;font-family:var(--font)}
+.robot-page .robot-card{position:absolute;background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 26px}
+.robot-page .robot-card h2{font-size:33px;line-height:1.5;font-weight:600}
+.robot-page .robot-card p{font-size:28px;line-height:1.65;color:var(--muted);margin-top:9px;white-space:pre-line}
+.robot-page .robot-blue{box-shadow:inset 0 7px 0 var(--blue)}
+.robot-page .robot-yellow{box-shadow:inset 0 7px 0 var(--yellow)}
+.robot-page .robot-number{display:block;font-family:var(--mono);font-size:25px;line-height:1.5;color:var(--blue);margin-bottom:9px}
+.robot-page .robot-boundary{position:absolute;left:0;top:608px;width:1712px;font-size:28px;line-height:1.55;color:var(--muted)}
+
+/* A concrete robot-and-workbench scene introduces the final chapter. */
+.robot-page .robot-vision-stage{position:absolute;left:0;top:100px;width:720px;height:525px;border:1px solid #CCD8EE;border-radius:18px;background:rgba(231,237,255,.55)}
+.robot-page .robot-vision-brand{position:absolute;left:35px;top:28px;font-size:35px;line-height:1.6;color:var(--blue);font-weight:600}
+.robot-page .robot-vision-goal{left:780px;top:100px;width:932px;height:156px;padding:25px 30px}
+.robot-page .robot-vision-goal h2{font-size:36px;color:var(--blue)}
+.robot-page .robot-vision-goal p{font-size:29px;margin-top:9px}
+.robot-page .robot-vision-cards{position:absolute;left:780px;top:282px;display:grid;grid-template-columns:448px 448px;gap:24px 36px}
+.robot-page .robot-vision-cards .robot-card{position:relative;width:448px;height:166px;padding:16px 24px}
+.robot-page .robot-vision-cards .robot-card h2{font-size:32px;line-height:1.4}
+.robot-page .robot-vision-cards .robot-card p{font-size:27px;line-height:1.5;margin-top:5px}
+
+/* Architecture uses a stack; memory is an explicit external state lane. */
+.robot-page .robot-layers{position:absolute;left:340px;top:90px;width:1020px;display:grid;gap:12px}
+.robot-page .robot-layers .robot-card{position:relative;height:98px;padding:18px 24px;display:grid;grid-template-columns:55px 268px 1fr;align-items:center;gap:16px}
+.robot-page .robot-layers .robot-number{margin:0}
+.robot-page .robot-layers .robot-card p{margin:0;font-size:28px;line-height:1.55}
+.robot-page .robot-layers .robot-card:nth-child(2){background:var(--blue-soft);border-color:#B9C9F4}
+.robot-page .robot-layers .robot-card:nth-child(3){box-shadow:inset 7px 0 0 var(--yellow)}
+.robot-page .robot-architecture-input,.robot-page .robot-architecture-output{top:246px;width:270px;height:176px;padding:22px 21px;text-align:center}
+.robot-page .robot-architecture-input{left:0}
+.robot-page .robot-architecture-output{left:1442px}
+.robot-page .robot-architecture-input h2,.robot-page .robot-architecture-output h2{font-size:32px}
+.robot-page .robot-architecture-input p,.robot-page .robot-architecture-output p{font-size:27px}
+.robot-page .robot-architecture-memory{left:340px;top:552px;width:1020px;height:88px;border:1px dashed var(--blue);background:var(--blue-soft);display:grid;grid-template-columns:268px 1fr;align-items:center;gap:24px;padding:16px 27px}
+.robot-page .robot-architecture-memory h2{font-size:32px;color:var(--blue)}
+.robot-page .robot-architecture-memory p{margin:0;font-size:27px;line-height:1.55}
+.robot-page .robot-architecture-feedback{position:absolute;left:1442px;top:526px;width:270px;font-size:27px;line-height:1.55;color:#177C61}
+
+/* Planner exposes inputs, decision, and routed capabilities in one glance. */
+.robot-page .robot-planner-inputs,.robot-page .robot-planner-outputs{position:absolute;top:90px;display:grid;gap:12px;width:510px}
+.robot-page .robot-planner-inputs{left:0}
+.robot-page .robot-planner-outputs{left:1202px}
+.robot-page .robot-planner-inputs .robot-card,.robot-page .robot-planner-outputs .robot-card{position:relative;height:158px;padding:14px 23px}
+.robot-page .robot-planner-inputs .robot-card h2,.robot-page .robot-planner-outputs .robot-card h2{font-size:32px;line-height:1.35}
+.robot-page .robot-planner-inputs .robot-card p,.robot-page .robot-planner-outputs .robot-card p{font-size:27px;line-height:1.45;margin-top:4px}
+.robot-page .robot-planner-decision{left:650px;top:273px;width:412px;height:214px;padding:24px 29px;text-align:center;border:2px solid var(--blue);background:var(--blue-soft)}
+.robot-page .robot-planner-decision h2{font-size:35px;color:var(--blue)}
+.robot-page .robot-planner-decision p{font-size:29px;line-height:1.65;margin-top:15px}
+
+.robot-page .robot-four-steps{position:absolute;left:0;top:109px;display:grid;grid-template-columns:repeat(4,365px);gap:84px}
+.robot-page .robot-four-steps .robot-card{position:relative;height:240px;padding:22px 26px}
+.robot-page .robot-four-steps .robot-card h2{font-size:33px}
+.robot-page .robot-four-steps .robot-card p{font-size:28px;line-height:1.65}
+.robot-page .robot-runtime-steps .robot-number{height:53px;text-align:right;margin-bottom:12px}
+.robot-page .robot-three-controls{position:absolute;left:0;top:422px;width:1712px;display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.robot-page .robot-three-controls .robot-card{position:relative;height:184px;padding:22px 27px}
+.robot-page .robot-three-controls .robot-card h2{font-size:32px}
+.robot-page .robot-three-controls .robot-card p{font-size:28px}
+
+/* Tables remain native, editable text with enough room for full-size Chinese. */
+.robot-page .robot-table{position:absolute;left:0;top:110px;width:1712px;border-collapse:collapse;table-layout:fixed;background:rgba(255,255,255,.94)}
+.robot-page .robot-table th{height:61px;text-align:left;padding:13px 24px;background:var(--blue-soft);font-size:27px;line-height:1.4;color:var(--blue);font-weight:500}
+.robot-page .robot-table td{height:94px;padding:14px 24px;font-size:29px;line-height:1.6;border-bottom:1px solid var(--line);vertical-align:middle;overflow-wrap:anywhere}
+.robot-page .robot-table td:first-child{color:var(--muted)}
+.robot-page .robot-skills-table{width:1160px}
+.robot-page .robot-skills-table th:nth-child(1){width:22%}
+.robot-page .robot-skills-table th:nth-child(2){width:31%}
+.robot-page .robot-skills-table th:nth-child(3){width:47%}
+.robot-page .robot-skills-table td{height:108px;font-size:28px;padding:15px 22px}
+.robot-page .robot-routing{left:1224px;top:110px;width:488px;height:229px;padding:28px}
+.robot-page .robot-routing h2{font-size:34px;color:var(--blue)}
+.robot-page .robot-routing p{font-size:29px;line-height:1.7;margin-top:16px}
+.robot-page .robot-verification-table th:nth-child(1){width:29%}
+.robot-page .robot-verification-table th:nth-child(2){width:38%}
+.robot-page .robot-verification-table th:nth-child(3){width:33%}
+.robot-page .robot-rule{left:0;top:576px;width:1712px;height:67px;display:grid;grid-template-columns:330px 1fr;gap:20px;align-items:center;padding:9px 24px;background:var(--blue-soft);border-color:#C6D3F5}
+.robot-page .robot-rule h2{font-size:31px;color:var(--blue)}
+.robot-page .robot-rule p{margin:0;font-size:28px;line-height:1.5}
+
+.robot-page .robot-task-scenario{position:absolute;left:852px;top:151px;width:860px;font-size:36px;line-height:1.65;font-weight:500}
+.robot-page .robot-five-steps{position:absolute;left:0;top:370px;display:grid;grid-template-columns:repeat(5,306px);gap:45px}
+.robot-page .robot-five-steps .robot-card{position:relative;height:227px;padding:17px 22px}
+.robot-page .robot-five-steps h2{font-size:32px}
+.robot-page .robot-five-steps .robot-card p{font-size:27px;line-height:1.6;margin-top:6px}
+.robot-page .robot-five-steps .robot-number{font-size:24px;line-height:1.4;margin-bottom:8px}
+.robot-page .robot-task-success{position:absolute;left:0;top:614px;width:1712px;font-size:28px;line-height:1.45;color:#177C61}
+.robot-page .robot-recovery-steps .robot-card{padding:22px 26px}
+.robot-page .robot-recovery-steps .robot-number{margin-bottom:10px}
+.robot-page .robot-triggers{position:absolute;left:0;top:416px;width:1712px;display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.robot-page .robot-triggers .robot-card{position:relative;height:160px;padding:20px 26px}
+.robot-page .robot-triggers .robot-card h2{font-size:32px}
+.robot-page .robot-triggers .robot-card p{font-size:27px;line-height:1.55;margin-top:6px}
+.robot-page .robot-recovery-stop{position:absolute;left:0;top:605px;width:1712px;font-size:29px;line-height:1.5;color:#9B6500}
+
+/* Memory resembles a task record, separate from the model and fresh observation. */
+.robot-page .robot-memory-folder{position:absolute;left:0;top:131px;width:1110px;height:465px;border:2px solid #B8C9F5;border-radius:0 16px 16px 16px;background:var(--blue-soft)}
+.robot-page .robot-folder-tab{position:absolute;left:-2px;top:-34px;width:310px;height:34px;border:2px solid #B8C9F5;border-bottom:0;border-radius:12px 18px 0 0;background:var(--blue-soft)}
+.robot-page .robot-memory-brand{position:absolute;left:28px;top:20px;color:var(--blue);font-size:33px;line-height:1.5;font-weight:600}
+.robot-page .robot-memory-fields{position:absolute;left:25px;top:92px;display:grid;grid-template-columns:512px 512px;gap:24px 28px}
+.robot-page .robot-memory-fields .robot-card{position:relative;width:512px;height:157px;padding:14px 23px}
+.robot-page .robot-memory-fields .robot-card h2{font-size:32px;line-height:1.4}
+.robot-page .robot-memory-fields .robot-card p{font-size:27px;line-height:1.5;margin-top:6px}
+.robot-page .robot-memory-excluded,.robot-page .robot-memory-reuse{position:absolute;left:1194px;width:518px;border-radius:12px;padding:18px 24px;background:#fff;border:1px solid var(--line)}
+.robot-page .robot-memory-excluded{top:131px;height:206px}
+.robot-page .robot-memory-reuse{top:377px;height:219px;background:#EFF8F5;border-color:#BDDCCF}
+.robot-page .robot-memory-excluded p,.robot-page .robot-memory-reuse p{font-size:28px;line-height:1.6;display:flex;align-items:flex-start;gap:16px;margin:8px 0}
+.robot-page .robot-memory-excluded span{color:#9B6500;font-size:34px;line-height:1.3}
+.robot-page .robot-memory-reuse span{color:#177C61;font-size:32px;line-height:1.4}
+
+.robot-page .robot-transfer-before,.robot-page .robot-transfer-after{top:100px;width:800px;height:350px;padding:20px 27px}
+.robot-page .robot-transfer-before{left:0}
+.robot-page .robot-transfer-after{left:912px;box-shadow:inset 0 7px 0 var(--blue)}
+.robot-page .robot-transfer-before p,.robot-page .robot-transfer-after p{font-size:27px;line-height:1.5;margin-top:5px}
+.robot-page .robot-transfer-steps{position:absolute;left:0;top:485px;width:1712px;display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.robot-page .robot-transfer-steps .robot-card{position:relative;height:153px;padding:15px 23px 15px 75px}
+.robot-page .robot-transfer-steps .robot-number{position:absolute;left:22px;top:22px;margin:0;font-size:24px}
+.robot-page .robot-transfer-steps h2{font-size:31px}
+.robot-page .robot-transfer-steps .robot-card p{font-size:27px;line-height:1.55;margin-top:6px}
+
+.robot-page .robot-interface-inputs,.robot-page .robot-interface-outputs{position:absolute;top:124px;width:310px;display:grid;gap:32px}
+.robot-page .robot-interface-inputs{left:0}
+.robot-page .robot-interface-outputs{left:1402px}
+.robot-page .robot-interface-chip{height:84px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:9px;background:#fff;font-size:29px;line-height:1.5;text-align:center;padding:10px 18px}
+.robot-page .robot-interface-outputs .robot-interface-chip{background:var(--yellow-soft);border-color:#E2CF99}
+.robot-page .robot-interface-layers{position:absolute;left:398px;top:110px;width:916px;display:grid;gap:22px}
+.robot-page .robot-interface-layers .robot-card{position:relative;height:94px;padding:17px 24px;display:grid;grid-template-columns:50px 250px 1fr;gap:16px;align-items:center}
+.robot-page .robot-interface-layers .robot-number{margin:0}
+.robot-page .robot-interface-layers h2{font-size:32px}
+.robot-page .robot-interface-layers .robot-card p{font-size:27px;line-height:1.55;margin:0}
+.robot-page .robot-trace-table th:first-child{width:13%}
+.robot-page .robot-trace-table th:nth-child(2){width:27%}
+.robot-page .robot-trace-table th:nth-child(3){width:31%}
+.robot-page .robot-trace-table th:nth-child(4){width:29%}
+.robot-page .robot-trace-table td{height:98px;font-size:28px;line-height:1.55}
+.robot-page .robot-trace-table td:first-child{font-family:var(--mono);color:var(--blue);font-size:27px}
+.robot-page .robot-trace-provenance{position:absolute;left:0;top:592px;width:1712px;font-size:28px;line-height:1.55;color:var(--muted)}
+
+/* A clearly qualified external benchmark and our separate validation criteria. */
+.robot-page .robot-benchmark-reference{position:absolute;left:0;top:104px;width:735px;height:517px;padding:28px 31px;border:1px solid #BCCBF0;border-top:7px solid var(--blue);border-radius:14px;background:#fff}
+.robot-page .robot-benchmark-reference h2{font-size:33px;line-height:1.5;color:var(--blue)}
+.robot-page .robot-benchmark-value{display:flex;align-items:baseline;gap:25px;margin-top:22px}
+.robot-page .robot-benchmark-value b{font-size:87px;line-height:1.2;color:var(--blue);font-family:var(--mono);font-weight:600;letter-spacing:-3px}
+.robot-page .robot-benchmark-value span{font-size:29px;line-height:1.5;color:var(--muted)}
+.robot-page .robot-benchmark-reference ul{padding-left:26px;margin:26px 0 0}
+.robot-page .robot-benchmark-reference li{font-size:28px;line-height:1.65;margin:8px 0;color:var(--muted)}
+.robot-page .robot-benchmark-reference>p{position:absolute;left:31px;bottom:22px;width:671px;border-top:1px solid var(--line);padding-top:16px;font-size:27px;line-height:1.5;color:#9B6500}
+.robot-page .robot-benchmark-criteria{position:absolute;left:799px;top:104px;width:913px;display:grid;gap:22px}
+.robot-page .robot-benchmark-criteria .robot-card{position:relative;height:112px;padding:17px 26px 15px 87px}
+.robot-page .robot-benchmark-criteria .robot-number{position:absolute;left:28px;top:21px}
+.robot-page .robot-benchmark-criteria h2{font-size:32px}
+.robot-page .robot-benchmark-criteria .robot-card p{font-size:27px;line-height:1.5;margin-top:4px}
+.robot-page .robot-benchmark-company{left:799px;top:507px;width:913px;height:120px;padding:12px 25px}
+.robot-page .robot-benchmark-company h2{font-size:31px}
+.robot-page .robot-benchmark-company p{font-size:27px;line-height:1.5;margin-top:2px}
+
+.robot-page .robot-validation-stages{position:absolute;left:0;top:110px;width:1712px;display:grid;grid-template-columns:repeat(3,520px);gap:76px}
+.robot-page .robot-validation-stages .robot-card{position:relative;height:333px;padding:27px 30px}
+.robot-page .robot-validation-stages .robot-number{text-align:right;height:126px;margin-bottom:10px;font-size:30px}
+.robot-page .robot-validation-stages h2{font-size:36px}
+.robot-page .robot-validation-stages .robot-card p{font-size:29px;line-height:1.6;margin-top:14px}
+.robot-page .robot-validation-gates{position:absolute;left:0;top:477px;width:1712px;display:grid;grid-template-columns:repeat(3,520px);gap:76px}
+.robot-page .robot-validation-gates .robot-card{position:relative;height:129px;padding:14px 23px;border-left:7px solid var(--blue)}
+.robot-page .robot-validation-gates h2{font-size:31px}
+.robot-page .robot-validation-gates .robot-card p{font-size:27px;line-height:1.5;margin-top:3px}
+.robot-page .robot-validation-scenario{position:absolute;left:0;top:620px;width:1712px;font-size:27px;line-height:1.4;color:var(--muted)}
+
+.robot-page .robot-roadmap-phases{position:absolute;left:0;top:105px;width:1712px;display:grid;grid-template-columns:repeat(3,520px);gap:76px}
+.robot-page .robot-roadmap-phase{position:relative;height:421px;padding:28px 30px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:inset 0 7px 0 var(--blue)}
+.robot-page .robot-roadmap-phase:last-child{box-shadow:inset 0 7px 0 var(--yellow)}
+.robot-page .robot-roadmap-phase .robot-number{font-size:32px;margin-bottom:21px}
+.robot-page .robot-roadmap-phase h2{font-size:37px;line-height:1.5}
+.robot-page .robot-phase-scope{font-size:29px;line-height:1.65;color:var(--muted);margin-top:18px!important}
+.robot-page .robot-phase-gate{position:absolute;left:30px;right:30px;bottom:26px;padding-top:19px;border-top:1px solid var(--line);font-size:28px;line-height:1.6;color:var(--blue)}
+.robot-page .robot-roadmap-metrics{position:absolute;left:0;top:570px;width:1712px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.robot-page .robot-metric{height:66px;display:flex;align-items:center;justify-content:center;border-radius:9px;background:var(--blue-soft);font-size:29px;line-height:1.5;color:var(--blue)}
+
+.robot-page .robot-closing-brand{position:absolute;left:0;top:94px;color:var(--blue);font-size:30px;line-height:1.5;font-weight:500}
+.robot-page .robot-closing-statement{position:absolute;left:0;top:157px;width:1712px;font-size:44px;line-height:1.5;font-weight:600}
+.robot-page .robot-closing-pillars{position:absolute;left:0;top:278px;width:1712px;display:grid;grid-template-columns:repeat(4,392px);gap:48px}
+.robot-page .robot-closing-pillars .robot-card{position:relative;height:257px;padding:94px 26px 23px}
+.robot-page .robot-closing-pillars h2{font-size:34px}
+.robot-page .robot-closing-pillars .robot-card p{font-size:28px;line-height:1.6;margin-top:9px}
+.robot-page .robot-closing-questions{position:absolute;left:0;top:575px;width:1712px;display:grid;grid-template-columns:1fr 1fr;gap:42px}
+.robot-page .robot-closing-question{padding-left:22px;border-left:5px solid var(--yellow);font-size:29px;line-height:1.55;color:var(--muted)}

@@ -120,8 +120,8 @@ try {
             if (ending.getBoundingClientRect().bottom > caption.top - 4 * scale) applicationLayout.push('主要内容与底部图注重叠');
           }
         }
-        const moduleLayouts = { agent: [], harness: [] };
-        for (const kind of ['agent', 'harness']) {
+        const moduleLayouts = { agent: [], harness: [], robot: [] };
+        for (const kind of ['agent', 'harness', 'robot']) {
           const body = slide.querySelector(`.${kind}-body`);
           if (!body) continue;
           const layoutIssues = moduleLayouts[kind];
@@ -160,6 +160,7 @@ try {
           applicationLayout,
           agentLayout: moduleLayouts.agent,
           harnessLayout: moduleLayouts.harness,
+          robotLayout: moduleLayouts.robot,
           notes: slide.querySelector('template[data-speaker-notes]')?.content.textContent.trim() ?? '',
           notesInert: Array.from(slide.querySelectorAll('template[data-speaker-notes]')).every(template => getComputedStyle(template).display === 'none' && Array.from(template.content.childNodes).every(node => !node.isConnected)),
           visibleNoteText: Array.from(slide.querySelector('template[data-speaker-notes]')?.content.querySelectorAll('p') ?? []).filter(p => p.textContent.trim() && slide.innerText.includes(p.textContent.trim())).map(p => p.textContent.trim()),
@@ -181,6 +182,7 @@ try {
       for (const issue of result.applicationLayout) failures.push(`${tag}: ${issue}`);
       for (const issue of result.agentLayout) failures.push(`${tag}: ${issue}`);
       for (const issue of result.harnessLayout) failures.push(`${tag}: ${issue}`);
+      for (const issue of result.robotLayout) failures.push(`${tag}: ${issue}`);
       if (!result.notes) failures.push(`${tag}: 缺少讲者备注`);
       if (!result.notesInert || result.visibleNoteText.length) failures.push(`${tag}: 讲者备注出现在观众画面`);
       if (result.fontStatus !== 'loaded' || result.fonts.some(font => font.status !== 'loaded')) failures.push(`${tag}: 字体加载未完成`);

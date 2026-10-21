@@ -823,6 +823,105 @@ test('Harness嵌套文本安全转义且讲稿不成为投屏正文', () => {
   assert.ok(!html.includes('undefined'));
 });
 
+test('机器人章节完整连接任务、动作、反馈与真机验收', () => {
+  const slides = full.slides.slice(65, 81);
+  assert.equal(slides.length, 16);
+  assert.deepEqual(slides.map(s => s.robotKind), ['vision', 'architecture', 'planner', 'runtime', 'skills', 'task', 'verification', 'recovery', 'memory', 'transfer', 'interface', 'trace', 'benchmark', 'validation', 'roadmap', 'closing']);
+  assert.equal(slides.reduce((sum, s) => sum + s.timingSeconds, 0), 1590);
+  for (const s of slides) {
+    assert.equal(s.layout, 'robot');
+    assert.equal(s.chapter, '07');
+    assert.equal(s.section, '机器人Agent');
+    assert.equal(s.robotData.brand, '智蜂创元机器人Agent');
+    assert.ok(s.notes.length >= 5, s.id);
+    assert.ok(s.sourceIds.includes('robot-video'), s.id);
+    assert.ok(s.evidencePaths.includes('assets/videos/bilibili/BV1qTHr6KE7z/transcript.md'), s.id);
+  }
+  assert.deepEqual(validateDeck(full, sources), []);
+  assert.deepEqual(speakerNotes(full, sources).slice(65, 81).map(s => s.page), Array.from({ length: 16 }, (_, i) => 66 + i));
+});
+
+test('机器人图示拒绝损坏的接口、流程、日志和评测条件', () => {
+  const make = kind => ({ title: '机器人契约', slides: [structuredClone(full.slides.find(s => s.robotKind === kind))] });
+  for (const [kind, mutate, expected] of [
+    ['vision', s => { s.robotData.goal = null; }, /goal: object required/],
+    ['architecture', s => { s.robotData.layers.pop(); }, /layers: expected 4/],
+    ['planner', s => { s.robotData.outputs[1].label = ''; }, /outputs\[1\].label: nonempty/],
+    ['runtime', s => { s.robotData.controls = []; }, /controls: expected 3/],
+    ['skills', s => { s.robotData.rows[0].capability = 42; }, /capability: nonempty/],
+    ['task', s => { s.robotData.steps.pop(); }, /steps: expected 5/],
+    ['verification', s => { delete s.robotData.rows[0].evidence; }, /evidence: nonempty/],
+    ['recovery', s => { s.robotData.stop = ''; }, /stop: nonempty/],
+    ['memory', s => { s.robotData.excluded = '错误类型'; }, /excluded: expected 3/],
+    ['transfer', s => { s.robotData.sceneLabels.pop(); }, /sceneLabels: expected 4/],
+    ['interface', s => { s.robotData.layers[1] = []; }, /layers\[1\]: object required/],
+    ['trace', s => { s.robotData.rows[0].decision = null; }, /decision: nonempty/],
+    ['benchmark', s => { s.robotData.reference.conditions.pop(); }, /conditions: expected 3/],
+    ['validation', s => { s.robotData.gates = null; }, /gates: expected 3/],
+    ['roadmap', s => { s.robotData.phases[0].gate = ''; }, /gate: nonempty/],
+    ['closing', s => { s.robotData.questions.pop(); }, /questions: expected 2/],
+    ['closing', s => { s.robotData.brand = '其他品牌'; }, /brand: requires 智蜂创元机器人Agent/],
+    ['closing', s => { s.robotData.unused = '未渲染字段'; }, /unused: unsupported field/],
+    ['closing', s => { s.robotData = []; }, /robotData: object required/],
+    ['closing', s => { s.chapter = '06'; }, /robot requires 07/]
+  ]) {
+    const changed = make(kind);
+    mutate(changed.slides[0]);
+    assert.match(validateDeck(changed, sources).join('\n'), expected, kind);
+    assert.throws(() => renderDeck(changed, sources), expected);
+  }
+  const changed = make('vision');
+  changed.slides[0].layout = 'bullets';
+  changed.slides[0].bullets = ['测试'];
+  assert.match(validateDeck(changed, sources).join('\n'), /robotKind and robotData require robot layout/);
+});
+
+test('机器人架构、表格和原生场景图安全转义嵌套正文', () => {
+  const changed = { title: '机器人转义', slides: structuredClone(full.slides.slice(65, 81)) };
+  const marker = '<img src=x onerror="alert(1)">';
+  const inject = [
+    d => { d.goal.text = marker; },
+    d => { d.layers[0].text = marker; },
+    d => { d.outputs[0].text = marker; },
+    d => { d.steps[0].text = marker; },
+    d => { d.rows[0].reason = marker; },
+    d => { d.steps[0].text = marker; },
+    d => { d.rows[0].evidence = marker; },
+    d => { d.triggers[0].text = marker; },
+    d => { d.fields[0].text = marker; },
+    d => { d.sceneLabels[0] = marker; },
+    d => { d.inputs[0] = marker; },
+    d => { d.rows[0].observation = marker; },
+    d => { d.reference.conditions[0] = marker; },
+    d => { d.gates[0].text = marker; },
+    d => { d.phases[0].gate = marker; },
+    d => { d.pillars[0].text = marker; }
+  ];
+  changed.slides.forEach((s, i) => inject[i](s.robotData));
+  const html = renderDeck(changed, sources);
+  assert.ok(!html.includes(marker));
+  assert.ok((html.match(/&lt;img src=x onerror=&quot;alert\(1\)&quot;&gt;/g) || []).length >= 16);
+  assert.equal((html.match(/ robot-page/g) || []).length, 16);
+  assert.equal((html.match(/<template data-speaker-notes>/g) || []).length, 16);
+  assert.ok(!html.includes('undefined'));
+});
+
+test('公司方案与外部参考成绩保留清晰归属，来源完整进入讲稿', () => {
+  const slides = full.slides.slice(65, 81);
+  for (const s of slides) {
+    const visible = JSON.stringify([s.title, s.sourceLabel, s.robotData]);
+    assert.doesNotMatch(visible, /RPent|清华/, s.id);
+    assert.match(visible, /智蜂创元机器人Agent/, s.id);
+  }
+  const benchmark = slides.find(s => s.robotKind === 'benchmark');
+  assert.match(benchmark.robotData.reference.label, /视频|外部|参考/);
+  assert.match(benchmark.robotData.reference.disclaimer, /非.*公司|非.*智蜂|不代表/);
+  assert.match(benchmark.robotData.company.text, /待|尚未/);
+  assert.match(benchmark.notes.join('\n'), /RPent/);
+  const notes = speakerNotes(full, sources).slice(65, 81);
+  for (const n of notes) assert.ok(n.sources.some(s => s.id === 'robot-video'));
+});
+
 test('三页样例的布局、引用和讲稿通过内容校验', () => {
   assert.equal(deck.slides.length, 3);
   assert.deepEqual(deck.slides.map(slide => slide.layout), ['cover', 'loop', 'comparison']);

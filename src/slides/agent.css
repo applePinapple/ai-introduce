@@ -8,6 +8,15 @@
 .agent-page .agent-blue{--agent-accent:var(--blue);--agent-soft:var(--blue-soft)}
 .agent-page .agent-yellow{--agent-accent:var(--yellow);--agent-soft:var(--yellow-soft)}
 .agent-page .agent-kicker{font-family:var(--mono);font-size:25px;line-height:1.5;color:var(--agent-accent)}
+.agent-page .agent-overview-concept{position:absolute;width:610px;height:224px;padding:24px 30px;background:#fff;border:1px solid var(--line);border-top:7px solid var(--agent-accent);border-radius:12px}
+.agent-page .agent-overview-concept-1{left:0;top:100px}
+.agent-page .agent-overview-concept-2{left:0;top:432px}
+.agent-page .agent-overview-concept-3{left:1102px;top:100px}
+.agent-page .agent-overview-concept-4{left:1102px;top:432px}
+.agent-page .agent-overview-concept h2{font-size:37px;line-height:1.45;color:var(--agent-accent)}
+.agent-page .agent-overview-concept p{font-size:29px;line-height:1.6;margin-top:10px}
+.agent-page .agent-overview-concept span{display:block;font-size:25px;line-height:1.6;color:var(--muted);margin-top:10px}
+.agent-page .agent-overview-bottom{position:absolute;left:0;top:679px;width:1712px;font-size:29px;line-height:1.5;color:var(--blue)}
 .agent-page .agent-weather-request{position:absolute;left:0;top:96px;display:flex;align-items:center;gap:30px}
 .agent-page .agent-weather-request span{padding:8px 16px;border-radius:5px;background:var(--blue-soft);font-size:24px;color:var(--blue)}
 .agent-page .agent-weather-request b{font-size:36px;font-weight:500;line-height:1.6}

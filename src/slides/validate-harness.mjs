@@ -16,7 +16,7 @@ export function validateHarness(slide) {
   const strings = (value, name, count) => items(value, name, count, text);
   const pairs = (value, name, count) => items(value, name, count, (item, path) => fields(item, ['label', 'text'], path));
   if (!harnessKinds.includes(slide.harnessKind)) errors.push(`${prefix}.harnessKind: unsupported harness kind`);
-  for (const [name, expected] of Object.entries({ theme: 'reinbee', chapter: '06', section: 'Harness工程', sectionLabel: 'Harness工程' })) {
+  for (const [name, expected] of Object.entries({ theme: 'reinbee', chapter: '04', section: 'Agent基础', sectionLabel: 'Agent基础' })) {
     if (slide[name] !== expected) errors.push(`${prefix}.${name}: harness requires ${expected}`);
   }
   text(slide.logoPath, 'logoPath');
@@ -28,7 +28,7 @@ export function validateHarness(slide) {
   switch (slide.harnessKind) {
     case 'anatomy':
       for (const name of ['input', 'output', 'model']) fields(d[name], ['label', 'text'], `${base}.${name}`);
-      text(d.harnessLabel, `${base}.harnessLabel`);
+      fields(d, ['harnessLabel', 'applicationBoundary'], base);
       pairs(d.parts, `${base}.parts`, 4);
       break;
     case 'context':

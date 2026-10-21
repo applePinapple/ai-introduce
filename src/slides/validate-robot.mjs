@@ -62,7 +62,7 @@ function validateValue(value, schema, path, errors) {
 export function validateRobot(slide) {
   const errors = [];
   const prefix = slide.id || 'slide';
-  for (const [field, expected] of Object.entries({ theme: 'reinbee', chapter: '07', section: '机器人Agent', sectionLabel: '机器人Agent' })) {
+  for (const [field, expected] of Object.entries({ theme: 'reinbee', chapter: '05', section: '机器人Agent', sectionLabel: '机器人Agent' })) {
     if (slide[field] !== expected) errors.push(`${prefix}.${field}: robot requires ${expected}`);
   }
   for (const field of ['logoPath', 'logoAlt']) validateValue(slide[field], text, `${prefix}.${field}`, errors);

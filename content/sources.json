@@ -264,14 +264,15 @@
     {
       "id": "effective-agents",
       "title": "Building effective agents (2024)",
-      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents",
       "publisher": "Anthropic 官方工程文章",
-      "verifiedOn": "2026-10-13",
+      "verifiedOn": "2026-10-21",
       "supports": [
         "工作流按预定义路径编排；Agent动态决定过程与工具",
         "工具结果形成反馈；可配置人工检查点及停止条件",
         "优先简单方案，复杂度通常增加延迟与成本；应用建议须结合自己的评测"
-      ]
+      ],
+      "verificationEvidence": "2026-10-21实际重新打开Anthropic官方原文，阅读What are agents、When (and when not) to use agents与工作流/Agent架构区分；用于Agent基础首页导航及固定流程到Agent的桥接。保留先采用简单方案、按任务评测复杂度/延迟/成本的边界，不采用文章中的模型产品现状或效果数字。"
     },
     {
       "id": "genai-work-qje",
@@ -1094,13 +1095,13 @@
       "title": "The Anatomy of an Agent Harness",
       "publisher": "Vivek Trivedy / LangChain",
       "url": "https://www.langchain.com/blog/the-anatomy-of-an-agent-harness",
-      "verifiedOn": "2026-10-20",
+      "verifiedOn": "2026-10-21",
       "supports": [
         "该文把Harness定义为模型之外的代码、配置与执行逻辑，包括指令、工具、状态、编排、执行环境和约束；这是工程工作定义，不是统一行业标准。",
         "持久存储、执行工具和反馈循环由外围系统提供；模型生成的工具请求需要相应运行逻辑才能执行。",
         "沙箱、访问范围及网络隔离属于运行环境设计；测试、浏览器和日志帮助Agent观察结果并验证工作。"
       ],
-      "verificationEvidence": "实际打开2026-03-10原文，阅读Can Someone Please Define a Harness、Filesystems、Sandboxes and Tools to Execute & Verify Work及Long Horizon Autonomous Execution。仅归纳组件职责，不采用榜单或效果数字；不把外部笔记当作模型权重更新，也不把沙箱描述为绝对安全保证。"
+      "verificationEvidence": "2026-10-21实际重新打开2026-03-10的LangChain官方原文，复核Can Someone Please Define a Harness及模型外的状态、工具执行、反馈和约束说明，并重读Filesystems、Sandboxes and Tools to Execute & Verify Work与Long Horizon Autonomous Execution。用于Agent基础的四角色导航与应用职责/运行系统合页；产品层边界属于教学归纳，不把所有账户、界面和业务系统等同Harness，不采用榜单或效果数字。"
     },
     {
       "id": "harness-improvement",

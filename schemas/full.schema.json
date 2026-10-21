@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AI 基础、模型原理、应用、Harness 与机器人 Agent HTML 演讲",
+  "title": "AI 基础、模型原理、Agent 基础与机器人 Agent HTML 演讲",
   "type": "object",
   "required": [
     "title",
@@ -609,6 +609,7 @@
           },
           "agentKind": {
             "enum": [
+              "overview",
               "weather",
               "setup",
               "loop",
@@ -3404,10 +3405,10 @@
                   "const": "04"
                 },
                 "section": {
-                  "const": "大模型应用"
+                  "const": "Agent基础"
                 },
                 "sectionLabel": {
-                  "const": "大模型应用"
+                  "const": "Agent基础"
                 }
               }
             },
@@ -4169,13 +4170,13 @@
                   "const": "reinbee"
                 },
                 "chapter": {
-                  "const": "05"
+                  "const": "04"
                 },
                 "section": {
-                  "const": "Agent原理"
+                  "const": "Agent基础"
                 },
                 "sectionLabel": {
-                  "const": "Agent原理"
+                  "const": "Agent基础"
                 }
               }
             },
@@ -4193,6 +4194,79 @@
                     ]
                   }
                 ]
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "agentKind"
+              ],
+              "properties": {
+                "agentKind": {
+                  "const": "overview"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "agentData": {
+                  "type": "object",
+                  "required": [
+                    "description",
+                    "lead",
+                    "caption",
+                    "concepts",
+                    "relations",
+                    "bottomLine"
+                  ],
+                  "properties": {
+                    "description": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "lead": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "caption": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "concepts": {
+                      "type": "array",
+                      "minItems": 4,
+                      "maxItems": 4,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "label",
+                          "text",
+                          "example"
+                        ],
+                        "properties": {
+                          "label": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "text": {
+                            "$ref": "#/$defs/text"
+                          },
+                          "example": {
+                            "$ref": "#/$defs/text"
+                          }
+                        }
+                      }
+                    },
+                    "relations": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "items": {
+                        "$ref": "#/$defs/text"
+                      }
+                    },
+                    "bottomLine": {
+                      "$ref": "#/$defs/text"
+                    }
+                  }
+                }
               }
             }
           },
@@ -4641,7 +4715,8 @@
                     "caption",
                     "participants",
                     "events",
-                    "bottomLine"
+                    "bottomLine",
+                    "directReplyLabel"
                   ],
                   "properties": {
                     "description": {
@@ -4709,6 +4784,9 @@
                       }
                     },
                     "bottomLine": {
+                      "$ref": "#/$defs/text"
+                    },
+                    "directReplyLabel": {
                       "$ref": "#/$defs/text"
                     }
                   }
@@ -4809,13 +4887,13 @@
                   "const": "reinbee"
                 },
                 "chapter": {
-                  "const": "06"
+                  "const": "04"
                 },
                 "section": {
-                  "const": "Harness工程"
+                  "const": "Agent基础"
                 },
                 "sectionLabel": {
-                  "const": "Harness工程"
+                  "const": "Agent基础"
                 }
               }
             },
@@ -4860,7 +4938,8 @@
                     "output",
                     "model",
                     "harnessLabel",
-                    "parts"
+                    "parts",
+                    "applicationBoundary"
                   ],
                   "properties": {
                     "description": {
@@ -4942,6 +5021,9 @@
                           }
                         }
                       }
+                    },
+                    "applicationBoundary": {
+                      "$ref": "#/$defs/text"
                     }
                   }
                 }
@@ -5422,7 +5504,7 @@
                   "const": "reinbee"
                 },
                 "chapter": {
-                  "const": "07"
+                  "const": "05"
                 },
                 "section": {
                   "const": "机器人Agent"

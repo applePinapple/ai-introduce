@@ -627,35 +627,74 @@ test('当前演讲拒绝关系图缺失正文、不安全证据路径和不一�
   assert.match(errors,/must stay inside assets/);assert.match(errors,/durations must equal/);
 });
 
-test('大模型应用追加在完整LLM模块之后，保留视频顺序、讲稿和来源', () => {
-  const slides = full.slides.slice(44, 52);
-  assert.equal(slides.length, 8);
-  assert.equal(full.slides[43].llmKind, 'context-shift');
-  assert.deepEqual(slides.map(slide => slide.applicationKind), [
-    'relationship', 'chatbot', 'generation', 'responsibilities',
-    'comparison', 'hybrid', 'sequence', 'summary',
-  ]);
-  assert.equal(slides.reduce((sum, slide) => sum + slide.timingSeconds, 0), 750);
-  assert.equal(full.slides.slice(0, 44).reduce((sum, slide) => sum + slide.timingSeconds, 0), 3075);
-  for (const slide of slides) {
-    assert.equal(slide.layout, 'application');
-    assert.equal(slide.chapter, '04');
-    assert.equal(slide.theme, 'reinbee');
-    assert.ok(slide.sourceIds.includes('video-apps'));
-    assert.ok(slide.evidencePaths.some(path => path.includes('/005/')));
-    assert.ok(slide.notes.length >= 3);
-    assert.ok(slide.notes.join('').length >= 180);
+const moduleSlides = layout => full.slides.filter(slide => slide.layout === layout);
+const moduleFixture = (layout, kind) => {
+  const kindField = layout + 'Kind', dataField = layout + 'Data';
+  const existing = full.slides.find(slide => slide.layout === layout && slide[kindField] === kind);
+  if (existing) return { title: '组件契约', slides: [structuredClone(existing)] };
+  const pairs = count => Array.from({ length: count }, (_, index) => ({ label: '标签 ' + index, text: '示意内容' }));
+  const base = { description: '组件测试示意', lead: '引导说明', caption: '教学示意' };
+  const legacy = {
+    application: {
+      relationship: { model: { title: '模型', label: '能力', summary: '模型说明' }, product: { title: '应用', label: '产品', summary: '应用说明' }, acronym: ['G', 'P', 'T'].map(letter => ({ letter, term: '术语', meaning: '解释' })), bridgeLabel: '提供能力' },
+      responsibilities: { app: { title: '应用', caption: '应用职责', items: pairs(3) }, model: { title: '模型', caption: '模型职责', items: pairs(3) }, connectionLabel: '接口', boundaryLabel: '职责边界' },
+      sequence: { participants: pairs(3).map(item => ({ label: item.label, caption: item.text })), events: Array.from({ length: 7 }, (_, index) => ({ from: index % 3, to: (index + 1) % 3, label: '调用 ' + index, tone: 'blue' })), bottomLine: '调用说明' },
+    },
+    agent: { safeguards: { items: pairs(3).map(item => ({ ...item, title: '执行约束' })), bottomLine: '边界说明' } },
+  };
+  assert.ok(legacy[layout]?.[kind], '缺少组件测试夹具：' + layout + '/' + kind);
+  return { title: '历史组件契约', slides: [{ id: 'fixture-' + layout + '-' + kind, layout, [kindField]: kind, [dataField]: { ...base, ...legacy[layout][kind] }, chapter: '04', section: 'Agent基础', sectionLabel: 'Agent基础', theme: 'reinbee', title: '组件测试', eyebrow: 'AGENT', subtitle: '', sourceLabel: '教学示意', logoPath: 'assets/brand/reinbee-logo-light.png', logoAlt: 'ReinBee 浅色标志', timingSeconds: 60, notes: ['组件测试讲稿'], sourceIds: ['video-apps'] }] };
+};
+const escapingMarker = '<img src=x onerror="alert(1)">';
+const escapedMarker = '&lt;img src=x onerror=&quot;alert(1)&quot;&gt;';
+const assertEscaping = (layout, mutations) => {
+  for (const [kind, mutate] of Object.entries(mutations)) {
+    const changed = moduleFixture(layout, kind);
+    mutate(changed.slides[0][layout + 'Data'], escapingMarker);
+    const html = renderDeck(changed, sources);
+    assert.ok(!html.includes(escapingMarker), kind);
+    assert.ok(html.includes(escapedMarker), kind);
+    assert.equal((html.match(/<template data-speaker-notes>/g) || []).length, 1, kind);
+    assert.ok(html.includes(' ' + layout + '-page'), kind);
+    assert.ok(!html.includes('undefined'), kind);
   }
-  const notes = speakerNotes(full, sources).slice(44, 52);
-  assert.deepEqual(notes.map(note => note.page), [45, 46, 47, 48, 49, 50, 51, 52]);
+};
+
+test('Agent基础融合为完整18页叙事，原讲解时长、来源和前后章节保持完整', () => {
+  const slides = full.slides.filter(slide => slide.section === 'Agent基础');
+  assert.equal(full.slides.length, 78);
+  assert.equal(full.slides.reduce((sum, slide) => sum + slide.timingSeconds, 0), 6705);
+  assert.equal(full.durationMinutes, 111.75);
+  assert.equal(slides.length, 18);
+  assert.deepEqual(slides.map(slide => slide.id), [
+    'apps-gpt-chatgpt', 'apps-chatbot', 'apps-dialogue-generation', 'apps-capability-comparison',
+    'apps-hybrid', 'apps-summary', 'agent-weather', 'agent-loop', 'harness-anatomy',
+    'agent-tool-schema', 'agent-messages', 'agent-sequence', 'agent-setup', 'harness-context',
+    'harness-execution', 'harness-continuity', 'harness-improvement', 'harness-case',
+  ]);
+  assert.deepEqual(slides.map(slide => slide.timingSeconds), [90, 75, 105, 105, 90, 75, 75, 120, 180, 105, 105, 240, 90, 105, 165, 105, 120, 90]);
+  assert.equal(slides.reduce((sum, slide) => sum + slide.timingSeconds, 0), 2040);
+  assert.equal(full.slides[43].llmKind, 'context-shift');
+  assert.equal(full.slides[44].id, slides[0].id);
+  assert.equal(full.slides[62].robotKind, 'vision');
+  assert.deepEqual(full.slides.filter((slide, index) => index === 0 || slide.section !== full.slides[index - 1].section).map(slide => slide.section), ['封面', 'AI 基础', '神经网络原理', '大语言模型', 'Agent基础', '机器人Agent']);
+  const references = new Set(slides.flatMap(slide => slide.sourceIds));
+  for (const id of ['agent-langchain-models', 'agent-langchain-overview', 'agent-langchain-quickstart', 'agent-langchain-tools', 'agent-react-primary', 'agent-workflow-primary', 'apps-api-reference', 'apps-chatgpt-launch', 'apps-conversation-state', 'apps-function-calling', 'apps-gpt3-paper', 'apps-instructgpt-paper', 'harness-anatomy', 'harness-context', 'harness-evals', 'harness-improvement', 'harness-long-running', 'harness-middleware', 'video-agent', 'video-apps']) assert.ok(references.has(id), id);
+  for (const slide of slides) {
+    assert.equal(slide.chapter, '04', slide.id);
+    assert.equal(slide.sectionLabel, 'Agent基础', slide.id);
+    assert.equal(slide.theme, 'reinbee', slide.id);
+    assert.ok(slide.notes.length >= 3, slide.id);
+    assert.ok(slide.sourceIds.length > 0, slide.id);
+  }
+  const notes = speakerNotes(full, sources).filter(note => slides.some(slide => slide.id === note.id));
+  assert.deepEqual(notes.map(note => note.page), Array.from({ length: 18 }, (_, index) => 45 + index));
   assert.ok(notes.every(note => note.sources.every(source => source?.verifiedOn)));
+  assert.deepEqual(validateDeck(full, sources), []);
 });
 
-test('大模型应用拒绝损坏的消息、比较表和API参与者引用', () => {
-  const make = kind => ({
-    title: '应用内容契约',
-    slides: [structuredClone(full.slides.find(slide => slide.applicationKind === kind))],
-  });
+test('应用图示融入Agent基础，保留原生组件的消息、表格和API契约', () => {
+  assert.deepEqual(moduleSlides('application').map(slide => slide.applicationKind), ['chatbot', 'generation', 'comparison', 'hybrid', 'summary']);
   for (const [kind, mutate, expected] of [
     ['relationship', s => { delete s.applicationData.model; }, /model.title: nonempty/],
     ['chatbot', s => { s.applicationData.messages[0] = null; }, /messages\[0\].role: nonempty/],
@@ -667,62 +706,55 @@ test('大模型应用拒绝损坏的消息、比较表和API参与者引用', ()
     ['sequence', s => { s.applicationData.events[0].tone = 'red'; }, /unsupported tone/],
     ['summary', s => { s.applicationData.questions[0].answer = ''; }, /answer: nonempty/],
     ['summary', s => { s.chapter = '03'; }, /application requires 04/],
+    ['summary', s => { s.section = '大模型应用'; }, /application requires Agent基础/],
     ['summary', s => { s.applicationData = null; }, /applicationData: object required/],
   ]) {
-    const changed = make(kind);
+    const changed = moduleFixture('application', kind);
     mutate(changed.slides[0]);
     assert.match(validateDeck(changed, sources).join('\n'), expected, kind);
     assert.throws(() => renderDeck(changed, sources), expected);
   }
-  const changed = make('summary');
+  const changed = moduleFixture('application', 'summary');
   changed.slides[0].layout = 'bullets';
   changed.slides[0].bullets = ['正文'];
   assert.match(validateDeck(changed, sources).join('\n'), /applicationKind and applicationData require application layout/);
 });
 
-test('应用图示中的教学文字均转义，讲稿保持隐藏', () => {
-  const changed = { title: '应用转义', slides: structuredClone(full.slides.slice(44, 52)) };
-  const marker = '<img src=x onerror="alert(1)">';
-  changed.slides[0].applicationData.model.title = marker;
-  changed.slides[1].applicationData.messages[0].text = marker;
-  changed.slides[2].applicationData.outputTokens[0] = marker;
-  changed.slides[3].applicationData.app.items[0].text = marker;
-  changed.slides[4].applicationData.rows[0][1] = marker;
-  changed.slides[5].applicationData.resultText = marker;
-  changed.slides[6].applicationData.events[0].label = marker;
-  changed.slides[7].applicationData.questions[0].answer = marker;
-  const html = renderDeck(changed, sources);
-  assert.ok(!html.includes(marker));
-  assert.equal((html.match(/&lt;img src=x onerror=&quot;alert\(1\)&quot;&gt;/g) || []).length, 8);
-  assert.equal((html.match(/<template data-speaker-notes>/g) || []).length, 8);
-  assert.equal((html.match(/ application-page/g) || []).length, 8);
-  assert.ok(!html.includes('undefined'));
+test('应用图示中的教学文字均转义，未用历史版式保留最小夹具覆盖', () => {
+  assertEscaping('application', {
+    relationship: (d, marker) => { d.model.title = marker; },
+    chatbot: (d, marker) => { d.messages[0].text = marker; },
+    generation: (d, marker) => { d.outputTokens[0] = marker; },
+    responsibilities: (d, marker) => { d.app.items[0].text = marker; },
+    comparison: (d, marker) => { d.rows[0][1] = marker; },
+    hybrid: (d, marker) => { d.resultText = marker; },
+    sequence: (d, marker) => { d.events[0].label = marker; },
+    summary: (d, marker) => { d.questions[0].answer = marker; },
+  });
 });
 
-test('Agent章节保留七个原理概念、讲稿及可追溯证据', () => {
-  const slides = full.slides.slice(52, 59);
-  assert.equal(slides.length, 7);
-  assert.deepEqual(slides.map(slide => slide.agentKind), ['weather', 'setup', 'loop', 'schema', 'messages', 'sequence', 'safeguards']);
-  assert.equal(slides.reduce((sum, slide) => sum + slide.timingSeconds, 0), 690);
-  assert.deepEqual(validateDeck(full, sources), []);
-  for (const slide of slides) {
-    assert.equal(slide.layout, 'agent');
-    assert.equal(slide.chapter, '05');
-    assert.equal(slide.theme, 'reinbee');
-    assert.ok(slide.sourceIds.includes('video-agent'));
-    assert.ok(slide.evidencePaths.length > 0);
-    assert.ok(slide.notes.length >= 3);
+test('Agent图示由概览到执行闭环，完整保留工具消息配对与教学边界', () => {
+  const slides = moduleSlides('agent');
+  assert.deepEqual(slides.map(slide => slide.agentKind), ['overview', 'weather', 'loop', 'schema', 'messages', 'sequence', 'setup']);
+  const overview = slides.find(slide => slide.agentKind === 'overview');
+  assert.equal(overview.id, 'apps-gpt-chatgpt');
+  assert.deepEqual(overview.agentData.concepts.map(concept => concept.label), ['模型', '应用', 'Agent', 'Harness']);
+  assert.equal(overview.agentData.relations.length, 3);
+  assert.match(slides.find(slide => slide.agentKind === 'messages').notes.join('\n'), /tool_call_id/);
+  assert.match(slides.find(slide => slide.agentKind === 'sequence').notes.join('\n'), /执行/);
+  for (const slide of slides.filter(slide => slide.agentKind !== 'overview')) {
+    assert.ok(slide.sourceIds.includes('video-agent'), slide.id);
+    assert.ok(slide.evidencePaths.length > 0, slide.id);
+    assert.match(JSON.stringify(slide), /模拟|固定返回|教学示意/, slide.id);
   }
-  const notes = speakerNotes(full, sources).slice(52, 59);
-  assert.deepEqual(notes.map(note => note.page), [53, 54, 55, 56, 57, 58, 59]);
-  assert.ok(slides.every(slide => /模拟|固定返回/.test(JSON.stringify(slide))));
-  assert.match(slides[4].notes.join('\n'), /tool_call_id/);
-  assert.match(slides[5].notes.join('\n'), /执行/);
 });
 
-test('Agent内容结构损坏时在绘图前给出具体错误', () => {
-  const make = kind => ({ title: 'Agent契约', slides: [structuredClone(full.slides.find(slide => slide.agentKind === kind))] });
+test('Agent内容结构及新概览、直接回答分支损坏时在绘图前给出具体错误', () => {
   for (const [kind, mutate, expected] of [
+    ['overview', s => { s.agentData.concepts.pop(); }, /concepts: expected/],
+    ['overview', s => { s.agentData.concepts[0].example = ''; }, /example: nonempty/],
+    ['overview', s => { s.agentData.relations.pop(); }, /relations: expected/],
+    ['overview', s => { delete s.agentData.bottomLine; }, /bottomLine: nonempty/],
     ['weather', s => { s.agentData.paths[0].steps.pop(); }, /steps: expected/],
     ['setup', s => { s.agentData.codeLines = []; }, /codeLines: expected/],
     ['loop', s => { s.agentData.model = null; }, /model.label: nonempty/],
@@ -730,107 +762,93 @@ test('Agent内容结构损坏时在绘图前给出具体错误', () => {
     ['messages', s => { s.agentData.rows[1].lines = null; }, /lines: expected/],
     ['sequence', s => { s.agentData.events[0].from = 3; }, /participant index 0-2/],
     ['sequence', s => { s.agentData.events[0].tone = 'red'; }, /unsupported tone/],
+    ['sequence', s => { delete s.agentData.directReplyLabel; }, /directReplyLabel: nonempty/],
     ['safeguards', s => { s.agentData.items[1] = null; }, /title: nonempty/],
-    ['safeguards', s => { s.chapter = '04'; }, /agent requires 05/],
+    ['safeguards', s => { s.chapter = '05'; }, /agent requires 04/],
+    ['safeguards', s => { s.sectionLabel = 'Agent原理'; }, /agent requires Agent基础/],
     ['safeguards', s => { s.agentData = null; }, /agentData: object required/],
   ]) {
-    const changed = make(kind);
+    const changed = moduleFixture('agent', kind);
     mutate(changed.slides[0]);
     assert.match(validateDeck(changed, sources).join('\n'), expected, kind);
     assert.throws(() => renderDeck(changed, sources), expected);
   }
-  const changed = make('safeguards');
+  const changed = moduleFixture('agent', 'safeguards');
   changed.slides[0].layout = 'bullets';
   changed.slides[0].bullets = ['内容'];
   assert.match(validateDeck(changed, sources).join('\n'), /agentKind and agentData require agent layout/);
 });
 
-test('Agent代码、消息和图示文本安全转义，完整讲稿留在备注', () => {
-  const changed = { title: 'Agent转义', slides: structuredClone(full.slides.slice(52, 59)) };
-  const marker = '<img src=x onerror="alert(1)">';
-  changed.slides[0].agentData.paths[0].title = marker;
-  changed.slides[1].agentData.codeLines[0] = marker;
-  changed.slides[2].agentData.model.questions[0] = marker;
-  changed.slides[3].agentData.fields[0].value = marker;
-  changed.slides[4].agentData.rows[0].lines[0] = marker;
-  changed.slides[5].agentData.events[0].label = marker;
-  changed.slides[6].agentData.items[0].title = marker;
-  const html = renderDeck(changed, sources);
-  assert.ok(!html.includes(marker));
-  assert.equal((html.match(/&lt;img src=x onerror=&quot;alert\(1\)&quot;&gt;/g) || []).length, 7);
-  assert.equal((html.match(/<template data-speaker-notes>/g) || []).length, 7);
-  assert.equal((html.match(/ agent-page/g) || []).length, 7);
-  assert.ok(!html.includes('undefined'));
+test('Agent代码、消息、概览关系与直接回答说明安全转义', () => {
+  assertEscaping('agent', {
+    overview: (d, marker) => { d.concepts[0].example = marker; d.relations[0] = marker; d.bottomLine = marker; },
+    weather: (d, marker) => { d.paths[0].title = marker; },
+    setup: (d, marker) => { d.codeLines[0] = marker; },
+    loop: (d, marker) => { d.model.questions[0] = marker; },
+    schema: (d, marker) => { d.fields[0].value = marker; },
+    messages: (d, marker) => { d.rows[0].lines[0] = marker; },
+    sequence: (d, marker) => { d.directReplyLabel = marker; },
+    safeguards: (d, marker) => { d.items[0].title = marker; },
+  });
 });
 
-test('Harness章节承接Agent，六个工程概念均关联已核验来源', () => {
-  const slides = full.slides.slice(59, 65);
-  assert.equal(slides.length, 6);
-  assert.deepEqual(slides.map(slide => slide.harnessKind), ['anatomy', 'context', 'continuity', 'execution', 'improvement', 'case']);
-  assert.equal(slides.reduce((sum, slide) => sum + slide.timingSeconds, 0), 600);
-  assert.deepEqual(validateDeck(full, sources), []);
+test('Harness机制嵌入Agent基础，合并职责与执行约束并保留已核验依据', () => {
+  const slides = moduleSlides('harness');
+  assert.deepEqual(slides.map(slide => slide.harnessKind), ['anatomy', 'context', 'execution', 'continuity', 'improvement', 'case']);
   for (const slide of slides) {
-    assert.equal(slide.layout, 'harness');
-    assert.equal(slide.chapter, '06');
-    assert.equal(slide.theme, 'reinbee');
+    assert.equal(slide.chapter, '04');
     assert.ok(slide.sourceIds.length >= 2);
-    assert.ok(slide.sourceIds.every(id => id.startsWith('harness-')));
+    assert.ok(slide.sourceIds.some(id => id.startsWith('harness-')));
     assert.ok(slide.notes.length >= 4);
   }
-  assert.deepEqual(speakerNotes(full, sources).slice(59, 65).map(note => note.page), [60, 61, 62, 63, 64, 65]);
-  assert.match(JSON.stringify(slides[5]), /教学示例|教学示意/);
+  assert.match(JSON.stringify(slides.find(slide => slide.harnessKind === 'case')), /教学示例|教学示意/);
 });
 
-test('Harness拒绝缺失状态、错误循环结构与无效比较行', () => {
-  const make = kind => ({ title: 'Harness契约', slides: [structuredClone(full.slides.find(slide => slide.harnessKind === kind))] });
+test('Harness拒绝缺失应用边界、状态、错误循环结构与无效比较行', () => {
   for (const [kind, mutate, expected] of [
     ['anatomy', s => { s.harnessData.model = null; }, /model.label: nonempty/],
     ['anatomy', s => { s.harnessData.parts.pop(); }, /parts: expected 4/],
+    ['anatomy', s => { delete s.harnessData.applicationBoundary; }, /applicationBoundary: nonempty/],
     ['context', s => { s.harnessData.window.text = ''; }, /window.text: nonempty/],
     ['continuity', s => { s.harnessData.record.items = null; }, /record.items: expected 3/],
     ['execution', s => { s.harnessData.controls[0] = null; }, /controls\[0\].label: nonempty/],
     ['improvement', s => { s.harnessData.outer.steps.pop(); }, /outer.steps: expected 5/],
     ['case', s => { s.harnessData.rows[0].evidence = ''; }, /evidence: nonempty/],
-    ['case', s => { delete s.chapter; }, /harness requires 06/],
+    ['case', s => { delete s.chapter; }, /harness requires 04/],
+    ['case', s => { s.section = 'Harness工程'; }, /harness requires Agent基础/],
     ['case', s => { delete s.sourceLabel; }, /sourceLabel: nonempty/],
     ['case', s => { s.harnessData = []; }, /harnessData: object required/],
   ]) {
-    const changed = make(kind);
+    const changed = moduleFixture('harness', kind);
     mutate(changed.slides[0]);
     assert.match(validateDeck(changed, sources).join('\n'), expected, kind);
     assert.throws(() => renderDeck(changed, sources), expected);
   }
-  const changed = make('case');
+  const changed = moduleFixture('harness', 'case');
   changed.slides[0].layout = 'bullets';
   changed.slides[0].bullets = ['内容'];
   assert.match(validateDeck(changed, sources).join('\n'), /harnessKind and harnessData require harness layout/);
 });
 
-test('Harness嵌套文本安全转义且讲稿不成为投屏正文', () => {
-  const changed = { title: 'Harness转义', slides: structuredClone(full.slides.slice(59, 65)) };
-  const marker = '<img src=x onerror="alert(1)">';
-  changed.slides[0].harnessData.parts[0].text = marker;
-  changed.slides[1].harnessData.window.text = marker;
-  changed.slides[2].harnessData.record.items[0] = marker;
-  changed.slides[3].harnessData.controls[0].text = marker;
-  changed.slides[4].harnessData.outer.steps[0] = marker;
-  changed.slides[5].harnessData.rows[0].evidence = marker;
-  const html = renderDeck(changed, sources);
-  assert.ok(!html.includes(marker));
-  assert.equal((html.match(/&lt;img src=x onerror=&quot;alert\(1\)&quot;&gt;/g) || []).length, 6);
-  assert.equal((html.match(/<template data-speaker-notes>/g) || []).length, 6);
-  assert.equal((html.match(/ harness-page/g) || []).length, 6);
-  assert.ok(!html.includes('undefined'));
+test('Harness嵌套文本与合并的应用职责安全转义且讲稿不成为投屏正文', () => {
+  assertEscaping('harness', {
+    anatomy: (d, marker) => { d.applicationBoundary = marker; },
+    context: (d, marker) => { d.window.text = marker; },
+    continuity: (d, marker) => { d.record.items[0] = marker; },
+    execution: (d, marker) => { d.controls[0].text = marker; },
+    improvement: (d, marker) => { d.outer.steps[0] = marker; },
+    case: (d, marker) => { d.rows[0].evidence = marker; },
+  });
 });
 
 test('机器人章节完整连接任务、动作、反馈与真机验收', () => {
-  const slides = full.slides.slice(65, 81);
+  const slides = moduleSlides('robot');
   assert.equal(slides.length, 16);
   assert.deepEqual(slides.map(s => s.robotKind), ['vision', 'architecture', 'planner', 'runtime', 'skills', 'task', 'verification', 'recovery', 'memory', 'transfer', 'interface', 'trace', 'benchmark', 'validation', 'roadmap', 'closing']);
   assert.equal(slides.reduce((sum, s) => sum + s.timingSeconds, 0), 1590);
   for (const s of slides) {
     assert.equal(s.layout, 'robot');
-    assert.equal(s.chapter, '07');
+    assert.equal(s.chapter, '05');
     assert.equal(s.section, '机器人Agent');
     assert.equal(s.robotData.brand, '智蜂创元机器人Agent');
     assert.ok(s.notes.length >= 5, s.id);
@@ -838,7 +856,7 @@ test('机器人章节完整连接任务、动作、反馈与真机验收', () =>
     assert.ok(s.evidencePaths.includes('assets/videos/bilibili/BV1qTHr6KE7z/transcript.md'), s.id);
   }
   assert.deepEqual(validateDeck(full, sources), []);
-  assert.deepEqual(speakerNotes(full, sources).slice(65, 81).map(s => s.page), Array.from({ length: 16 }, (_, i) => 66 + i));
+  assert.deepEqual(speakerNotes(full, sources).filter(note => moduleSlides('robot').some(slide => slide.id === note.id)).map(s => s.page), Array.from({ length: 16 }, (_, i) => 63 + i));
 });
 
 test('机器人图示拒绝损坏的接口、流程、日志和评测条件', () => {
@@ -863,7 +881,7 @@ test('机器人图示拒绝损坏的接口、流程、日志和评测条件', ()
     ['closing', s => { s.robotData.brand = '其他品牌'; }, /brand: requires 智蜂创元机器人Agent/],
     ['closing', s => { s.robotData.unused = '未渲染字段'; }, /unused: unsupported field/],
     ['closing', s => { s.robotData = []; }, /robotData: object required/],
-    ['closing', s => { s.chapter = '06'; }, /robot requires 07/]
+    ['closing', s => { s.chapter = '06'; }, /robot requires 05/]
   ]) {
     const changed = make(kind);
     mutate(changed.slides[0]);
@@ -877,7 +895,7 @@ test('机器人图示拒绝损坏的接口、流程、日志和评测条件', ()
 });
 
 test('机器人架构、表格和原生场景图安全转义嵌套正文', () => {
-  const changed = { title: '机器人转义', slides: structuredClone(full.slides.slice(65, 81)) };
+  const changed = { title: '机器人转义', slides: structuredClone(moduleSlides('robot')) };
   const marker = '<img src=x onerror="alert(1)">';
   const inject = [
     d => { d.goal.text = marker; },
@@ -907,7 +925,7 @@ test('机器人架构、表格和原生场景图安全转义嵌套正文', () =>
 });
 
 test('公司方案与外部参考成绩保留清晰归属，来源完整进入讲稿', () => {
-  const slides = full.slides.slice(65, 81);
+  const slides = moduleSlides('robot');
   for (const s of slides) {
     const visible = JSON.stringify([s.title, s.sourceLabel, s.robotData]);
     assert.doesNotMatch(visible, /RPent|清华/, s.id);
@@ -918,7 +936,7 @@ test('公司方案与外部参考成绩保留清晰归属，来源完整进入�
   assert.match(benchmark.robotData.reference.disclaimer, /非.*公司|非.*智蜂|不代表/);
   assert.match(benchmark.robotData.company.text, /待|尚未/);
   assert.match(benchmark.notes.join('\n'), /RPent/);
-  const notes = speakerNotes(full, sources).slice(65, 81);
+  const notes = speakerNotes(full, sources).filter(note => moduleSlides('robot').some(slide => slide.id === note.id));
   for (const n of notes) assert.ok(n.sources.some(s => s.id === 'robot-video'));
 });
 

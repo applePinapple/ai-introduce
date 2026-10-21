@@ -3,7 +3,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { chromium } from 'playwright-core';
 
-import { outputDir, loadDeck } from './check.mjs';
+import { outputDir, selectedDeck, loadDeck } from './check.mjs';
 const { deck } = await loadDeck();
 const out = path.resolve(outputDir);
 const shots = path.join(out, 'slides');
@@ -11,6 +11,18 @@ const verification = path.join(out, 'verification');
 await fs.mkdir(shots, { recursive: true });
 await fs.mkdir(verification, { recursive: true });
 const expectedCount = deck.slides.length;
+// Remove only numbered images owned by this exporter that exceed the new deck.
+// Keep media and every unrelated artifact in the output directory intact.
+for (const [directory, pattern, maximum] of [
+  [shots, /^slide-(\d+)\.png$/, expectedCount],
+  [verification, /^slide-(\d+)-\d+\.png$/, expectedCount],
+  [out, /^overview-(\d+)\.png$/, Math.ceil(expectedCount / 6)],
+]) {
+  for (const entry of await fs.readdir(directory, { withFileTypes: true })) {
+    const match = entry.name.match(pattern);
+    if (entry.isFile() && match && Number(match[1]) > maximum) await fs.unlink(path.join(directory, entry.name));
+  }
+}
 const failures = [], errors = [], externalRequests = [], resourceFailures = [], reports = [];
 const interactions = {};
 const candidates = [
@@ -205,6 +217,12 @@ try {
   await page.keyboard.press('g');
   await page.waitForFunction(() => document.querySelector('#nav-panel').classList.contains('open'));
   interactions.directoryKeyboard = true;
+  if (selectedDeck === 'ai-history') {
+    const sections = await page.locator('#nav-panel .sec-title').allTextContents();
+    const expectedSections = ['封面', 'AI 基础', '神经网络原理', '大语言模型', 'Agent基础', '机器人Agent'];
+    interactions.directorySections = sections;
+    if (JSON.stringify(sections) !== JSON.stringify(expectedSections)) failures.push('目录章节应依次包含统一的 Agent基础 与 机器人Agent');
+  }
   await page.locator('#nav-panel .it[data-k="2"]').click(); await assertSlide(3, 'directoryClick');
   await page.locator('#nb-prev').click(); await assertSlide(2, 'previousButton');
   await page.locator('#nb-next').click(); await assertSlide(3, 'nextButton');
@@ -244,6 +262,13 @@ try {
   await assertPresenter(2, 'presenterPreviousSync');
   await presenter.locator('#presenter-next').click(); await assertSlide(3, 'presenterNextControlsAudience');
   await assertPresenter(3, 'presenterNextSync');
+  if (selectedDeck === 'ai-history') {
+    for (const number of [45, 56, 62, 63]) {
+      await presenter.locator('#presenter-jump').selectOption(String(number - 1));
+      await assertSlide(number, `integratedPresenterJump${number}`);
+      await assertPresenter(number, `integratedPresenterNotes${number}`);
+    }
+  }
   await presenter.locator('#presenter-jump').selectOption('0'); await assertSlide(1, 'presenterJumpControlsAudience');
   await assertPresenter(1, 'presenterJumpSync');
   interactions.presenterFirstPageBoundary = await presenter.locator('#presenter-prev').isDisabled();

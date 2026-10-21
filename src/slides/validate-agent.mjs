@@ -1,4 +1,4 @@
-export const agentKinds = ['weather', 'setup', 'loop', 'schema', 'messages', 'sequence', 'safeguards'];
+export const agentKinds = ['overview', 'weather', 'setup', 'loop', 'schema', 'messages', 'sequence', 'safeguards'];
 
 // Validate nested content before rendering diagrams and code examples.
 export function validateAgent(slide) {
@@ -17,7 +17,7 @@ export function validateAgent(slide) {
   const pairs = (value, name, count, names = ['label', 'text']) =>
     items(value, name, count, count, (item, path) => fields(item, names, path));
   if (!agentKinds.includes(slide.agentKind)) errors.push(`${prefix}.agentKind: unsupported agent kind`);
-  for (const [name, expected] of Object.entries({ theme: 'reinbee', chapter: '05', section: 'Agent原理', sectionLabel: 'Agent原理' })) {
+  for (const [name, expected] of Object.entries({ theme: 'reinbee', chapter: '04', section: 'Agent基础', sectionLabel: 'Agent基础' })) {
     if (slide[name] !== expected) errors.push(`${prefix}.${name}: agent requires ${expected}`);
   }
   text(slide.logoPath, 'logoPath');
@@ -27,6 +27,11 @@ export function validateAgent(slide) {
   const base = 'agentData';
   fields(d, ['description', 'lead', 'caption'], base);
   switch (slide.agentKind) {
+    case 'overview':
+      pairs(d.concepts, `${base}.concepts`, 4, ['label', 'text', 'example']);
+      strings(d.relations, `${base}.relations`, 3);
+      text(d.bottomLine, `${base}.bottomLine`);
+      break;
     case 'weather':
       fields(d, ['request', 'exampleLabel', 'takeaway'], base);
       items(d.paths, `${base}.paths`, 2, 2, (item, path) => {
@@ -66,7 +71,7 @@ export function validateAgent(slide) {
         }
         if (!['blue', 'orange'].includes(event?.tone)) errors.push(`${prefix}.${path}.tone: unsupported tone`);
       });
-      text(d.bottomLine, `${base}.bottomLine`);
+      fields(d, ['directReplyLabel', 'bottomLine'], base);
       break;
     case 'safeguards':
       pairs(d.items, `${base}.items`, 3, ['label', 'title', 'text']);

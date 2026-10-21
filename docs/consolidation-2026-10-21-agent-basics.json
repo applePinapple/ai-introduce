@@ -1,0 +1,870 @@
+{
+  "date": "2026-10-21",
+  "request": "将大模型应用、Agent原理、Harness工程统一为Agent基础；融合并适度合页，保留全部核心知识与约34分钟，天气入门后递进到长任务。",
+  "originalCount": 81,
+  "newCount": 78,
+  "totalDurationSeconds": 6705,
+  "module": {
+    "chapter": "04",
+    "title": "Agent基础",
+    "originalPages": [
+      45,
+      65
+    ],
+    "newPages": [
+      45,
+      62
+    ],
+    "originalCount": 21,
+    "newCount": 18,
+    "durationSeconds": 2040
+  },
+  "durationPolicy": "按原页时长加总分配：职责90+组成90=180秒，API120+Agent时序120=240秒，Agent边界75+Harness执行90=165秒；其余页保留原时长，总计2040秒，不压缩核心讲稿。",
+  "narrative": "关系导航 → 应用组织对话与生成 → 模型/程序分工 → 固定流程与Agent选择 → 天气工具闭环 → Harness职责 → Schema/消息/时序/最小代码 → 上下文与执行约束 → 长任务恢复 → 工程改进与验收 → 机器人Agent。",
+  "groups": [
+    {
+      "newPage": 45,
+      "id": "apps-gpt-chatgpt",
+      "title": "从模型到 Agent：能力怎样变成系统",
+      "originalPages": [
+        45
+      ],
+      "originalIds": [
+        "apps-gpt-chatgpt"
+      ],
+      "originalTimingsSeconds": [
+        90
+      ],
+      "timingSeconds": 90,
+      "contentDestination": "扩展为模型/应用/Agent/Harness关系导航；GPT与ChatGPT实例保留，GPT字母解释移讲稿。",
+      "sourceIds": [
+        "video-apps",
+        "apps-chatgpt-launch",
+        "apps-gpt3-paper",
+        "apps-instructgpt-paper",
+        "effective-agents",
+        "harness-anatomy"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-002.jpg",
+        "assets/video-evidence/005/frame-003.jpg",
+        "assets/video-evidence/005/frame-004.jpg"
+      ]
+    },
+    {
+      "newPage": 46,
+      "id": "apps-chatbot",
+      "title": "一次次对话，由应用组织起来",
+      "originalPages": [
+        46
+      ],
+      "originalIds": [
+        "apps-chatbot"
+      ],
+      "originalTimingsSeconds": [
+        75
+      ],
+      "timingSeconds": 75,
+      "contentDestination": "保留多轮交互、会话上下文与应用记录三层关系，作为应用入口。",
+      "sourceIds": [
+        "video-apps",
+        "apps-chatgpt-launch",
+        "apps-conversation-state"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-007.jpg",
+        "assets/video-evidence/005/frame-008.jpg"
+      ]
+    },
+    {
+      "newPage": 47,
+      "id": "apps-dialogue-generation",
+      "title": "一次模型调用：输入、生成与返回",
+      "originalPages": [
+        47
+      ],
+      "originalIds": [
+        "apps-dialogue-generation"
+      ],
+      "originalTimingsSeconds": [
+        105
+      ],
+      "timingSeconds": 105,
+      "contentDestination": "保留输入、逐Token生成与返回，强调一次生成回路与Agent工具循环不同。",
+      "sourceIds": [
+        "video-apps",
+        "apps-gpt3-paper",
+        "apps-api-reference",
+        "apps-conversation-state"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-009.jpg",
+        "assets/video-evidence/005/frame-011.jpg",
+        "assets/video-evidence/005/frame-012.jpg"
+      ]
+    },
+    {
+      "newPage": 48,
+      "id": "apps-capability-comparison",
+      "title": "按任务特点，安排模型与程序的分工",
+      "originalPages": [
+        49
+      ],
+      "originalIds": [
+        "apps-capability-comparison"
+      ],
+      "originalTimingsSeconds": [
+        105
+      ],
+      "timingSeconds": 105,
+      "contentDestination": "前移任务适合度比较，引出固定程序与模型的协作。",
+      "sourceIds": [
+        "video-apps",
+        "apps-gpt3-paper",
+        "apps-instructgpt-paper",
+        "apps-function-calling"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-015.jpg",
+        "assets/video-evidence/005/frame-016.jpg",
+        "assets/video-evidence/005/frame-017.jpg",
+        "assets/video-evidence/005/frame-018.jpg"
+      ]
+    },
+    {
+      "newPage": 49,
+      "id": "apps-hybrid",
+      "title": "固定流程，也能把模型与程序串起来",
+      "originalPages": [
+        50
+      ],
+      "originalIds": [
+        "apps-hybrid"
+      ],
+      "originalTimingsSeconds": [
+        90
+      ],
+      "timingSeconds": 90,
+      "contentDestination": "保留固定订单查询例子，明确其预定义工作流性质。",
+      "sourceIds": [
+        "video-apps",
+        "apps-function-calling"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-019.jpg"
+      ]
+    },
+    {
+      "newPage": 50,
+      "id": "apps-summary",
+      "title": "固定流程，什么时候需要变成 Agent？",
+      "originalPages": [
+        52
+      ],
+      "originalIds": [
+        "apps-summary"
+      ],
+      "originalTimingsSeconds": [
+        75
+      ],
+      "timingSeconds": 75,
+      "contentDestination": "改为固定流程何时需要Agent的桥接；原回顾三问分别由导航、协同、合并时序承载。",
+      "sourceIds": [
+        "video-apps",
+        "apps-chatgpt-launch",
+        "apps-api-reference",
+        "apps-function-calling",
+        "effective-agents"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-024.jpg",
+        "assets/video-evidence/005/frame-025.jpg",
+        "assets/video-evidence/005/frame-026.jpg"
+      ]
+    },
+    {
+      "newPage": 51,
+      "id": "agent-weather",
+      "title": "天气问题，为什么需要工具？",
+      "originalPages": [
+        53
+      ],
+      "originalIds": [
+        "agent-weather"
+      ],
+      "originalTimingsSeconds": [
+        75
+      ],
+      "timingSeconds": 75,
+      "contentDestination": "天气模拟成为最小工具示例，说明实时信息来自工具，不证明简单查询必需Agent。",
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-overview",
+        "agent-langchain-tools"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-002.jpg",
+        "assets/video-evidence/015/frame-003.jpg",
+        "assets/video-evidence/015/frame-004.jpg"
+      ]
+    },
+    {
+      "newPage": 52,
+      "id": "agent-loop",
+      "title": "Agent 的核心，是行动与反馈循环",
+      "originalPages": [
+        55
+      ],
+      "originalIds": [
+        "agent-loop"
+      ],
+      "originalTimingsSeconds": [
+        120
+      ],
+      "timingSeconds": 120,
+      "contentDestination": "保留模型请求、程序执行、反馈与退出的完整循环。",
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-overview",
+        "agent-react-primary",
+        "agent-langchain-models",
+        "agent-workflow-primary"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-020.jpg",
+        "assets/video-evidence/015/frame-021.jpg",
+        "assets/video-evidence/015/frame-024.jpg",
+        "assets/video-evidence/015/frame-026.jpg"
+      ]
+    },
+    {
+      "newPage": 53,
+      "id": "harness-anatomy",
+      "title": "模型之外，Harness 负责什么？",
+      "originalPages": [
+        48,
+        60
+      ],
+      "originalIds": [
+        "apps-responsibilities",
+        "harness-anatomy"
+      ],
+      "originalTimingsSeconds": [
+        90,
+        90
+      ],
+      "timingSeconds": 180,
+      "contentDestination": "合并模型/应用职责与Harness系统组成，另注明产品层边界。",
+      "sourceIds": [
+        "video-apps",
+        "apps-api-reference",
+        "apps-conversation-state",
+        "harness-anatomy",
+        "harness-long-running"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-013.jpg",
+        "assets/video-evidence/005/frame-014.jpg"
+      ]
+    },
+    {
+      "newPage": 54,
+      "id": "agent-tool-schema",
+      "title": "模型怎样知道工具能做什么？",
+      "originalPages": [
+        56
+      ],
+      "originalIds": [
+        "agent-tool-schema"
+      ],
+      "originalTimingsSeconds": [
+        105
+      ],
+      "timingSeconds": 105,
+      "contentDestination": "保留工具名、用途、参数结构与模拟函数映射。",
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-tools",
+        "agent-langchain-models"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-012.jpg",
+        "assets/video-evidence/015/frame-027.jpg",
+        "assets/video-evidence/015/frame-029.jpg",
+        "assets/video-evidence/015/frame-031.jpg"
+      ]
+    },
+    {
+      "newPage": 55,
+      "id": "agent-messages",
+      "title": "一次工具调用，会留下哪些消息？",
+      "originalPages": [
+        57
+      ],
+      "originalIds": [
+        "agent-messages"
+      ],
+      "originalTimingsSeconds": [
+        105
+      ],
+      "timingSeconds": 105,
+      "contentDestination": "保留HumanMessage、AIMessage、ToolMessage和调用ID关联。",
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-models",
+        "agent-langchain-overview",
+        "agent-langchain-tools"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-017.jpg",
+        "assets/video-evidence/015/frame-036.jpg",
+        "assets/video-evidence/015/frame-040.jpg",
+        "assets/video-evidence/015/frame-041.jpg"
+      ]
+    },
+    {
+      "newPage": 56,
+      "id": "agent-sequence",
+      "title": "从 API 请求到工具反馈：一次完整执行",
+      "originalPages": [
+        51,
+        58
+      ],
+      "originalIds": [
+        "apps-api-sequence",
+        "agent-sequence"
+      ],
+      "originalTimingsSeconds": [
+        120,
+        120
+      ],
+      "timingSeconds": 240,
+      "contentDestination": "合并普通API与Agent时序，保留九步主线并增加无需工具直接回答分支；按两个120秒讲解阶段展开。",
+      "sourceIds": [
+        "video-apps",
+        "apps-api-reference",
+        "apps-conversation-state",
+        "video-agent",
+        "agent-langchain-overview",
+        "agent-langchain-quickstart",
+        "agent-langchain-models",
+        "agent-workflow-primary"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/005/frame-020.jpg",
+        "assets/video-evidence/005/frame-021.jpg",
+        "assets/video-evidence/005/frame-022.jpg",
+        "assets/video-evidence/005/frame-023.jpg",
+        "assets/video-evidence/015/frame-043.jpg",
+        "assets/video-evidence/015/frame-044.jpg",
+        "assets/video-evidence/015/frame-045.jpg"
+      ]
+    },
+    {
+      "newPage": 57,
+      "id": "agent-setup",
+      "title": "最小 Agent：把模型、工具与循环接起来",
+      "originalPages": [
+        54
+      ],
+      "originalIds": [
+        "agent-setup"
+      ],
+      "originalTimingsSeconds": [
+        90
+      ],
+      "timingSeconds": 90,
+      "contentDestination": "最小代码移到循环、协议及时序之后，明确create_agent与invoke的运行职责。",
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-quickstart",
+        "agent-langchain-overview",
+        "agent-langchain-tools"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-006.jpg",
+        "assets/video-evidence/015/frame-011.jpg",
+        "assets/video-evidence/015/frame-015.jpg",
+        "assets/video-evidence/015/frame-016.jpg"
+      ]
+    },
+    {
+      "newPage": 58,
+      "id": "harness-context",
+      "title": "每一轮，先准备模型该看到什么",
+      "originalPages": [
+        61
+      ],
+      "originalIds": [
+        "harness-context"
+      ],
+      "originalTimingsSeconds": [
+        105
+      ],
+      "timingSeconds": 105,
+      "contentDestination": "接续同一运行系统讲每轮信息准备、外部记录与有损压缩。",
+      "sourceIds": [
+        "harness-context",
+        "harness-anatomy"
+      ],
+      "evidencePaths": []
+    },
+    {
+      "newPage": 59,
+      "id": "harness-execution",
+      "title": "工具执行：看得见、控得住、停得下",
+      "originalPages": [
+        59,
+        63
+      ],
+      "originalIds": [
+        "agent-safeguards",
+        "harness-execution"
+      ],
+      "originalTimingsSeconds": [
+        75,
+        90
+      ],
+      "timingSeconds": 165,
+      "contentDestination": "合并看得见、控得住、停得下与四步受控执行路径，保留权限、隔离、预算、确认和日志边界。",
+      "sourceIds": [
+        "video-agent",
+        "agent-langchain-overview",
+        "agent-langchain-tools",
+        "agent-workflow-primary",
+        "harness-anatomy",
+        "harness-middleware"
+      ],
+      "evidencePaths": [
+        "assets/video-evidence/015/frame-046.jpg"
+      ]
+    },
+    {
+      "newPage": 60,
+      "id": "harness-continuity",
+      "title": "长任务中断后，怎样继续推进？",
+      "originalPages": [
+        62
+      ],
+      "originalIds": [
+        "harness-continuity"
+      ],
+      "originalTimingsSeconds": [
+        105
+      ],
+      "timingSeconds": 105,
+      "contentDestination": "由天气短任务迁移到订单导出缺陷长任务，保留进度、产物、恢复与副作用核对。",
+      "sourceIds": [
+        "harness-long-running",
+        "harness-context"
+      ],
+      "evidencePaths": []
+    },
+    {
+      "newPage": 61,
+      "id": "harness-improvement",
+      "title": "从失败轨迹，改进整个运行系统",
+      "originalPages": [
+        64
+      ],
+      "originalIds": [
+        "harness-improvement"
+      ],
+      "originalTimingsSeconds": [
+        120
+      ],
+      "timingSeconds": 120,
+      "contentDestination": "区分任务内循环与开发者评测改进外循环，准备长任务验收案例。",
+      "sourceIds": [
+        "harness-improvement",
+        "harness-evals"
+      ],
+      "evidencePaths": []
+    },
+    {
+      "newPage": 62,
+      "id": "harness-case",
+      "title": "长任务实例：修复缺陷，并交付验证结果",
+      "originalPages": [
+        65
+      ],
+      "originalIds": [
+        "harness-case"
+      ],
+      "originalTimingsSeconds": [
+        90
+      ],
+      "timingSeconds": 90,
+      "contentDestination": "保留虚构订单导出缺陷的三类失败/改进/证据，收束整个模块并衔接机器人Agent。",
+      "sourceIds": [
+        "harness-long-running",
+        "harness-improvement",
+        "harness-evals"
+      ],
+      "evidencePaths": []
+    }
+  ],
+  "oldToNew": [
+    {
+      "originalPage": 45,
+      "originalId": "apps-gpt-chatgpt",
+      "originalTimingSeconds": 90,
+      "newPage": 45,
+      "newId": "apps-gpt-chatgpt",
+      "contentDestination": "扩展为模型/应用/Agent/Harness关系导航；GPT与ChatGPT实例保留，GPT字母解释移讲稿。"
+    },
+    {
+      "originalPage": 46,
+      "originalId": "apps-chatbot",
+      "originalTimingSeconds": 75,
+      "newPage": 46,
+      "newId": "apps-chatbot",
+      "contentDestination": "保留多轮交互、会话上下文与应用记录三层关系，作为应用入口。"
+    },
+    {
+      "originalPage": 47,
+      "originalId": "apps-dialogue-generation",
+      "originalTimingSeconds": 105,
+      "newPage": 47,
+      "newId": "apps-dialogue-generation",
+      "contentDestination": "保留输入、逐Token生成与返回，强调一次生成回路与Agent工具循环不同。"
+    },
+    {
+      "originalPage": 48,
+      "originalId": "apps-responsibilities",
+      "originalTimingSeconds": 90,
+      "newPage": 53,
+      "newId": "harness-anatomy",
+      "contentDestination": "合并模型/应用职责与Harness系统组成，另注明产品层边界。"
+    },
+    {
+      "originalPage": 49,
+      "originalId": "apps-capability-comparison",
+      "originalTimingSeconds": 105,
+      "newPage": 48,
+      "newId": "apps-capability-comparison",
+      "contentDestination": "前移任务适合度比较，引出固定程序与模型的协作。"
+    },
+    {
+      "originalPage": 50,
+      "originalId": "apps-hybrid",
+      "originalTimingSeconds": 90,
+      "newPage": 49,
+      "newId": "apps-hybrid",
+      "contentDestination": "保留固定订单查询例子，明确其预定义工作流性质。"
+    },
+    {
+      "originalPage": 51,
+      "originalId": "apps-api-sequence",
+      "originalTimingSeconds": 120,
+      "newPage": 56,
+      "newId": "agent-sequence",
+      "contentDestination": "合并普通API与Agent时序，保留九步主线并增加无需工具直接回答分支；按两个120秒讲解阶段展开。"
+    },
+    {
+      "originalPage": 52,
+      "originalId": "apps-summary",
+      "originalTimingSeconds": 75,
+      "newPage": 50,
+      "newId": "apps-summary",
+      "contentDestination": "改为固定流程何时需要Agent的桥接；原回顾三问分别由导航、协同、合并时序承载。"
+    },
+    {
+      "originalPage": 53,
+      "originalId": "agent-weather",
+      "originalTimingSeconds": 75,
+      "newPage": 51,
+      "newId": "agent-weather",
+      "contentDestination": "天气模拟成为最小工具示例，说明实时信息来自工具，不证明简单查询必需Agent。"
+    },
+    {
+      "originalPage": 54,
+      "originalId": "agent-setup",
+      "originalTimingSeconds": 90,
+      "newPage": 57,
+      "newId": "agent-setup",
+      "contentDestination": "最小代码移到循环、协议及时序之后，明确create_agent与invoke的运行职责。"
+    },
+    {
+      "originalPage": 55,
+      "originalId": "agent-loop",
+      "originalTimingSeconds": 120,
+      "newPage": 52,
+      "newId": "agent-loop",
+      "contentDestination": "保留模型请求、程序执行、反馈与退出的完整循环。"
+    },
+    {
+      "originalPage": 56,
+      "originalId": "agent-tool-schema",
+      "originalTimingSeconds": 105,
+      "newPage": 54,
+      "newId": "agent-tool-schema",
+      "contentDestination": "保留工具名、用途、参数结构与模拟函数映射。"
+    },
+    {
+      "originalPage": 57,
+      "originalId": "agent-messages",
+      "originalTimingSeconds": 105,
+      "newPage": 55,
+      "newId": "agent-messages",
+      "contentDestination": "保留HumanMessage、AIMessage、ToolMessage和调用ID关联。"
+    },
+    {
+      "originalPage": 58,
+      "originalId": "agent-sequence",
+      "originalTimingSeconds": 120,
+      "newPage": 56,
+      "newId": "agent-sequence",
+      "contentDestination": "合并普通API与Agent时序，保留九步主线并增加无需工具直接回答分支；按两个120秒讲解阶段展开。"
+    },
+    {
+      "originalPage": 59,
+      "originalId": "agent-safeguards",
+      "originalTimingSeconds": 75,
+      "newPage": 59,
+      "newId": "harness-execution",
+      "contentDestination": "合并看得见、控得住、停得下与四步受控执行路径，保留权限、隔离、预算、确认和日志边界。"
+    },
+    {
+      "originalPage": 60,
+      "originalId": "harness-anatomy",
+      "originalTimingSeconds": 90,
+      "newPage": 53,
+      "newId": "harness-anatomy",
+      "contentDestination": "合并模型/应用职责与Harness系统组成，另注明产品层边界。"
+    },
+    {
+      "originalPage": 61,
+      "originalId": "harness-context",
+      "originalTimingSeconds": 105,
+      "newPage": 58,
+      "newId": "harness-context",
+      "contentDestination": "接续同一运行系统讲每轮信息准备、外部记录与有损压缩。"
+    },
+    {
+      "originalPage": 62,
+      "originalId": "harness-continuity",
+      "originalTimingSeconds": 105,
+      "newPage": 60,
+      "newId": "harness-continuity",
+      "contentDestination": "由天气短任务迁移到订单导出缺陷长任务，保留进度、产物、恢复与副作用核对。"
+    },
+    {
+      "originalPage": 63,
+      "originalId": "harness-execution",
+      "originalTimingSeconds": 90,
+      "newPage": 59,
+      "newId": "harness-execution",
+      "contentDestination": "合并看得见、控得住、停得下与四步受控执行路径，保留权限、隔离、预算、确认和日志边界。"
+    },
+    {
+      "originalPage": 64,
+      "originalId": "harness-improvement",
+      "originalTimingSeconds": 120,
+      "newPage": 61,
+      "newId": "harness-improvement",
+      "contentDestination": "区分任务内循环与开发者评测改进外循环，准备长任务验收案例。"
+    },
+    {
+      "originalPage": 65,
+      "originalId": "harness-case",
+      "originalTimingSeconds": 90,
+      "newPage": 62,
+      "newId": "harness-case",
+      "contentDestination": "保留虚构订单导出缺陷的三类失败/改进/证据，收束整个模块并衔接机器人Agent。"
+    }
+  ],
+  "newAdaptations": [
+    {
+      "id": "apps-gpt-chatgpt",
+      "change": "新增原生四概念关系图，应用可内置Agent，Harness支撑模型执行；GPT与ChatGPT用作模型/产品例子。",
+      "sourceIds": [
+        "effective-agents",
+        "harness-anatomy"
+      ],
+      "verifiedOn": "2026-10-21"
+    },
+    {
+      "id": "apps-summary",
+      "change": "原总结改为固定流程到Agent的三个判断问题，明确天气查询也可以使用固定流程；原总结知识分布在导航、协同及时序页。",
+      "sourceIds": [
+        "effective-agents"
+      ],
+      "verifiedOn": "2026-10-21"
+    },
+    {
+      "id": "harness-anatomy",
+      "change": "添加applicationBoundary，区分产品层交互/账户/业务与围绕模型的运行机制；边界是教学归纳。",
+      "sourceIds": [
+        "apps-api-reference",
+        "apps-conversation-state",
+        "harness-anatomy"
+      ],
+      "verifiedOn": "2026-10-21"
+    },
+    {
+      "id": "agent-sequence",
+      "change": "九步图增加directReplyLabel直接回答分支，纳入输入、权限、参数和输出校验；两页讲稿阶段保留。",
+      "sourceIds": [
+        "video-apps",
+        "apps-api-reference",
+        "apps-conversation-state",
+        "video-agent",
+        "agent-langchain-overview",
+        "agent-langchain-quickstart",
+        "agent-langchain-models",
+        "agent-workflow-primary"
+      ],
+      "verification": "复用原2026-10-20来源核验；本轮仅整合图示与讲稿。"
+    },
+    {
+      "id": "harness-case",
+      "change": "用订单导出缺陷作为长任务迁移示例，明确不同于固定订单查询；增加机器人动作/观察/验收过渡，保留公司方案待验证边界。",
+      "sourceIds": [
+        "harness-long-running",
+        "harness-improvement",
+        "harness-evals"
+      ],
+      "verification": "复用原2026-10-20来源核验；本轮新增教学串联，不声称真实运行或业务收益。"
+    }
+  ],
+  "sourceReviews": [
+    {
+      "id": "effective-agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents",
+      "verifiedOn": "2026-10-21",
+      "checked": "工作流与Agent区分、简单方案优先、延迟/成本与任务评测。"
+    },
+    {
+      "id": "harness-anatomy",
+      "url": "https://www.langchain.com/blog/the-anatomy-of-an-agent-harness",
+      "verifiedOn": "2026-10-21",
+      "checked": "Agent=模型+Harness工作定义、模型外状态/工具执行/反馈/约束；非统一行业标准。"
+    }
+  ],
+  "unchanged": {
+    "pages": [
+      2,
+      44
+    ],
+    "cover": "仅修正讲稿中的总页数和章节范围，投屏内容不变。",
+    "robot": "原66–81页对应新63–78页，chapter由07改05；vision、architecture、runtime讲稿的相关章节衔接改为Agent基础，主体内容与来源不变。",
+    "sample": "独立三页视觉基准不变。",
+    "historicalEvidence": "assets/applications、assets/agent、assets/harness与assets/robot中的历史核验/重构文件均不修改。"
+  },
+  "subsequentPageMapping": [
+    {
+      "originalPage": 66,
+      "newPage": 63,
+      "id": "robot-vision",
+      "chapter": "05",
+      "change": "页码与章节编号随融合顺延；主体保留，仅必要的讲稿章节衔接改为Agent基础。"
+    },
+    {
+      "originalPage": 67,
+      "newPage": 64,
+      "id": "robot-architecture",
+      "chapter": "05",
+      "change": "页码与章节编号随融合顺延；主体保留，仅必要的讲稿章节衔接改为Agent基础。"
+    },
+    {
+      "originalPage": 68,
+      "newPage": 65,
+      "id": "robot-planner",
+      "chapter": "05",
+      "change": "页码与章节编号随融合顺延；主体保留，仅必要的讲稿章节衔接改为Agent基础。"
+    },
+    {
+      "originalPage": 69,
+      "newPage": 66,
+      "id": "robot-runtime",
+      "chapter": "05",
+      "change": "页码与章节编号随融合顺延；主体保留，仅必要的讲稿章节衔接改为Agent基础。"
+    },
+    {
+      "originalPage": 70,
+      "newPage": 67,
+      "id": "robot-skills",
+      "chapter": "05",
+      "change": "页码与章节编号随融合顺延；主体保留，仅必要的讲稿章节衔接改为Agent基础。"
+    },
+    {
+      "originalPage": 71,
+      "newPage": 68,
+      "id": "robot-task",
+      "chapter": "05",
+      "change": "页码与章节编号随融合顺延；主体保留，仅必要的讲稿章节衔接改为Agent基础。"
+    },
+    {
+      "originalPage": 72,
+      "newPage": 69,
+      "id": "robot-verification",
+      "chapter": "05",
+      "change": "页码与章节编号随融合顺延；主体保留，仅必要的讲稿章节衔接改为Agent基础。"
+    },
+    {
+      "originalPage": 73,
+      "newPage": 70,
+      "id": "robot-recovery",
+      "chapter": "05",
+      "change": "页码与章节编号随融合顺延；主体保留，仅必要的讲稿章节衔接改为Agent基础。"
+    },
+    {
+      "originalPage": 74,
+      "newPage": 71,
+      "id": "robot-memory",
+      "chapter": "05",
+      "change": "页码与章节编号随融合顺延；主体保留，仅必要的讲稿章节衔接改为Agent基础。"
+    },
+    {
+      "originalPage": 75,
+      "newPage": 72,
+      "id": "robot-transfer",
+      "chapter": "05",
+      "change": "页码与章节编号随融合顺延；主体保留，仅必要的讲稿章节衔接改为Agent基础。"
+    },
+    {
+      "originalPage": 76,
+      "newPage": 73,
+      "id": "robot-interface",
+      "chapter": "05",
+      "change": "页码与章节编号随融合顺延；主体保留，仅必要的讲稿章节衔接改为Agent基础。"
+    },
+    {
+      "originalPage": 77,
+      "newPage": 74,
+      "id": "robot-trace",
+      "chapter": "05",
+      "change": "页码与章节编号随融合顺延；主体保留，仅必要的讲稿章节衔接改为Agent基础。"
+    },
+    {
+      "originalPage": 78,
+      "newPage": 75,
+      "id": "robot-benchmark",
+      "chapter": "05",
+      "change": "页码与章节编号随融合顺延；主体保留，仅必要的讲稿章节衔接改为Agent基础。"
+    },
+    {
+      "originalPage": 79,
+      "newPage": 76,
+      "id": "robot-validation",
+      "chapter": "05",
+      "change": "页码与章节编号随融合顺延；主体保留，仅必要的讲稿章节衔接改为Agent基础。"
+    },
+    {
+      "originalPage": 80,
+      "newPage": 77,
+      "id": "robot-roadmap",
+      "chapter": "05",
+      "change": "页码与章节编号随融合顺延；主体保留，仅必要的讲稿章节衔接改为Agent基础。"
+    },
+    {
+      "originalPage": 81,
+      "newPage": 78,
+      "id": "robot-closing",
+      "chapter": "05",
+      "change": "页码与章节编号随融合顺延；主体保留，仅必要的讲稿章节衔接改为Agent基础。"
+    }
+  ],
+  "mergedNotesPolicy": "三组合页的讲稿按合并后的图示重新编排、去重：anatomy按产品职责条→中心模型→四块机制；sequence按普通API阶段→工具主路径与直接回答分支；execution按四步路径→三类控制。保留全部核心边界、来源与原时长，不机械拼接重复句。"
+}

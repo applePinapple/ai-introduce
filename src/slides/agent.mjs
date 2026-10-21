@@ -1,12 +1,12 @@
-// Native editable diagrams for the Agent chapter, adapted from video 015.
-export const agentKinds = ['weather', 'setup', 'loop', 'schema', 'messages', 'sequence', 'safeguards'];
+// Native editable Agent foundations diagrams, integrating course examples and official engineering sources.
+export const agentKinds = ['overview', 'weather', 'setup', 'loop', 'schema', 'messages', 'sequence', 'safeguards'];
 
 const C = { ink: '#0B1220', muted: '#5B6B7F', line: '#D3DBE5', blue: '#194DF9', orange: '#F7AC01', pale: '#E7EDFF', cream: '#FFF2CC' };
 
 export function renderAgent(s, e) {
   const d = s.agentData;
   const id = `ag-${s.id.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
-  const bottomClasses = ['agent-takeaway', 'agent-bottom-line', 'agent-loop-repeat', 'agent-schema-mapping', 'agent-message-bottom', 'agent-sequence-bottom', 'agent-safeguards-bottom'];
+  const bottomClasses = ['agent-overview-bottom', 'agent-takeaway', 'agent-bottom-line', 'agent-loop-repeat', 'agent-schema-mapping', 'agent-message-bottom', 'agent-sequence-bottom', 'agent-safeguards-bottom'];
   const p = (value, cls) => `<p class="${cls}${bottomClasses.includes(cls) ? ' agent-bottom' : ''}" data-fit>${e(value)}</p>`;
   const text = (x, y, value, size = 28, color = C.ink, extra = '') => `<text data-fit x="${x}" y="${y}" fill="${color}" font-size="${size}" ${extra}>${e(value)}</text>`;
   const arrow = (x1, y1, x2, y2, tone = 'orange', dashed = false) => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${C[tone]}" stroke-width="3"${dashed ? ' stroke-dasharray="9 7"' : ''} marker-end="url(#${id}-${tone})"/>`;
@@ -14,7 +14,9 @@ export function renderAgent(s, e) {
   const svg = body => `<svg class="agent-svg" viewBox="0 0 1712 770" role="img" aria-label="${e(d.description)}">${defs}${body}</svg>`;
   const code = (title, lines, cls = '') => `<article data-agent-card class="agent-code ${cls}"><h2 data-fit>${e(title)}</h2><pre data-fit><code>${lines.map(e).join('\n')}</code></pre></article>`;
   let content;
-  if (s.agentKind === 'weather') {
+  if (s.agentKind === 'overview') {
+    content = `<div class="agent-overview-concepts">${d.concepts.map((item, i) => `<article data-agent-card class="agent-overview-concept agent-overview-concept-${i + 1} ${i === 2 ? 'agent-yellow' : 'agent-blue'}"><h2 data-fit>${e(item.label)}</h2><p data-fit>${e(item.text)}</p><span data-fit>${e(item.example)}</span></article>`).join('')}</div>${svg(arrow(305, 423, 305, 333, 'blue') + text(333, 385, d.relations[0], 26, C.blue) + `<path d="M610 542 H856 V220 H1090" fill="none" stroke="${C.orange}" stroke-width="3" marker-end="url(#${id}-orange)"/>` + `<rect x="650" y="352" width="412" height="53" rx="8" fill="#EEF2F6"/>` + text(856, 386, d.relations[1], 27, C.ink, 'text-anchor="middle"') + arrow(1407, 423, 1407, 333, 'blue') + text(1435, 385, d.relations[2], 26, C.blue))}${p(d.bottomLine, 'agent-overview-bottom')}`;
+  } else if (s.agentKind === 'weather') {
     content = `<div class="agent-weather-request"><span data-fit>${e(d.exampleLabel)}</span><b data-fit>${e(d.request)}</b></div><div class="agent-weather-paths">${d.paths.map((item, i) => `<article data-agent-card class="${i === 0 ? 'agent-blue' : 'agent-yellow'}"><span class="agent-kicker" data-fit>${e(item.label)}</span><h2 data-fit>${e(item.title)}</h2><ol>${item.steps.map(value => `<li data-fit>${e(value)}</li>`).join('')}</ol><p class="agent-path-result" data-fit>${e(item.result)}</p></article>`).join('')}</div>${p(d.takeaway, 'agent-takeaway')}`;
   } else if (s.agentKind === 'setup') {
     content = `<div class="agent-components">${d.components.map((item, i) => `<article data-agent-card class="${i === 1 ? 'agent-yellow' : 'agent-blue'}"><span data-fit>${String(i + 1).padStart(2, '0')}</span><div><h2 data-fit>${e(item.label)}</h2><p data-fit>${e(item.text)}</p></div></article>`).join('')}</div>${code(d.codeTitle, d.codeLines, 'agent-setup-code')}${p(d.bottomLine, 'agent-bottom-line')}`;
@@ -27,10 +29,11 @@ export function renderAgent(s, e) {
     content = `<div class="agent-message-chain">${d.rows.map((item, i) => `<article data-agent-card class="${i === 2 ? 'agent-yellow' : 'agent-blue'}"><span class="agent-message-number" data-fit>${String(i + 1).padStart(2, '0')}</span><h2 data-fit>${e(item.role)}</h2><p class="agent-message-tag" data-fit>${e(item.tag)}</p><div class="agent-message-lines">${item.lines.map(value => `<p data-fit>${e(value)}</p>`).join('')}</div>${i < d.rows.length - 1 ? '<span class="agent-chain-arrow" aria-hidden="true">→</span>' : ''}</article>`).join('')}</div>${p(d.pairingLabel, 'agent-message-pairing')}${p(d.bottomLine, 'agent-message-bottom')}`;
   } else if (s.agentKind === 'sequence') {
     const xs = [130, 790, 1475];
-    let body = d.participants.map((item, i) => `<rect x="${xs[i] - 124}" y="86" width="248" height="83" rx="10" fill="${i === 2 ? C.cream : '#FFFFFF'}" stroke="${i === 2 ? C.orange : C.line}" stroke-width="2"/>${text(xs[i], 120, item.label, 31, C.ink, 'text-anchor="middle" font-weight="600"')}${text(xs[i], 153, item.caption, 23, C.muted, 'text-anchor="middle"')}<line x1="${xs[i]}" y1="176" x2="${xs[i]}" y2="675" stroke="${C.line}" stroke-width="2" stroke-dasharray="8 7"/>`).join('');
-    body += `<rect x="780" y="200" width="20" height="452" rx="3" fill="${C.pale}" stroke="${C.blue}"/>`;
+    let body = d.participants.map((item, i) => `<rect x="${xs[i] - 124}" y="75" width="248" height="83" rx="10" fill="${i === 2 ? C.cream : '#FFFFFF'}" stroke="${i === 2 ? C.orange : C.line}" stroke-width="2"/>${text(xs[i], 109, item.label, 31, C.ink, 'text-anchor="middle" font-weight="600"')}${text(xs[i], 142, item.caption, 23, C.muted, 'text-anchor="middle"')}<line x1="${xs[i]}" y1="165" x2="${xs[i]}" y2="663" stroke="${C.line}" stroke-width="2" stroke-dasharray="8 7"/>`).join('');
+    body += `<rect x="780" y="180" width="20" height="472" rx="3" fill="${C.pale}" stroke="${C.blue}"/>`;
+    body += `<g class="agent-direct-reply">${arrow(1465, 340, 802, 340, 'blue', true)}${text(1132, 328, d.directReplyLabel, 25, C.blue, 'text-anchor="middle"')}<path d="M780 340 H720 V645 H778" fill="none" stroke="${C.blue}" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#${id}-blue)"/></g>`;
     d.events.forEach((item, i) => {
-      const y = 210 + i * 55;
+      const y = 190 + i * 50 + (i > 2 ? 55 : 0);
       const a = xs[item.from], b = xs[item.to];
       const label = `${String(i + 1).padStart(2, '0')}  ${item.label}`;
       if (a === b) {

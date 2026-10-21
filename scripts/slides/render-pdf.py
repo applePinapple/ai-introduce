@@ -4,6 +4,7 @@ Run with Python containing pypdfium2 and Pillow. These are available in the
 Codex bundled Python runtime; they are not production build dependencies.
 """
 import json
+import re
 import sys
 from pathlib import Path
 import pypdfium2 as pdfium
@@ -13,6 +14,13 @@ out = Path(sys.argv[1] if len(sys.argv) > 1 else 'output/ai-history')
 target = out / 'pdf-review'
 target.mkdir(parents=True, exist_ok=True)
 deck = pdfium.PdfDocument(str(out / 'deck.pdf'))
+# Remove only numbered exports that no longer belong to this PDF after a merge.
+for artifact in target.iterdir():
+    page_match = re.fullmatch(r'page-(\d+)\.png', artifact.name)
+    overview_match = re.fullmatch(r'overview-(\d+)\.png', artifact.name)
+    if artifact.is_file() and ((page_match and int(page_match[1]) > len(deck))
+                              or (overview_match and int(overview_match[1]) > (len(deck) + 5) // 6)):
+        artifact.unlink()
 images = []
 for index in range(len(deck)):
     page = deck[index]

@@ -19,7 +19,7 @@ export function validateApplication(slide) {
   };
   const pairs = (value, name, count) => items(value, name, count, count, (item, path) => fields(item, ['label', 'text'], path));
   if (!applicationKinds.includes(slide.applicationKind)) errors.push(`${prefix}.applicationKind: unsupported application kind`);
-  for (const [name, expected] of Object.entries({ theme: 'reinbee', chapter: '04', section: '大模型应用', sectionLabel: '大模型应用' })) {
+  for (const [name, expected] of Object.entries({ theme: 'reinbee', chapter: '04', section: 'Agent基础', sectionLabel: 'Agent基础' })) {
     if (slide[name] !== expected) errors.push(`${prefix}.${name}: application requires ${expected}`);
   }
   text(slide.logoPath, 'logoPath');
